@@ -1,0 +1,3260 @@
+Trademarks
+Autel®, MaxiIM®, MaxiSys®, MaxiDAS®, MaxiScan®, MaxiTPMS®, MaxiRecorder®, and
+MaxiCheck® are trademarks of Autel Intelligent Technology Corp., Ltd., registered in
+China, the United States and other countries. All other marks are trademarks or
+registered trademarks of their respective holders.
+
+Copyright Information
+No part of this manual may be reproduced, stored in a retrieval system or transmitted, in
+any form or by any means, electronic, mechanical, photocopying, recording, or otherwise
+without the prior written permission of Autel.
+
+Disclaimer of Warranties and Limitation of Liabilities
+All information, specifications and illustrations in this manual are based on the latest
+information available at the time of printing.
+Autel reserves the right to make changes at any time without notice. While information of
+this manual has been carefully checked for accuracy, no guarantee is given for the
+completeness and correctness of the contents, including but not limited to the product
+specifications, functions, and illustrations.
+Autel will not be liable for any direct, special, incidental, indirect damages or any
+economic consequential damages (including the loss of profits).
+IMPORTANT
+Before operating or maintaining this unit, please read this manual carefully, paying extra
+attention to the safety warnings and precautions.
+
+For Services and Support:
+       pro.autel.com
+       www.autel.com
+
+       1-855-288-3587 (North America)
+       +86 (0755) 8614-7779 (China)
+
+       support@autel.com
+For technical assistance in all other markets, please contact your local selling agent.
+
+
+
+
+                                             i
+Safety Information
+For your own safety and the safety of others, and to prevent damage to the device and
+vehicles upon which it is used, it is important that the safety instructions presented
+throughout this manual be read and understood by all persons operating or coming into
+contact with the device.
+
+There are various procedures, techniques, tools, and parts for servicing vehicles, as well
+as in the skill of the person doing the work. Because of the vast number of test
+applications and variations in the products that can be tested with this equipment, we
+cannot possibly anticipate or provide advice or safety messages to cover every
+circumstance. It is the automotive technician’s responsibility to be knowledgeable of the
+system being tested. It is crucial to use proper service methods and test procedures. It
+is essential to perform tests in an appropriate and acceptable manner that does not
+endanger your safety, the safety of others in the work area, the device being used, or the
+vehicle being tested.
+
+Before using the device, always refer to and follow the safety messages and applicable
+test procedures provided by the manufacturer of the vehicle or equipment being tested.
+Use the device only as described in this manual. Read, understand, and follow all safety
+messages and instructions in this manual.
+
+Safety Messages
+Safety messages are provided to help prevent personal injury and equipment damage.
+All safety messages are introduced by a signal word indicating the hazard level.
+
+DANGER
+Indicates an imminently hazardous situation which, if not avoided, will result in death or
+serious injury to the operator or to bystanders.
+
+WARNING
+Indicates a potentially hazardous situation which, if not avoided, could result in death or
+serious injury to the operator or to bystanders.
+
+Safety Instructions
+The safety messages herein cover situations Autel is aware of. Autel cannot know,
+evaluate or advise you as to all of the possible hazards. You must be certain that any
+condition or service procedure encountered does not jeopardize your personal safety.
+
+DANGER
+When an engine is operating, keep the service area WELL VENTILATED or attach a
+building exhaust removal system to the engine exhaust system. Engines produce carbon
+monoxide, an odorless, poisonous gas that causes slower reaction time and can lead to
+serious personal injury or loss of life.
+
+                                             ii
+SAFETY WARNINGS
+
+⚫   Always perform automotive testing in a safe environment.
+⚫   Wear safety eye protection that meets ANSI standards.
+⚫   Keep clothing, hair, hands, tools, test equipment, etc. away from all moving or hot
+    engine parts.
+⚫   Operate the vehicle in a well-ventilated work area, for exhaust gases are poisonous.
+⚫   Put the transmission in PARK (for automatic transmission) or NEUTRAL (for manual
+    transmission) and make sure the parking brake is engaged.
+⚫   Put blocks in front of the drive wheels and never leave the vehicle unattended while
+    testing.
+⚫   Be extra cautious when working around the ignition coil, distributor cap, ignition wires
+    and spark plugs. These components create hazardous voltages when the engine is
+    running.
+⚫   Keep a fire extinguisher suitable for gasoline, chemical, and electrical fires nearby.
+⚫   Do not connect or disconnect any test equipment while the ignition is on or the
+    engine is running.
+⚫   Keep the test equipment dry, clean, free from oil, water or grease. Use a mild
+    detergent on a clean cloth to clean the outside of the equipment as necessary.
+⚫   Do not drive the vehicle and operate the test equipment at the same time. Any
+    distraction may cause an accident.
+⚫   Refer to the service manual for the vehicle being serviced and adhere to all
+    diagnostic procedures and precautions. Failure to do so may result in personal injury
+    or damage to the test equipment.
+⚫   To avoid damaging the test equipment or generating false data, make sure the
+    vehicle battery is fully charged and the connection to the vehicle DLC is clean and
+    secure.
+⚫   Do not place the test equipment on the distributor of the vehicle. Strong electro-
+    magnetic interference can damage the equipment.
+
+
+
+
+                                            iii
+                                                       CONTENTS
+1   USING THIS MANUAL ...................................................................................................1
+    1.1         CONVENTIONS...................................................................................................................... 1
+       1.1.1         Bold Text ......................................................................................................1
+       1.1.2         Notes and Important Messages ....................................................................1
+       1.1.3         Hyperlink.......................................................................................................2
+       1.1.4         Illustrations ...................................................................................................2
+       1.1.5         Procedures ...................................................................................................2
+2   GENERAL INTRODUCTION ..........................................................................................3
+    2.1         MAXIIM IM508S TABLET................................................................................................... 3
+       2.1.1         Function Description .....................................................................................3
+       2.1.2         Power Sources .............................................................................................5
+       2.1.3         Technical Specifications ...............................................................................6
+       2.1.4         Accessory Kit ................................................................................................7
+    2.2         XP200 KEY PROGRAMMER ................................................................................................. 7
+       2.2.1         Components and Ports .................................................................................8
+       2.2.2         Specifications ............................................................................................. 11
+       2.2.3         Accessories Included .................................................................................. 12
+3   GETTING STARTED ....................................................................................................13
+    3.1         POWERING UP ....................................................................................................................13
+       3.1.1         Application Buttons ..................................................................................... 14
+       3.1.2         Locator and Navigation Buttons ..................................................................15
+       3.1.3         System Status Icons ................................................................................... 16
+    3.2         POWERING DOWN .............................................................................................................16
+       3.2.1         Reboot System ........................................................................................... 17
+4   IMMO ............................................................................................................................ 18
+    4.1         GETTING STARTED ..............................................................................................................18
+       4.1.1         Vehicle Menu Layout .................................................................................. 18
+    4.2         VEHICLE IDENTIFICATION ...................................................................................................19
+       4.2.1         Auto VIN Scan ............................................................................................ 20
+       4.2.2         Manual VIN Input ........................................................................................ 20
+       4.2.3         Automatic Selection .................................................................................... 21
+       4.2.4         Manual Selection ........................................................................................ 21
+    4.3         NAVIGATION.......................................................................................................................22
+
+                                                                         iv
+       4.3.1         IMMO Screen Layout .................................................................................. 22
+       4.3.2         Screen Messages ....................................................................................... 24
+       4.3.3         Making Selections ...................................................................................... 25
+    4.4         IMMO ...............................................................................................................................25
+       4.4.1         Automatic Selection .................................................................................... 25
+       4.4.2         Manual Selection ........................................................................................ 33
+       4.4.3         System Selection ........................................................................................ 33
+5   PROGRAMMER ...........................................................................................................34
+    5.1         OPERATIONS .......................................................................................................................34
+6   DIAGNOSTICS .............................................................................................................38
+    6.1         DIAGNOSIS .........................................................................................................................38
+       6.1.1         Auto Scan ...................................................................................................39
+       6.1.2         Control Unit.................................................................................................40
+    6.2         GENERIC OBDII OPERATIONS ...........................................................................................52
+       6.2.1         General Procedure ..................................................................................... 53
+       6.2.2         Function Descriptions ................................................................................. 54
+    6.3         EXITING DIAGNOSTICS .......................................................................................................56
+7   SERVICE ...................................................................................................................... 58
+    7.1         OIL RESET ...........................................................................................................................58
+    7.2         ELECTRONIC PARKING BRAKE (EPB) .................................................................................59
+       7.2.1         EPB Safety .................................................................................................59
+    7.3         BMS ...................................................................................................................................59
+    7.4         STEERING ANGLE SENSOR (SAS) ......................................................................................60
+    7.5         TIRE PRESSURE MONITOR SYSTEM (TPMS) ....................................................................61
+    7.6         IMMO KEYS ......................................................................................................................61
+8   UPDATE ....................................................................................................................... 62
+9   SETTINGS .................................................................................................................... 64
+    9.1         UNIT ....................................................................................................................................64
+    9.2         LANGUAGE ..........................................................................................................................64
+    9.3         PRINTING SETTINGS ...........................................................................................................65
+    9.4         REPORT SETTINGS ..............................................................................................................66
+    9.5         FIRMWARE UPGRADE .........................................................................................................66
+    9.6         AUTO UPDATE ....................................................................................................................67
+    9.7         VEHICLE LIST .......................................................................................................................67
+    9.8         SYSTEM SETTINGS ..............................................................................................................68
+
+                                                                             v
+     9.9         ABOUT ................................................................................................................................68
+10 REMOTE DESKTOP ....................................................................................................69
+11 DATA MANAGER ........................................................................................................71
+     11.1        VEHICLE HISTORY ...............................................................................................................72
+        11.1.1        Historical Test ............................................................................................. 73
+     11.2        IMAGE FILES ........................................................................................................................74
+     11.3        PDF FILES ...........................................................................................................................75
+     11.4        REVIEW DATA .....................................................................................................................75
+     11.5        UNINSTALL APPS ................................................................................................................76
+     11.6        DATA LOGGING ..................................................................................................................76
+     11.7        WORKSHOP INFORMATION ...............................................................................................76
+     11.8        CUSTOMER..........................................................................................................................77
+     11.9        REPORT ...............................................................................................................................79
+12 MAXIVIEWER...............................................................................................................80
+13 SUPPORT .................................................................................................................... 81
+     13.1        PRODUCT REGISTRATION ...................................................................................................81
+     13.2        SUPPORT SCREEN LAYOUT .................................................................................................82
+        13.2.1        My Account .................................................................................................82
+        13.2.2        Data Logging .............................................................................................. 82
+        13.2.3        Training.......................................................................................................83
+        13.2.4        FAQ ............................................................................................................83
+14 QUICK LINK ................................................................................................................. 84
+15 MAINTENANCE AND SERVICE .................................................................................. 85
+     15.1        MAINTENANCE INSTRUCTIONS ..........................................................................................85
+     15.2        TROUBLESHOOTING CHECKLIST .........................................................................................85
+     15.3        ABOUT BATTERY USAGE ....................................................................................................86
+16 COMPLIANCE INFORMATION ................................................................................... 88
+17 WARRANTY ................................................................................................................. 90
+
+
+
+
+                                                                            vi
+1 Using this Manual
+ This manual contains device usage instructions.
+
+ Some illustrations shown in this manual may contain modules and optional equipment
+ that are not included in your system.
+
+
+1.1 Conventions
+ The following conventions are used.
+
+
+ 1.1.1 Bold Text
+ Bold text is used to highlight selectable items such as buttons and menu options.
+
+ Example:
+
+ ⚫    Tap OK.
+
+
+ 1.1.2 Notes and Important Messages
+ Notes
+ A NOTE provides helpful information such as additional explanations, tips, and
+ comments.
+
+ Example:
+
+ NOTE
+ The images and illustrations depicted in this manual may differ from the actual ones.
+
+ Important
+ IMPORTANT indicates a situation which, if not avoided, may result in damage to the
+ tablet or vehicle.
+
+ Example:
+
+ IMPORTANT
+ Always reset the engine oil life to 100% after every oil change.
+
+
+
+
+                                             1
+1.1.3 Hyperlink
+Hyperlinks, or links, that take you to other related articles, procedures, and illustrations
+are available in electronic documents. Blue italic text indicates a selectable hyperlink and
+blue underlined text indicates a website link or an email address link.
+
+
+1.1.4 Illustrations
+Illustrations used in this manual are samples, the actual testing screen may vary for each
+vehicle being tested. Observe the menu titles and on-screen instructions to make correct
+option selection.
+
+
+1.1.5 Procedures
+An arrow icon indicates a procedure. For example:
+
+➢    To perform Manual Selection
+     1.   Tap IMMO application button on the MaxiIM Job Menu.
+     2.   Select the manufacturer icon of the test vehicle.
+     3.   Tap Manual Selection and select the test vehicle information such as model,
+          year, key type, etc. Select OK to confirm the vehicle information. Follow the on-
+          screen instructions to display the function screen.
+
+
+
+
+                                             2
+2 General Introduction
+ When it comes to ultra-portability, MaxiIM IM508S is your perfect companion. Installed
+ with a fast quad-core processor, IM508S offers maximum convenience and swift
+ diagnosis. The intuitive user screen makes using the device effortless through a 7-inch
+ LCD touchscreen that displays at 1024 x 600 quality. Together with the ability to quickly
+ read and clear DTCs for all available modules of the majority of the makes and models
+ on the market, IM508S provides you with superior special functions, including Oil Reset,
+ EPB (Electronic Parking Brake), SAS (Steering Angle Sensor), BMS (Battery
+ Management System), DPF (Diesel Particulate Filter), IMMO, and TPMS (Tire Pressure
+ Monitoring System). With the key programmer XP200, IM508S is capable of providing
+ extraordinary functions for the immobilizer system.
+
+ This manual describes the construction and operation of the tools and how they work
+ together to deliver diagnostics solutions.
+
+
+2.1 MaxiIM IM508S Tablet
+
+ 2.1.1 Function Description
+
+
+
+
+                       Figure 2-1 MaxiIM Tablet, Front View
+ 1.   7.0” LCD Capacitive Touchscreen
+ 2.   Ambient Light Sensor — detects ambient brightness.
+ 3.   Power LED — indicates battery level & charging or system status.
+ 4.   Vehicle Communication LED — flashes green                  when    the   Tablet   is
+      communicating/linking with the vehicle’s system.
+
+                                            3
+The power LED displays green, yellow or red depending on the power level and operating
+status.
+
+A.   Green
+     ⚫   Illuminates green when the Tablet is charging and the battery level is above
+         90%.
+     ⚫   Illuminates green when the Tablet is powered on and the battery level is above
+         15%.
+B.   Yellow
+     ⚫   Illuminates yellow when the Tablet is charging and the battery level is below
+         90%.
+C. Red
+     ⚫   Illuminates red when the Tablet is powered on and the battery level is below
+         15%.
+
+
+
+
+                        Figure 2-2 MaxiIM Tablet, Back View
+5.   Collapsible Stand — extends from the back to allow hands-free viewing of the Tablet.
+6.   Heat Sink
+7.   Built-in Battery
+
+
+
+
+                                            4
+                       Figure 2-3 MaxiIM Tablet, Top View
+8.   Mini USB Port
+9.   Micro SD Card Slot — holds the micro SD card.
+10. DB15-Pin Port — connects the main cable.
+11. USB Port
+12. Power/Lock Button — turns the device on & off with long press, or locks the screen
+    with short press.
+
+
+2.1.2 Power Sources
+The Tablet can receive power from any of the following sources:
+
+⚫    Internal Battery Pack
+⚫    External Power Supply
+
+2.1.2.1     Internal Battery Pack
+
+The Tablet can be powered with the internal rechargeable battery, which if fully charged
+can provide sufficient power for about 7 hours of continuous operation.
+
+2.1.2.2     External Power Supply
+The Tablet can be powered from a wall socket using the mini USB cable and USB
+external power adapter. The external power supply also charges the internal battery pack.
+
+
+
+
+                                           5
+2.1.3 Technical Specifications
+                     Table 2-1 Technical Specifications
+
+     Item                    Description
+
+     Recommended Use         Indoor
+     Operating System        AndroidTM 11
+     Processor               Cortex®-A55 processor (1.8 GHz)
+     Memory                  64 GB
+                             7-inch LCD capacitive touchscreen with
+     Display
+                             1024 x 600 resolution
+                             ⚫ Mini USB
+
+     Connectivity            ⚫ USB 2.0
+                             ⚫ Wi-Fi
+                             ⚫ Micro SD card (supports up to 32 GB)
+     Sensors                 Ambient light sensor
+                             ⚫ Input: N/A
+     Audio Input/Output
+                             ⚫ Output: buzzer
+                             ⚫ 3.7 V/5000 mAh lithium-polymer battery
+     Power and Battery
+                             ⚫ Charges via 5 VDC power supply
+     Tested Battery Life     Around 7 hours of continuous use
+
+     Battery Charging
+                             5 V/1.5 A
+     Input
+
+                             500 mA (LCD on with default brightness,
+     Power Consumption
+                             Wi-Fi on) @3.7 V
+
+     Operating Temp.         0 to 50 °C (32 to 122 °F)
+
+     Storage Temp.           -20 to 60 °C (-4 to 140 °F)
+
+     Operating Humidity      5 % - 95 % non-condensing
+     Dimensions              237.8 mm (9.4”) x 148.6 mm (5.9”) x 35.5
+     (W x H x D)             mm (1.4”)
+
+     Net Weight              788 g (2.42 lbs.)
+
+
+
+
+                                         6
+           Item                     Description
+
+                                    ISO9141-2, ISO14230-2,ISO15765, K/L-
+                                    Line, Flashing Code, SAE-J1850 VPW,
+                                    SAE-J1850 PWM, ISO11898(Highspeed,
+           Supported
+                                    Middlespeed, Lowspeed and Singlewire
+           Automotive Protocols
+                                    CAN,fault-tolerant CAN), SAE J2610,GM
+                                    UART,UART Echo Byte Protocol, Honda
+                                    Diag-H Protocol, TP2.0, TP1.6
+
+
+ 2.1.4 Accessory Kit
+ 2.1.4.1      Main Cable
+ The Main Cable connects the Tablet to the vehicle’s data link connector (DLC).
+
+
+
+
+                                  Figure 2-4 Main Cable
+
+ 2.1.4.2      Other Accessories
+
+                                  Mini USB Cable
+                                  Connects the Tablet to the PC or DC external
+                                  power adapter.
+
+                                  Power Adapter
+                                  Together with the mini USB cable, connects the
+                                  Tablet to the external DC power port for power
+                                  supply.
+
+
+2.2 XP200 Key Programmer
+ The XP200 Key Programmer is specially designed to read vehicle key chip data, clone
+ and generate exclusive keys, read/write on-board EEPROM data, and read/write
+ Freescale 9S12 MCUs. By working with the Tablet and PC that are both loaded with
+ programmer software, the XP200 Key Programmer can read/write key chip data quickly
+ and accurately.
+
+
+
+
+                                              7
+ 2.2.1 Components and Ports
+
+
+
+
+                               Figure 2-5 XP200 Views
+ 1.   Vehicle Key Chip Slot — holds the vehicle key chip to read and write vehicle key
+      chip information.
+ 2.   Vehicle Key Slot — holds the vehicle key to read and write vehicle key information.
+ 3.   Status LED Light — indicates the current operating status.
+ 4.   Connection Port — connects the EEPROM Adapter and the EEPROM Clamp
+      Integrated MC9S12 Cable.
+ 5.   Mini USB Port — provides data communication and power supply.
+
+ 2.2.1.1     Status LED Light
+ The status LED of the XP200 Key Programmer indicates the operating status of the
+ device. See the following table for detailed descriptions.
+
+                             Table 2-2 Status LED Light
+
+LED          Color                 Description
+                                   •    Lights red when the firmware is upgrading
+                                        or an error has occurred.
+             Red
+                                   •    Lights red briefly when the device is
+                                        powered on and performing self-check.
+Status LED
+                                   •    Flashes green when communicating via
+                                        USB cable.
+             Green
+                                   •    Lights green when the device is ready for
+                                        use.
+
+
+
+                                            8
+2.2.1.2       Connection Port
+There are two accessories that can be paired with the connection port: EEPROM Clamp
+Integrated MC9S12 Cable and EEPROM Adapter.
+
+EEPROM Clamp Integrated MC9S12 Cable
+
+
+
+
+                Figure 2-6 EEPROM Clamp Integrated MC9S12 Cable
+1.   MC9S12 Cable
+                      Table 2-3 Definitions of MC9S12 Cable
+
+                                        Pin
+          No.      Color   Definition   corresponding to            Note
+                                        DB15
+
+          3       Green     TXCLKS             1              N/A
+
+          4        Black        GND            2              Shielded line
+
+          5        White     TOSC              6              Shielded line
+
+          6        Blue         TSW            7              N/A
+
+          7       Brown         GND            8              N/A
+
+
+                                         9
+                                           Pin
+         No.     Color      Definition     corresponding to               Note
+                                           DB15
+
+          8     Yellow          TRESET                11            N/A
+
+          9       Red            VDD                  12            N/A
+
+2.   EEPROM Clamp Cable
+
+
+                Table 2-4 Definitions of EEPROM Clamp Cable
+
+                                                           Pin
+         No.            Color            Definition        correspondi      Note
+                                                           ng to DB15
+
+                                                                           Pin 1 is
+         10       White and Red             P1                  5
+                                                                           red
+
+         11      White and Purple           P2                 15          N/A
+
+         12      White and Blue             P3                 10          N/A
+
+         13              Grey               P4                  4          N/A
+
+         14      White and Brown            P5                 14          N/A
+
+         15      White and Green            P6                  9          N/A
+
+         16     White and Orange            P7                  3          N/A
+
+                                                                           Pin 8 is
+         17      White and Black            P8                 13
+                                                                           black
+
+Here are the possible causes for EEPROM read/write failure and data error when
+connecting the clamp to the test board for EEPROM read/write:
+
+A.   EEPROM read/write operations are affected by the circuit of the connected test
+     board;
+B.   EEPROM read/write operations of the test board are affected by the read/write
+     operations of the clamp;
+C. The signal is damaged by large resistance. A large resistance will be generated
+   when connecting the clamp to a fast communicating EEPROM or using a long cable
+   for connection.
+
+Therefore, it is recommended to dismantle the chip on the EEPROM, weld the EEPROM
+to the EEPROM Adapter or place in the EEPROM socket, and then insert it in the
+EEPROM Adapter.
+
+
+                                            10
+18. EEPROM Clamp
+19. DB15 VGA Port
+
+EEPROM Adapter
+
+The EEPROM Adapter is compatible with three 8-pin packaging TSSOP, SOP, DIP
+connections, and each packaging reserves three same ports, so the device will function
+properly when one port is damaged. For SOP8 packaging, the EEPROM Adapter can
+also work with the EEPROM socket. To do this, place the pins of the SOP8 EEPROM
+into the EEPROM accordingly and then insert them into the EEPROM Adapter.
+
+2.2.1.3      MC9S12 Read/Write Supported Types
+                  Table 2-5 MC9S12 Read/Write Supported Types
+
+                   Chip Type                              Name
+
+                  FREESCALE                          MC9S12DG128
+
+
+2.2.2 Specifications
+                               Table 2-6 Specifications
+
+          Item                                  Description
+
+          Operating Temperature                 -10 to 50 °C (14 to 122 °F)
+
+          Storage Temperature                   -20 to 60 °C (-4 to 140 °F)
+
+          Port                                  Mini USB, VGA_DB15
+
+          Input Voltage                         5 VDC
+
+          Operating Current                     < 250 mA
+
+          Maximum Consumption                   1W
+
+          Device Dimensions (L x W x H)         130 mm (5.1”) x 68 mm (2.7”)
+                                                x 28 mm (1.1”)
+
+          Package Dimensions (L x W x H)        201 mm (7.9”) x 167 mm
+                                                (6.6”) x 75 mm (3”)
+
+          Net Weight                            466 g (1.03 lbs.)
+
+
+
+
+                                           11
+2.2.3 Accessories Included
+
+
+
+                  APB001 — EEPROM Adapter
+
+
+
+
+                  APB002 — 68HC908 Adapter
+
+
+
+
+                  APA002 — EEPROM Socket
+
+
+
+
+                  APA001 — EEPROM Clamp Integrated
+                  MC9S12 Cable
+
+
+
+
+                             12
+3 Getting Started
+ Ensure the tablet is sufficiently charged or is connected to the external power supply (see
+ Power Sources).
+
+ NOTE
+
+ The images and illustrations depicted in this manual may differ from the actual ones.
+
+
+3.1 Powering Up
+ Long press the Power/Lock button on the top-right of the tablet to power on the unit. The
+ power LED will illuminate green. The system boots up and displays the Lock screen.
+ Swipe up to unlock the screen.
+
+
+
+
+                                 Figure 3-1 Job Menu
+ 1.   Application Buttons
+ 2.   Locator and Navigation Buttons
+ 3.   System Status Icons
+
+ NOTE
+
+ The tablet screen is locked by default after powered on. It is recommended to lock the
+ screen to protect the information in the system and reduce the power consumption.
+
+
+                                             13
+The touch screen navigation is menu-driven, which enables quick access to the functions
+by tapping on the application buttons and answering dialog windows. Detailed
+descriptions of the menu structures can be found in the application chapters.
+
+
+3.1.1 Application Buttons
+Descriptions of the tool applications are displayed in the table below.
+
+                               Table 3-1 Applications
+
+ Button     Name              Description
+
+                              Accesses the IMMO functions menu. See IMMO for
+            IMMO
+                              details.
+
+                              Accesses the Programming functions menu. See
+            Programmer
+                              Programmer for details.
+                              Accesses the diagnostics functions menu. See
+            Diagnostics
+                              Diagnostics for details.
+
+                              Accesses the special functions menu. See Service for
+            Service
+                              details.
+
+                              Checks and downloads the latest updates available for
+            Update
+                              the MaxiIM system. See Update for details.
+
+                              Accesses MaxiIM system settings menu. See Settings
+            Settings
+                              for details.
+
+                              Configures the unit to receive remote support using the
+            Remote
+            Desktop           TeamViewer application program. See Remote
+                              Desktop for details.
+
+                              Accesses the organization system for saved data. See
+            Data Manager
+                              Data Manager for details.
+
+                              Synchronizes Autel’s online service database with the
+            Support
+                              MaxiIM tablet. See Support for details.
+
+                              Provides a quick search for supported functions and/or
+            MaxiViewer
+                              vehicles. See MaxiViewer for details.
+
+                              Provides associated website bookmarks to allow quick
+            Quick Link        access to product update, service, support, and other
+                              information. See Quick Link for details.
+
+
+
+                                            14
+3.1.2 Locator and Navigation Buttons
+Operations of the Navigation buttons at the bottom of the screen are described in the
+table below:
+
+                    Table 3-2 Locator and Navigation Buttons
+Button    Name            Description
+
+                          Indicates the location of the screen. Swipe the screen left
+          Locator
+                          or right to view the previous or next screen.
+
+
+          Back            Returns the previous screen.
+
+
+          MaxiIM
+                          Enters MaxiIM job menu.
+          Home
+
+          Android
+          Home            Enters Android System’s home screen.
+
+
+                          Displays a list of applications that are currently in use.
+          Recent
+          Apps            Tap an app icon to launch. To remove an app, swipe it to
+                          the top or bottom.
+
+
+          Chrome          Launches the Android built-in browser.
+
+
+
+          Screenshot      Saves the displayed screen as an image.
+
+
+
+          Brightness      Adjusts brightness of screen.
+
+
+          IMMO
+          Shortcut        Enters the IMMO screen.
+
+
+          Diagnostic
+          Shortcut        Enters the Diagnostics screen.
+
+
+          Service
+          Shortcut        Enters the Service screen.
+
+
+
+
+                                          15
+  3.1.3 System Status Icons
+  As the Tablet is working with the Android operating system, you may refer to Android
+  documents for more information.
+
+  By sliding down from the top of the screen or tapping on the bottom right corner of the
+  screen, a Shortcut Panel will be displayed, on which you are allowed to set various
+  system settings of the tablet. Operations of each button on the panel are described in the
+  table below:
+
+  NOTE
+
+  The shortcut buttons will be highlighted when enabled and turn dimmed when disabled.
+
+                           Table 3-3 Shortcut Panel Buttons
+Button     Name                   Description
+
+           Wi-Fi                  Enables/disables Wi-Fi when pressed.
+
+           Do Not Disturb         Enables/disables Do-Not-Disturb mode.
+
+           Battery                Displays battery status.
+
+           Airplane Mode          Enables/disables Airplane Mode when pressed.
+
+           Location               Enables/disables location recording function.
+
+           Logger                 Accesses Log Collection screen.
+
+                                  Launches the Android System Settings screen when
+           System Settings
+                                  pressed.
+
+
+3.2 Powering Down
+  All vehicle communications must be terminated before shutting down the Tablet. A
+  warning message displays if you attempt to shut down the Tablet when it is
+  communicating with the vehicle. Forcing a shut-down while communicating may lead to
+  ECM problems on some vehicles. Please exit the Diagnostics application before
+  powering down.
+
+  ➢      To power down the tablet
+
+          1.   Long press the Lock/Power Button.
+          2.   Tap Power off option and the tablet will turn off in a few seconds.
+
+
+
+
+                                              16
+3.2.1 Reboot System
+In case of a system crash, long press the Power/Lock button and tap Restart option to
+restart the system.
+
+
+
+
+                                         17
+4 IMMO
+  The IMMO application provides Automatic Selection, Manual Selection, and System
+  Selection to guide technicians to perform IMMO-related functions, including Key Learning,
+  Remote Control Learning, Remote Control Add, etc.
+
+
+4.1 Getting Started
+  Ensure a communication link is established between the test vehicle and the tablet via
+  the main cable, and the XP200 is connected to the tablet with the supplied USB cable.
+
+
+  4.1.1 Vehicle Menu Layout
+  When the tablet is properly connected to the vehicle, the platform is ready to start vehicle
+  diagnosis. Tap on the IMMO application button on the MaxiIM IM508S Job Menu to
+  access the Vehicle Menu.
+
+
+
+
+                                Figure 4-1 Vehicle Menu
+  1.   Top Toolbar Buttons
+  2.   Manufacturer Icons
+
+
+
+
+                                              18
+  4.1.1.1     Top Toolbar Buttons
+
+  The operations of the toolbar buttons at the top of the screen are listed and described in
+  the table below:
+
+                            Table 4-1 Top Toolbar Buttons
+
+       Button     Name          Description
+
+                  Home          Returns to the MaxiIM Job Menu.
+
+                                Displays a dropdown list; tap Auto Detect for auto
+                  VID           VIN detection; tap Manual Input to enter VIN
+                                manually.
+
+                                Displays all the vehicle makes in the vehicle
+                  All
+                                menu.
+
+                  Favorites     Displays user-selected favorite vehicle makes.
+
+                  History       Displays stored test vehicle records.
+
+                  USA           Displays the USA vehicles menu.
+
+                  European      Displays the European vehicles menu.
+
+                  Asia          Displays the Asian vehicles menu.
+
+                  China         Displays the Chinese vehicles menu.
+
+                                Displays a virtual keyboard to manually enter a
+                  Search
+                                specific vehicle make required.
+
+                  Cancel        Exits the search screen or cancels an operation.
+
+  4.1.1.2     Manufacturer Icons
+  Manufacturer Icons display a list of available vehicle brands for testing. Select a
+  corresponding vehicle manufacturer to enter the IMMO program.
+
+
+4.2 Vehicle Identification
+  The MaxiIM IMMO system generally supports four methods for Vehicle Identification.
+
+  1.   Auto VIN Scan
+  2.   Manual VIN Input
+
+
+                                              19
+3.   Automatic Selection
+4.   Manual Selection
+
+
+4.2.1 Auto VIN Scan
+The MaxiIM IMMO system features the latest VIN-based Auto VIN Scan function to
+identify vehicles, which is applied to IMMO, Programmer, Diagnostic and Service
+applications.
+
+➢      To perform Auto VIN Scan
+
+        1.   Tap the IMMO application button on the MaxiIM Job Menu. The Vehicle
+             Menu displays.
+        2.   Tap the VID button on the top toolbar to open a dropdown list.
+
+
+
+
+                             Figure 4-2 Auto VIN Screen
+        3.   Select Auto Detect. Once the test vehicle is successfully identified, the
+             screen will display the vehicle profile. Tap OK at the bottom right to confirm
+             the vehicle profile.
+        4.   Tap Yes to confirm the vehicle profile or No if the information is not correct.
+        5.   The tablet establishes communication with the vehicle and reads the IMMO
+             control unit information.
+
+
+4.2.2 Manual VIN Input
+For vehicles that not supporting the Auto VIN Scan function, you may manually enter the
+vehicle VIN.
+
+
+
+
+                                            20
+➢      To perform Manual VIN Input
+
+       1.   Tap the IMMO application button on the MaxiIM Job Menu. The Vehicle
+            Menu displays.
+       2.   Tap the VID button on the top toolbar.
+       3.   Select Manual Input.
+
+
+
+
+                           Figure 4-3 Enter VIN Screen
+       4.   Tap the input box and enter the correct VIN.
+       5.   Tap OK to complete or tap      at the upper-right corner of the pop-up to exit
+            Manual Input.
+
+
+4.2.3 Automatic Selection
+The Automatic Selection can be selected after selecting the test vehicle manufacturer.
+
+➢      To perform Automatic Selection
+
+       1.   Tap the IMMO application button on the MaxiIM Job Menu. The Vehicle Menu
+            displays.
+       2.   Tap the manufacturer button of the test vehicle.
+       3.   Tap Automatic Selection and the VIN information will be automatically
+            acquired. Follow the on-screen instruction to display the function screen.
+
+
+4.2.4 Manual Selection
+When the vehicle’s VIN is not automatically retrievable through the vehicle's ECU, or the
+specific VIN is unknown, the vehicle can be manually selected.
+
+
+
+                                           21
+ This mode of vehicle selection is menu driven, repeat the first two steps from the
+ automatic selection operation and tap Manual Selection. Through a series of on-screen
+ prompts and selections, the test vehicle is chosen. Press the ESC button at the bottom-
+ right corner of the screen to return to the previous screen if needed.
+
+
+4.3 Navigation
+ Navigating the IMMO interface and selecting test are described in this section.
+
+
+ 4.3.1 IMMO Screen Layout
+
+
+
+
+                          Figure 4-4 IMMO Screen Layout
+
+ The IMMO screens typically include four sections:
+
+ 1.   Operation Toolbar
+ 2.   Status Information Bar
+ 3.   Main Section
+ 4.   Function Buttons
+
+ 4.3.1.1     Operation Toolbar
+ The Operation Toolbar contains a number of buttons such as print and save. The table
+ below provides a brief description of the operations.
+
+
+
+
+                                            22
+                        Table 4-2 Operation Toolbar Buttons
+    Button      Name         Description
+
+                Home         Returns to the MaxiIM Job Menu.
+
+                Vehicle      Exits the diagnostic session of the currently
+                Swap         identified test vehicle and returns to the vehicle
+                             menu screen.
+                Settings     Opens the settings screen. See Settings.
+
+                             Prints a copy of the displayed data. See Printing
+                Print
+                             Settings for additional information.
+
+                Help         Displays operational instructions or tips.
+
+                             Tap to open a sub menu, then tap Take a
+                             Screenshot to save this screen.
+                Save
+                             All saved data is stored in the Data Manager
+                             application for later review. See Data Manager.
+
+                             Records the communication data and ECU
+                             information of the test vehicle. The saved data can
+                             be reported and sent to the technical center via the
+                Data         Internet.
+                Logging
+                             You can go to the Support application to follow up
+                             the processing progress, see Data Logging for
+                             detailed information.
+
+➢     To print data
+
+      1.     Tap the IMMO application button from the MaxiIM Job Menu.
+      2.     Tap Print. A drop-down menu displays. The Print button on the toolbar is
+             available throughout the IMMO operations.
+      3.     Tap Print This Page to print a screenshot of the current screen.
+      4.     A temporary file will be created and sent to the connected computer for
+             printing.
+      5.     When the file is transferred successfully, a confirmation message displays.
+
+➢     To submit Data Logging reports
+
+      1.     Tap the IMMO application button on the MaxiIM Job Menu.
+      2.     Tap the Data Logging button to display the error options. The Data Logging
+             button on the toolbar is available throughout the IMMO operations.
+
+
+                                            23
+          3.   Select a specific error and tap OK. A submission form will display to let you
+               fill in the report information.
+          4.   Tap Send to submit the report form via the Internet. A confirmation message
+               displays when sent successful.
+
+4.3.1.2        Status Information Bar
+The Status Information Bar at the top of the Main Section displays the following items:
+
+1.   Menu Title — displays the menu heading of the Main Section.
+2.   Voltage Icon — displays the vehicle’s voltage status.
+
+4.3.1.3        Main Section
+
+The Main Section of the screen varies depending on the stage of operations and vehicle
+brands. The Main Section can display vehicle identification selections, the main menu,
+test data, messages, instructions, and other information.
+
+4.3.1.4        Function Buttons
+The displayed Function Buttons vary depending on the stage of operations. They can be
+used to navigate menus, save or clear data, exit scanning, and perform a number of other
+control functions. The use of these buttons will be introduced in details in the following
+sections of the corresponding test operations.
+
+
+4.3.2 Screen Messages
+Screen messages appear when additional input is needed before proceeding. There are
+three main types of on-screen messages: Confirmation, Warning, and Error.
+
+4.3.2.1        Confirmation Messages
+This type of messages usually displays as an “Information” screen to inform the user that
+a selected action cannot be reversed or when an action has been initiated and
+confirmation is needed to continue.
+
+When a user-response is not required to continue, the message displays briefly.
+
+4.3.2.2        Warning Messages
+This type of messages displays a warning that a selected action may result in an
+irreversible change or loss of data. An example of this type of message is the “Erase
+Codes” message.
+
+4.3.2.3        Error Messages
+Error messages display when a system or procedural error has occurred. Examples of
+possible errors include a disconnection or communication interruption.
+
+                                             24
+ 4.3.3 Making Selections
+ The IMMO application is a menu driven program that presents a series of choices. As a
+ selection is made, the next menu in the series displays. Each selection narrows the focus
+ and leads to the desired test. Tap the screen to make menu selections.
+
+
+4.4 IMMO
+ The IMMO application requires a data link to the IMMO electronic control system of the
+ test vehicle for diagnosis via OBDII connection. The application retrieves vehicle IMMO
+ information and performs IMMO-related functions, including Key Learning, Remote
+ Control Learning, and Remote Control Add. There are three available modes when
+ accessing the IMMO section:
+
+ 1.   Automatic Selection
+ 2.   Manual Selection
+ 3.   System Selection
+
+
+
+
+                            Figure 4-5 IMMO Modes Screen
+
+ The available modes displayed on the screen may vary between different vehicle brands.
+
+
+ 4.4.1 Automatic Selection
+ The Automatic Selection provides guided functions with step-by-step instructions. Once
+ the VIN is acquired, a vehicle profile will appear and select Yes to continue. There are
+ four main options available when accessing the Automatic Selection:
+
+ 1.   IMMO Status Scan
+ 2.   Control Unit
+
+                                            25
+3.   Hot Function
+4.   Vehicle IMMO Information
+
+4.4.1.1     IMMO Status Scan
+The IMMO Status Scan function performs a comprehensive scanning over all the
+systems on the vehicle’s IMMO ECU in order to locate fault systems and retrieve DTCs.
+The sample operation interface of the IMMO Status Scan displays as below.
+
+
+
+
+                        Figure 4-6 IMMO Status Scan Screen
+1.   Navigation Bar
+2.   Main Section
+3.   Function Buttons
+
+Navigation Bar
+
+The Navigation Bar shows the heading of the screen and vehicle’s voltage status. There
+are two options available:
+•    Rescan — tap to scan the IMMO system for DTCs again.
+•    Quick erase DTC — tap to erase the fault codes.
+
+
+
+
+                                         26
+Main Section
+
+
+
+
+                 Figure 4-7 Main Section of IMMO Status Scan
+
+Part A displays the scanned systems highlighted in different colors. Each color
+represents varied status, which you can check on the screen.
+
+Part B displays scan results with the left column showing scan items and the right
+displaying the diagnostic marks, which indicate different conditions of the test result.
+
+•   -!-: indicates that the scanned system may not support the code reading function, or
+    there is a communication error between the tablet and the control system.
+•   -?-: indicates that the vehicle control system has been detected, but the tablet cannot
+    accurately locate it.
+•   Fault | #: Indicates there is/are detected fault code(s) present; “#” indicates the
+    number of the detected faults.
+•   Pass | No Fault: Indicates the system has passed the scanning process and no fault
+    has been detected.
+•   Unknown Status: Indicates the system has not been scanned.
+•   Not Responded: Indicates the system has not received a response.
+•   N/A: The system is not selected.
+•   Unselected System: The system is not selected for testing.
+•   Selected: The system is selected for testing.
+•   Not Scanned: Indicates the system has not been scanned.
+•   No Response: Indicates the system has not received a response.
+
+
+
+
+                                           27
+Function Buttons
+
+                            Table 4-3 Function Buttons
+
+    Button                          Description
+
+    Report                          Displays the diagnostic data in the report
+                                    form.
+
+    Add Key (guided)                Enters the guided function of the Add Key.
+
+    Immobilizer Learning            Enters the Immobilizer Learning function.
+
+                                    Returns to the previous screen or exits the
+    ESC
+                                    IMMO Status Scan.
+
+4.4.1.2      Control Unit
+This option allows you to manually locate a required IMMO control system for testing
+through a series of choices. Simply follow the menu-driven procedure and make proper
+selection each time. The program will guide you to the IMMO function menu after a few
+choices you have made.
+
+The control unit menu options vary from different vehicles. The function menu may
+include:
+
+•   Immobilizer
+•   Remote System
+•   Engine
+•   IMMO Adaptation
+
+Follow the on-screen instructions to select the correct IMMO part.
+
+
+
+
+                                           28
+Take Add Key as an example.
+
+1.   Choose Immobilizer on the Control Unit screen.
+
+
+
+
+                         Figure 4-8 Control Unit Screen
+2.   Tap Conti CAN Ins (NEC+24C64) - Immobilizer.
+
+
+
+
+                         Figure 4-9 Immobilizer Screen
+3.   Tap Add Key on the Instrument Cluster.
+
+
+
+
+                                         29
+                      Figure 4-10 Instrument Cluster Screen
+4.   The following Information screen will display. Tap Yes to go on.
+
+
+
+
+                         Figure 4-11 Information Screen 1
+
+
+
+
+                                           30
+5.   A message will appear, reminding you to place the dealer key into the key slot of the
+     programmer. Tap OK after the key is placed.
+
+
+
+
+                         Figure 4-12 Information Screen 2
+
+
+6.   The screen will display that “Key added successfully”. Tap OK to complete the
+     operation.
+
+
+
+
+                         Figure 4-13 Information Screen 3
+
+
+
+
+                                           31
+4.4.1.3     Hot Function
+Hot function consists of guided functions with step-by-step instructions. The available
+functions may vary depending on the test vehicle. The function may include Add Key
+(guided). Follow the corresponding on-screen instructions to complete the operation.
+
+
+
+
+                        Figure 4-14 Hot Function Screen
+
+4.4.1.4     Vehicle IMMO Information
+This function displays the specific information of the tested vehicle, including key
+programming information, key information, and OBD position.
+
+
+
+
+                     Figure 4-15 Vehicle IMMO Information
+
+
+
+                                          32
+4.4.2 Manual Selection
+The Manual Selection operation has been described in the Section 4.2.4. After the
+vehicle information is confirmed, the screen will appear containing IMMO Status Scan,
+Control Unit, Hot Function, and Vehicle IMMO Information. Click the above links for
+further details.
+
+
+4.4.3 System Selection
+The System Selection provides direct access to the vehicles’ immobilizer systems. The
+selections may include Immobilizer, Engine, and BSI Clone. Follow the on-screen
+instructions to complete the operation.
+
+
+
+
+                     Figure 4-16 System Selection Screen
+
+
+
+
+                                         33
+5 Programmer
+ The Programmer application requires connection between the tablet and the XP200, and
+ no vehicle connection is required. This application can read, retrieve, and write key
+ information, as well as other key related functions after accessing the key chip.
+
+
+5.1 Operations
+ Select the vehicle manufacturer in the vehicle menu, and then follow the on-screen
+ instructions to select the instrument information to display the function menu.
+
+
+
+
+                     Figure 5-1 Programmer Function Menu
+
+
+
+
+                                          34
+Take Chip Read & Write as an example.
+
+1.   Select Chip Read & Write from the menu.
+2.   Select the chip type if needed. In this case, EEPROM has been selected.
+
+
+
+
+                      Figure 5-2 Chip Read & Write Screen
+3.   Select Read on the next menu.
+
+
+
+
+                          Figure 5-3 Operations Menu
+
+
+
+
+                                         35
+4.   The Chip Data screen displays. Select Save to save the data, or select Cancel to
+     exit.
+
+
+
+
+                        Figure 5-4 Read Operation Screen
+5.   Enter the file name and select Save and the chip data will be saved on the tablet.
+     And a “File saved successfully.” Message displays.
+
+
+
+
+                           Figure 5-5 Save Data Screen
+6.   Select Write from the operations menu. The tablet will open the default folder, then
+     select the saved data and click OK to write it into a black chip.
+
+
+
+
+                                           36
+Figure 5-6 Write Operation Screen
+
+
+
+
+                37
+6 Diagnostics
+ The Diagnostics application can retrieve electronic control unit (ECU) information, read
+ & erase DTCs, and view live data. The Diagnostics application can access the electronic
+ control unit (ECU) for various vehicle control systems, including engine, transmission,
+ antilock brake system (ABS), and airbag system (SRS).
+
+
+6.1 Diagnosis
+ The Diagnostics application enables a data link to the electronic control system of the
+ test vehicle for vehicle diagnosis via OBDII connection. The application performs function
+ tests, and retrieves vehicle diagnostic information such as trouble and event codes and
+ live data for various vehicle control systems.
+
+ There are two options available when accessing the Diagnosis section:
+
+ 1.   Auto Scan — starts auto scanning for all the available systems on the vehicle.
+ 2.   Control Unit — displays a selection menu of all the available control units of the test
+      vehicle.
+
+ After a section is made and the tablet establishes communication with the vehicle, the
+ corresponding function menu or selection menu displays.
+
+
+
+
+                                             38
+6.1.1 Auto Scan
+The Auto Scan function performs a comprehensive scanning over all the ECUs in the
+vehicle to locate systems’ faults and retrieve DTCs. An example of the Auto Scan
+interface is pictured below:
+
+
+
+
+                  Figure 6-1 Sample Auto Scan Operation Screen
+1.   Status Bar
+2.   Main Section
+3.   Function Buttons
+
+6.1.1.1     Status Bar
+List Tab — displays the scanned data in list format.
+Progress Bar — indicates the scanning progress.
+
+6.1.1.2     Main Section
+Column 1 — displays the sequence numbers.
+
+Column 2 — displays the scanned systems.
+
+Column 3 — displays the diagnostic indicators describing test results.
+
+These indicators are defined as follows:
+
+    -!-: Indicates that the scanned system may not support the code reading function,
+     or there is a communication error between the Tablet and the control system.
+    -?-: Indicates that the vehicle control system has been detected, but the Tablet
+     cannot accurately locate it.
+    Fault(s) | #: Fault(s) indicates there is/are detected fault code(s) present; “#”
+
+                                           39
+    indicates the number of the detected faults.
+   Pass | No Fault: Indicates the system has passed the scanning process and no fault
+    has been detected.
+
+Column 4 — to perform further diagnosis or testing on a specific system item, tap the
+    button to the right of that item. A Function Menu screen will display.
+
+6.1.1.3        Function Buttons
+A brief description of the operations of the Auto Scan’s Function Buttons are displayed
+in the table below.
+                     Table 6-1 Function Buttons in Auto Scan
+          Name       Description
+
+          Report     Displays the diagnostic data in the report form.
+
+          Quick      Deletes codes. A warning message will display to inform
+          Erase      you of possible data loss when this function is selected.
+
+                     Confirms the test result. Continue the system diagnosis
+          OK         after the required system is selected by tapping the item
+                     in the Main Section.
+
+                     Suspends scanning and will change to Continue button
+          Pause
+                     after tapping.
+          ESC        Returns to the previous screen or exits Auto Scan.
+
+
+
+
+6.1.2 Control Unit
+Manually locate a required control system for testing through a series of choices. Follow
+the menu driven procedures and make proper selection; the application guides the user
+to the proper diagnostic function menu based on selections.
+
+
+
+
+                                            40
+                            Figure 6-2 Function Menu
+The Function Menu options vary slightly from different vehicles. The function menu may
+include:
+⚫   ECU Information — provides the retrieved ECU information in detail. An information
+    screen opens upon selection.
+⚫   Read Codes — displays detailed information of DTC records retrieved from the test
+    vehicle’s ECU.
+⚫   Erase Codes — erases DTC records and other data from the test vehicle’s ECU.
+⚫   Live Data — retrieves and displays live data and parameters from the test vehicle’s
+    ECU.
+⚫   Active Test — accesses specific subsystem and components tests of vehicles.
+⚫   Special Function — performs various component adaptations.
+
+NOTE
+
+Toolbar functions such as saving and printing of test results can be performed throughout
+diagnostic testing. Data logging and access to help information are also available.
+
+➢   To perform a diagnostic function
+
+    1.   Establish communication with the test vehicle.
+    2.   Identify the test vehicle by selecting from the menu options.
+    3.   Select the Diagnosis section.
+    4.   Locate the required system for testing by Auto Scan or through menu driven
+         selections on Control Unit screen.
+    5.   Select the desired diagnostic function on the Function Menu screen.
+
+                                           41
+6.1.2.1     ECU Information
+This function retrieves and displays the specific information for the tested control unit,
+including unit type, version numbers, and other specifications.
+
+The sample ECU Information screen displays as below:
+
+
+
+
+                        Figure 6-3 ECU Information Screen
+1.   Diagnostics Toolbar Buttons — see Table 4-2 Operation Toolbar Buttons for detailed
+     descriptions of the operations for each button.
+2.   Main Section — the left column displays the item names; the right column displays
+     the specifications or descriptions.
+3.   Function Button — ESC (or Back) button is available; tap it to exit after viewing.
+
+
+
+
+                                            42
+6.1.2.2      Read Codes
+This function retrieves and displays the DTCs from the vehicle’s control system. The
+Read Codes screen varies from each vehicle being tested. On some vehicles, freeze
+frame data can also be retrieved for viewing. The sample Read Codes screen displays
+as below:
+
+
+
+
+                           Figure 6-4 Read Codes Screen
+1.   Diagnostics Toolbar Buttons — see Table 4-2 Operation Toolbar Buttons for detailed
+     descriptions of the operations for each button.
+2.   Main Section
+     ⚫    Code Column — displays the retrieved codes from the vehicle.
+     ⚫    Status Column — indicates the status of the retrieved codes.
+     ⚫    Description Column — detailed descriptions for the retrieved codes.
+     ⚫    Snowflake Icon — only displays when freeze frame data is available for viewing;
+          selecting this icon will display a data screen, which looks and behaves similar
+          to the Read Codes screen.
+3.   Function Button
+     ⚫    Service manual — tap it to view fault code information, including fault
+          description, condition for fault identification, and driver information.
+     ⚫    Freeze frame — tap it to view the freeze frame data of the selected DTC.
+     ⚫    Search — tap it to search related fault code information on the Internet.
+     ⚫    ESC — tap it to return to the previous screen or exit the function.
+
+
+
+
+                                            43
+6.1.2.3        Erase Codes
+After reading the retrieved codes and making appropriate vehicle repairs, use this
+function to erase vehicle codes.
+
+➢   To erase codes
+
+    1.    Tap Erase Codes on the Function Menu.
+    2.    A warning message displays to advice of data loss if this function is completed.
+          a)    Tap Yes to continue. A confirmation screen displays when the operation is
+                successfully done.
+          b)    Tap No to exit.
+    3.    Tap ESC on the confirming screen to exit Erase Codes.
+    4.    Perform the Read Codes function again to check if codes have been erased
+          successfully.
+
+6.1.2.4        Live Data
+When this function is selected, the screen displays the data list for the selected module.
+The data available for any control module varies from one vehicle to another. The
+parameters display in the order that they are transmitted by the ECM, so expect variation
+among vehicles.
+
+Gesture scrolling allows for quick movement through the data list. Touch the screen and
+drag your finger up or down to reposition the parameters being displayed if the data
+populates more than one screen. The figure below displays a typical Live Data screen.
+
+
+
+
+                              Figure 6-5 Live Data Screen
+
+
+
+
+                                            44
+1.   Diagnostics Toolbar Buttons — tap the drop-down button at the top center of the
+     screen and the toolbar buttons will display. See Table 4-2 Operation Toolbar Buttons
+     for detailed descriptions of the operations for each button.
+2.   Main Section
+     ⚫   Name Column — displays the parameter names.
+         a)   Check Box — tap the check box on the left side of a parameter to make
+              item selection. Tap the check box again to deselect the item.
+         b)   Drop-down Button — tap to open a sub menu.
+     ⚫   Value Column — displays the values of the parameters.
+     ⚫   Range Column — displays the ranges of the parameters.
+     ⚫   Unit Column — displays the units for the parameters.
+
+         ➢ To change the unit mode, tap the Setting button on the top toolbar and
+              select a required mode. See Unit for more information.
+
+Display Mode
+
+There are four types of display modes available for data viewing. Select the proper mode
+for the diagnostic purpose.
+Tap the drop-down button on the right side of a parameter to open a sub menu. A total
+of 7 buttons will be displayed: The 4 buttons on the left represent different data display
+modes, plus one Information button, highlighted when additional information is available,
+and one Unit Change button, for switching the unit of displayed data, and one Trigger
+button, which opens the "trigger settings" window when tapping.
+
+
+
+
+                       Figure 6-6 Display Mode Screen
+
+
+
+                                           45
+Each parameter displays the selected mode independently. The left four buttons are
+described in sequence below:
+
+1)   Analog Gauge Mode — displays the parameters in form of an analog meter graph.
+2)   Text Mode — the default mode which displays the parameters in texts and shows in
+     list format.
+
+NOTE
+
+Status parameters, such as a switch reading, can primarily be viewed in text form such
+as ON, OFF, ACTIVE, and ABORT. Whereas, value parameters, such as a sensor
+reading, can be displayed in text mode and graph modes.
+
+3)   Waveform Graph Mode — displays the parameters in waveform graphs.
+
+When this mode is selected, five control buttons display on the right side of the parameter,
+allowing you to manipulate the display status.
+
+
+
+
+                    Figure 6-7 Waveform Graph Mode Screen
+⚫    Settings Button (SetY) — sets the minimum and maximum value of the Y axis.
+⚫    Scale Button — changes the scale values that are displayed below the waveform
+     graph. There are four scales available: x1, x2, x4 and x8.
+⚫    Edit Button — edits the waveform color and the line thickness.
+⚫    Zoom-in Button — tap once to display the selected data graph in full screen.
+⚫    Exit Button — tap to exit the waveform graph mode.
+
+
+
+
+                                            46
+Full Screen Display — this option is only available in the waveform graph mode, and
+primarily used in Graph Merge status for data comparison. There are four control buttons
+available on the top-right side of the screen under this mode.
+
+   Scale Button — tap to change the scale values, which are displayed below the
+    waveform graph. There are four scales available: x1, x2, x4 and x8.
+   Edit Button — tap to open an edit window, in which you can set the waveform color
+    and the line thickness displayed for the selected parameter item.
+   Zoom-out Button — tap to exit full screen display.
+   Exit Button — tap to exit the waveform graph mode.
+
+➢   To edit the waveform color and line thickness in a data graph
+
+    1.   Select parameters to display in Waveform Graph mode.
+    2.   Tap the Edit Button and an edit window opens.
+    3.   The parameter item is selected automatically in the left column.
+    4.   Select a color from the middle column.
+    5.   Select a line thickness from the right column.
+    6.   Tap Done to save the settings and exit, or tap Cancel to exit without saving.
+    4)   Digital Gauge Mode — displays the parameters in form of a digital gauge graph.
+
+Trigger Settings
+
+On the trigger setting screen, you can set a standard range by filling in a minimum value
+and a maximum value. When exceeding this range, the trigger function will be executed
+and the device will automatically record and save the generated data. You can check the
+saved live data by tapping the Review button at the bottom of the screen.
+
+Tap the drop-down button on the right side of a parameter to open a submenu. The
+Trigger button is the last one in the submenu. Tap to display the “Trigger Settings”
+window.
+
+
+
+
+                                           47
+                        Figure 6-8 Trigger Settings Screen
+
+Two buttons and two input boxes are available in the Trigger Setting window.
+
+a) Trigger — switches the trigger on and off. The trigger is On by default.
+b) Buzzer Alarm — switches the alarm on and off. The alarm function makes a beep
+sound as an alert when the data reading reaches the preset minimum or maximum point.
+The buzzer alarm will only sound at the first trigger.
+c) MIN — tap this input box to display a virtual keyboard to enter the required lower limit
+value.
+d) MAX — tap this input box to display a virtual keyboard to enter the required upper limit
+value.
+
+When the trigger is successfully set, a trigger mark displays in front of the parameter.
+The mark disappears when it is not triggered, and displays when triggered. Moreover,
+two horizontal lines display on each of the data graphs (when Waveform Graph Mode is
+applied) to indicate the alarm point. The limit lines are shown in different colors to
+differentiate them from the parameter waveforms.
+
+3.   Function Buttons
+
+The operations of available function buttons on the Live Data screen are described below:
+
+Cancel All — tap this button to cancel all selected parameter items. Up to 50 parameters
+can be selected at one time.
+Show Selected/Show All — tap this button to switch between the two options; one
+displays the selected parameters, the other displays all the available items.
+
+
+
+                                            48
+Graph Merge — tap this button to merge selected data graphs (for Waveform Graph
+Mode only). This function is useful when comparing between different parameters.
+
+NOTE
+
+In this mode, Graph Merge supports 2 to 5 parameters when merging.
+
+➢ To merge selected data graphs
+     1)   Select parameters to be merged.
+     2)   Tap the Graph Merge button at the bottom of the Live Data Screen.
+          a) This mode only supports parameters that can be represented digitally. If
+             non-digital parameters are selected, a message will display advising the
+             user that the selected parameters are not supported in this mode and to
+             select 2 to 5 digital parameters. Tap the Got It button to return to the
+             previous screen and select supported parameters.
+          b) If parameters are selected that are not supported in this mode, a message
+             will display advising the user to select parameters that are supported. A
+             message will also display if more than 5 parameters have been selected.
+             Please select 2 to 5 of the supported parameters and tap the OK button to
+             merge.
+     3)   Tap the Cancel Merging button at the bottom of the Live Data screen to cancel
+          merging.
+
+To Top — moves a selected data item to the top of the list.
+
+Setting — tap button to set recording duration. Eleven options are available: 5 seconds,
+15 seconds, 30 seconds, 60 seconds, 90 seconds, 3 minutes, 5 minutes, 10 minutes, 20
+minutes, 30 minutes, and 60 minutes.
+
+➢ To set live data recording duration
+     1.   Tap the Setting button at the bottom of the Live Data screen.
+     2.   Tap the > button to the right of Recording time after trigger bar and select a
+          time length.
+     3.   Tap OK to save the setting and return to the Live Data Setting screen, or tap
+          the X button at the upper-right corner to exit without saving.
+     4.   Tap Done at the upper-right corner of the Live Data Setting screen to confirm
+          and save the setting, and return to the Live Data screen, or tap Cancel to exit
+          without saving.
+
+Clear Data — tap this button to clear all cached live data.
+
+Freeze — displays the retrieved data in freeze mode.
+
+⚫   Previous Frame — moves to the previous frame of frozen data.
+
+                                            49
+⚫   Next Frame — moves to the next frame of frozen data.
+⚫   Play/Pause — tap to play/pause the frozen data.
+⚫   Resume — tap to exit the freeze data mode and return to normal data display.
+
+Record —starts recording the live data of the selected data items. Tap the Record button
+at the bottom of the Live Data screen. A message will display prompting user to select
+parameters to record. Tap Got It button to confirm. Scroll down and select data to record.
+Tap the Record button to start recording. Tap Resume button to stop recording. The
+recorded live data can be viewed in the Review section at the bottom of the Live Data
+screen. The recorded data can also be reviewed in the Data Manager application.
+
+⚫   Resume — tap to stop data recording and to return to normal data display.
+⚫   Flag — displays when the Record function is applied. Tap this button to set flags to
+    note points of interest when recording data. Notes can be added during playback in
+    Review or Data Manager. Select the preset flag to open a popup window and display
+    a virtual keyboard to input notes.
+
+Review — reviews the recorded data. Tap the Review button to display a recording list
+and select one item to review.
+
+NOTE
+
+Only the data recorded during the current operation can be reviewed on the Live Data
+screen. All the historical recorded data can be reviewed in "Review Data" in the Data
+Manager application.
+
+⚫   Previous Frame — switches to the previous frame of recorded data.
+⚫   Next Frame — switches to the next frame of recorded data.
+⚫   Play/Pause — tap to play/pause the recorded data.
+⚫   Show Selected — displays the selected parameters.
+⚫   Graph Merge — merges selected data graphs.
+⚫   Back — exits the review, and return to the Live Data screen.
+
+Back — returns to previous screen or exits the function.
+
+6.1.2.5     Active Test
+The Active Test function is used to access vehicle-specific subsystem and component
+tests. Available tests vary depending on the manufacturer, year, and model, and only the
+available tests display in the menu.
+
+During an active test, the tester outputs commands to the ECU in order to drive the
+actuators. This test determines the integrity of the system or parts by reading the engine
+ECU data, or by monitoring the operation of the actuators, such as switching a solenoid,
+relay, or switch, between two operating states.
+
+                                           50
+Selecting Active Test opens a menu of test options that varies by make and model.
+Selecting a menu option activates the test. Follow all screen instructions while performing
+tests. The content and pattern of the on-screen information vary according to the type of
+test being performed. Some toggle and variable control tests display Active Test Controls
+at the top of the screen with data stream information below, or vice versa.
+
+
+
+
+                           Figure 6-9 Active Test Screen
+
+The function buttons at the lower right corner of the Active Test screen manipulate the
+test signals. The operational instructions are displayed on the main section of the test
+screen. Simply follow the on-screen instructions and make appropriate selections to
+complete the tests. Each time when an operation is successfully executed, message
+such as “Command Finished”, “Activation Successful”, or something similar displays.
+
+Tap the ESC function button to exit the test when finished.
+
+6.1.2.6     Special Function
+These functions perform various component adaptations, allowing you to recalibrate or
+configure certain components after making repairs or replacement.
+
+The main section of the Adaptation Operation screen displays a list of operational and
+vehicle status information, which mainly consists of four parts:
+
+    The first part in the top line shows the description of the operation being performed,
+    and the execution status is displayed on the right, such as Completed, Activated, etc.
+    The second part shows the preconditions or requirements for executing the
+    operation being selected.
+    The third part displays the current conditions of the vehicle control module being
+
+
+                                            51
+     learned for comparison to the preconditions suggested by the second part. If the
+     current condition of the control module is out of the suggested limit value, you must
+     adjust the vehicle condition to meet the requirement.
+     The last part displays the instruction of how to use the function button at the lower
+     right corner of the screen to manipulate the teach-in operations.
+
+
+
+
+                        Figure 6-10 Special Function Screen
+
+ Read the information carefully and check the vehicle condition accordingly, when you are
+ sure that the vehicle is ready to perform the adaptation, simply follow the instruction
+ provided to make appropriate selections. When the operation is done, an execution
+ status message such as Completed, Finished or Successful, displays.
+
+ Tap the ESC button to exit the function.
+
+
+6.2 Generic OBDII Operations
+ A fast-access option for OBDII/EOBD vehicle diagnosis is available on the Vehicle Menu
+ screen. This option presents a quick way to check for DTCs, isolate the cause of an
+ illuminated malfunction indicator lamp (MIL), check monitor status prior to emissions
+ certification testing, verify repairs, and perform a number of other emissions-related
+ services. The OBD direct access option is also used for testing OBDII/EOBD compliant
+ vehicles that are not included in the Diagnostics database.
+
+ Functions of the diagnostics toolbar buttons at the top of the screen are the same as
+ those available for specific vehicle diagnostics. See Table 4-2 Operation Toolbar Buttons
+ for details.
+
+
+
+
+                                            52
+6.2.1 General Procedure
+➢   To access the OBDII/EOBD diagnostics functions
+
+    1.   Tap the Diagnostics application button on the MaxiIM Job Menu. The Vehicle
+         Menu displays.
+    2.   Tap the EOBD button. There are two options to establish communication with
+         the vehicle.
+         ⚫   Auto Scan — when this option is selected, the diagnostic tool attempts to
+             establish communication using each protocol in order to determine which
+             one the vehicle is broadcasting on.
+         ⚫   Protocols — when this option is selected, the screen opens a submenu of
+             various protocols. A communication protocol is a standardized way of data
+             communication between an ECM and a diagnostic tool. Global OBD may
+             use several different communication protocols.
+    3.   Select a specific protocol under the Protocols option. Wait for the OBDII
+         Diagnostics Menu to appear.
+
+
+
+
+                  Figure 6-11 OBDII Diagnostics Menu Screen
+    4.   Select a function option to continue.
+         ⚫   DTC & FFD
+         ⚫   I/M Readiness
+         ⚫   Live Data
+         ⚫   O2 Sensor Monitor
+         ⚫   On-Board Monitor
+         ⚫   Component Test
+         ⚫   Vehicle Information
+
+
+                                           53
+          ⚫   Vehicle Status
+
+NOTE
+
+Some functions are supported only on certain vehicles.
+
+
+6.2.2 Function Descriptions
+This section describes the various functions of each diagnostic option:
+
+6.2.2.1       DTC & FFD
+When this function is selected, the screen displays a list of Stored Codes and Pending
+Codes. When the Freeze Frame data of certain DTCs are available for viewing, a
+snowflake button will display on the right side of the DTC item.
+
+
+
+
+                          Figure 6-12 DTC & FFD Screen
+
+The Erase codes and Read codes function can be applied by tapping the function buttons
+at the bottom of the screen.
+
+⚫   Stored Codes
+
+    Stored codes are the current emissions-related DTCs from the ECM of the vehicle.
+    OBDII/EOBD Codes have a priority according to their emission severity, with higher
+    priority codes overwriting lower priority codes. The priority of the code determines
+    the illumination of the Malfunction Indicator Light (MIL) and the codes erase
+    procedure. Manufacturers rank codes differently, so expect to see differences
+    between vehicles.
+
+
+
+
+                                           54
+   ⚫      Pending Codes
+          These are codes whose setting conditions were met during the last drive cycle, but
+          need to be met on two or more consecutive drive cycles before the DTC actually
+          sets. The intended use of this service is to assist the service technician after a
+          vehicle repair and after clearing diagnostics information, by reporting test results
+          after a driving cycle.
+          a)    If a test fails during the driving cycle, the DTC associated is reported. If the
+                pending fault does not occur again within 40 to 80 warm-up cycles, the fault is
+                automatically cleared from memory.
+          b)    Test results reported by this service do not necessarily indicate a faulty
+                component or system. If test results indicate another failure after additional
+                driving, then a DTC is set to indicate a faulty component or system, and the MIL
+                is illuminated.
+   ⚫      Freeze Frame
+          In most cases the stored frame is the last DTC reported. Certain DTCs, which have
+          a greater impact on vehicle emission, have a higher priority. In these cases, the top
+          prioritized DTC is the one for which the freeze frame records are retained. Freeze
+          frame data includes a “snapshot” of critical parameter values at the time the DTC is
+          set.
+   ⚫      Erase Codes
+          This option is used to clear all emissions-related diagnostics data such as DTCs,
+          freeze frame data, and specific manufacturer-enhanced data from the vehicle’s ECM.
+          A confirmation screen displays when the clear codes option is selected to prevent
+          accidental loss of data. Select Yes on the confirmation screen to continue or No to
+          exit.
+
+6.2.2.2        I/M Readiness
+
+   This function is used to check the readiness of the monitoring system. It is an excellent
+   function to use prior to having a vehicle inspected for compliance to a state emissions
+   program. Selecting I/M Readiness opens a submenu with two choices:
+
+   ⚫      Since DTCs Cleared — displays the status of monitors since the last time the DTCs
+          are erased.
+   ⚫      This Driving Cycle — displays the status of monitors since the beginning of the
+          current drive cycle.
+
+6.2.2.3        Live Data
+
+   This function displays the real time PID data from ECU. Displayed data includes analog
+   inputs and outputs, digital inputs and outputs, and system status information broadcast
+   on the vehicle data stream.
+
+
+                                                  55
+   Live data can be displayed in various modes. See Live Data for detailed information.
+
+6.2.2.4   O2 Sensor Monitor
+   This option allows retrieval and viewing of O2 sensor monitor test results for the most
+   recently performed tests from the vehicle’s on-board computer.
+
+   The O2 Sensor Monitor test function is not supported by vehicles that communicate using
+   a controller area network (CAN). For O2 Sensor Monitor tests results of CAN-equipped
+   vehicles, refer to On-Board Monitor.
+
+6.2.2.5   On-Board Monitor
+
+   This option allows you to view the results of On-Board Monitor tests. The tests are useful
+   after the service when a vehicle’s control module memory is already erased.
+
+6.2.2.6   Component Test
+
+   This service enables bi-directional control of the ECM so that the diagnostics tool is able
+   to transmit control commands to operate the vehicle systems. This function is useful in
+   determining whether the ECM responds to a command well.
+
+6.2.2.7   Vehicle Information
+
+   The option displays the vehicle identification number (VIN), the calibration identification,
+   and the calibration verification number (CVN), and other information of the test vehicle.
+
+6.2.2.8   Vehicle Status
+
+   This item is used to check the current condition of the vehicle, including communication
+   protocols of OBDII modules, retrieved codes amount, status of the Malfunction Indicator
+   Light (MIL), and other additional information.
+
+
+6.3 Exiting Diagnostics
+   The Diagnostics application remains open as long as there is an active communication
+   with the vehicle. You must exit the diagnostics operation to stop all communications with
+   the vehicle before closing the Diagnostics application.
+
+   NOTE
+
+   Damage to the vehicle electronic control module (ECM) may occur if communication is
+   disrupted. Make sure all connections, such as USB cable and wireless connection, are
+   properly connected at all times during testing. Exit all tests before disconnecting the test
+   cable or powering down the tablet.
+
+
+
+
+                                               56
+➢   To exit the Diagnostics application
+
+    1.   On an active diagnostics screen, tap the Back or ESC button to exit a
+         diagnostics session step-by-step.
+    2.   Or tap the Vehicle Swap button on the diagnostics toolbar to return to the
+         Vehicle Menu screen.
+    3.   On the Vehicle Menu screen, tap the Home button on the top toolbar; or tap the
+         Back button on the navigation bar at the bottom of the screen.
+    4.   Or tap the Home button on the diagnostics toolbar to exit the application directly
+         and go back to the MaxiIM Job Menu.
+
+Now, the Diagnostics application is no longer communicating with the vehicle and it is
+safe to open other MaxiIM applications, or exit the MaxiIM Diagnostics System and return
+to the Android System’s Home screen.
+
+
+
+
+                                            57
+7 Service
+  The Service section is specially designed to provide you with quick access to the vehicle
+  systems for various scheduled service and maintenance performances. The typical
+  service operation screen is a series of menu driven executive commands. By following
+  the on-screen instructions to select appropriate execution options, enter correct values
+  or data, and perform necessary actions, the system will guide you through the complete
+  performance for various service operations.
+
+  The most commonly performed service functions include:
+
+  ⚫   Oil Reset Service
+  ⚫   EPB Service
+  ⚫   BMS Service
+  ⚫   SAS Service
+  ⚫   DPF Service
+  ⚫   TPMS Service
+  After entering each special function, the displayed screen consists of two applications:
+  Diagnosis and Hot Functions. The Diagnosis is for you to read/clear data since this is
+  necessary after some special functions. Hot Functions consists of sub functions of the
+  selected special function.
+
+
+7.1 Oil Reset
+  This function allows you to perform reset for the Engine Oil Life system, which calculates
+  an optimal oil life change interval depending on the vehicle driving conditions and climate.
+  The Oil Life Reminder must be reset every time the oil is changed, so the system can
+  calculate when the next oil change is required.
+
+  IMPORTANT
+
+  Always reset the engine oil life to 100% after every oil change.
+
+  NOTE
+
+  1. All required work must be carried out before the service indicators are reset. Failure
+  to do so may result in incorrect service values and cause DTCs to be stored by the
+  relevant control module.
+
+  2. For some vehicles, the scan tool can perform added functionality to reset additional
+
+                                              58
+  service lights (maintenance cycle, service interval). Taking BMW as an example, its
+  service reset function includes engine oil, spark plugs, front/rear brakes, coolant, particle
+  filter, brake fluid, micro filter, vehicle inspection, exhaust emission inspection and vehicle
+  check.
+
+
+7.2 Electronic Parking Brake (EPB)
+  This function has a multitude of usages to maintain the electronic braking system safely
+  and effectively. The applications include deactivating and activating the brake control
+  system, assisting with brake fluid control, opening and closing brake pads, and setting
+  brakes after disc or pad replacement, etc.
+
+
+  7.2.1 EPB Safety
+  It may be dangerous to perform Electronic Parking Brake (EPB) system maintenance, so
+  before you begin the service work, please keep these rules in mind.
+
+  ✓   Ensure that you are fully familiar with the braking system and its operation before
+      commencing any work.
+  ✓   The EPB control system may be required to be deactivated before carrying out any
+      maintenance/diagnostic work on the brake system. This can be done from the tool
+      menu.
+  ✓   Only carry out maintenance work when the vehicle is stationary and on level ground.
+  ✓   Ensure that the EPB control system is reactivated after the maintenance work has
+      been completed.
+
+  NOTE
+
+  Autel accepts no responsibility for any accident or injury arising from the maintenance of
+  the Electronic Parking Brake system.
+
+
+7.3 BMS
+  The BMS (Battery Management System) allows the scan tool to evaluate the battery
+  charge state, monitor the close-circuit current, register the battery replacement, and
+  activate the rest state of the vehicle.
+
+  NOTE
+
+  1. This function is not supported by all vehicles.
+
+  2. The sub functions and actual test screens of the BMS may vary for different test
+  vehicles, please follow the on-screen instructions to make correct option selection.
+
+
+
+                                               59
+ The vehicle may use either a sealed lead-acid battery or an AGM (Absorbed Glass Mat)
+ battery. Lead acid battery contains liquid sulphuric acid and can spill when overturned.
+ AGM battery (known as VRLA battery, valve regulated lead acid) also contains sulphuric
+ acid, but the acid is contained in glass mats between terminal plates.
+
+ It is recommended that the replacement aftermarket battery has the same specifications,
+ such as capacity and type, with the battery used in the vehicle. If the original battery is
+ replaced with a different type of battery (e.g. a lead-acid battery is replaced with an AGM
+ battery) or a battery with a different capacity (mAh), the vehicle may require
+ reprogramming the new battery type in addition to performing the battery reset. Consult
+ the vehicle manual for additional vehicle-specific information.
+
+
+7.4 Steering Angle Sensor (SAS)
+ Steering Angle Sensor Calibration permanently stores the current steering wheel position
+ as the straight-ahead position in the steering angle sensor EEPROM. Therefore, the front
+ wheels and the steering wheel must be set exactly to the straight-ahead position before
+ calibration. In addition, the vehicle identification number is also read from the instrument
+ cluster and stored permanently in the steering angle sensor EEPROM. On successful
+ completion of calibration, the steering angle sensor fault memory is automatically cleared.
+
+ Calibration must always be carried out after the following operations:
+
+ ⚫   Steering wheel replacement
+ ⚫   Steering angle sensor replacement
+ ⚫   Any maintenance that involves opening the connector hub from the steering angle
+     sensor to the column
+ ⚫   Any maintenance or repair work on the steering linkage, steering gear or other
+     related mechanism
+ ⚫   Wheel alignment or wheel track adjustment
+ ⚫   Accident repairs where damage to the steering angle sensor or assembly, or any
+     part of the steering system may have occurred
+
+ NOTE
+
+ 1. Autel accepts no responsibility for any accident or injury arising from servicing the
+ SAS system. When interpreting DTCs retrieved from the vehicle, always follow the
+ manufacturer’s recommendation for repair.
+
+ 2. All software screens shown in this manual are examples, actual test screens may
+ vary for each vehicle being tested. Observe the menu titles and on-screen instructions to
+ make correct option selections.
+
+
+
+
+                                             60
+ 3. Before starting the procedure, make sure the vehicle has an ESC button. Look for the
+ button on dash.
+
+
+7.5 Tire Pressure Monitor System (TPMS)
+ This function allows you to quickly look up the tire sensor IDs from the vehicle’s ECU, as
+ well as to perform TPMS replacement and reset procedures after tire sensors are
+ replaced.
+
+
+7.6 IMMO Keys
+ An immobilizer is an anti-theft mechanism that prevents an automobile’s engine from
+ starting unless the correct ignition key or other device is present. This device prevents
+ thieves from starting the car by a method known as hot wiring. Most new vehicles have
+ an immobilizer as standard equipment. An important advantage of this system is that it
+ doesn't require the car owner to activate it. It operates automatically. An immobilizer is
+ considered as providing much more effective anti-theft protection than an audible alarm
+ alone. Many auto insurance companies offer lower rates for vehicles that are equipped
+ with an immobilizer.
+
+ As an anti-theft device, an immobilizer disables one of the systems needed to start a
+ car's engine, usually the fuel supply or the ignition. This is accomplished by radio
+ frequency identification between a transponder in the ignition key and a device called a
+ radio frequency reader in the steering column. When the key is placed in the ignition, the
+ transponder sends a signal with a unique identification code to the reader, which relays
+ it to a receiver in the vehicle's computer control module. If the code is correct, the
+ computer allows the fuel supply and ignition systems to operate and start the car. If the
+ code is incorrect or absent, the computer disables the system, and the car will be unable
+ to start until the correct key is placed in the ignition.
+
+ The IMMO Keys service can disable a lost vehicle key and program the replacement key
+ fob. One or more replacement key fobs can be programmed.
+
+
+
+
+                                            61
+8 Update
+ The Update application allows you to download the latest released software. The updates
+ can improve the MaxiIM applications’ capabilities, typically by adding new tests, new
+ models or enhanced applications to the database.
+
+ The Tablet automatically searches for available updates for all of the MaxiIM software
+ when it is connected to the Internet. Any updates that are found can be downloaded and
+ installed on the device. This section describes installing an update to the MaxiIM System.
+
+
+
+
+                              Figure 8-1 Update Screen
+ 1.   Navigation and Controls
+      ⚫   Home Button — returns the MaxiIM Job Menu.
+      ⚫   Update All — updates all available update packages.
+      ⚫   Show Recent — shows the recent updates.
+      ⚫   IMMO Tab — displays all the available IMMO software for vehicles.
+      ⚫   Diagnostics Tab — displays all the available vehicle diagnostic software.
+      ⚫   Renew Button — displays expire date of the software. Tap on the Renew Button
+          to extend subscription.
+      ⚫   Refresh Button — refreshes the available update list.
+      ⚫   Search Button — search a specific update item by inputting the file name such
+          as a specific vehicle manufacturer.
+
+
+
+
+                                            62
+2.   Status Bar
+     ⚫    Left Side — displays user account, MaxiIM device model information, and serial
+          number.
+     ⚫    Right Side — displays the real-time Internet speed amid downloading.
+3.   Main Section
+     ⚫    Left Column — displays vehicle logos.
+     ⚫    Middle Column — displays a brief introduction about the new changes to the
+          software operation or capabilities. Tap the    button to display an information
+          screen to view more details, and tap the dim area around to close the window.
+     ⚫    Right Column — according to the operation status of each software item, the
+          button displays differently.
+          a)   Tap Update to update the selected item.
+          b)   Tap Pause to suspend the updating procedure.
+          c)   Tap Continue to continue updating the suspended update.
+
+➢    To update the diagnostic software
+
+     1.   Make sure the Tablet is connected to a power source with stable access to the
+          Internet.
+     2.   Tap the Update application button from the MaxiIM Job Menu, or tap the update
+          notification message when received one, or tap the Update icon on Vehicle
+          Menu in Diagnostics application. The Update application screen displays.
+     3.   Check all available updates:
+          ⚫    If you decide to update all the items of IMMO software, select IMMO Tab
+               and then tap the Update All button; if you want to update all items of
+               diagnostics software, select Diagnostics Tab and then tap the Update All
+               button.
+          ⚫    If you only want to update one or some of the item(s), tap the Update button
+               on the right of the specific item(s).
+     4.   Tap the Pause button to suspend the updating process. Tap Continue to
+          resume the update and the process will continue from the pause point.
+     5.   When the updating process is completed, the software will be installed
+          automatically. The new version will replace the older version.
+
+
+
+
+                                            63
+9 Settings
+   Selecting Settings application opens a setup screen, on which you can adjust default
+   settings and view information about the MaxiIM system. There are nine options available
+   for the MaxiIM system settings:
+
+   ⚫    Unit
+   ⚫    Language
+   ⚫    Printing Settings
+   ⚫    Report Settings
+   ⚫    Firmware Upgrade
+   ⚫    Auto Update
+   ⚫    Vehicle List
+   ⚫    System Settings
+   ⚫    About
+
+This section describes the operation procedures for the settings.
+
+
+9.1 Unit
+   This option allows you to adjust the measurement unit for the diagnostics system.
+
+   ➢    To adjust the unit setting
+
+        1.     Tap the Settings application on the MaxiIM Job Menu.
+        2.     Tap the Unit option on the left column.
+        3.     Select the required measurement unit, Metric or English. A check mark will
+               display to the right of the selected unit.
+        4.     Tap the Home button on the top-left corner to return to the MaxiIM Job Menu,
+               or select another setting option for system setup.
+
+
+9.2 Language
+   This option allows you to adjust the display language for the MaxiIM system.
+
+   ➢    To adjust the language setting
+
+        1.     Tap the Settings application on the MaxiIM Job Menu.
+        2.     Tap the Language option on the left column.
+
+                                                64
+       3.   Select the required language. A check mark will display to the right of the
+            selected language.
+       4.   Tap the Home button on the top-left corner to return to the MaxiIM Job Menu,
+            or select another setting option for system setup.
+
+
+9.3 Printing Settings
+  Printing Setting
+
+  This option allows you to print any data or information via a PC.
+
+  ➢   To set up the printer connection
+
+      1.    Tap the Settings application on the MaxiIM Job Menu.
+      2.    Tap the Printing Settings option on the left column.
+      3.    Tap the Print via PC-Link item to activate the printing function, which enables
+            the device to send files to the printer through the PC via Wi-Fi connection.
+      4.    Tap the Home button on the top-left corner to return to the MaxiIM Job Menu.
+            Or select another setting option for system setup.
+  Printing Operations
+
+  ➢   To install the MaxiSys Printer driver program
+
+      1.    Download Maxi PC Suite on www.autel.com > Support > Downloads > Autel
+            Update Tools. Select Maxi PC Suite and click Download here to install the
+            printer to your PC.
+      2.    Double click the setup.exe file.
+      3.    Select the installation language and the wizard will load momentarily.
+      4.    Follow the instructions on the screen and click Next to continue.
+      5.    Click install. The printer driver program will be installed onto the PC.
+      6.    Click Finish to complete the installation.
+
+  NOTE
+
+  The MaxiSys Printer runs automatically after the installation. Before printing, make sure
+  the tablet is connected to the same network with the computer, either via Wi-Fi or LAN.
+  And the computer is connected to a printer.
+
+  ➢   To perform printing via PC
+
+      1.    Run the PC Link on the computer.
+      2.    Click Test Print to make sure the printer is working successfully.
+      3.    Tap the Print button on the toolbar of the Tablet. A test document will be created
+
+
+                                               65
+           and sent to the computer.
+               If the Auto Print option in the MaxiSys Printer is selected, the MaxiSys
+                Printer will print the received document automatically.
+               If the Auto Print option is not selected, click Open PDF File button to view
+                the files. Select the file(s) you want to print and click Print.
+
+
+9.4 Report Settings
+  This option automatically synchronizes the diagnostics information of the vehicle to the
+  vehicle history and forms a diagnostics report for the user to upload. Tap the ON/OFF
+  button to enable/disable the Report Upload to Cloud function. The button appears blue if
+  the function is enabled and is gray if the function is disabled.
+
+  NOTE
+
+  Make sure the tablet is connected to network while uploading reports.
+
+
+9.5 Firmware Upgrade
+  This option allows you to update the firmware of the tool.
+
+  Connect the tablet to the vehicle with the supplied main cable and ensure the tablet is
+  connected to the Internet. Follow the on-screen instructions to complete the operation.
+
+
+
+
+                        Figure 9-1 Firmware Upgrade Screen
+
+
+
+
+                                             66
+  ➢   To upgrade the firmware
+
+      1.   Connect the tablet to the vehicle using the main cable.
+      2.   Tap Settings on the MaxiIM Job Menu.
+      3.   Tap Firmware Upgrade on the left column.
+      4.   Tap the Update Now button to upgrade to the latest firmware version.
+      5.   Tap the Home button on the top-left corner to return to the MaxiIM Job Menu,
+           or select another setting option for system setup.
+
+
+9.6 Auto Update
+  The Auto Update allows the tablet to automatically update the OS, the MaxiIM system,
+  and the vehicle software. You can switch ON by tapping the button on the right side of
+  each item and set the desired automatic update time.
+
+  Tap the ON/OFF button to enable/disable the Auto Update function. The button displays
+  blue if Auto Update is enabled and displays gray if the Auto Update is disabled. Set the
+  time of the day for updating. If the update time is set, the selected software will be
+  automatically updated at configured time.
+
+  NOTE
+
+  Internet connection is necessary for auto update, otherwise, it would not work even if you
+  have already switch it on. Make sure the tablet is connected to the Internet for the time
+  you have set.
+
+
+9.7 Vehicle List
+  This option allows you to sort the vehicles either by alphabetical order or by frequency of
+  use.
+
+  ➢   To adjust the vehicle list setting
+
+      1.   Tap Settings on the MaxiIM Job Menu.
+      2.   Tap Vehicle List on the left column.
+      3.   Select the desired sort type. A check mark will display to the right of the selected
+           item.
+      4.   Tap the Home icon on the top-left corner to return to the MaxiIM Job Menu, or
+           select another setting option for the system setup.
+
+
+
+
+                                              67
+9.8 System Settings
+ This option provides you with a direct access to the Android background system setting
+ screen, where you can adjust various system settings for the Android system platform,
+ such as networks settings, battery, display, etc.
+
+ You may refer to Android documentation for additional information about Android system
+ settings.
+
+
+9.9 About
+ The About option provides information of the MaxiIM tablet regarding the product name,
+ version, hardware, and serial number.
+
+ ➢   To check the MaxiIM product information in About
+
+     1.   Tap the Settings application on the MaxiIM Job Menu.
+     2.   Tap the About option on the left column. The product information displays on
+          the right.
+     3.   Tap the Home button on the top-left corner to return to the MaxiIM Job Menu,
+          or select another setting option for the system setup after viewing.
+
+
+
+
+                                          68
+10 Remote Desktop
+ The Remote Desktop application launches the TeamViewer Quick Support program,
+ which is a simple, fast, and secure remote control screen. You can use the application to
+ receive ad-hoc remote support from Autel’s support center, colleagues, or friends, by
+ allowing them to control your MaxiIM tablet on their PC via the TeamViewer software.
+
+ If you think of a TeamViewer connection as a phone call, the TeamViewer ID would be
+ the phone number under which all TeamViewer Clients can be reached separately.
+ Computers and mobile devices that run TeamViewer are identified by a globally unique
+ ID. The first time the Remote Desktop application is started, this ID is generated
+ automatically based on the hardware characteristics and will not change.
+
+ Make sure the Tablet is connected to the Internet before launching the Remote Desktop
+ application, so that the Tablet is able to receive remote support from a third party.
+
+
+
+
+                        Figure 10-1 Remote Desktop Screen
+
+ ➢   To receive remote support from a partner
+
+     1.   Power on the Tablet.
+     2.   Tap the Remote Desktop application on the MaxiIM Job Menu. The
+          TeamViewer QuickSupport screen displays and the device ID is generated and
+          shown.
+     3.   Your partner must install the Remote Control software to his/her computer by
+          downloading    the      TeamViewer     full    version    program     online
+
+                                            69
+         (http://www.teamviewer.com). Start the software on his/her computer at the
+         same time, in order to provide support and take control of the Tablet remotely.
+    4.   Provide your ID to the partner, and wait for him/her to send you a remote control
+         request.
+    5.   A message displays to ask for your confirmation to allow remote control on your
+         device.
+    6.   Tap Allow to accept, or tap Deny to reject.
+
+Refer to the associated TeamViewer documents for additional information.
+
+
+
+
+                                           70
+11 Data Manager
+ The Data Manager application is used to store, print, and review the saved files. Most
+ operations are controlled through the toolbar.
+
+ The table below briefly describes each of the function buttons in the Data Manager
+ supplication.
+
+
+
+
+                      Figure 11-1 Data Manager Main Screen
+
+
+                       Table 11-1 Buttons in Data Manager
+
+Button    Name                            Description
+
+          Vehicle History                 Reviews the diagnostic history record.
+
+          Workshop Information            Edits the information of workshops.
+
+          Customer                        Creates a new customer account file.
+
+          Image                           Reviews the screenshots.
+
+
+
+
+                                          71
+ Button       Name                              Description
+
+                                                Views the local reports on your tablet or
+              Report                            scan a QR code to view and share the
+                                                reports via your smartphone browser.
+
+              PDF                               Reviews the diagnostic reports.
+
+              Review Data                       Reviews the recorded data.
+
+              Uninstall Apps                    Uninstalls applications.
+
+                                                Reviews the communication data and ECU
+              Data Logging                      information of the vehicle. The saved data
+                                                can be reported and sent to the technical
+                                                center via the Internet.
+
+
+
+
+11.1 Vehicle History
+This function stores records of vehicle history, including vehicle information and the retrieved
+DTCs from previous diagnostic sessions. Test information is summarized and displayed in
+an easy-to-read table listing. The Vehicle History also provides direct access to the
+previously tested vehicle and allows you to directly restart a diagnostic session without
+needing to perform auto or manual vehicle selection.
+
+
+
+
+                       Figure 11-2 Vehicle History (Service) Screen
+
+                                                72
+1.   Top Toolbar Buttons — displays navigation and application controls.
+2.   Main Section — displays all the vehicle history records.
+
+➢    To activate a test session for the recorded vehicle
+
+     1.   Tap Data Manager on the MaxiIM Job Menu.
+     2.   Tap Vehicle History to open the screen. Tap the IMMO, Diagnostics or
+          Service tab to select IMMO test records, diagnostics test records or service test
+          records.
+     3.   Tap the Diagnostics icon at the bottom of the thumbnail of a vehicle record.
+     4.   The Diagnostics screen of the vehicle displays and a new diagnostics session
+          is activated. See Diagnostics for detailed instructions. Or,
+     5.   Select a vehicle thumbnail. A historical test record screen display. Review the
+          recorded information of the vehicle, and tap the Diagnostics button on the
+          upper-right corner to continue functions.
+
+
+11.1.1       Historical Test
+The historical test record is a detailed data form of the tested vehicle, which includes
+general vehicle information, service record, customer information, and the diagnostic
+trouble codes retrieved from the previous test sessions. Technician notes will also display
+if present.
+
+➢    To edit the Historical Test record
+
+     1.   Tap Data Manager on the MaxiIM Job Menu.
+     2.   Tap Vehicle History.
+     3.   Select the specific vehicle history record thumbnail from the main section. The
+          Historical Test screen will display.
+     4.   Tap Edit (a pen icon) to start editing.
+     5.   Tap each item to enter information or attach files or images.
+
+NOTE
+
+The vehicle VIN, license number, and customer account information are correlated by
+default. Vehicle records will automatically be correlated using this vehicle and customer
+identification.
+
+     6.   Tap Add to customer to correlate the historical test record sheet to an existing
+          customer account, or add a new associated account to be correlated with the
+          vehicle record. See Customer for more details.
+     7.   Tap Done to save the updated record, or tap Cancel to exit without saving.
+
+
+
+                                             73
+11.2 Image Files
+  The Image section contains all captured screenshots.
+
+
+
+
+                                Figure 11-3 Image Screen
+  1.   Toolbar Buttons — used to edit, print or delete the image files. See the following
+       table for detailed information.
+  2.   Main Section — displays the stored images.
+                        Table 11-2 Toolbar Buttons in Image
+
+          Button        Name          Description
+
+                        Back          Returns to the previous screen.
+
+                                      Displays the editing toolbar to select,
+                        Edit
+                                      print, delete or email the images.
+
+                                      Closes the editing toolbar or cancels file
+                        Cancel
+                                      search.
+
+                                      Quickly locates the image file by
+                        Search        entering the vehicle name, test path, file
+                                      name or file info.
+
+                        Email         Sends the selected images to an email.
+
+                        Print         Prints the selected image.
+
+
+
+
+                                            74
+           Button       Name          Description
+
+                        Delete        Deletes the selected image.
+
+  ➢   To edit/delete image(s)
+
+      1.   Select Data Manager application from the MaxiIM Job Menu.
+      2.   Select Image to access the image database.
+      3.   Tap Edit (Pen icon) on the top-right corner of the screen. The editing screen
+           displays.
+      4.   Select the image(s) you want to edit.
+      5.   Tap Delete (Garbage icon) to delete the selected images or delete all images.
+           Tap Print to print the selected image(s) or send the selected image(s) to an
+           email.
+
+
+11.3 PDF Files
+  The PDF section stores and displays all PDF files of saved data. After entering the PDF
+  database, select a PDF file to view the stored information.
+
+  This section uses the standard Adobe Reader application for file viewing and editing.
+  Please refer to the associated Adobe Reader manual for more detailed instructions.
+
+
+11.4 Review Data
+  The Review Data section allows you to playback the recorded data frames of live data
+  streams.
+
+  On the Review Data main screen, select a record file to playback. Use the Navigation
+  Toolbar buttons to playback the record data. Tap Back to exit data playback.
+
+
+
+
+                                            75
+                            Figure 11-4 Review Data Screen
+  1.   Main Section — displays the recorded data frames.
+  2.   Navigation Toolbar — allows you to manipulate data playback.
+
+
+11.5 Uninstall Apps
+  This section allows you to manage the software installed on the MaxiIM Diagnostics
+  System. Selecting this section opens a managing screen, on which you can check all the
+  available vehicle diagnostic applications.
+
+  Select the vehicle software you want to delete by tapping on the car brand, the selected
+  item will display a blue check mark at the upper-right corner. Tap the Delete (Garbage
+  icon) button on the top bar to delete the software from the system database.
+
+
+11.6 Data Logging
+  The Data Logging section allows you to launch Support platform directly to view all
+  records of all sent or unsent (saved) data loggings on the diagnostic system. See Data
+  Logging for more details.
+
+
+11.7 Workshop Information
+  The Workshop Information form allows you to input, edit, and save the detailed workshop
+  information, such as shop name, address, phone number, and other remarks, which,
+  when printing vehicle diagnostic reports and other associated test file, will display as the
+  header of the printed documents.
+
+
+                                              76
+                      Figure 11-5 Workshop Information Sheet
+
+ ➢   To edit the Workshop Information sheet
+
+     1.   Tap the Data Manager application on the MaxiIM Job Menu.
+     2.   Select Workshop Information.
+     3.   Tap on each field to input the appropriate information.
+     4.   Tap Back to save the updated workshop information record.
+
+
+11.8 Customer
+ The Customer function allows you to create and edit customer accounts. It helps you to
+ save and organize all customer accounts that are correlated with the associated test
+ vehicle history records.
+
+ ➢   To create a customer account
+
+     1.   Tap the Data Manager application on the MaxiIM Job Menu.
+     2.   Select Customer.
+     3.   Tap the Add a customer button. An empty information form displays and tap
+          each field to input the appropriate information.
+
+ NOTE
+
+ The items that must be filled are indicated as required fields.
+
+     4.   Some customers may have more than one vehicle for service; you can always
+          add new vehicle information to the account. Tap Add new vehicle information,
+
+
+                                             77
+         and then fill in the vehicle information. Tap the   button to cancel.
+    5.   Tap Complete to save the account, or tap Cancel to exit without saving.
+
+➢   To edit a customer account
+
+    1.   Tap the Data Manager application on the MaxiIM Job Menu.
+    2.   Select Customer.
+    3.   Select a customer account by tapping the corresponding name card. A
+         Customer Information record displays.
+    4.   Tap the Edit button on the top toolbar to start editing.
+    5.   Tap on the input field to edit or amend information.
+    6.   Tap Complete to save the updated information, or tap Cancel to exit without
+         saving.
+
+➢   To delete a customer account
+
+    1.   Tap the Data Manager application on the MaxiIM Job Menu.
+    2.   Select Customer.
+    3.   Select a customer account by tapping the corresponding name card. A
+         Customer Information record displays.
+    4.   Tap the Edit button on the top toolbar to start editing.
+    5.   Tap Delete on the top of the screen. A reminder message displays.
+    6.   Tap OK to confirm the command, and the account is deleted. Tap Cancel to
+         cancel the request.
+
+
+
+
+                                            78
+11.9 Report
+ This section stores and displays all diagnostic reports. The reports stored in this area will
+ be uploaded automatically when you set ON to the Report upload to Cloud in Report
+ Settings. See Report Settings for further details. Tap one of the reports to view it or save
+ it to the cloud. Select View local reports to open it. Tap Report cloud sharing to share
+ it.
+
+
+
+
+                         Figure 11-6 Report Sharing Screen
+
+ ➢   To share a report
+
+     1.   Tap the Data Manager application on the MaxiIM Job Menu.
+
+     2.   Tap Report to access the “Report List” screen.
+
+     3.   Tap a report record to display the “Record Sharing” dialog box.
+
+     4.   Tap Report Cloud Sharing.
+
+     5.   Scan the QR code or tap Send Email or Send SMS to share the report.
+
+
+
+
+                                              79
+12 MaxiViewer
+ The MaxiViewer application allows you to search the functions supported by our tools
+ and the version information. There are two ways of searching, either by searching the
+ product and the vehicle or searching the functions.
+
+ ➢ To search by the vehicle
+     1.   Tap the MaxiViewer application on the MaxiIM Job Menu. The Function Viewer
+          screen displays.
+     2.   Select a product in the Product type drop-down list.
+     3.   Select vehicle brand, model, and year.
+     4.   All the vehicle functions supported by the product are displayed with vehicle’s
+          system, type, function, sub-function, and version.
+
+ ➢ To search by functions
+     1.   Tap MaxiViewer on the MaxiIM Job Menu. The Function Viewer screen
+          displays.
+     2.   Select a product in the Product type drop-down list.
+     3.   Tap the Search icon. Enter the desired function in the search box. The screen
+          will display all the vehicles that support this function, along with information such
+          as the vehicle’s year, system, capacity, type, function, sub-function, and version.
+
+ NOTE
+
+ Fuzzy search is supported.
+
+
+
+
+                                             80
+13 Support
+  This application launches the Support platform which synchronizes Autel’s on-line
+  service base station with the tablet. In order to synchronize the device to your on-line
+  account, you need to register the product through the Internet when you use it for the
+  first time. The Support application is connected to Autel’s service channel and on-line
+  communities, which provides the quickest way for problem solutions, allowing you to
+  submit complaints or send help requests to obtain direct services and supports.
+
+
+13.1 Product Registration
+  In order to get access to the Support platform and obtain update and other services from
+  Autel, you are required to register the MaxiIM IM508S the first time you use it.
+
+  ➢   To register the MaxiIM IM508S
+
+      1.   Visit http://pro.autel.com.
+      2.   Click Register to create your Autel ID.
+      3.   If you already have an Autel ID, log in and skip to Step 11.
+      4.   Enter your personal information. Fields marked with an asterisk (*) are
+           mandatory.
+      5.   Enter your email address, then click Request.
+      6.   You will receive an email from Autel with your verification code. Open the email
+           and copy the code into the proper input box.
+      7.   Set a password for your account, and enter the password again to confirm.
+      8.   Read the Autel User Service Agreement and Autel Privacy Policy, then
+           check the box to accept the terms.
+      9.   After all the information is entered, click Register.
+      10. Once your account is successfully registered, you will be redirected to the
+          Product Registration screen. If not, click the button on the screen.
+      11. Your product serial number and password are required to complete your
+          registration. To find your serial number and password on the tablet: go to
+          Settings＞About.
+      12. Enter your tablet’s serial number and password.
+      13. Enter the CAPTCHA code as shown.
+      14. Click Submit to complete your product registration.
+
+
+
+                                              81
+13.2 Support Screen Layout
+  The main section of the Support screen is divided into two sections. The narrow column
+  on the left is the main menu; selecting one subject from the main menu displays the
+  corresponding function interface on the right.
+
+
+
+
+                            Figure 13-1 Support Screen
+
+
+  13.2.1      My Account
+  The My Account screen displays the comprehensive information of the user and the
+  device.
+
+  ⚫   User information — displays detailed information of your registered on-line Autel
+      account, such as your Autel ID, real name, country/district, town/city,
+      company/institute, address, and post code.
+  ⚫   Device information — displays the registered product information, including the
+      product serial number, registration time, expired time, and warranty period.
+
+
+  13.2.2      Data Logging
+  The Data Logging screen keeps records of all Feedback (submitted), No feedback
+  (saved) or History (up to the latest 20 test records) data loggings on the diagnostics
+  system. The support personnel receive and process the submitted reports through the
+  Support platform, and send back problem solutions within 48 hours to the corresponding
+  Data Logging session, on which you can have a direct conversation with the support
+  personnel.
+
+
+
+                                           82
+                         Figure 13-2 Data Logging Screen
+
+➢   To make a reply in a Data Logging session
+
+    1.   Tap Feedback to view a list of submitted data loggings.
+    2.   Select a specific item to view the latest update of the processing progress.
+    3.   Tap the text field at the bottom of the screen, and enter the texts, or tap the
+         Audio button to record a voice message, or Camera button to take a picture.
+    4.   Tap Send to deliver your message to the technical center.
+
+
+13.2.3      Training
+The Training section provides quick links to Autel’s online video accounts. Select a video
+channel by the language to see all the available online tutorial videos from Autel for
+various technical supports, such as product usage techniques and vehicle diagnostics
+practice, etc.
+
+
+13.2.4      FAQ
+The FAQ tab provides you the comprehensive and abundant references for all kinds of
+questions frequently asked and answered about the use of Autel’s online member
+account, shopping, and payment procedures.
+
+⚫   Account — displays questions and answers about the use of Autel’s online user
+    account.
+⚫   Shopping & Payment — displays questions and answers about online product
+    purchase and payment methods or procedures.
+
+
+
+
+                                           83
+14 Quick Link
+ The Quick Link application provides you with convenient access to Autel’s official website
+ and many other well-known sites in automotive service, which offer you abundant
+ information and resources, such as technical help, knowledge base, forums, training, and
+ expertise consultations.
+
+
+
+
+                           Figure 14-1 Quick Link Screen
+
+ ➢   To access a quick link
+
+      1. Tap Quick Link on the MaxiIM Job Menu. The Quick Link screen displays.
+      2. Select a website thumbnail from the main section. The browser is launched and
+         the selected website is opened.
+      3. Now you can start exploring the website.
+
+
+
+
+                                            84
+15 Maintenance and Service
+15.1 Maintenance Instructions
+  The following shows how to maintain your devices, together with precautions to take.
+
+  ⚫   Use a soft cloth and alcohol or a mild window cleaner to clean the touch screen of
+      the tablet.
+  ⚫   Do not use any abrasive cleansers, detergent, or automotive chemicals to the tablet.
+  ⚫   Maintain the devices in dry conditions and keep them within normal operating
+      temperatures.
+  ⚫   Dry your hands before using the tablet. The touch screen of the tablet may not work
+      if the touch screen is moist, or if you tap the touch screen with wet hands.
+  ⚫   Do not store the devices in humid, dusty or dirty areas.
+  ⚫   Check the housing, wiring, and connectors for dirt and damage before and after each
+      use.
+  ⚫   At the end of each work day, wipe the device housing, wiring, and connectors clean
+      with a damp cloth.
+  ⚫   Do not attempt to disassemble your tablet or the VCI unit.
+  ⚫   Do not drop or cause severe impact to the devices.
+  ⚫   Use only authorized battery chargers and accessories. Any malfunction or damage
+      caused by the use of unauthorized battery charger and accessories will void the
+      limited product warranty.
+  ⚫   Ensure that the battery charger does not come in contact with conductive objects.
+  ⚫   Do not use the tablet beside microwave ovens, cordless phones and some medical
+      or scientific instruments to prevent signal interference.
+
+
+15.2 Troubleshooting Checklist
+  A. When the Tablet does not work properly:
+  ⚫   Make sure the tablet has been registered online.
+  ⚫   Make sure the system software and diagnostic application software are properly
+      updated.
+  ⚫   Make sure the tablet is connected to the Internet.
+  ⚫   Check all cables, connections, and indicators to see if the signal is being received.
+
+
+
+
+                                             85
+ B. When battery life is shorter than usual:
+ ⚫   This may happen when you are in an area with low signal strength. Turn off your
+     device if is not in use.
+ C. When you cannot turn on the tablet:
+ ⚫   Make sure the tablet is connected to a power source or the battery is charged.
+ D. When you are unable to charge the tablet:
+ ⚫   Your charger maybe out of order. Contact your nearest dealer.
+ ⚫   You may be attempting to use the device in an overly hot/cold temperature. Charge
+     the device in a cooler or warmer area.
+ ⚫   Your device may have not been connected to the charger properly. Check the
+     connector.
+
+ NOTE
+
+ If the problems persist, please contact Autel’s technical support personnel or your local
+ selling agent.
+
+
+15.3 About Battery Usage
+ Your tablet is powered by a built-in Lithium-ion Polymer battery. This means that, unlike
+ other forms of battery technology, you can recharge your battery while some charge
+ remains without reducing your tablet’s autonomy due to the “battery memory effect”
+ inherent in those technologies.
+
+ DANGER
+
+ The built-in Lithium-ion Polymer battery is factory replaceable only; incorrect replacement
+ or tampering with the battery pack may cause an explosion.
+ Do not use a damaged battery charger.
+
+ ⚫   Do not disassemble or open crush, bend or deform, puncture or shred.
+ ⚫   Do not modify or remanufacture, attempt to insert foreign objects into the battery,
+     expose to fire, explosion or another hazard.
+ ⚫   Use only the included charger and USB cables. Failure to use Autel-authorized
+     charger and/or USB cables may result in device malfunction or failure.
+ ⚫   Use of an unqualified battery or charger may present a risk of fire, explosion, leakage,
+     or another hazard.
+ ⚫   Avoid dropping the tablet. If the tablet is dropped, especially on a hard surface, and
+     the user suspects damage, take it to a service center for inspection.
+ ⚫   The closer you are to your network’s wireless router, the longer your tablet usage
+     time because less battery power is consumed for the connection.
+
+
+                                             86
+⚫   The battery recharging time varies depending on the remaining battery capacity.
+⚫   Battery life inevitably shortens over time.
+⚫   Since overcharging may shorten battery life, remove the tablet from its charger once
+    it is fully charged. Unplug the charger, once charging is complete.
+⚫   Leaving the tablet in hot or cold places, especially inside a car in summer or winter,
+    may reduce the capacity and life of the battery. Always keep the battery within normal
+    temperatures.
+
+
+
+
+                                            87
+16 Compliance Information
+ FCC Compliance                                                FCC ID: WQ8-MX808S2151
+
+ This device complies with Part 15 of the FCC rules and Industry Canada’s license-
+ exempt RSSs. Operation is subject to the following two conditions:
+
+ 1. This device may not cause harmful interference.
+ 2. This device must accept any interference received, including interference that may
+      cause undesired operation.
+
+ Cet appareil est conforme aux CNR exempts de licence d’Industrie Canada. Son
+ fonctionnement est soumis aux deux conditions suivantes:
+
+ 1.   Ce dispositif ne peut causer des interferences; et
+ 2.   Ce dispositif doit accepter toute interférence, y compris les interférences qui peuvent
+      causer un mauvais fonctionnement de l’appareil.
+
+ WARNING
+
+ Changes or modifications not expressly approved by the party responsible for
+ compliance could void the user’s authority to operate the equipment.
+
+ NOTE
+
+ This equipment has been tested and found to comply with the limits for a Class B digital
+ device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide
+ reasonable protection against harmful interference in a residential installation.
+
+ This equipment generates uses and can radiate radio frequency energy and, if not
+ installed and used in accordance with the instructions, may cause harmful interference
+ to radio communications. However, there is no guarantee that interference will not occur
+ in a particular installation. If this equipment does cause harmful interference to radio or
+ television reception, which can be determined by turning the equipment off and on, the
+ user is encouraged to try to correct the interference by one or more of the following
+ measures:
+
+ -- Reorient or relocate the receiving antenna.
+ -- Increase the separation between the equipment and receiver.
+ -- Connect the equipment into an outlet on a circuit different from that to which the
+ receiver is connected.
+ -- Consult the dealer or an experienced radio/TV technician for help.
+
+
+                                             88
+Changes or modifications not expressly approved by the party responsible for compliance
+could void the user’s authority to operate the equipment.
+
+SAR
+
+The radiated output power of this device is below the FCC radio frequency exposure limits.
+Nevertheless, the device should be used in such a manner that the potential for human
+contact is minimized during normal operation.
+
+The exposure standard for wireless devices employs a unit of measurement known as the
+Specific Absorption Rate, or SAR. The SAR limit set by the FCC is 1.6 W/Kg. Tests for
+SAR are conducted using standard operating positions accepted by the FCC with the
+device transmitting at its highest certified power level in all tested frequency bands.
+
+Although the SAR is determined at the highest certified power level, the actual SAR level
+of the device while operating can be well below the maximum value. This is because the
+device is designed to operate at multiple power levels so as to use only the power required
+to reach the network. To avoid the possibility of exceeding the FCC radio frequency
+exposure limits, human proximity to antenna should be minimized.
+
+RF WARNING STATEMENT
+
+The device has been evaluated to meet general RF exposure requirement. The device
+can be used in portable exposure condition without restriction.
+
+The term “IC” before the radio certification number only signifies that IC technical
+specifications were met.
+
+RoHS COMPLIANCE
+
+This device is declared to be in compliance with the European RoHS Directive
+2011/65/EU.
+
+CE COMPLIANCE
+
+This product is declared to conform to the essential requirements of the following
+Directives and carries the CE mark accordingly:
+
+Radio Equipment Directive 2014/53/EU
+
+
+
+
+                                            89
+17 Warranty
+ Limited One Year Warranty
+ Autel Intelligent Technology Corp., Ltd. (the Company) warrants to the original retail
+ purchaser of this MaxiIM Diagnostic Device, that should this product or any part thereof
+ during normal consumer usage and conditions, be proven defective in material or
+ workmanship that results in product failure within one (1) year period from the date of
+ purchase, such defect(s) will be repaired, or replaced (with new or rebuilt parts) with
+ Proof of Purchase, at the Company’s option, without charge for parts or labor directly
+ related to the defect(s).
+
+ NOTE
+
+ If the warranty period is inconsistent with local laws and regulations, please comply with
+ the relevant local laws and regulations.
+
+ The Company shall not be liable for any incidental or consequential damages arising
+ from the use, misuse, or mounting of the device. Some states do not allow limitation on
+ how long an implied warranty lasts, so the above limitations may not apply to you.
+
+ This warranty does not apply to:
+ a)   Products subjected to abnormal use or conditions, accident, mishandling, neglect,
+      unauthorized alteration, misuse, improper installation or repair or improper storage;
+ b)   Products whose mechanical serial number or electronic serial number has been
+      removed, altered or defaced;
+ c)   Damage from exposure to excessive temperatures or extreme environmental
+      conditions;
+ d)   Damage resulting from connection to, or use of any accessory or other product not
+      approved or authorized by the Company;
+ e)   Defects in appearance, cosmetic, decorative or structural items such as framing and
+      non-operative parts.
+ f)   Products damaged from external causes such as fire, dirt, sand, battery leakage,
+      blown fuse, theft or improper usage of any electrical source.
+
+ IMPORTANT
+
+ All contents of the product may be deleted during the process of repair. You should create
+ a back-up copy of any contents of your product before any repair services.
+
+
+
+                                            90
+

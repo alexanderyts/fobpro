@@ -1,0 +1,2302 @@
+Trademarks
+Autel®, MaxiIM®, MaxiCOM®, MaxiDAS®, MaxiScan®, MaxiTPMS®,
+MaxiRecorder®, and MaxiCheck® are trademarks of Autel Intelligent Technology
+Corp., Ltd., registered in China, the United States and other countries. All other
+marks are trademarks or registered trademarks of their respective holders.
+
+
+Copyright Information
+No part of this manual may be reproduced, stored in a retrieval system or
+transmitted, in any form or by any means, electronic, mechanical, photocopying,
+recording, or otherwise without the prior written permission of Autel.
+
+
+Disclaimer of Warranties and Limitation of Liabilities
+All information, specifications and illustrations in this manual are based on the
+latest information available at the time of printing. Autel reserves the right to make
+changes at any time without notice. While information of this manual has been
+carefully checked for accuracy, no guarantee is given for the completeness and
+correctness of the contents, including but not limited to the product specifications,
+functions, and illustrations.
+
+Autel will not be liable for any direct damages or for any special, incidental, or
+indirect damages or for any economic consequential damages (including the loss
+of profits).
+
+IMPORTANT: Before operating or maintaining this unit, please read this manual
+carefully, paying extra attention to the safety warnings and precautions.
+
+
+For Services and Support:
+      pro.autel.com
+      www.autel.com
+      1-855-288-3587 (North America)
+      +86 (0755) 8614-7779 (China)
+      support@autel.com
+For technical assistance in all other markets, please refer to Technical Support
+in this manual.
+
+                                            i
+Safety Information
+For your own safety and the safety of others, and to prevent damage to the device
+and vehicles upon which it is used, it is important that the safety instructions
+presented throughout this manual be read and understood by all persons
+operating or coming into contact with the device.
+
+There are various procedures, techniques, tools, and parts for servicing vehicles,
+as well as in the skill of the person doing the work. Because of the vast number
+of test applications and variations in the products that can be tested with this
+equipment, we cannot possibly anticipate or provide advice or safety messages
+to cover every circumstance. It is the automotive technician’s responsibility to be
+knowledgeable of the system being tested. It is crucial to use proper service
+methods and test procedures. It is essential to perform tests in an appropriate
+and acceptable manner that does not endanger your safety, the safety of others
+in the work area, the device being used, or the vehicle being tested.
+
+Before using the device, always refer to and follow the safety messages and
+applicable test procedures provided by the manufacturer of the vehicle or
+equipment being tested. Use the device only as described in this manual. Read,
+understand, and follow all safety messages and instructions in this manual.
+
+Safety Messages
+Safety messages are provided to help prevent personal injury and equipment
+damage. All safety messages are introduced by a signal word indicating the
+hazard level.
+
+       DANGER: Indicates an imminently hazardous situation which, if not
+       avoided, will result in death or serious injury to the operator or to
+       bystanders.
+
+       WARNING: Indicates a potentially hazardous situation which, if not
+       avoided, could result in death or serious injury to the operator or to
+       bystanders.
+
+
+
+
+                                          ii
+Safety Instructions
+The safety messages herein cover situations Autel is aware of. Autel cannot know,
+evaluate or advise you as to all of the possible hazards. You must be certain that
+any condition or service procedure encountered does not jeopardize your
+personal safety.
+
+      DANGER: When an engine is operating, keep the service area WELL
+      VENTILATED or attach a building exhaust removal system to the engine
+      exhaust system. Engines produce carbon monoxide, an odorless,
+      poisonous gas that causes slower reaction time and can lead to serious
+      personal injury or loss of life.
+      Do Not Turn the Volume Up Too Loud When Using Headphones
+      Listening at high volumes that over-stimulate the ear for long periods of
+      time may result in loss of hearing.
+
+      SAFETY WARNINGS:
+
+      ⚫      Always perform automotive testing in a safe environment.
+
+      ⚫      Wear safety eye protection that meets ANSI standards.
+
+      ⚫      Keep clothing, hair, hands, tools, test equipment, etc., away from all
+             moving or hot engine parts.
+
+      ⚫      Operate the vehicle in a well-ventilated work area.
+
+      ⚫      Put the transmission in PARK (for automatic transmission) or
+             NEUTRAL (for manual transmission) and make sure the parking
+             brake is engaged.
+
+      ⚫      Put blocks in front of the drive wheels and never leave the vehicle
+             unattended while testing.
+
+      ⚫      Be extra cautious when working around the ignition coil, distributor
+             cap, ignition wires and spark plugs. These components create
+             hazardous voltages when the engine is running.
+
+      ⚫      Keep a fire extinguisher suitable for gasoline, chemical, and
+             electrical fires nearby.
+
+      ⚫      Do not connect or disconnect any test equipment while the ignition
+             is on or the engine is running.
+
+
+                                          iii
+⚫   Keep the test equipment dry, clean, and free from oil, water, and
+    grease. Use a mild detergent on a clean cloth to clean the outside
+    of the equipment as necessary.
+
+⚫   Do not drive the vehicle and operate the test equipment at the same
+    time. Any distraction may cause an accident.
+
+⚫   Refer to the service manual for the vehicle being serviced and
+    adhere to all diagnostic procedures and precautions. Failure to do
+    so may result in personal injury or damage to the test equipment.
+
+⚫   To avoid damaging the test equipment or generating false data,
+    make sure the vehicle battery is fully charged and the connection
+    to the vehicle DLC is clean and secure.
+
+⚫   Do not place the test equipment on the distributor of the vehicle.
+    Strong electro-magnetic interference can damage the equipment.
+
+⚫   Do not place the device in a strong electromagnetic environment
+    for strong electromagnetic interference may damage the device.
+
+
+
+
+                               iv
+                                            CONTENTS
+Safety Information ...............................................................................................ii
+
+1.     Using This Manual ........................................................................................1
+
+      1.1 Conventions .............................................................................................1
+
+2.     General Introduction ....................................................................................3
+
+      2.1 MaxiIM KM100.........................................................................................3
+
+      2.2 MaxiVCI V200 — Vehicle Communication Interface .....................................6
+
+3.     Getting Started ............................................................................................8
+
+      3.1 Powering Up ............................................................................................8
+
+      3.2 Powering Down ......................................................................................12
+
+4.     Universal Key ............................................................................................. 13
+
+      4.1 Confirm Vehicle Information....................................................................13
+
+      4.2 Operation .............................................................................................. 16
+
+5.     Reading/Cloning ........................................................................................17
+
+      5.1 Transponder Reading ..............................................................................17
+
+      5.2 Transponder Cloning ...............................................................................18
+
+      5.3 Transponder Editing ...............................................................................20
+
+6.     Transponder Function ................................................................................22
+
+      6.1 Transponder Generation .........................................................................22
+
+      6.2 Transponder Simulation ..........................................................................24
+
+      6.3 Frequency Detection...............................................................................26
+
+7.     IMMO .......................................................................................................27
+
+      8.1 Getting Started.......................................................................................27
+
+                                                            v
+      8.2 Vehicle Identification ..............................................................................28
+
+      8.3 IMMO Screen Layout ..............................................................................30
+
+      8.4 Screen Messages ....................................................................................31
+
+      8.5 Making Selections...................................................................................32
+
+      8.6 IMMO ...................................................................................................32
+
+8.     Special Functions .......................................................................................40
+
+      9.1 IMMO Data Processing............................................................................40
+
+      9.2 Key Unlocking ........................................................................................43
+
+      9.4 Universal Key Information Detection ........................................................45
+
+      9.5 Button Customization .............................................................................45
+
+      Ignition Coil Detection ..................................................................................47
+
+9.     Settings .....................................................................................................49
+
+      10.1 Market ................................................................................................ 49
+
+      10.2 Feedback ............................................................................................. 49
+
+      10.3 VCI Manager ........................................................................................50
+
+      10.4 System Settings ....................................................................................53
+
+      10.5 Units ...................................................................................................53
+
+      10.6 About ..................................................................................................54
+
+10.    Updates.....................................................................................................55
+
+11.    Data Manager ............................................................................................ 57
+
+      12.1 Test Records ........................................................................................57
+
+      12.2 Workshop Information ..........................................................................58
+
+      12.3 Image ..................................................................................................59
+
+      12.4 PDF .....................................................................................................60
+
+                                                            vi
+      12.5 Uninstall Apps ......................................................................................60
+
+      12.6 Data Logging ........................................................................................60
+
+12.    Remote Desktop ........................................................................................62
+
+13.    Tool Registration ........................................................................................64
+
+14.    Academy ...................................................................................................65
+
+15.    Maintenance and Service............................................................................66
+
+      16.1 Maintenance Instructions ......................................................................66
+
+      16.2 Troubleshooting Checklist .....................................................................67
+
+      16.3 About Battery Usage .............................................................................67
+
+      16.4 Service Procedures ...............................................................................68
+
+16.    Compliance Information .............................................................................72
+
+17.    Warranty ...................................................................................................74
+
+      18.1 Limited One-Year Warranty ...................................................................74
+
+
+
+
+                                                           vii
+1. Using This Manual
+This manual contains device usage instructions.
+
+Some illustrations shown in this manual may contain modules and optional
+equipment that are not included in your system. Contact your sales
+representative for availability of other modules and optional tools or accessories.
+
+
+1.1 Conventions
+The following conventions are used.
+
+
+1.1.1 Bold Text
+Bold text is used to highlight selectable items such as buttons and menu options.
+Example:
+⚫    Tap OK.
+
+1.1.2 Notes
+A NOTE provides helpful information such as additional explanations, tips, and
+comments.
+
+1.1.3 Important
+IMPORTANT indicates a situation which, if not avoided, may result in damage to
+the test equipment or vehicle.
+
+
+1.1.4 Hyperlinks
+Hyperlinks or links that take you to other related articles, procedures, and
+illustrations are available in electronic documents. Blue italic colored text
+indicates a selectable hyperlink.
+
+
+
+
+                                          1
+1.1.5 Procedures
+An arrow icon indicates a procedure.
+   ➢    To power down the tool
+
+              Press and hold the Power/Lock button.
+
+              Tap Power off.
+
+              Tap OK. The tool will turn off in a few seconds.
+
+
+
+
+                                         2
+2. General Introduction
+The MaxiIM KM100 is a professional intelligent key tool that integrates such
+functions as universal key generation, transponder reading/cloning, and IMMO
+learning in a compact and easy-to-use design. Equipped with the MaxiVCI V200
+vehicle communication interface device, this professional key tool easily offers
+you one-stop service from universal key generation to key learning. It is
+undoubtedly an ideal choice for professional locksmiths.
+
+
+2.1 MaxiIM KM100
+
+2.1.1 Product Overview
+
+
+
+
+                     Figure 2-1 KM100 Front/Back View
+1.   5.5-inch Touchscreen
+2.   Ambient Light Sensor — detects ambient brightness
+3.   Status LED
+4.   Low Frequency Detection Collector — collects low frequency data
+5.   Transponder Slot — reads and writes transponder
+
+
+
+                                         3
+6.   Vehicle Key Slot —       reads key information and measures remote
+     frequency
+7.   Rear Camera
+8.   Camera Flash
+
+
+
+
+                    Figure 2-2 KM100 Side/Bottom View
+
+
+9.   Power/Lock Button — press and hold to turn on/off the tool, or tap to lock
+     the screen
+10. Type-C USB Port (also an OTG port)
+11. SD Card Slot
+12. Mini USB Port
+13. Microphone
+
+
+2.1.2 Power Sources
+The key tool can receive power from the following sources:
+⚫    Internal battery pack
+⚫    AC/DC power supply
+
+
+                                        4
+IMPORTANT
+Do not charge the battery when the temperature is below 0 °C (32 °F) or above
+45 °C (113 °F).
+
+Internal Battery Pack
+
+The key tool can be powered by the internal rechargeable battery.
+
+AC/DC Power Supply — Using the Power Adapter
+
+The key tool can be powered from an electrical outlet using the AC/DC power
+adapter. The AC/DC power supply also charges the internal battery pack.
+
+
+2.1.3 Technical Specifications
+ Item                     Description
+
+ Display                  5.5-inch touchscreen with 1280 x 720P resolution
+
+ Operation System         Android™ 9.0
+
+ Processor                Rockchip PX30 4 x ARM Cortex-A35 (1.5 GHz)
+
+ Memory                   2 GB RAM + 64 GB Flash
+
+                          ⚫    Wi-Fi
+ Connectivity             ⚫    Bluetooth
+                          ⚫    USB 2.0, Type-C
+
+ Sensor                   Ambient light sensor
+
+ Audio Output             Beep
+
+ Internal Battery         3.85 V/4950 mAh lithium-polymer battery
+
+ Power Input              5 V/2 A
+
+ Operating Temp.          0 to 50 °C (32 to 122 °F)
+
+ Storage Temp.            -10 to 60 °C (14 to 140 °F)
+
+ Dimension (L x W x H)    200 x 89 x 22 mm
+
+ Weight                   352.7 g (0.78 lb.)
+
+
+                                         5
+2.2 MaxiVCI V200 — Vehicle Communication
+Interface
+
+2.2.1 Product Overview
+
+
+
+
+                         Figure 2-3 MaxiVCI V200 Views
+1.   Flashlight Button
+2.   Power LED
+3.   Vehicle/Connection LED
+4.   Vehicle Data Connector (16-pin)
+5.   USB Port
+                         Table 2-1 VCI LED Description
+
+ LED             Color             Description
+                                   The VCI is powered on and performing
+                 Yellow
+                                   self-check.
+ Power LED       Green             The VCI is ready for use.
+
+                 Flashing Red      The firmware is upgrading.
+
+                                   Solid Green: The VCI is connected via
+                                   USB cable.
+                 Green
+                                   Flashing Green: The VCI is
+ Vehicle/                          communicating via USB cable.
+ Connection
+ LED                               Solid Blue: The VCI is connected via
+                                   Bluetooth.
+                 Blue
+                                   Flashing Blue: The VCI is
+                                   communicating via Bluetooth.
+
+
+                                        6
+2.2.2 Power Sources
+The MaxiVCI V200 can receive power from the following sources:
+⚫    Vehicle power
+⚫    AC/DC power supply
+
+Vehicle Power
+
+The VCI device operates on 12 or 24 V vehicle power, which receives power via
+the vehicle data connection port. The device powers on whenever it is connected
+to an OBDII/EOBD compliant data link connector (DLC).
+
+AC/DC Power Supply — Using Power Adapter
+
+The VCI device can be powered from an electrical outlet using the AC/DC power
+adapter.
+
+
+2.2.3 Technical Specifications
+
+ Item                      Description
+
+                           BLE + EDR
+ Communications
+                           Type-C USB
+
+ Wireless Frequency        2.4 GHz
+
+ Input Voltage Range       8 V to 30 V DC
+
+ Supply Current            150 mA @ 12 V DC
+
+ Operating Temp.           0 to 50 °C (32 to 122 °F)
+
+ Storage Temp.             -20 to 60 °C (-4 to 140 °F)
+
+ Dimensions (L x W x H)    89.89 x 46.78 x 21 mm
+
+ Weight                    70.7 g (0.156 lb.)
+
+ Built-in Battery          3.7 V Lithium Battery
+
+ Light                     White LED
+
+
+                                         7
+3. Getting Started
+Ensure the key tool is sufficiently charged or is connected to a power outlet.
+
+NOTE
+The images and illustrations depicted in this manual may differ from the ones in
+your tool.
+
+
+3.1 Powering Up
+Press and hold the Power/Lock button on the right side of the tool to power up.
+The system will boot up and display the Job Menu.
+
+
+
+
+                           Figure 3-1 KM100 Job Menu
+1.   Status Bar
+2.   Application Buttons
+3.   Page Indicator
+
+
+
+                                          8
+3.1.1 Application Buttons
+Descriptions of the application buttons are displayed below (Table 3-1).
+                            Table 3-1 Applications
+
+ Button       Name                       Description
+
+                                         Programs the Autel universal keys.
+              Universal Key
+                                         See Universal Key.
+
+                                         Reads and clones the transponder
+              Reading/Cloning
+                                         information. See Reading/Cloning.
+                                         Performs transponder generation and
+                                         simulation and conversion between
+              Transponder Function
+                                         ID63 and ID83.
+                                         See Transponder Function.
+                                         Detects the frequency of the smart
+              Frequency Detection
+                                         keys. See Frequency Detection.
+
+                                         Launches the IMMO function.
+              IMMO
+                                         See IMMO.
+
+                                         Accesses the Special Functions
+              Special Functions
+                                         menu. See Special Functions.
+                                         Allows you to set the MaxiIM system
+                                         settings, and to view the general
+              Settings
+                                         information of the tool.
+                                         See Settings.
+                                         Checks for the latest update available
+                                         for the MaxiIM system, and performs
+              Updates
+                                         updating procedures.
+                                         See Updates.
+
+
+
+                                         9
+ Button        Name                    Description
+
+                                       Accesses the organization system for
+               Data Manager            saved data files.
+                                       See Data Manager.
+                                       Configures your unit to receive
+                                       remote support using the
+               Remote Desktop
+                                       TeamViewer application program.
+                                       See Remote Desktop.
+                                       Accesses technical tutorials and
+                                       training articles about the device or
+               Academy
+                                       vehicle diagnostic techniques.
+                                       See Academy.
+                                       Accesses multiple useful tools such
+               MaxiTools
+                                       as quick link and log collection.
+
+
+3.1.2 Page Indicator and System Status Bar
+Descriptions of icons on the status bar and page indicator are displayed below
+(Table 3-2).
+           Table 3-2 Page Indicator and System Status Bar Icons
+ Icon          Name             Description
+                                Indicates the position of the current page
+                                when multiple pages are available. The user
+               Page Indicator
+                                swipes the screen left or right to view the
+                                previous or next page.
+               Voltage          Indicates the current voltage value.
+
+                                A Green check mark at the top right corner
+               VCI Connection   indicates the VCI device is connected, while
+                                a red x indicates there is no connection.
+
+                                       10
+3.1.3 System Status Icons
+By swiping down, a Shortcuts Panel will appear, allowing you to adjust various
+system settings of the tool. The operations of each button on the panel are
+described in the table below (Table 3-3).
+                        Table 3-3 System Status Icons
+
+ Icon     Name                       Description
+
+
+          Bluetooth                  Enables/disables Bluetooth.
+
+
+          Wi-Fi                      Enables/disables Wi-Fi.
+
+          Flashlight                 Turns on/off the flashlight.
+
+          Screenshot                 Takes a screenshot of the current screen.
+
+          Automatic Brightness       Automatically adjusts the brightness.
+
+          Logger                     Accesses the Log Collection screen.
+
+          Restart                    Restarts the tool.
+
+          Camera                     Opens the camera.
+
+          VCI Manager                Launches the VCI Manager screen.
+
+
+
+
+ Screen Brightness Slider —           Slide to manually adjust the screen
+ brightness.
+
+
+
+
+ Volume Slider — Slide to manually adjust the volume.
+
+
+
+
+                                            11
+3.2 Powering Down
+All vehicle communications must be terminated before powering down the tool.
+A warning message appears if you attempt to shut down the tool while the VCI
+unit is communicating with the vehicle. Forcing a power-down while
+communicating may lead to ECM problems on some vehicles. Exit the diagnostic
+function before powering down.
+
+   ➢    To power down the tool
+            Press and hold the Power/Lock button.
+            Tap Power off.
+            Tap OK. The tool will turn off in a few seconds.
+
+
+3.2.1 Reboot System
+In case of a system crash, press and hold the Power/Lock button to power down
+the tool and restart it.
+
+   ➢    To reboot the tool
+              Press and hold the Power/Lock button.
+              Tap Restart.
+              Tap OK. The tool will power off and restart.
+
+
+
+
+                                        12
+4. Universal Key
+The Universal Key function is used to program the Autel universal keys (or smart
+keys) for your desired vehicle model.
+Prior to using the Autel universal key, make sure its battery is correctly installed.
+    ➢    To install the battery
+         1.    Place the key on a flat surface with its front side facing down.
+         2.    Find a small slot on the side of the key. Once you locate it, gently
+               place the flathead screwdriver inside the slot and wedge it until the
+               casing pops out.
+         3.    Gently remove the casing, without scratching it or damaging any
+               interior components.
+         4.    Place the correct battery into the correct position with the positive
+               side of the battery facing up.
+         5.    Place the casing back in place and gently squeeze the two pieces
+               until they seal.
+
+
+4.1 Confirm Vehicle Information
+On the vehicle information screen, choose the region first. The KM100 currently
+supports North American and European regions. (More regions will be available
+soon.) Then you must fill in the vehicle information. There are two ways to fill in
+the information:
+⚫    Manual input
+⚫    AutoVIN
+Manual Input
+After choosing the manufacturer region, select your vehicle make, model, and
+year on the screen. Make sure that the information entered is correct.
+AutoVIN
+To use the AutoVIN function, you must establish vehicle communication first.
+
+
+
+
+                                           13
+➢   To establish vehicle communication
+    1.   Connect the VCI to the vehicle’s OBD Data Link Connector (DLC).
+    2.   Tap the VCI icon on the top-right corner (or in the Shortcut Panel)
+         to enter the VCI Manager menu. The device will automatically
+         enable Bluetooth and start searching for available pairing units.
+         The device name will appear on this menu as “Maxi” suffixed with
+         a serial number.
+    3.   Check the serial number on your VCI label and select the desired
+         device for pairing.
+    4.   When paired successfully, the connection status reads “Paired”
+         and the vehicle/connection LED will light solid blue.
+    5.   The vehicle information will be automatically identified when
+         vehicle communication is established. Confirm the vehicle
+         information. Tap the corresponding field to manually input the
+         correct parameters, if needed.
+
+
+
+
+               Figure 4-1 Vehicle Information Screen 1
+
+
+
+
+                                   14
+                                Table 4-1 Buttons
+
+ Name                Button     Description
+
+ Back                           Tap to return to the previous screen.
+
+                                Tap to exit the current function and return to the
+ Exit
+                                MaxiIM Job Menu.
+
+ Search                         Tap to search for a vehicle.
+
+ Data Logging                   Tap to start or stop data recording.
+
+                                After the VCI is connected to the device
+                                through the vehicle’s OBD Data Link Connector
+ AutoVIN
+                                (DLC), turn on the ignition. The vehicle’s VIN
+                                number will automatically be recognized.
+
+ Scan License                   Tap to scan a license plate.
+
+ Scan VIN                       Tap to scan a VIN number.
+
+
+
+The information pertaining to the key will appear at the bottom of the screen.
+
+
+
+
+                    Figure 4-2 Vehicle Information Screen 2
+
+
+
+                                         15
+4.2 Operation
+     ➢   To generate the universal key
+         1. Acquire or enter the vehicle information and tap the correct key
+              information when displayed to view detailed operation instructions.
+         2. First check that a battery is installed in the universal key, then place
+              the universal key into the key slot of the tool, and tap the Generate
+              Universal Key button to start generation. If the universal key is not
+              placed correctly, a warning message will display reminding you to
+              place the key correctly and keep it stable.
+         3. Keep the universal key stable in its place during key generation.
+              You can tap the IMMO button to directly enter the IMMO function.
+         NOTE
+         Ensure that there is only one universal key within 4 inches (10 cm) of
+         the device’s key slot to avoid signal interference.
+
+
+
+
+                    Figure 4-3 Operation Instructions Screen
+Scroll down the screen to view the following help information:
+1.   If you need to customize button functions, use Button Customization under
+     Special Functions.
+2.   Common causes for failure in universal key generation function are as
+     below: dead battery, universal key incorrectly placed, and environmental
+     interference, etc.
+
+                                          16
+5. Reading/Cloning
+The Reading and Cloning function allows you to read, clone, and edit the
+transponder information.
+
+
+5.1 Transponder Reading
+Transponder reading gives you the access to some basic information pertaining
+to the key, including chip type, IMMO type, transponder ID, locking status, and
+code mode.
+To read the transponder information, place the transponder into the transponder
+slot or put the key into the key slot and tap the Read button. The Transponder
+Information screen will appear.
+
+
+
+
+                  Figure 5-1 Transponder Information Screen
+If a reading fails, a warning message will appear: Place the transponder into the
+key slot and keep it stable. If a reading fails multiple times, try to adjust the
+position and direction of the transponder.
+After being read, the transponder can be cloned and edited.
+
+
+
+                                         17
+                            Table 5-1 Function Buttons
+
+ Button            Description
+
+ Read              Tap to read the basic transponder information.
+
+ Clone             Tap to clone a functional transponder.
+
+ Edit              Tap to read and edit the transponder information.
+
+
+5.2 Transponder Cloning
+You are able to use this function to detect the transponder and vehicle information
+in order to decrypt a code which shall be used to directly clone and generate a
+functional transponder for your vehicle. The whole process saves the trouble of
+using the old OBD approach.
+The KM100 supports various transponder types for cloning and editing. Choose
+the corresponding cloning procedure according to your transponder identification
+number (ID).
+
+
+
+
+                     Figure 5-2 Transponder Cloning Screen
+After selecting the proper transponder ID, the cloning operation instructions will
+appear. There also have voice prompts to remind you of the current operation
+stage. Follow the instructions below to complete cloning:
+
+
+                                          18
+     ➢   To clone a transponder
+         1.   Choose a transponder ID.
+         2.   Place the original key into the key slot.
+         3.   Tap the Start button at the bottom of the screen to start reading
+              and cloning.
+
+
+
+
+              Figure 5-3 Transponder Cloning Instruction Screen
+
+1.   Upper Tool Bar. Refer to Table 4-1 Buttons for detailed description.
+
+2.   IMMO Type
+3.   Process Buttons — display blue when completed, otherwise, they display
+     grey.
+4.   Operation Instructions and Illustration
+5.   Function Button
+
+
+
+
+                                          19
+                           Table 5-2 Function Buttons
+
+   Buttons             Description
+
+   Start               Tap to initiate an operation.
+
+   Cancel              Tap to cancel an operation.
+                       Tap to retry an operation when an operation failure
+   Retry
+                       message pops up.
+   Next                Tap to move to the next step.
+
+   Continue            Tap to proceed to another operation.
+
+If the cloning process is successful, there will be a “cloning completed” message
+displayed on the screen. Tap the Continue button to advance to the next function.
+
+
+
+
+              Figure 5-4 Transponder Cloning Completed Screen
+
+
+5.3 Transponder Editing
+This function helps you read and edit transponder information such as its
+configurations and EEPROM data. Choose an IMMO type (which can be
+accessed by the transponder reading function) and start editing according to your
+needs.
+
+
+                                         20
+                    Figure 5-5 Transponder Editing Screen
+When a writing operation is done successfully, a “writing succeeded” message
+will appear, and you may move to another operation.
+
+
+
+
+                                       21
+6. Transponder Function
+The Transponder Function allows you to perform transponder generation and
+transponder simulation.
+
+
+6.1 Transponder Generation
+With transponder generation, you can generate a transponder accommodating
+different protocols or models using a blank transponder.
+Firstly, choose a vehicle make by one of the following methods:
+⚫    Vehicle Search
+⚫    Transponder Search
+With Vehicle Search, you are able to directly select a vehicle to enter the
+transponder generation screen. Make sure you have selected the correct vehicle
+before generating the transponder.
+
+
+
+
+                       Figure 6-1 Vehicle Search Screen
+With Transponder Search, you need the transponder ID available. After choosing
+a transponder ID, the corresponding vehicle make will appear. Tap the vehicle
+make to enter the Generate Transponder screen.
+
+                                        22
+                    Figure 6-2 Transponder Search Screen
+
+   ➢    To generate a transponder
+         1. Select a vehicle make.
+         2. Place the transponder into the transponder slot.
+         3. Tap the Generate Transponder button to start generating.
+After the transponder is successfully generated, you should have a functional
+transponder.
+
+
+
+
+                  Figure 6-3 Transponder Generation Screen
+
+
+                                       23
+6.2 Transponder Simulation
+The Transponder Simulation function can be used to simulate the KM100 as a
+transponder using a variety of IMMO protocols. This function is particularly useful
+when your vehicle needs emergency start or such.
+   ➢     To perform a transponder simulation
+         1.   Choose a transponder ID. A total of six IDs are available for
+              simulation: ID46, ID47, ID48, ID49, ID4A, and ID8A. Or you can
+              search a transponder ID in the search box.
+
+
+
+
+                   Figure 6-4 Transponder Simulation Screen
+         2.   Enter the parameters of each register. P “x” represents register
+              page x. Tap the Simulate button at the bottom of the screen to
+              start the simulation.
+
+
+
+
+                                          24
+                   Figure 6-5 Entering the Registers Screen
+        3.   After the simulation succeeds, place the low frequency detection
+             collector (or top antenna) no more than 2 inches (5 cm) above the
+             inductive area, and adjust its position until the simulated
+             transponder signal is detected.
+
+
+
+
+                   Figure 6-6 Simulation Successful Screen
+After the simulation is successful, your KM100 can now work as a transponder.
+Tap the Exit button at the bottom of the screen to quit this function.
+
+                                       25
+NOTE
+After exiting this interface, the transponder simulation will become invalid.
+
+
+6.3 Frequency Detection
+The Frequency Detection function supports smart key frequency detection for a
+wide range of vehicle models. The operation instructions and frequency data will
+display on the screen in both text and graph forms.
+     ➢   To detect the frequency of a smart key:
+         1.    Place your smart key near the key slot (no more than 4 inches/10
+               cm).
+         2.    Press any button on your smart key to start detecting its frequency.
+
+
+
+
+                    Figure 6-7 Frequency Detection Screen
+
+1.   Upper toolbar buttons. Refer to Table 4-1 Buttons to see detailed operations.
+2.   Operation illustration and instructions
+3.   Frequency waveform graph
+4.   Frequency mode and frequency
+
+NOTE
+If no frequency is detected for a long period, the function will exit itself.
+
+                                            26
+7. IMMO
+The IMMO application requires a data link to the IMMO electronic control system
+of the test vehicle for diagnosis via OBDII connection. The application retrieves
+vehicle IMMO information and performs IMMO related functions, including Key
+Learning, Remote Control Learning, and Remote Control Add, etc.
+
+
+8.1 Getting Started
+Ensure a communication link is established between the test vehicle and the tool
+via the MaxiVCI V200. Refer to 4.1 Confirm Vehicle Information to check the
+operation of establishing vehicle communication.
+
+
+
+
+                         Figure 7-1 Vehicle Menu Screen
+1.   Top Toolbar Buttons
+2.   Manufacturer List
+
+Top Toolbar Buttons
+
+⚫    VIN Scan — after the VCI is connected to the device through the vehicle’s
+     OBD Data Link Connector (DLC), turn on the ignition. The vehicle’s VIN
+     number will automatically be recognized. Tap this button can also access
+     the Manual VIN Input function.
+
+                                         27
+⚫    Search Bar — displays a virtual keyboard to manually enter the specific
+     vehicle make required.
+
+Manufacturer List
+
+The Manufacturer List displays various vehicle brands. To start a diagnostics
+session, select the proper manufacturer after the VCI device is properly
+connected to the test vehicle.
+
+
+8.2 Vehicle Identification
+The MaxiIM diagnostics system supports four methods for vehicle identification.
+
+⚫    AutoVIN
+⚫    Manual VIN Input
+⚫    Automatic Selection
+⚫    Manual Selection
+
+
+    8.2.1 AutoVIN
+    The MaxiIM diagnostics system features the latest VIN-based AutoVIN
+    function to identify vehicles in just one touch, which allows the technician to
+    quickly detect vehicles, scan all the diagnosable IMMO ECUs on every
+    vehicle and run diagnostics on the selected system.
+
+    ➢    To perform Auto VIN Scan
+
+               Tap the IMMO application from the MaxiIM Job Menu. The
+               Manufacturer List appears.
+               Tap the VIN Scan button on the top toolbar to open a dropdown
+               list.
+               Tap AutoVIN. Once the test vehicle is identified, the vehicle profile
+               will appear on the screen. Confirm the vehicle profile. The tool
+               establishes communication with the vehicle and reads the IMMO
+               control unit information.
+
+
+
+
+                                          28
+                      Figure 7-2 AutoVIN Screen
+
+
+8.2.2 Manual VIN Input
+For vehicles that do not support the AutoVIN function, you can manually enter
+the vehicle VIN.
+
+➢   To perform Manual VIN Input
+          Tap the IMMO application from the MaxiIM Job Menu. The
+          Manufacturer List will appear.
+          Tap the VIN Scan button on the top toolbar.
+          Select Enter VIN Manually.
+          Tap the input box and enter the correct VIN.
+          Tap Done to complete or tap Cancel to exit the manual input.
+
+
+8.2.3 Automatic Selection
+The AutoVIN can be selected after selecting a test vehicle manufacturer.
+➢    To perform Automatic Selection
+     1.   Tap the IMMO application button from the MaxiIM Job Menu. The
+          Manufacturer List will appear.
+
+
+                                     29
+          2.   Tap the manufacturer button of the test vehicle.
+          3.   Select Automatic Selection and the VIN information will be
+               automatically acquired. Follow the on-screen instructions to
+               display the function screen.
+
+
+     8.2.4 Manual Selection
+     When the vehicle’s VIN is not automatically retrievable through the vehicle's
+     ECU, or specific VIN is unknown, you can manually select the vehicle.
+     This mode of vehicle selection is menu driven; you can simply follow the on-
+     screen prompts and make a series of choices. Each selection you make
+     advances you to the next screen. An Esc button at the bottom of the screen
+     will bring you back to the previous step. Exact procedures may vary
+     somewhat by various vehicles being serviced.
+
+
+8.3 IMMO Screen Layout
+The IMMO screens typically include three sections.
+
+
+
+
+                          Figure 7-3 IMMO Screen Layout
+1.    Upper Toolbar Buttons. Refer to Table 4-1 Buttons for detailed descriptions.
+2.    Main Section
+3.    Function Buttons
+
+
+                                          30
+Main Section
+
+The Main Section of the screen varies depending on the stage of operations. The
+Main Section can show vehicle identification selections, the main menu, test data,
+messages, instructions, and other information.
+
+Function Button
+
+The displayed Function Buttons on the screen varies depending on the stage of
+operations. They can be used to navigate, save or clear data, to exit scanning as
+well as make other function controls. The functions of these buttons will be
+introduced respectively in the following sections of the corresponding test
+operations.
+
+
+8.4 Screen Messages
+Screen messages appear when additional input is needed before proceeding.
+There are mainly three types of on-screen messages as to their purposes:
+Confirmation, Warning, and Error.
+
+
+   8.4.1 Confirmation Messages
+   This type of messages usually displays as an “Information” screen, which
+   informs you when you are about to perform an action that cannot be reversed
+   or when an action has been initiated and your confirmation is needed to
+   continue.
+   When a user-response is not required to continue, the message displays
+   briefly before automatically disappearing.
+
+
+   8.4.2 Warning Messages
+   This type of messages informs you when completing the selected action may
+   result in an irreversible change or loss of data. A typical example for this is
+   the “Erase Codes” message
+
+
+
+
+                                         31
+    8.4.3 Error Messages
+    Error messages inform you when a system or procedural error has occurred.
+    Examples of possible errors include a disconnection or communication
+    interruption due to certain reasons.
+
+
+8.5 Making Selections
+The IMMO application is a menu-driven program that presents a series of choices.
+As a selection is made, the next menu in the series displays. Each selection
+narrows the focus and leads to the desired test. Tap the screen to make menu
+selections.
+
+
+8.6 IMMO
+There are mainly four options available when accessing the IMMO section:
+
+⚫    IMMO Status Scan
+⚫    Control Unit
+⚫    Hot Function
+⚫    Vehicle IMMO Information
+
+
+    8.6.1 IMMO Status Scan
+    The IMMO Status Scan function performs a comprehensive scanning over all
+    the systems on the vehicle’s IMMO ECU in order to locate fault systems and
+    retrieve DTCs. The sample operation interface of IMMO Status Scan displays
+    as below.
+
+
+
+
+                                        32
+                        Figure 7-4 IMMO Status Scan
+1.   Navigation Bar
+2.   Main Section
+3.   Function Buttons
+
+Navigation Bar
+
+Two options are available in the Navigation Bar:
+
+⚫    Rescan — tap to rescan the IMMO system for DTCs.
+⚫    Quick Erase DTC — tap to erase the fault codes.
+
+Main Section
+
+Upper Column — displays the scanned systems highlighted by different
+colors. Each color represents varied status, which you can check on the
+screen.
+Lower Column — displays detailed scan results. The left column shows
+scan items, and the right displays the diagnostic marks indicating different
+conditions of the test result.
+
+⚫    -!-: indicates that the scanned system may not support the code reading
+     function, or there is a communication error between the tool and the
+     control system.
+
+
+                                    33
+⚫    -?-: indicates that the vehicle control system has been detected, but the
+     tool cannot accurately locate it.
+⚫    Fault | #: indicates there is/are detected fault code(s) present; “#”
+     indicates the number of the detected faults.
+⚫    Pass | No DTCs: indicates the system has passed the scanning
+     process and no fault has been detected.
+⚫    Unknown Status: Indicates the system has not been scanned.
+⚫    Not Responded: Indicates the system has not received a response.
+⚫    N/A: The system is not selected.
+⚫    Unselected System: The system is not selected for testing.
+⚫    Selected: The system is selected for testing.
+
+Function Buttons
+
+ Button          Description
+
+ Report          Displays the diagnostic data in the report form.
+ Add Key
+                 Enters the guided function of Add Key.
+ (guided)
+ Immobilizer
+                 Initiates the Immobilizer Learning function.
+ Learning
+ ESC             Returns to the previous screen or exit IMMO Status Scan.
+
+
+8.6.2 Control Unit
+This option allows you to manually locate a required IMMO control system for
+testing through a series of choices. You simply follow the menu-driven
+procedure and make proper selection each time; the program will guide you
+to the IMMO function menu after a few choices you have made.
+
+
+
+
+                                     34
+                     Figure 7-5 Control Unit Screen
+
+The control unit menu options vary for different vehicles. The function menu
+may include:
+
+⚫    Immobilizer
+⚫    Remote System
+⚫    Bosch(MED9)-Engine
+
+The functions vary by IMMO parts. Follow the on-screen instructions to select
+the correct IMMO part.
+
+Take Key Learning as an example.
+1.   Choose Immobilizer from the Control Unit screen and select an IMMO
+     system to enter the Instrument Cluster screen. Then tap Key Learning.
+     The tool will automatically start to read IMMO data.
+     A question mark button will be available throughout the whole process.
+     Tap it to view help information.
+
+
+
+
+                                     35
+                 Figure 7-6 Instrument cluster Screen
+2.   Input the numbers of the keys to be learned and press OK to continue.
+
+
+
+
+                   Figure 7-7 Key Learning Screen 1
+
+
+
+
+                                   36
+3.   Follow the on-screen instructions to place the key to be learned in the
+     inductive area. Once done, tap OK to continue.
+
+
+
+
+                   Figure 7-8 Key Learning Screen 2
+
+4.   When key learning is completed, the following screen will appear. Tap
+     OK to exit the function.
+
+
+
+
+                   Figure 7-9 Key Learning Screen 3
+
+
+                                    37
+8.6.3 Hot Function
+Hot function consists of guided functions with step-by-step instructions. The
+available functions may vary depending on the test vehicle.
+In this case, only Add Key (guided) function is available. Follow the on-screen
+instructions to complete the operation.
+
+
+
+
+                     Figure 7-10 Hot Function Screen
+
+
+8.6.4 Vehicle IMMO Information
+This function retrieves and displays the specific information for the tested
+IMMO ECU, including vehicle VIN number, PIN code and other IMMO
+information.
+
+
+
+
+                                      38
+Figure 7-11 Vehicle IMMO Information Screen
+
+
+
+
+                    39
+8. Special Functions
+As a comprehensive key tool, the KM100 provides you with several practical
+special functions which consist of IMMO data processing, key unlocking,
+universal key information detection, button adjustment, and ignition coil detection.
+Each special function will be introduced in the following sections.
+
+
+9.1 IMMO Data Processing
+By using the IMMO Data Processing function, you are allowed to load the IMMO-
+related ECU information of a vehicle to calculate a password and other IMMO
+information, which will be written into the transponder of the vehicle. This
+processed transponder can be used to start the vehicle, in other words, you now
+have an extra key available.
+The IMMO data processing is menu-driven; select the correct parameter to
+advance the operation.
+   ➢     To process the IMMO data
+         1.   Choose a region. Currently, the KM100 can access the IMMO data
+              of the automakers from Asia, Europe, and the USA.
+         2.   Choose a vehicle make or search for a vehicle make in the search
+              bar. You can use the alphabetical list on the right of the screen to
+              fast locate a vehicle make.
+
+
+
+
+                                          40
+          Figure 8-1 Vehicle Make Selection Screen
+     1)   Upper Toolbar Buttons. See Table 4-1 Buttons for detailed
+          descriptions.
+     2)   Search Box
+     3)   Vehicle List
+     4)   Alphabetical List
+3.   Select an immobilization system or search for an immobilization
+     system in the search bar. You can use the alphabetical list on the
+     right of the screen to fast locate a system.
+
+
+
+
+     Figure 8-2 Immobilization System Selection Screen
+
+                               41
+4.   When the procedures above are completed, the Help Information
+     screen will appear, on which you will be able to browse certain
+     IMMO data that should be loaded. Tap the Load button at the
+     bottom of the screen to download the data.
+
+
+
+
+             Figure 8-3 Help Information Screen
+
+5.   Choose a file to store the downloaded data.
+
+
+
+
+          Figure 8-4 IMMO Data File Browser Screen
+     1)   Upper Toolbar Buttons
+
+                              42
+                   Button      Description
+
+                               Tap to return to the previous screen.
+
+                               Tap to exit the IMMO Data Processing function.
+
+                               Tap to be redirected to the document viewer.
+
+             2)   File Route & the Sequence Button (         ). You can use the
+                  Sequence button to sort the files.
+             3)   Search Bar
+             4)   Files
+
+
+9.2 Key Unlocking
+The Key Unlocking function enables you to renew a used smart key to unlock a
+new car. This is achieved by renewing the firmware of the used smart key via
+cable connection.
+   ➢    To perform the key unlocking
+        1.   Choose a vehicle make or search for a vehicle make in the search
+             box. You can use the alphabetical list on the right of the screen to
+             fast locate a vehicle make.
+
+
+
+
+                       Figure 8-5 Key Unlocking Screen
+        2.   Select the correct key information.
+
+                                        43
+          Figure 8-6 Key Information Selection Screen
+3.   The instructions and illustrations for unlocking keys will appear.
+     Follow the on-screen instructions to complete the operation:
+     1)    Remove the battery from your smart key.
+     2)    Connect the cables per the diagram.
+     3)    Tap the Unlock button at the bottom of the screen. The
+           unlocking of the key will be completed automatically.
+
+
+
+
+          Figure 8-7 Key Unlocking Operation Screen
+
+
+                               44
+9.4 Universal Key Information Detection
+The Universal Key Information Detection function is designed to read the Autel
+universal key information, including the serial number, key ID, and IMMO version,
+etc.
+   ➢    To detect the universal key information
+        1.    Place the smart key into the key slot and keep it stable.
+        2.    Tap the Detect button at the bottom of the screen to start detecting
+              the universal key information. Relevant key information will appear.
+
+
+
+
+                  Figure 8-8 Universal Key Information Screen
+
+
+9.5 Button Customization
+By using the Button Customization function, you are able to assign the button
+functions on the Autel universal key.
+
+
+
+
+                                         45
+                Figure 8-9 Button Customization Screen
+
+
+
+1.   Upper Toolbar Buttons. Refer to Table 4-1 Buttons for more details.
+2.   Note Information — displays important information
+3.   Main operation screen
+     ⚫    Left column — displays the key button icon
+     ⚫    Middle column — displays the current button value
+     ⚫    Right column — tap to adjust the button value
+4.   Function buttons
+
+      Button                   Description
+
+      Restore Initial Value    Tap to return to the default settings.
+
+      Read Current Value       Tap to read and display the current values.
+
+      Confirm Writing          Tap to write the data into the key.
+
+
+
+
+                                    46
+NOTE
+1.   The icons of the remote control buttons on the left are consistent with the
+     key buttons, but do not necessarily represent the actual button functions.
+2.   When the function of a button on the universal key is inconsistent with that
+     of the original key or there is a customized requirement, modify the
+     corresponding button value.
+3.   When the number of buttons on the universal key is not enough, multi-
+     button combinations can be added for corresponding button functions.
+4.   If there are any function-related problems after customization, contact Autel
+     technical support to resolve the matter.
+
+
+Ignition Coil Detection
+The Ignition Coil Detection function enables the key tool to gather the data
+pertaining to the IMMO protocol and transponder type of the vehicle.
+
+     ➢   To detect the ignition coil
+
+         1.   Place the low frequency detection collector close (no more than 4
+              inches/10 cm) to the ignition coil or the emergency start coil. If the
+              signal is not detected, try turning on the ignition repeatedly and
+              adjust the position of the low frequency detection collector.
+
+         2.   If a signal is detected, the current detection result and the
+              transponder type will appear on the screen. Detection records will
+              appear at the bottom of the screen.
+
+
+
+
+                                          47
+Figure 8-10 Ignition Coil Detection Screen
+
+
+
+
+                   48
+9. Settings
+Settings allows you to adjust default settings and view information about the key
+tool system.
+
+⚫    Market
+⚫    Feedback
+⚫    VCI Manager
+⚫    System Settings
+⚫    Unit
+⚫    About
+
+
+10.1 Market
+This option allows you to select the region of work: Europe or North America.
+
+
+10.2 Feedback
+This option allows you to report any problems that you encounter while using the
+tool. Enter your phone number or email address and a subject and describe your
+problem. You can attach a photo from your album, take a photo or record a video
+to add to your report.
+
+
+
+
+                                         49
+                       Figure 9-1 User Feedback Screen
+
+
+10.3 VCI Manager
+This application pairs the tool with the MaxiVCI V200, checks the communication
+status, and updates the VCI firmware.
+
+
+
+
+                        Figure 9-2 VCI Manager Screen
+
+                                        50
+1.   Connection Mode
+     There are two connection modes available for selection. The connection
+     state displays.
+     ⚫    Bluetooth — when paired to a wireless device, the connection
+          state reads, “Paired.” Otherwise, it reads, “Unpaired.”
+     ⚫    Firmware Upgrade — updates the V200 with the latest version of
+          firmware via the Internet.
+2.   Bluetooth Listing
+     The list section displays the serial numbers for all the V200 devices
+     available for pairing. Tap a VCI device to start pairing. The Bluetooth
+     status icon in the center of the screen indicates the Bluetooth signal
+     strength.
+
+
+10.3.1 Bluetooth Connection
+The MaxiVCI V200 needs to be connected to the vehicle, so that it is powered
+during the synchronization procedure. Turn the vehicle’s ignition to the ON
+position. Ensure the tool has sufficient battery life or is connected to an
+external power supply.
+
+      ➢    To pair the MaxiVCI V200 with the tool
+
+           1.   Power on the tool.
+           2.   Insert the 16-pin vehicle data connector of the MaxiVCI V200
+                into the vehicle’s DLC.
+           3.   Tap the Settings application on the MaxiIM Job Menu on the
+                tool, and select VCI Manager.
+           4.   Tap Scan on the upper-right corner of the screen. The device
+                will automatically search for available V200 units.
+           5.   The device name may display as “Maxi”, suffixed with a serial
+                number. Select the appropriate device for pairing.
+           6.   When paired successfully, the connection status will read,
+                “Paired.”
+           7.   Once paired, the VCI button on the upper-right corner of the
+                screen will display a green check mark and the Connection
+                LED on the MaxiVCI V200 will light solid blue. This signifies
+
+
+                                     51
+                    that the tool is connected to the MaxiVCI V200 and is ready
+                    to perform vehicle diagnosis.
+             8.     Tap the paired device again to disconnect it.
+             9.     Tap the Home icon on the top-left to return to the MaxiIM Job
+                    Menu.
+
+NOTE
+A MaxiVCI V200 can be paired to only one tool at a time, and once it is paired,
+the device will not be discoverable to other devices.
+
+
+10.3.2 Firmware Upgrade
+Before upgrading the V200 firmware, ensure your Internet connection is
+stable. The V200 supports both Bluetooth and USB communications.
+
+
+
+
+                       Figure 9-3 Firmware Upgrade Screen
+
+Upgrade via Bluetooth
+
+   ➢ To upgrade the MaxiVCI V200 firmware via Bluetooth
+        1.        Connect the V200 to the vehicle or charge it with an adapter
+                  before pairing it with the tool via Bluetooth.
+        2.        On the MaxiIM Job Menu, tap Settings > VCI Manager, and
+
+                                         52
+                  select the Bluetooth from the connection mode list. Pair the tool
+                  with the V200 by tapping the device serial number on the screen.
+             3.   When pairing is successful, the connection status will read,
+                  “Paired.”
+             4.   The current version of the VCI firmware will be displayed. Tap
+                  Check for firmware updates to check if an update is available.
+                  If an update is available, tap Get the new version to upgrade
+                  the firmware or tap Cancel to exit the upgrade.
+   Upgrade via USB
+
+       ➢ To upgrade the MaxiVCI V200 firmware via USB
+             1.   Connect the V200 to the key tool using a USB-C cable.
+             2.   On the MaxiIM Job Menu, tap Settings > VCI Manager and
+                  select the Firmware Upgrade from the connection mode list.
+             3.   The current version of the VCI firmware will be displayed. Tap
+                  Check for firmware updates to check if an update is available.
+                  If an update is available, tap Get the new version to upgrade
+                  the firmware or tap Cancel to exit the upgrade.
+
+
+10.4 System Settings
+This function provides you with direct access to the System Settings screen,
+where you can adjust various system settings for the tool, including wireless and
+network settings, and various device settings such as sound, display, and
+language settings.
+
+
+10.5 Units
+This option allows you to set the units of measurement system for the diagnostic
+system.
+
+   ➢    To set the units of measurement system
+
+        1.    Tap the Settings application on the MaxiIM Job Menu.
+        2.    Tap Units.
+
+
+
+
+                                          53
+       3.   Select the desired units of measurement system (Metric or
+            Imperial). A check mark will display to the right of your active
+            selection.
+       4.   Tap the Home button on the top-left corner to return to the MaxiIM
+            Job Menu.
+
+
+10.6 About
+The About screen displays information pertaining to the KM100 tool, including
+the password, system version, hardware version, and serial number.
+
+
+
+
+                                       54
+10. Updates
+The Updates screen allows you to download the latest software. These updates
+can improve the MaxiIM KM100, typically by adding new tests, new models, or
+enhanced applications to the database.
+The tool automatically searches for available updates for all of the MaxiIM
+software when it is connected to the Internet. Any updates that are found can be
+downloaded and installed on the device. This section describes installing an
+update to the MaxiIM System.
+
+
+
+
+                          Figure 10-1 Updates Screen
+
+1.   Navigation and Controls
+
+     ⚫     Back Button — returns to the MaxiIM Job Menu.
+     ⚫     Update All — downloads all available updates.
+     ⚫     Search Bar — searches for specific update items by name or
+           keyword.
+
+
+
+
+                                        55
+2.    Main Section
+
+      ⚫        Left Column — displays manufacturer buttons. Tap the vehicle brand
+               of your selection to open an information screen to view more details.
+      ⚫        Middle Column — displays available software updates and a brief
+               introduction about the new changes to the software operation or
+               capabilities.
+      ⚫        Right Column — displays an update button, which also works as an
+               update progress bar indicating the completion status in percentage
+               when downloading the software selected.
+     ➢ To update the software
+          1.    Make sure the tool is connected to a power source with stable
+                access to the Internet.
+          2.    Tap Update on the MaxiIM Job Menu, or tap the update notification
+                message when received one. The Update application screen
+                displays.
+          3.    Check all available updates:
+                ⚫    If you decide to update all the items of the software, tap the
+                     button on the upper-right corner to have all the downloadable
+                     items in updating status. This will also update all the items at
+                     once if not tap the     button again to suspend or resume the
+                     updating process.
+                ⚫    If you only want to update one or some of the item(s), tap the
+                     Acquire button on the right column of the specific item(s). Tap
+                     the button again to suspend or resume the updating process.
+          4.    When the updating process is completed, the software will be
+                installed automatically. The previous version will be replaced.
+
+
+
+
+                                            56
+11. Data Manager
+The Data Manager application allows you to store, print, and review the saved
+files, manage the workshop information, customer information records and keep
+test vehicle history records.
+Selecting the Data Manager application opens the file system menu. There are
+six main functions available.
+
+
+
+
+                         11-1 Data Manager Screen
+
+
+12.1 Test Records
+This function stores test vehicle history records, in terms of universal key,
+transponder function, and IMMO-related information from previous tests. All
+information is displayed in summarized details. Tap on a function icon to resume
+the previous operation.
+
+
+
+
+                                        57
+                         11-2 Test Records Screen
+
+
+12.2 Workshop Information
+The Workshop Information screen allows you to enter, edit, and save detailed
+workshop information, such as shop name, address, phone number, and other
+remarks, which, when printing vehicle diagnostic reports and other associated
+test file, will display as the header of the printed documents.
+
+
+
+
+                      11-3 Workshop Information Screen
+
+                                      58
+   ➢ To edit the Workshop Information sheet
+       1.   Tap the Data Manager application on the MaxiIM Job Menu.
+       2.   Select Workshop Information.
+       3.   Tap on each field to input information.
+       4.   Tap Done to save the updated workshop information record, or tap
+            Cancel to exit without saving.
+
+
+12.3 Image
+The Image section is a database containing all your captured screenshots.
+
+
+
+
+                             11-4 Image Screen
+
+   ➢ To edit/delete image(s)
+       1.   Select Data Manager from the MaxiIM Job Menu.
+       2.   Select Image to access the image database.
+       3.   Tap Edit on the top-right corner of the screen. The editing screen
+            will appear.
+       4.   Select the images you want to edit.
+       5.   Tap Delete to delete the selected images or delete all images. Tap
+            Print to print the selected images or send the selected images to an
+            email.
+
+
+                                        59
+12.4 PDF
+The PDF section stores and displays all your PDF (portable document format)
+files. After entering the PDF database, select a PDF file to view the stored
+information.
+This section uses the standard Adobe Reader application for file viewing and
+editing. Refer to the associated Adobe Reader manual for more detailed
+instructions.
+
+
+12.5 Uninstall Apps
+This section allows you to manage the firmware applications installed on the
+MaxiIM System. Selecting this section opens a managing screen, on which you
+can check all the available vehicle diagnostic applications.
+Select the vehicle firmware you want to delete by tapping on the car brand icon,
+the selected item will display a blue check mark on the upper-right corner. Tap
+the Delete button on the top bar to delete the firmware from the system database.
+
+
+12.6 Data Logging
+The Data Logging screen keeps records of all Feedback (submitted), No
+feedback (saved) and History (up to the latest 20 test records) data on the
+diagnostic system. Autel support personnel will receive and process the
+submitted reports through the Support platform, and will send back problem
+solutions to the corresponding Data Logging session, on which you are also
+allowed to have a direct conversation with the support personnel.
+
+
+
+
+                                         60
+                     11-5 Data Logging Screen
+
+➢ To make a reply in a Data Logging session
+   1.   Tap Feedback to view a list of submitted data logs.
+   2.   Select a specific item to view the latest update of the processing
+        progress.
+   3.   Tap the text field at the bottom of the screen and enter text, or tap
+        the Audio button to record a voice message or the Camera button
+        to take a picture.
+   4.   Tap Send to deliver your message to the technical center.
+
+
+
+
+                                    61
+12. Remote Desktop
+The Remote Desk application launches the TeamViewer QuickSupport program,
+which is a simple, fast and secure remote control screen. You can use the
+application to receive ad-hoc remote support from Autel’s support center,
+colleagues, or friends, by allowing them to control your MaxiIM tool on their PC
+via the TeamViewer software.
+If you think of a TeamViewer connection as a phone call, the TeamViewer ID
+would be the phone number under which all TeamViewer Clients can be reached
+separately. Computers and mobile devices that run TeamViewer are identified
+by a globally unique ID. The first time the Remote Desktop application is
+launched, this ID is generated automatically based on the hardware
+characteristics and will not change later on.
+Make sure the tool is connected to the Internet before launching the Remote
+Desktop application, so that the tool is accessible to receive remote support from
+a third party.
+
+
+
+
+                          12-1 Remote Desktop Screen
+
+
+                                         62
+   ➢ To receive remote support from a partner
+       1.   Power on the tool.
+       2.   Tap the Remote Desktop application on the MaxiIM Job Menu. The
+            TeamViewer QuickSupport screen displays and the device ID is
+            generated and shown.
+       3.   The technician must install the Remote Control software to their PC
+            by downloading the TeamViewer full version program online (see
+            http://www.teamviewer.com), and then launch the software.
+       4.   Provide your ID to the technician, and wait for them to send you a
+            remote control request.
+       5.   A pop-up dialog box displays to ask for your confirmation to allow
+            remote control on your device.
+       6.   Tap Allow to accept, or tap Deny to reject.
+
+Refer to the associated TeamViewer documents for additional information.
+
+
+
+
+                                       63
+13. Tool Registration
+To update the software on your tool, the tool must be registered. The installation
+of the latest firmware and vehicle software is vital to the successful operation of
+the KM100. Register the tool prior to using. Register directly on the tool or via
+Internet on a mobile device or computer.
+
+   ➢ To register the tool
+        1.   Visit the website http://pro.autel.com.
+        2.   If you have an Autel account, sign in with your account ID and
+             password.
+        3.   If you are a new member to Autel, click the Register button to create
+             your Autel ID.
+        4.   Enter the required personal information in the input fields.
+        5.   Enter your email address, then click Request. You will receive an
+             email from Autel with your verification code. Open the email and
+             copy the code into the proper input box.
+        6.   Set a password for your account, and enter the password again to
+             confirm. Read the Autel User Service Agreement and Autel
+             Privacy Policy, then check the box to accept the terms. After all the
+             information is entered, click Register. A Product Registration screen
+             will appear.
+        7.   Your product serial number and password are required to complete
+             your registration. To find your serial number and password on the
+             tool: go to Settings＞About.
+        8.   Enter your tool’s serial number and password on the Product
+             Registration screen. Enter the CAPTCHA code and click Submit to
+             complete your registration procedure.
+
+
+
+
+                                          64
+14. Academy
+The Academy provides access to various onboard instructional videos and
+manuals produced by top-notch technicians and product experts, covering
+information on main functions. Please access the videos or articles saved on the
+tool by tapping the images with hyperlinks displayed under this application.
+
+
+
+
+                            14-1 Academy Screen
+
+
+
+
+                                        65
+15. Maintenance and Service
+16.1 Maintenance Instructions
+The following shows how to maintain your devices, together with precautions to
+take.
+
+   ⚫   Use a soft cloth and alcohol or a mild window cleaner to clean the tool’s
+       touchscreen.
+   ⚫   Do not use any abrasive cleansers, detergent or automotive chemicals
+       on the tool.
+   ⚫   Only use the device in dry conditions within normal operating
+       temperatures.
+   ⚫   Dry your hands before using the tool. The touchscreen may not work if
+       the touchscreen is moist, or if you tap the touchscreen with wet hands.
+   ⚫   Do not store the devices in humid, dusty dirty areas.
+   ⚫   Before and after use, check the housing, wiring, and connectors for dirt
+       and damage.
+   ⚫   After each use, wipe the device housing, wiring, and connectors clean
+       with a damp cloth.
+   ⚫   Do not attempt to disassemble your tool or VCI unit.
+   ⚫   Take care not to drop the device or allow anything heavy to drop on the
+       device.
+   ⚫   Use only authorized battery chargers and accessories. Any malfunction
+       or damage caused by the use of unauthorized battery charger and
+       accessories will void the limited product warranty.
+   ⚫   Ensure that the battery charger does not come in contact with conductive
+       objects.
+   ⚫   Do not operate the tool next to anything such as a microwave oven,
+       cordless phone and some medical or scientific instruments that might
+       interfere with or prevent signal interference.
+
+
+
+
+                                       66
+16.2 Troubleshooting Checklist
+   A.   When the tool does not work properly:
+        ⚫    Make sure the tool has been registered online.
+        ⚫    Make sure the system software and diagnostic application software
+             are properly updated.
+        ⚫    Make sure the tool is connected to the Internet.
+        ⚫    Check all cables, connections, and indicators to see if the signal is
+             being received.
+   B.   When battery life is shorter than usual:
+        ⚫    This may happen when you are in an area with low signal strength.
+        ⚫    Turn off your device when not in use.
+   C. When unable to power on the tool:
+        ⚫    Make sure the tool is connected to a power source or has sufficient
+             battery.
+   D. When unable to charge the tool:
+        ⚫    Your charger maybe out of order. Contact your nearest dealer.
+        ⚫    You may be attempting to use the device in an overly hot/cold
+             temperature. Use the tool in an environment within normal operating
+             temperatures.
+        ⚫    Your device may have not been properly connected to the charger.
+             Check the connector.
+
+   NOTE
+   If your problems persist, please contact Autel’s technical support or your local
+   distributor.
+
+
+16.3 About Battery Usage
+Your tool is powered by a built-in Lithium-ion Polymer battery. The Lithium-ion
+Polymer battery can recharge while some charge remains without reducing your
+tool’s autonomy due to the “battery memory effect” inherent in this type of battery
+technology.
+
+
+
+
+                                          67
+   DANGER
+   1. The built-in Lithium-ion Polymer battery is factory replaceable only;
+      incorrect replacement or tampering with the battery pack may cause an
+      explosion.
+   2.   Do not use a damaged battery charger.
+   ⚫    Do not disassemble or open crush, bend or deform, puncture or shred.
+   ⚫    Do not modify or remanufacture, attempt to insert foreign objects into the
+        battery, expose to fire, explosion or other hazard.
+   ⚫    Make sure to only use the supplied charger and USB cables. Using an
+        unapproved charger or unapproved USB cable might not working
+        correctly or might damage the tool or VCI.
+   ⚫    Only use the supplied charging device that has been qualified for use
+        with the device. Use of an unqualified battery or charger may present a
+        risk of fire, explosion, leakage or other hazard.
+   ⚫    Avoid dropping the tool. If the tool is dropped, especially on a hard
+        surface, and the user suspects damage, take it to a service center for
+        inspection.
+   ⚫    Working closer to the Wi-Fi router improves the working battery life of the
+        tool as less battery power is consumed to make connection.
+   ⚫    The battery recharging time varies depending on the remaining battery
+        capacity.
+   ⚫    Battery life inevitably shortens over time.
+   ⚫    Since overcharging may shorten battery life, unplug tool and charger
+        from power outlet when tool is sufficiently charged.
+   ⚫    Leaving the tool in hot or cold places, especially inside a vehicle in
+        summer or winter, may reduce the battery’s capacity and longevity.
+        Always keep the battery within normal temperatures.
+
+
+16.4 Service Procedures
+This section introduces information for technical support, repair service, and
+application for replacement or optional parts.
+
+
+
+
+                                          68
+16.4.1 Technical Support
+If you have any question or problem on the operation of the product, please
+contact us (see the following contact info) or your local distributor.
+
+Autel China Headquarters
+
+⚫    Phone: +86 (0755) 8614-7779 (Monday-Friday, 9AM-6PM Beijing Time)
+⚫    Email: support@autel.com
+⚫    Address: Floor 2, Caihong Keji Building, 36 Hi-tech North Six Road,
+     Songpingshan Community, Xili Sub-district, Nanshan District,
+     Shenzhen City, China
+⚫    Web: www.autel.com
+
+Autel North America
+
+⚫    Phone: 1-855-288-3587 (Monday-Friday, 9AM-6PM Eastern Time)
+⚫    Email: ussupport@autel.com
+⚫    Address: 36 Harbor Park Drive, Port Washington, New York, USA
+     11050
+⚫    Web: www.autel.com/us
+
+Autel Europe
+
+⚫    Phone: +49(0)89 540299608 (Monday-Friday, 9AM-6PM Berlin Time)
+⚫    Email: support.eu@autel.com
+⚫    Address: Landsberger Str. 408, 81241 München, Germany
+⚫    Web: www.autel.eu
+
+Autel APAC
+
+Japan:
+
+⚫    Phone: +81-045-548-6282
+⚫    Email: support.jp@autel.com
+⚫    Address: 6th Floor, Ari-nadoribiru 3-7-7, Shinyokohama, Kohoku-ku,
+     Yokohama-shi, Kanagawa-ken, 222-0033 Japan
+⚫    Web: www.autel.com/jp
+
+
+                                    69
+Australia:
+
+⚫    Email: ausupport@autel.com
+⚫    Address: Unit 5, 25 Veronica Street, Capalaba
+
+Autel IMEA
+
+⚫    Phone: +971 585 002709 (in UAE)
+⚫    Email: imea-support@autel.com
+⚫    Address: 906-17, Preatoni Tower (Cluster L), Jumeirah Lakes Tower,
+     DMCC, Dubai, UAE
+⚫    Web: www.autel.com
+
+Autel Latin America
+
+Mexico:
+
+⚫    Phone: +52 33 1001 7880 (Spanish in Mexico)
+⚫    Email: latsupport@autel.com
+⚫    Address: Avenida Americas 1905, 6B, Colonia Aldrete, Guadalajara,
+     Jalisco, Mexico
+
+Brazil:
+
+⚫    Email: brsupport@autel.com
+⚫    Address: Avenida José de Souza Campos n° 900, sala 32 Nova
+     Campinas Campinas – SP, Brazil
+⚫    Web: www.autel.com/br
+
+
+16.4.2 Repair Service
+If it becomes necessary to return your device for repair, please download the
+repair service form from www.autel.com, and fill it in. The following
+information must be included:
+⚫   Contact name
+⚫   Return address
+⚫   Telephone number
+⚫   Product name
+
+
+                                     70
+⚫   Complete description of the problem
+⚫   Proof-of-purchase for warranty repairs
+⚫   Preferred method of payment for non-warranty repairs
+
+NOTE
+For non-warranty repairs, payment can be made with Visa, Master Card, or
+with approved credit terms.
+
+Send the device to your local agent, or to the below address:
+Floor 2, Caihong Keji Building, 36 Hi-tech North Six Road, Songpingshan
+Community, Xili Sub-district, Nanshan District, Shenzhen City, China
+
+
+16.4.3 Other Services
+You can purchase the optional accessories directly from Autel’s authorized
+tool suppliers, and/or your local distributor or agent.
+Your purchase order should include the following information:
+⚫   Contact information
+⚫   Product or part name
+⚫   Item description
+⚫   Purchase quantity
+
+
+
+
+                                    71
+16. Compliance Information
+FCC Compliance
+
+This device complies with Part 15 of the FCC rules and Industry Canada’s
+license-exempt RSSs. Operation is subject to the following two conditions:
+
+1.   This device may not cause harmful interference.
+2.   This device must accept any interference received, including interference
+     that may cause undesired operation.
+
+     Cet appareil est conforme aux CNR exempts de licence d’Industrie Canada.
+     Son fonctionnement est soumis aux deux conditions suivantes:
+
+1.   Ce dispositif ne peut causer des interferences; et
+2.   Ce dispositif doit accepter toute interférence, y compris les interférences qui
+     peuvent causer un mauvais fonctionnement de l’appareil.
+
+WARNING
+Changes or modifications not expressly approved by the party responsible for
+compliance could void the user’s authority to operate the equipment.
+
+NOTE
+This equipment has been tested and found to comply with the limits for a Class
+B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed
+to provide reasonable protection against harmful interference in a residential
+installation.
+
+This equipment generates uses and can radiate radio frequency energy and, if
+not installed and used in accordance with the instructions, may cause harmful
+interference to radio communications. However, there is no guarantee that
+interference will not occur in a particular installation. If this equipment does cause
+harmful interference to radio or television reception, which can be determined by
+turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+
+-- Reorient or relocate the receiving antenna.
+
+                                           72
+-- Increase the separation between the equipment and receiver.
+-- Connect the equipment into an outlet on a circuit different from that to which
+the receiver is connected.
+-- Consult the dealer or an experienced radio/TV technician for help.
+
+Changes or modifications not expressly approved by the party responsible for
+compliance could void the user’s authority to operate the equipment.
+
+SAR
+
+The radiated output power of this device is below the FCC radio frequency
+exposure limits. Nevertheless, the device should be used in such a manner that
+the potential for human contact is minimized during normal operation.
+
+The exposure standard for wireless devices employs a unit of measurement
+known as the Specific Absorption Rate, or SAR. The SAR limit set by the FCC is
+1.6 W/Kg. Tests for SAR are conducted using standard operating positions
+accepted by the FCC with the device transmitting at its highest certified power
+level in all tested frequency bands.
+
+Although the SAR is determined at the highest certified power level, the actual
+SAR level of the device while operating can be well below the maximum value.
+This is because the device is designed to operate at multiple power levels so as
+to use only the power required to reach the network. To avoid the possibility of
+exceeding the FCC radio frequency exposure limits, human proximity to antenna
+should be minimized.
+
+RF WARNING STATEMENT
+
+The device has been evaluated to meet general RF exposure requirement. The
+device can be used in portable exposure condition without restriction.
+
+The term “IC” before the radio certification number only signifies that IC technical
+specifications were met.
+
+CE COMPLIANCE
+
+This product is declared to conform to the essential requirements of the following
+Directives and carries the CE mark accordingly:
+
+RED Directive 2014/53/EU
+
+
+                                          73
+17. Warranty
+18.1 Limited One-Year Warranty
+Autel Intelligent Technology Corp., Ltd. (the Company) warrants to the original
+retail purchaser of this key tool, that should this product or any part thereof during
+normal consumer usage and conditions, be proven defective in material or
+workmanship that results in product failure within one (1) year period from the
+date of purchase, such defect(s) will be repaired, or replaced (with new or rebuilt
+parts) with Proof of Purchase, at the Company’s option, without charge for parts
+or labor directly related to the defect(s).
+NOTE
+If the warranty period is inconsistent with local laws and regulations, please
+comply with the relevant local laws and regulations.
+The Company shall not be liable for any incidental or consequential damages
+arising from the use, misuse, or mounting of the device. Some states do not allow
+limitation on how long an implied warranty lasts, so the above limitations may not
+apply to you.
+
+This warranty does not apply to:
+
+   a)   Products subjected to abnormal use or conditions, accident, mishandling,
+        neglect, unauthorized alteration, misuse, improper installation or repair
+        or improper storage;
+   b)   Products whose mechanical serial number or electronic serial number
+        has been removed, altered or defaced;
+   c)   Damage from exposure to excessive temperatures or extreme
+        environmental conditions;
+   d)   Damage resulting from connection to, or use of any accessory or other
+        product not approved or authorized by the Company;
+   e)   Defects in appearance, cosmetic, decorative or structural items such as
+        framing and non-operative parts.
+   f)   Products damaged from external causes such as fire, dirt, sand, battery
+        leakage, blown fuse, theft or improper usage of any electrical source.
+
+
+
+                                           74
+IMPORTANT
+All contents of the product may be deleted during the process of repair. You
+should create a back-up copy of any contents of your product before
+delivering the product for warranty service.
+
+
+
+
+                                    75
+

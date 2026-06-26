@@ -1,0 +1,87 @@
+1.Overview                                                                3.Performance                                                                     5.Appearence
+KEY TOOL MAX is a professional
+smart device with multi-function,
+                                                                                                                                                                           Low-frequency
+Bluetooth and WIFI communication
+                                                                                                                                                                           detection collector
+interface are intergrated inside,
+which is convenient for                                                 Battery capacity      Battery life      Standby Time       Recharging current   High-frequency     Immo transponder
+connecting Xhorse Key Cutting                                                                                                                            detection area    placement hole                LED
+                                                                          3375mAh             >6Hours              >5Days             1500mAh                                                                                                        CMOS camera
+                                                                                                                                                                                                 ﬂashing light
+machine、MINI OBD TOOL and                                                                                                                                                  Status indicator
+other products to do speciﬁc
+operations.                                                                                                                                                                Home/shortcuts
+                                                                                                                                                                On/Oﬀ                                                                                                  Xhorse APP
+This device adopts HD LCD                                                                                                                                        Reset
+screen with clear interface、easy                                          Brightness       Screen resolution   Camera resolution
+to use and ﬂexibility.                                                    >400nits           1280*720P              800W
+
+
+
+
+2.Main Functions                                                          4.Packing List
+
+                                                                            Item                                        Quantity
+Generate Remote   Program and    Generate Special       Renew
+ and Smart key  Immo Transponder   Transponder          Remote              VVDI KEY TOOL MAX device                    1
+
+                                                                            USB cable                                   1
+                                                                                                                                                                                                         MIC                                         Remote
+  Recognize        Generate          Frequency                              Remote generate cable                       1                                                                                                                            generation port
+                                                   Connect to Xhorse
+   and Copy        and Copy           Detection
+                                                  Key Cutting Machine
+  Accesscard     Garage Remote    and Copy remote                           User Manual                                 1
+                                                                                                                                                                                                                             USB port
+                                                                                                                                                                                                                 (Used for connecting to MINI OBD)
+6.Setting                                                              6.4 Connect to                                                     6.5 Connect to Key Cutting Machine                                   8.Warranty And After-Sale Instructions
+                                                                       MINI OBD TOOL                                                      KEY TOOL MAX connects to Key Cutting Machine by
+6.1 First Time Use                                                                                                                                                                                             KEY TOOL MAX has one year warranty,and it is based on the date
+                                                                       There are 3 ways for KEY TOOL MAX                                  Bluetooth to do cutting operations.
+When you turn on the KEY TOOL MAX                                                                                                                                                                              on the transaction voucher;If do not have transaction voucher or
+                                                                       connect to MINI OBD TOOL:
+for the ﬁrst time, you need to select                                                                                                                                                                          lost it,the factory date recorded by the manufacturer will prevail.
+                                                                       ① USBTYPE-C Cable
+language、region(System default                                         ② WIFI                                                             6.6 Recharging
+setting is China Standard Time                                         ③ Bluetooth.                                                       Lease use 4.5~5.5V/2A recharger and connect to USB
+Zone)、connect to WIFI、login with                                                                                                          interface to recharge KEY TOOL MAX,when the KEY TOOL MAX                ※ Situations on the below can not get free repairment
+                                                                       ① Click on the [Select] on the
+a registered account,if you don't                                                                                                         is on,recharging status will be shown on the Status Bar.
+                                                                       HOME page,available device will                                                                                                            ·Damage caused by not following the use instructions.
+have an account,please register as
+                                                                       be shown on the screen,choose                                      When KEY TOOL MAX is oﬀ,press On/Oﬀ button,recharging symbol
+the picture on the right.                                                                                                                                                                                         ·Damage caused by repairing or retroﬁting in private.
+                                                                       device to connect according to                                     will be shown on the screen while PWR indicator is on.
+                                                                       Serial Number.                                                                                                                             ·Damage caused by fall,crash or inapproprate voltage.
+6.2 Power Oﬀ                                                                                                                              When it is full,KEY TOOL MAX will stop recharging automatically
+Press On/oﬀ button for a while,                                                                                                           to protect battery.                                                     ·Damage caused by inevitable force.
+
+'power oﬀ'and 'restart'will be shown                                                                                                                                                                              ·Damage caused by using in harsh environment or on the
+on the screen,click on 'power oﬀ',                                                                                                                                                                                vehicle and ship for a long time;Get main body dirty and
+KEY TOOL MAX will shut down.                                                                                                              7.Maintenance                                                           worn due to use.
+
+
+6.3 Button Description                                                                                                                    ·Do not hit it violently、shake or throw it.
+① On/Oﬀ:Press On/oﬀ button for a while,'power oﬀ'and 'restart'will                                                                        ·Do not wash main body and other parts with water or other           Please get in contact with dealer or scan the QR code behind the
+                                                                                                         ② Software will detect current
+be shown on the screen,click on one of them,                                                                                              liquid directly,and do not clean KEY TOOL MAX with wet cloth.        instruction,download Xhorse oﬃcial APP to get after-sale and
+                                                                                                         device with software interface
+KEY TOOL MAX will shut down or restart;                                                                                                                                                                        technical support.
+Press On/Oﬀ button,KEY TOOL MAX will turn the screen oﬀ and standby;
+                                                                                                         connection status、WLAN
+                                                                                                         connection status and WIFI
+                                                                                                                                          ·Do not place KEY TOOL MAX on High temperature, high
+                                                                                                                                          humidity or dusty places.
+                                                                                                                                                                                                                                                                                                   User Manual
+When KEY TOOL MAX is on the standby status,press On/Oﬀ slightly,
+                                                                                                         connection status                ·Do not take KEY TOOL MAX apart or retroﬁt it in private otherwise
+KEY TOOL MAX will turn the screen on.                                                                                                                                                                          All rights reserved.Any individual or organization is forbidden to copy or spread
+                                                                                                                                          mainboard will be damaged or battery will on ﬁre and etc.
+② Home:Press HOME for 10 seconds,it will return to Home                                                                                                                                                        in any form from this manual without permission.
+page;When KEY TOOL MAX is on the standby status,press On/Oﬀ                                                                               ·Please keep screen,camera and other key parts well and              Due to product improvements, the contents of this manual may change without
+slightly,KEY TOOL MAX will turn the screen on.                                                                                            prevent sharp objects to do damage to them.                          notice.
+
+③ Reset:When KEY TOOL MAX needs to be reset,please press and
+hold On/Oﬀ More than 10 seconds,then KEY TOOL MAX will restart.
+

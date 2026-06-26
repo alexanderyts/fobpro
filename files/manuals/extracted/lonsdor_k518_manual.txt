@@ -1,0 +1,713 @@
+K518 PRO All-in-One Key Programmer
+
+             User Manual
+
+
+
+
+  ★Please read it carefully before operation, keep it well for further refer.
+                                                                              K518 PRO
+
+
+
+
+Copyright
+Lonsdor’s entire contents, including but not limited to products or services issued
+
+by itself or co-issued with cooperative companies, and the materials and software
+
+on Lonsdor’s related websites, are copyrighted and protected by law.
+
+No part of the above all shall be copies, modified, extracted, transmitted or
+
+bundled with other products, sold in any way or by any means without the
+
+permission of Lonsdor. Any infringement of the company’s copyright and other
+
+intellectual property rights, Lonsdor shall seize its liability according to law!
+
+
+
+
+Disclaimer
+K518 PRO key programmer and related info, which should be used only for normal
+
+vehicle maintenance, diagnosis and testing, please do not use it for illegal
+
+purposes.
+
+Lonsdor shall not assume any incidental or consequential damages or any
+
+economic damages arising from the accidents of individual users and the 3rd
+
+parties, as well as legal responsibilities, due to their misuse, unauthorized change
+
+or repair of the device, or abuse to violate laws and regulations. The product has a
+
+certain degree of reliability, but does not rule out the possible loss and damage.
+
+The risk arising from the user at their own risk. Lonsdor does not assume any risks
+
+and responsibilities.
+
+
+
+
+                                           Declared by: Lonsdor Dept of Legal Affairs
+
+
+
+
+                                            P2
+                                                                           K518 PRO
+
+
+
+
+                              Safety Instruction
+
+Before using this product, please read this instruction carefully to know how to use
+it properly.
+
+
+(1) Do not hit, throw, acupuncture the product, and avoid falling, squeezing and
+
+    bending it.
+
+(2) Do not use this product in damp environment such as bathroom, and avoid it
+
+    being soaked or rinsed with liquid. Please turn off the product in circumstances
+
+    when it’s forbidden to use, or if it may cause interference or danger.
+
+(3) Do not use this product while driving a car, so as not to interfere with safety
+
+    driving.
+
+(4) In medical establishments, please follow the relevant regulations. In areas close
+
+    to medical equipment, please turn off this product.
+
+(5) Please turn off this product near high-precision electronic equipment,
+
+    otherwise the equipment may malfunction.
+
+(6) Do not disassemble this product and accessories without authorization. Only
+
+    authorized institutions can repair it.
+
+(7) Do not place this product and accessories in appliances with strong
+
+    electromagnetic fields.
+
+(8) Keep this product away from magnetic equipment. The radiation from
+
+    magnetic equipment will erase the info/data stored in this product.
+
+(9) Do not use this product in places with high temperature or inflammable
+
+    air(such as near gas station).
+
+(10) When using this product, please comply with relevant laws and regulations,
+
+    and respect the privacy and legitimate rights of others.
+
+
+
+
+                                             P3
+                                                                                      K518 PRO
+
+
+
+
+                         Table of Contents
+
+
+Copyright and Disclaimer………………………………………………………..............P2
+
+Safety Instruction………………………………………………………………...................P3
+
+Lonsdor K518 PRO.......………………………………………….....................................P5
+
+1 Registration Guide…………………………………………………………….................P5
+
+2 Product Overview……………………………………………………………...................P6
+
+      2.1 Introduction ………………………………………………………....................P6
+
+      2.2 Software/Hardware Advantages………………………………………....P6
+
+      2.3 Function Superiority…………………………………………….....................P6
+
+      2.4 Product Parameter………………………………………………….................P7
+
+      2.5 Product List…………………………………………………...............................P7
+
+      2.6 Product Appearance……………………………………………………..........P8
+
+               2.6.1 K518 PRO Main Unit………………………………………………............P8
+
+               2.6.2 OBDII Cable……………………………………………................................P9
+
+               2.6.3 Simu-Antenna……………………….....................................................P11
+
+               2.6.4 KPROG Adaptor……………………………………………………............P12
+
+      2.7 Functions Display…………………………………………...........................P13
+
+               2.7.1 Home Menu Interface……………………………………….................P13
+
+               2.7.2 Special Functions Interface………………………............................P14
+
+               2.7.3 System Settings Interface……………………..................................P15
+
+               2.7.4 Function Operation Interface…………………………………..........P16
+
+3 Aftersales Service………………………………………………………........................P17
+
+Warranty Card ……………………………………………………………………...............P20
+
+
+
+
+                                             P4
+                                                                               K518 PRO
+
+
+
+
+                             Lonsdor K518 PRO
+
+
+1. Registration Guide
+Note: after booting the device, please set and connect WiFi well, then go through
+the registration&activation process.
+
+
+New user:
+
+         1   For the first use, please prepare an available mobile phone or E-mail to
+help finish device registration and activation, click OK to start;
+         2   Boot the device and enter registration&activation process;
+         3   Enter user name, password, mobile number or E-mail to get verification
+code, then enter the code and submit registration;
+         4   New account is registered successfully, set the device’s power-on
+password;
+         5   Submit the info, apply for binding the account to the device;
+         6   Verified by the server, successful registration;
+         7   Initialize menu and etc;
+         8   Reboot and enter the device system.
+
+
+Registered user:
+
+         9   For the first use, please prepare the corresponding mobile phone or E-mail
+of the registered account to help finish device registration and activation, click OK to
+start;
+     10      Boot the device and enter registration&activation process;
+     11      Enter the registered mobile number or E-mail to get verification code, then
+enter the code and submit login;
+     12      Account login successful, set the device’s power-on password;
+     13      Submit the info, apply for binding the account to the device;
+     14      Verified by the server, successful registration;
+     15      Initialize menu, etc;
+     16      Reboot and enter the device system.
+
+
+
+
+                                               P5
+                                                                            K518 PRO
+
+
+
+
+2.     Product Overview
+2.1    Introduction
+
+
+Product Name: K518 PRO All-in-One Key Programmer
+
+
+Product Description: K518 PRO, as 2nd generation of K518 launched by Lonsdor, is a
+fast, easy-to-use, and ultra-portable immobilizer and key programming device. The
+Android-based touchscreen tablet features powerful quad-core processor, intuitive
+design and straight-forward interface. Integrated with all features of its predecessor,
+K518 PRO adds more advantageous functions, including immobilization, odometer
+adjustment, remote/smart key generation, adaptor, chip identify and copy, key chip
+generation, frequency detection, ignition coil detection, Toyota smart key settings,
+one-key update, push function and etc.
+
+
+2.2 Software/Hardware Advantages
+ Trendy tablet design with support frame, better user experience;
+ Based on Android 8.1, more optimized operation experience;
+ CPU with Quad-core Cortex-A35, stronger computing power;
+ Excellent and powerful ultra-high energy consumption ratio;
+ The first to support 8A(H chip) chip generation;
+     Added support for CANFD and Ethernet protocols.
+
+
+2.3 Function Superiority
+ More comprehensive functions and features based on K518;
+ Wide model coverage, luxury, domestic and popular cars are all supported;
+ Programming directly via OBD, no need networking and PIN code for most
+      models.
+
+
+
+
+                                           P6
+                                                  K518 PRO
+
+
+
+
+2.4 Product Parameters
+Operation system: Android 8.1
+Processor: Rockchip PX30
+Memory: Ram 2G flash 8G
+Display: MIPI 800*1280
+WiFi: IEEE 802.11b/g/n
+USB: USB2.0
+Bluetooth: 4.0
+SD Card: support plug and unplug
+Battery: 5800mAh
+Input Voltage: 12V
+Shell Material: PC hard shell+TPR60°
+Dimension: 26* 3 *16CM
+
+
+
+
+2.5 Product List
+
+
+                              Items              Qty
+
+                           Portable Bag           1
+
+                            Main Host             1
+
+                           OBD II Cable           1
+
+                      12V Power Adaptor           1
+
+                         Type-C USB Cable         1
+
+                          Simu-Antenna            1
+
+                           User Manual            1
+
+                            Certificate           1
+
+                         Extra Connector          3
+
+
+
+
+                                            P7
+                                K518 PRO
+
+
+
+
+2.6 Product Appearance
+2.6.1 K518 PRO Main Unit
+
+
+
+
+                           P8
+                         K518 PRO
+
+
+
+
+2.6.2 OBDII Cable
+
+
+
+
+                    P9
+       K518 PRO
+
+
+
+
+P 10
+                            K518 PRO
+
+
+
+
+2.6.3 Simu-Antenna
+
+
+
+
+                     P 11
+                                  K518 PRO
+
+
+
+
+2.6.4 KPROG Adaptor (NS)
+
+
+
+
+                           P 12
+                                                                         K518 PRO
+
+
+
+
+2.7 Function Display
+2.7.1 K518 PRO Home Interface
+
+
+
+
+       Function                                 Description
+
+                        Program mechanical key/smart key/remote and other
+   Immo & Remote        functions. Support a vast majority of vehicle models on the
+                        market, regularly add new models
+
+ Odometer adjustment    Mileage diagnosis and correction for some models
+                        Support smart key generation for some models, remote
+     Generate
+                        generation for most vehicle models, and garage door
+  remote/smart key
+                        remote generation
+                        Read and write EEPROM chip/CPU main control chip, read
+       Adapter
+                        EEPROM Pin code, etc.
+                        Include functions: identify and copy key chip, generate key
+   Special functions    chip, detect remote frequency, simulate chip, decode chip,
+                        detect IMMO coil, key settings, access control card, etc
+                        Push the designated function program to user, which will
+    Push Functions      be automatically disabled when expired. Contact us to
+                        acquire functions not opened or not activated yet
+
+   OBD Illumination     OBD cable connector’s light can be switched on/off
+
+  Aftersales feedback   Userscan feedback problems encountered to us
+
+                        On the message board, user can see our reply to all the
+  Aftersales feedback   questions after giving feedback, and inquiry further if any
+    message board       doubt
+
+
+
+
+                                       P 13
+                                                                         K518 PRO
+
+
+
+
+2.7.2 K518 PRO Special Functions Interface
+
+
+
+
+       Function                               Description
+
+                       Support 4D, 46, 48, 7935, 8A and more chips to generate
+   Generate key chip
+                       specific car key chips
+
+                       Identify key chip info and status of almost all cars on the
+  Identify/Copy chip
+                       market
+
+       Remote          Detect frequency of remote key
+
+                       Mainly LKE functions, include: simulate 4D/46/8A chip,
+     Simulate chip
+                       bind LKE and obtain LKE info, etc
+
+     Decode chip       Support 46 and 4D chip decoding
+
+                       Detect if immo coil has signal, and identify key type in
+      IMMO coil
+                       AKL situation as well
+
+     Key settings      Set Lonsdor 8A and 4D smart key type
+
+      Unlock key       Unlock Toyota 8A smart key
+
+
+
+
+                                       P 14
+                                                                      K518 PRO
+
+
+
+
+2.7.3 K518 PRO System Settings Interface
+
+
+
+
+     Function                                  Description
+
+    Wifi settings     Set WIFI connection
+
+                      Display Ethernet card status, network connection status,
+      Ethernet
+                      MAC/IP address, etc
+ Bluetooth settings   Set Bluetooth connection status
+Brightness and sound Set screen brightness and auto-off screen time
+    Start record      Click to start recording, or close demo video
+                      View device ID, PSN, hardware/kernel version and other
+    Device info
+                      info
+    Screen test       Screen touch diagnosis
+
+ Firmware upgrade     Include APK update, kernel upgrade, etc
+
+                      Reset the device, situations like program error, system
+    Reset device      crash, communication failure, can be returned to normal
+                      state
+    File manager      View and manage files
+
+    Network test      Test network when when it is unstable
+
+
+
+
+                                        P 15
+                                                                      K518 PRO
+
+
+
+
+2.7.4 K518 PRO Function Operation Interface
+
+
+
+
+                   Illustrate each function, and the necessary tips for certain
+      Function
+                   functions
+                   Give concrete guide for each step, pics and notices
+     Operation     attached if necessary
+
+                   Emphasize tips and notices for functions, as well as user
+     Attention     possible overlook during operation which may cause
+                   program failure
+
+                   Provide the basic information like chip type, frequency,
+     Reference     key embryo no. , PIN code requirement, car photo, OBD
+                   position and other related info
+
+                   Scan QR code to view HELP instructions while
+      QR code      programming key
+
+       Demo        Demo record and user record process
+
+     Feedback      Feedback function problems in time
+
+      Version      Detect the latest version of current interface function
+
+
+
+
+                                    P 16
+                                                                           K518 PRO
+
+
+
+
+3. Aftersales Service
+(1) Our company will provide you with superior after-sales service and warranty
+
+    service within agreed time.
+
+(2) The warranty period lasts 12 months since device activation date.
+
+(3) Once the product is sold, return and refund is not acceptable if no quality
+
+    problem.
+
+(4) For product maintenance beyond the warranty coverage, our company will
+
+    charge labor and material costs.
+
+(5) If the device breaks down or gets damaged due to any of the following reasons,
+
+    our company reserve the right not to provide service based on the agreed
+
+    terms(but you can choose paid service):
+
+※ The entire device and components are beyond the warranty period;
+
+※ Product surface is found flawed or damaged due to user operation(not quality
+
+problem);
+
+※ Counterfeit, without certificate or invoice, our official back-end system can not
+
+authenticate the device info;
+
+※ Damages due to fail to follow the instructions on operation, use, storage and
+
+maintenance in this manual;
+
+※ Damages and faults caused by private disassembly or by improper repair and
+
+maintenance of the maintenance company unauthorized by Lonsdor;
+
+※ Liquid inflow, moisture, falling into water or mildewing;
+
+※ The newly purchased device works normally without any damage when
+
+unpacked for the first time. But with the prolonged time of use, screen damage
+
+occurs, such as screen explosion, scratching, white spots, black spots, silk thread
+
+screen, touch damage, etc.
+
+
+
+
+                                          P 17
+                                                                              K518 PRO
+
+
+
+
+※ Damage by using specific tools and accessories not provided by our company;
+
+※ Force majeur;
+
+※ For the man-made damaged device, if you choose no repair service after we
+
+disassemble it and make a quotation, the device appears unstable conditions(such
+
+as: boot failure, system crash, etc) when you receive it;
+
+※ Private cracking of the system causes function changes, instability, and quality
+
+damage, etc.
+
+(6) If the auxiliary parts and other parts(other than the main components of the
+
+    device) are faulty, you can choose paid repair service provided by our company
+
+    or our authorized customer service outlets.
+
+(7) Our company will perform repair after receiving your device and confirming its
+
+    problems, so please fill in the problems in details.
+
+(8) After repair finished, we will return the device to you, so please fill in the
+
+    correct delivery address and contact number.
+
+(9) Customers who needs to send the device for repair, shall bear the cost such as
+
+    round-trip delivery cost, transportation cost and etc. If the device gets
+
+    damaged in the process of delivery, our company shall not bear correlative
+
+    fees. In particular cases, we will assist the customer to claim for compensation
+
+    against the shipping company.
+
+(10) Our company do not provide sales invoice to individual in any form. Please ask
+
+    the dealer you purchased from to invoice you if required..
+
+(11) Please keep the warranty card properly, and fill in the card when returning your
+
+    device for repair, so that we can go through relevant work procedure(the
+
+    warranty card attached to the end of the manual).
+
+
+
+
+                                           P 18
+                                                                       K518 PRO
+
+
+
+
+Aftersales service hotline: 400-966-9130
+
+WhatsApp: +8618938676302/+8618814486441
+
+Skype: live:.cid.22a25301c379a13e/live:.cid.36e93bd8b6197a30
+
+Service time (GMT+8): China time from 8:30am to 6:00pm (legal holidays off).
+
+Website: en.lonsdor.com     E-mail: service@lonsdor.com
+
+
+
+
+     Lonsdor WeChat account                       Lonsdor website QR code
+
+
+
+
+                                           P 19
+                                                                         K518 PRO
+
+
+
+
+                    Product Warranty Card
+
+
+Customer name:    ________________________________________ ( Mr/Miss )
+
+
+Phone No.: _________________________________________________________
+
+
+Customer address: ___________________________________________________
+
+
+  _________________________________________________________________
+
+
+Device model:    _____________________________________________________
+
+
+Serial No.: __________________________________________________________
+
+
+Returned items (details): ______________________________________________
+
+
+  __________________________________________________________________
+
+
+Problem description in details: __________________________________________
+
+
+______________________________________________________________________
+
+
+______________________________________________________________________
+
+
+
+
+                                           Sending date:_____________________
+
+
+  (Note: our company reserves the final interpretation right for the above terms.）
+
+
+
+
+                                         P 20
+
