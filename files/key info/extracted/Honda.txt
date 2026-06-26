@@ -1,0 +1,318 @@
+                                                                           Page 58                                                                                                GMC
+
+                                   Lock      Code                               Ilco/Ilco EZ                                      Transponder                                                                                                                        Card
+       Model         Start   End                                                                                                                                                       Substitues                                        Notes
+                                   Apps      Series                               (Plastic)                                   Equipment Required +                                                                                                                   No.
+                     2005    2005 All   1X-1706X                   H75                                                                                 -                                                                                                            612
+                                                                   EK3-H84/EK3LB-H84*/H84-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                       Service Key H86                                          Texas Instruments (4D63) Encrypted Code System      612
+                                                                   GTK#                                     Clone, Plus Box
+                     2001    2004 All      1X-1706X
+                                                                                                            OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H92-PT (LAL)                                                                        Service Key H86                                          Texas Instruments (4D63) Encrypted Code System      612
+                                                                                                            SDD
+                                                                   1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+                                                                   EK3-H72/EK3LB-H72*/H72-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                       Service Key H86                                          Texas Instruments (4C) Encrypted System             612
+                     1999    2000 All      1X-1706X                GTK#                                     Clone, Plus Box
+                                                                                                            OBP Program C, Smart Pro/TCP/MVPP/TKO/                                                              Texas Instruments (4C) Encrypted System Std on V6
+                                                                   H72-PT (LAL)                                                                        Service Key H86                                                                                              612
+                                                                                                            SDD                                                                                                 Model, Optional on 4 cyl
+                     1997    1998 All      1X-1706X                1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+RANGER PICKUP                                                                                                                                          1184FD/H54, 1193MU/
+                                           A-B-C-D-E               1193FD/H67 [-P, -PC]                                                                                                                                                                             194
+                     1996    1996 All                                                                                                                  H66
+                                           1X-1706X                1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+                                  GB       FB0-FB1863              S1167FD/H50 [-PC]                                                                   S1181FD/H52                                                                                                  140
+                     1994    1995 Ignition/                                                                                                            1184FD/H54, 1193MU/
+                                            A-B-C-D-E              1193FD/H67 [-P, -PC]                                                                                                                                                                             194
+                                  Door                                                                                                                 H66
+                                  GB        FB0-FB1863             S1167FD/H50 [-PC]                                                                   S1181FD/H52                                                                                                  140
+                     1993    1993 Ignition/                                                                                                            1190LN/H60, 1193FD/
+                                            A-B-C-D-E              1184FD/H54 [-PC]                                                                                                                                                                                 194
+                                  Door                                                                                                                 H67
+                                  Door/
+                                            FB0-FB1863             S1167FD/H50 [-PC]                                                                                          S1181FD/H52                                                                           140
+                     1980    1992 GB
+                                  Ignition FA0-FA1863              1167FD/H51 [-PC]                                                                                           1181FD/H53                                                                            140
+RANGER PICKUP W/                                                   OEM# 164-R8163 or 164-
+                     2019    2023 All      10,001-11,500                                                    Smart Pro/TCP/MVPP                                                P1117/HU101                                                                           1838
+PROX                                                               R8182 (LAL)
+SUPER DUTY SERIES    2008    2017 All      1X-1706X                H87-P                                                                                                      Service Key H86                                                                       612
+                                                                   EK3-H72/EK3LB-H72*/H72-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+TRANSFER HEAVY                                                                                                                                         Service Key H86                                          Texas Instruments (4C) Encrypted System             612
+                                                                   GTK#                                     Clone, Plus Box
+                     2000    2004 All      1X-1706X
+TRUCKS 6000, 9000,                                                                                          OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H72-PT                                                                              Service Key H86                                          Texas Instruments (4C) Encrypted System             612
+CF7000                                                                                                      SDD
+                     1996    1999 All       1X-1706X               1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+                                  GB        FB0-FB1863             S1167FD/H50 [-PC]                                                                   S1181FD/H52                                                                                                  140
+TRANSFER HEAVY       1986    1996 Ignition/                                                                                                            1190LN/H60, 1193FD/
+                                            A-B-C-D-E              1184FD/H54 [-PC]                                                                                                                                                                                 194
+                                  Door                                                                                                                 H67
+TRUCKS 6000, 9000,
+                                  Door/
+CF7000                                      FB0-FB1863             S1167FD/H50 [-PC]                                                                                          S1181FD/H52                                                                           140
+                     1980    1985 GB
+                                  Ignition FA0-FA1863              1167FD/H51 [-PC]                                                                                           1181FD/H53                                                                            140
+TRANSFER HEAVY                    Ignition
+                     1996    1999                                  RV1                                                                                                        -                                                                                     N/A
+TRUCKS CF7000                     Door
+                     2020    2025 All       10,001-11,500          H128-PT (LAL)                            Smart Pro/TCP/MVPP                                                P1117/HU101                       Philips (46) PCF7939PA                              1838
+TRANSIT                                                            H94-PT (LAL)                             Smart Pro/TCP/MVPP (thru 2017)                                    P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+                     2013    2019 All      10,001-11,500
+                                                                   HU101GTS/T80+                            RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                         P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+TRANSIT CONNECT
+                     2020    2023 All      10,001-11,500           H128-PT (LAL)                            Smart Pro/TCP/MVPP                                                P1117/HU101                       Philips (46) PCF7939PA                              1838
+W/ REG IGNITION
+TRANSIT CONNECT                                                    OEM# 164-R8234 or 164-
+                     2019    2023 All      10,001-11,500                                                    Smart Pro                                                         P1117/HU101                                                                           1838
+W/ PROX                                                            R8235
+                                                                   H94-PT (LAL)                             Smart Pro/TCP/MVPP                                                P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+                     2014    2019 All      10,001-11,500
+                                                                   HU101GTS/T80+                            RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                         P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+TRANSIT CONNECT                                                    FO21T17 (LAL)                            OBP Program L                                                     S30FDP                            Texas Instruments (4D63) Encrypted Code System      220
+                     2010    2013 All      T111111-T444444                                                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                   FO21MH#                                                                                                    S30FDP                            Texas Instruments (4D63) Encrypted Code System      220
+                                                                                                            Clone, Plus Box
+
+
+
+
+                                            (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                               Lock        Code             Ilco/Ilco EZ                       Transponder                                                                                      Card
+      Model     Start   End                                                                                                     Substitues                            Notes
+                               Apps        Series             (Plastic)                    Equipment Required +                                                                                 No.
+                                                    EK3-H84/EK3LB-H84*/H84-   RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                         Service Key H86       Texas Instruments (4D63) Encrypted Code System   612
+                                                    GTK#                      Clone, Plus Box
+                2001    2003 All      1X-1706X
+                                                                              OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                    H92-PT (LAL)                                                         Service Key H86       Texas Instruments (4D63) Encrypted Code System   612
+                                                                              SDD
+                                                    1196FD/H75 [-P, -PC]                                                 -                                                                      612
+                                                                              OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                    H72-PT (LAL)                                                         Service Key H86       Texas Instruments (4C) Encrypted System          612
+                1998    2000 All      1X-1706X                                SDD
+                                                    EK3-H72/EK3LB-H72*/H72-   RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                         Service Key H86       Texas Instruments (4C) Encrypted System          612
+WINDSTAR                                            GTK#                      Clone, Plus Box
+                1997    1997 All      1X-1706X      1196FD/H75 [-P, -PC]                                                 -                                                                      612
+                                                                                                                         1184FD/H54, 1193MU/
+                                      A-B-C-D-E     1193FD/H67 [-P, -PC]                                                                                                                        194
+                1996    1996 All                                                                                         H66
+                                      1X-1706X      1196FD/H75 [-P, -PC]                                                 -                                                                      612
+                1995    1995 All      A-B-C-D-E     1193FD/H67 [-P, -PC]                                                 1184FD/H54                                                             194
+                             GB       FB0-FB1863    S1167FD/H50 [-PC]                                                    S1181FD/H52                                                            140
+                1994    1994 Ignition/                                                                                   1184FD/H54, 1193MU/
+                                       A-B-C-D-E    1193FD/H67 [-P, -PC]                                                                                                                        194
+                             Door                                                                                        H66
+FREIGHTLINER
+
+
+
+
+                1996    2003 All      FL001-FL262   1588                                                                P1794/Y157 [-P, -PC]                                                    537
+CENTURY CLASS
+                2004    2013          FT1001-FT3000 1588                                                                P1794/Y157 [-P, -PC]                                                    537
+COLUMBIA        2004    2013 All      FT1001-FT3000 1588                                                                P1794/Y157 [-P, -PC]                                                    537
+                                                    1629-P                                                              -                                                                       537
+M/D             2004    2004 All      Z001-Z262
+                                                    Y159-(-P)                                                           Service Key Y159                                                        537
+
+
+
+
+                                                          Page 59                                          GMC - HONDA
+                                                                         Page 60                                                                                       HONDA
+
+                                   Lock         Code                          Ilco/Ilco EZ                                      Transponder                                                                                           Card
+          Model    Start   End                                                                                                                                                       Substitues                              Notes
+                                   Apps         Series                          (Plastic)                                   Equipment Required +                                                                                      No.
+                                                                 1628-P                                                                                                     -                                                        537
+M/D 6/7            2004    2004 All       FL001-FL262
+                                                                 Y159-(-P)                                                                                                  Service Key Y159                                         537
+                                Ignition/
+MODELS AND YEARS   1994    2004           N225-N814              1584                                                                                                       1970AM/RA4                                               144
+                                Door
+NOT REFERENCED                            FL201-FL240            1041T/CG16                                                                                                 -                                                        561
+                                Ignition/
+ELSEWHERE          1981    1993           H601-H1100             1098M/B1                                                                                                   -                                                        142
+                                Door
+                                          LL001-LL200            O1122A/Y12                                                                                                 -                                                        138
+                   2007    2011           1-6700                 HU64-GTK                                 RW4 Plus/ EZ-Clone Plus/ Plus Box                                                                                          913
+SPRINTER                                  HM6001-
+                   2002    2006                                  MB17                                     RW4 Plus/ EZ-Clone Plus/ Plus Box                                                                                          15
+                                          HM7110
+GENESIS
+G70                2019    2020 All       K1-K2500               OEM# 95440-G9000           Smart Pro/TCP/MVPP                                                              KK12-P                                                   2372
+G80                2017    2020 All       B0001-B3000            OEM# 95440-D2000           Smart Pro/TCP/MVPP                                                              KK12-P                                                   4129
+G90                2019    2020 All       I001-2608              OEM# 95440-G9000           Smart Pro/TCP/MVPP                                                              LXP90-P                                                  3742
+                                                                 OEM# 95440-AR000 or
+GV70               2022    2022 All       I001-2608                                                                                                                         KK12-P                                                   3742
+                                                                 95440-AR010
+                                                                 OEM# 95440-T6011 or 95440-
+GV80               2021    2021 All       I001-2608                                         Smart Pro                                                                       KK12-P                                                   3742
+                                                                 T6100
+GEO
+
+
+
+
+METRO              1989    1997   All     U0001-U2000            X184/B65 [-P]                                                                                              X185/SUZ15                                               264
+                   1993    1997   All     10001-15000            X225/B80 [-P]                                                                                              X217/TR47                                                514
+PRIZM
+                   1989    1992   All     G001-G7NP              X192/B72 [-P]                                                                                              -                                                        264
+SPECTRUM           1985    1989   All     A8001-A9400            X143/B53                                                                                                   B57                                                      156
+STORM              1990    1993   All     N5001-N7000            X184/B65 [-P]                                                                                              X185/SUZ15                                               264
+TRACKER            1989    1997   All     18100-19617            X180/B69                                                                                                   X186/SUZ17                                               288
+GMC
+
+
+
+
+                                          (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                  Lock            Code                Ilco/Ilco EZ                   Transponder                                                                                           Card
+         Model     Start   End                                                                                                          Substitues                             Notes
+                                  Apps            Series                (Plastic)                Equipment Required +                                                                                      No.
+
+
+
+
+                                                           OEM# 13508275 or 13508276
+ACADIA W/ PROX     2017    2023 All        V0001-V5573                               Smart Pro/TCP/MVPP                           Emergency Key B122
+                                                           (LAL)
+                                                                                     OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                           B111-PT                                                                Service Key B106-P   Circle +, Philips Encrypted System                  2020
+                                                                                     TKO/SDD
+ACADIA             2007    2017 Al         G0000-G3631
+                                                           EK3P-B111/EK3LB-B111*/    RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                  Service Key B106-P   Circle +, Philips Encrypted System                  2020
+                                                           B111-GTK#                 Plus, Plus Box
+                                                                                                                                                       Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                           B119-PT (LAL)              Smart Pro/TCP/MVPP                          P1116/B119                                                               2200
+                                                                                                                                                       6000(card 766)
+                   2015    2023 All        Z0001-Z6000
+CANYON PICKUP                                              EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                             Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                  P1116/B119                                                               2200
+                                                           HU100-GTK#               Plus, Plus Box                                                     6000(card 766)
+                   2004    2012 All        70000-75928     P1114/B110 [-P]                                                        P1114                                                                    1420
+                                                                                                                                  Service Key P1114/
+CANYON PICKUP                                              OEM# 19267217                                                                               Megamos (48) Encrypted System                       1420
+                                                                                                                                  B110[-P]
+                   2008    2012 All        70000-75928
+(CANADA)                                                   TOY43R-GTS w/ T48                                                      Service Key P1114/
+                                                                                      RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                        Megamos (48) Encrypted System                       1420
+                                                           Transponder                                                            B110[-P]
+                                                           B111-PT                    OBP Program A or G, SDD/TKO                 Service Key B106-P   Circle +, Philips Encrypted System                  2020
+DENALI             2007    2008 All        G0000-G3631     EK3P-B111/EK3LB-B111*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                  Service Key B106-P   Circle +, Philips Encrypted System                  2020
+                                                           B111-GTK#                  Plus, Plus Box
+ENVOY              2002    2009 Al         S000A-S999K     P1113/B102[-P]                                                         P1106/B86                                                                567
+FSR,FRR,FTR, W4,
+                   1984    2004 All        S8001-S9000     X154/B54                                                               -                                                                        145
+W5
+JIMMY              2000    2006 All        S000A-S999K     P1113/B102 [-P]                                                        P1106/B86                                                                567
+                                Door/
+                                Other      L, M            S1098H/B45 [-P, -PC]                                                   S1098WH/B79                                                              14
+                   1991    1994
+                                Locks
+                                Ignition   J, K            P1098E/B44 [-P, -PC]                                                   B77, B78                                                                 14
+MODELS AND YEARS                Door/
+                                Other      NPSU            S1098D/B51 [-P, -PC]                                                   S1098WD/B67                                                              14
+NOT REFERENCED     1987    1990
+                                Locks
+ELSEWHERE                       Ignition   ABNP            P1098C/B50 [-P, -PC]                                                   B64, B63                                                                 14
+                                Door/
+                                Other      ABCD            S1098B/B49 [-P, -PC]                                                   -                                                                        14
+                   1983    1986
+                                Locks
+                                Ignition   VWXY            P1098A/B48 [-P, -PC]                                                   B62                                                                      14
+
+
+
+
+                                                                 Page 61                                                          HONDA
+                                                                            Page 62                                                                                       HONDA
+
+                                    Lock           Code                          Ilco/Ilco EZ                                      Transponder                                                                                                             Card
+         Model     Start   End                                                                                                                                                          Substitues                                       Notes
+                                    Apps           Series                          (Plastic)                                   Equipment Required +                                                                                                        No.
+                                  Door/
+                                  Other      EFGH                   S1098K/B47                                                                                                 -                                                                           14
+                   1982    1982
+MODELS AND YEARS                  Locks
+                                  Ignition   EFGH                   P1098/B46                                                                                                  -                                                                           14
+NOT REFERENCED
+                                  Door/
+ELSEWHERE                         Other      J, K,L, M              S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                 14
+                   1981    1981
+                                  Locks
+                                  Ignition   J, K,L, M              P1098E/B44 [-P, -PC]                                                                                       B77, B78                                                                    14
+                   1989    2004   All        N5001-N7000            X184/B65 [-P]                                                                                              -                                                                           264
+NPR, NRR, W4,W5
+                   1986    1988   All        A8001-A9400            X158/B57                                                                                                   B53                                                                         156
+NQR                2000    2003   All        N5001-N7000            X184/B65 [-P]                                                                                              MIT1, SUZ15                                                                 264
+SAFARI, SAVANA     2000    2007   All        S000A-S999K            P1107/B89 [-P]                                                                                             P1106/B86                                                                   567
+SAVANA,                                                             B111-PT (LAL)            OBP Program A or G, SDD/TKO                                                       Service Key B106-P                Circle +, Philips (46) Encrypted System   567
+                   2008    2014 Al           S000A-S999K            EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+PASSENGER, CARGO                                                                                                                                                               Service Key B106-P                Circle +, Philips (46) Encrypted System   567
+                                                                    B111-GTK#                Plus, Plus Box
+                                                                    B120-PT (LAL)            Smart Pro/TCP/MVPP/TKO/SDD                                                        P1116/B119                        Circle +, Philips (46) Encrypted System   3647
+SAVANA             2015    2024 All          V0001-V5573            EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                               P1116/B119                        Circle +, Philips (46) Encrypted System   3647
+                                                                    HU100-GTK#               Plus, Plus Box
+                                                                                             OBP Program M or R, Smart Pro/TCP/MVPP/
+                                                                    B119-PT (LAL)                                                                                              P1116/B119                                                                  3647
+                                                                                             TKO/SDD
+                   2014    2024 All          V0001-V5573
+                                                                    EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                               P1116/B119                                                                  3647
+                                                                    HU100-GTK#               Plus, Plus Box
+SIERRA
+                                                                                             OBP Program M or R, Smart Pro/TCP/MVPP/
+                                                                    B111-PT (LAL)                                                                                              Service Key B106-P                Circle +, Philips (46) Encrypted System   2020
+                                                                                             TKO/SDD
+                   2007    2013 All          G0000-G3631
+                                                                    EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                               Service Key B106-P                Circle +, Philips (46) Encrypted System   2020
+                                                                    B111-GTK#                Plus, Plus Box
+SIERRA, SIERRA
+                   2000    2006 All          S000A-S999K            P1113/B102 [-P]                                                                                            P1106/B86                                                                   567
+DENALI, YUKON
+SIERRA, SONOMA,    1999    1999 All          AA00-7T51              P1113/B102 [-P]                                                                                            P1106/B86                                                                   567
+YUKON              1995    1998 All          AA00-7T51              P1107/B89 [-P]                                                                                             P1106/B86                                                                   567
+                                                                                             OBP Program M or R, Smart Pro/TCP/MVPP/
+                                                                    B119-PT (LAL)                                                                                              P1116/B119                                                                  3647
+                                                                                             TKO/SDD
+                   2018    2024 All          V0001-V5573
+                                                                    EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                               P1116/B119                                                                  3647
+                                                                    HU100-GTK#               Plus, Plus Box
+TERRAIN
+                                                                                             OBP Program M or R, Smart Pro/TCP/MVPP/
+                                                                    B119-PT (LAL)                                                                                              P1116/B119                                                                  2200
+                                                                                             TKO/SDD
+                   2010    2017 All          Z0001-Z6000
+                                                                    EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                               P1116/B119                                                                  2200
+                                                                    HU100-GTK#               Plus, Plus Box
+TILTMASTER W4      1988    2011 All      S8001-S9000                X154/B54                                                                                                                                                                               145
+TILTMASTER W5      1988    2011 All      N5001-N7000                X184/B65 [-P]                                                                                                                                                                          264
+TILTMASTER W6      1988    2001 All      N5001-N7000                X184/B65 [-P]                                                                                                                                                                          264
+                   2008    2011 All      80000-80999                X275/B113                                                                                                                                                                              926
+TILTMASTER W7
+                   1988    2007 All      N5001-N7000                X184/B65 [-P]                                                                                                                                                                          264
+TILTMASTER NQR     2000    2011 All      N5001-N7000                X184/B65 [-P]                                                                                                                                                                          264
+                                Door/
+                                         L, M                       S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                 14
+TOPKICK, C4500     1991    2004 Storage
+                                Ignition J, K                       P1098E/B44 [-P, -PC]                                                                                       B77, B78                                                                    14
+YUKON W/ PROX      2015    2020 All      V0001-V5573                OEM# 13580804                            Smart Pro/TCP/MVPP                                                Emergency Key B122                                                          3647
+
+
+
+
+                                             (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+

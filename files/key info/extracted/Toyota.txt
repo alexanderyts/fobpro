@@ -1,0 +1,508 @@
+                              Lock           Code               Ilco/Ilco EZ                   Transponder                                                                                     Card
+      Model   Start   End                                                                                                         Substitues                                   Notes
+                              Apps           Series               (Plastic)                Equipment Required +                                                                                No.
+                                                      DWO4RT6 (Optional)        OBP Program A                               Service Key DW04RAP     Megamos Encrypted Transponder (Optional)   110
+G3            2010    2010 All        T1-T1200
+                                                      DWO4R-GTS w/ T48
+                                                                                RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box   Service Key DW04RAP     Megamos Encrypted Transponder (Optional)   110
+                                                      Transponder
+                                                                              OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                      B111-PT (LAL)                                                         Service Key B106-P      Circle +, Philips (46) Encrypted System    2020
+                                                                              TKO/SDD
+G5            2007    2010 All        G0000-G3631
+                                                      EK3P-B111/EK3LB-B111*/  RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                            Service Key B106-P      Circle +, Philips (46) Encrypted System    2020
+                                                      B111-GTK#               Plus, Plus Box
+                                                                              OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                      B111-PT (LAL)                                                         Service Key B106-P      Circle +, Philips (46) Encrypted System    2020
+                                                                              TKO/SDD
+G6            2005    2010 All        G0000-G3631
+                                                      EK3P-B111/EK3LB-B111*/  RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                            Service Key B106-P      Circle +, Philips (46) Encrypted System    2020
+                                                      B111-GTK#               Plus, Plus Box
+                                                                              OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                      Dealer key                                                            Service Key GM45        Circle +, Ordered by VIN                   2534
+                                                                              TKO/SDD
+G8            2008    2009 All        60000-62113
+                                                                              RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                      EK3P-GM45 or EK3LB-GM45                                               Service Key GM45        Circle +, Philips (46) Encrypted System    2534
+                                                                              Plus, Plus Box
+              2000    2005 All        S000A-S999K     P1112/B93 [-P] (LAL)                                                  B89, B85, B86                                                      567
+              1999    1999 All        AA00-7T51       P1112/B93 [-P] (LAL)                                                  B89, B85, B86                                                      567
+              1996    1998 All        AA00-7T51       P1107/B89 [-P]                                                        P1106/B86                                                          567
+                           Door/
+                           Trunk/     L, M            S1098H/B45[-P, -PC]                                                   -                                                                  14
+              1994    1995
+                           GB
+                           Ignition   AA00-7T51       P1107/B89 [-P]                                                        P1106/B86                                                          567
+GRAND AM                   Door/
+                           Trunk/     L, M            S1098H/B45[-P, -PC]                                                   S1098WH/B79                                                        14
+              1993    1993
+                           GB
+                           Ignition   J               P1101/B84 [-P]                                                        P1099/B68                                                          14
+                           Door/
+                           Trunk/     L, M            S1098H/B45[-P, -PC]                                                   S1098WH/B79                                                        14
+              1992    1992
+                           GB
+                           Ignition   J               P1099/B68 [-P, -PC]                                                   -                                                                  14
+                                                                                OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                      PT04-PT (LAL)                                                         Service Key B106-P      PK3 Megamos (13)Fixed Code System          2020
+                                                                                TKO/SDD
+GRAND PRIX    2004    2008 All        O5000-O6999
+                                                                                RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                      PT04-PT5                                                              Service Key B106-P      PK3 Megamos (13)Fixed Code System          2020
+                                                                                Clone Plus, EZ Clone
+                                                                                OBP Program A, Smart Pro/TCP/MVPP/TKO/
+                                                      B103-PT (LAL)                                                         Service Key P1106/B86   Megamos (13)Fixed Code System              567
+                                                                                SDD
+                             All      S000A-S999K
+                                                                                RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                      B103-PT5                                                              Service Key P1106/B86   Megamos (13)Fixed Code System              567
+                                                                                Clone Plus, EZ Clone
+              2000    2003
+GRAND PRIX                                            B104-PT                   OBP Program A                               Service Key P1106/B86   Megamos (13)Fixed Code System              567
+                             Valet    S000A-S999K
+                                                                                RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                      B104-PT5                                                              Service Key P1106/B86   Megamos (13)Fixed Code System              567
+                                                                                Clone Plus, EZ Clone
+                           All        AA00-7T51       P1109/B92 [-P]                                                        B89, B85, B86                                                      567
+              1997    1999
+                           Valet      AA00-7T51       1109V                                                                 -                                                                  567
+
+
+
+
+                                                           Page 115
+                                                                                                    STERLING - SUBARU
+                                                                               Page 116                                                                                SUBARU
+
+                                  Lock      Code                                Ilco/Ilco EZ                                      Transponder                                                                                                       Card
+      Model        Start    End                                                                                                                                                        Substitues                                    Notes
+                                 Apps       Series                                (Plastic)                                   Equipment Required +                                                                                                  No.
+                                Door/
+                                Trunk/ L, M                        P1098A/B48 [-P, -PC]                                                                                       -                                                                     14
+                   1994    1996 GB
+                                                                   VATS SYSTEM (B62-P-1
+                                  Ignition J, K                                                             -                                                                                                                                       14
+                                                                   THRU 15)
+                                Door/
+GRAND PRIX                      Trunk/       L, M                  S1098WH/B79                                                                                                -                                                                     14
+                   1991    1993
+                                GB
+                                Ignition     J, K                  P1098WE/B78 [-P, -PC]                                                                                      B77                                                                   14
+                                Door/
+                                Trunk/       CDRSTU                S1098WD/B67                                                                                                -                                                                     14
+                   1988    1990
+                                GB
+                                Ignition     CDRSTU                P1098WC/B64 [-P, -PC]                                                                                      B50, B63                                                              14
+                                Door/
+                                Trunk/       NPSU                  S1098D/B51 [-P, -PC]                                                                                       S1098WD/B67                                                           14
+GTA                1988    1988 GB
+                                                                   VATS SYSTEM (B62-P-1
+                                  Ignition NPSU                                                             -                                                                                                                                       14
+                                                                   THRU 15)
+                                  Ignition
+GTO                2005    2008              H0001-H3000           OEM # 92123129                           Smart Pro/TCP/MVPP/TKO/SDD (04-06)                                Service Key HU43P                                                     567
+                                  only
+LEMANS             1988    1993   All        S4001-S5200           X168/B61                                                                                                   -                                                                     110
+                                  Door/
+                                  Trunk/     L, M                  P1098A/B48 [-P, -PC]                                                                                       S1098WH/B79                                                           14
+                   1991    1995
+                                  GB
+                                  Ignition   J, K                  P1098E/B44 [-P, -PC]                                                                                       B77                                                                   14
+                                  Door/
+                                  Trunk/     ABCD                  S1098D/B51 [-P, -PC]                                                                                       S1098WD/B67                                                           14
+                   1987    1990
+                                  GB
+                                  Ignition   NPSU                  P1098C/B50 [-P, -PC]                                                                                       B63                                                                   14
+MODELS AND YEARS                  Door/
+                                  Trunk/     VWXY                  S1098B/B49 [-P, -PC]                                                                                       -                                                                     14
+NOT REFERENCED     1983    1986
+                                  GB
+ELSEWHERE                         Ignition   VWXY                  P1098A/B48 [-P, -PC]                                                                                       B62                                                                   14
+                                  Door/
+                                  Trunk/     EFGH                  S1098K/B47                                                                                                 -                                                                     14
+                   1982    1982
+                                  GB
+                                  Ignition   EFGH                  P1098J/B46                                                                                                 -                                                                     14
+                                  Door/
+                                  Trunk/     NPSU                  S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                           14
+                   1981    1981
+                                  GB
+                                  Ignition   J, K, L, M            P1098E/B44 [-P, -PC]                                                                                       B77                                                                   14
+                                                                                                            OBP Program A, Smart Pro/TCP/MVPP/TKO/
+                                                                   B97-PT (LAL)                                                                                               Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                                                                                                            SDD
+                                  All        S000A-S999K
+                                                                                                            RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                                   B97-PT5                                                                                                    Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                                                                                                            Clone Plus, EZ Clone
+MONTANA            1999    2004
+                                                                   B98-PT                                   OBP Program A                                                     Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                                  Valet      S000A-S999K
+                                                                                                            RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                                   B98-PT5                                                                                                    Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                                                                                                            Clone Plus, EZ Clone
+
+MONTANA SV6                                                        B99-PT (LAL)                             OBP Program G                                                     Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                   2007    2009 All          S000A-S999K
+(CANADA)                                                                                                    RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                                   B99-PT5                                                                                                    Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                                                                                                            Clone Plus, EZ Clone
+                                                                                                            OBP Program A, Smart Pro/TCP/MVPP/TKO/
+                                                                   B99-PT (LAL)                                                                                               Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                                                                                                            SDD
+MONTANA SV6        2005    2006 All          S000A-S999K
+                                                                                                            RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                                   B99-PT5                                                                                                    Service Key P1106/B86             Megamos (13)Fixed Code System       567
+                                                                                                            Clone Plus, EZ Clone
+                   MID                                             PT04-PT (LAL)                            OBP Program A or G                                                Service Key B106-P                PK3 Megamos (13)Fixed Code System   567
+MONTANA, MONTANA
+                   JAN     Mar-05 All        S000A-S999K                                                    RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+SV6                                                                PT04-PT5                                                                                                   Service Key B106-P                PK3 Megamos (13)Fixed Code System   567
+                   2005                                                                                     Clone Plus, EZ Clone
+
+                                                (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                               Lock            Code               Ilco/Ilco EZ                       Transponder                                                                                        Card
+       Model    Start   End                                                                                                           Substitues                                Notes
+                               Apps            Series               (Plastic)                    Equipment Required +                                                                                   No.
+                                                                                    OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                        B111-PT                                                                 Service Key B106-P      Circle +, Philips (46) Encrypted System        2020
+                                                                                    TKO/SDD
+PURSUIT         2006    2010 All        G0000-G3631
+                                                        EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                Service Key B106-P      Circle +, Philips (46) Encrypted System        2020
+                                                        B111-GTK#                   Plus, Plus Box
+                                                                                    OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                        B111-PT                                                                 Service Key B106-P      Circle +, Philips (46) Encrypted System        2020
+                                                                                    TKO/SDD
+SOLSTICE        2006    2009 All        G0000-G3631
+                                                        EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                Service Key B106-P      Circle +, Philips (46) Encrypted System        2020
+                                                        B111-GTK#                   Plus, Plus Box
+                2000    2005 All        S000A-S999K     P1107/B89 [-P] (LAL)                                                    -                                                                      567
+SUNFIRE         1996    1999 All        AA00-7T51       P1107/B89 [-P]                                                          -                                                                      567
+                1995    1995 All        AA00-7T51       P1106/B86 [-P]                                                          B89, B85                                                               567
+                                                                                    OBP Program A or G, Smart Pro/TCP/MVPP/
+TORRENT (SIS-                                           B111-PT (LAL)                                                           Service Key B106-P      Circle +, Philips (46) Encrypted System        2020
+                                                                                    TKO/SDD
+TER MODEL TO
+                2007    2009 All        G0000-G3631
+CHEVROLET                                               EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                Service Key B106-P      Circle +, Philips (46) Encrypted System        2020
+EQUINOX)                                                B111-GTK#                   Plus, Plus Box
+                                                        VATS SYSTEM (B62-P-1
+TRANS AM, GTA   1989    1990 Ignition ABNP                                          -                                                                                                                  14
+                                                        THRU 15)
+                                                        B97-PT                      OBP Program A                               Service Key P1106/B86   Megamos (13)Fixed Code System                  567
+                1999    1999 All        AA00-7T51                                   RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                        B97-PT5                                                                 Service Key P1106/B86   Megamos (13)Fixed Code System                  567
+                                                                                    Clone Plus, EZ Clone
+                1997    1998 All        AA00-7T51       P1107/B89 [-P]                                                          P1106/B86                                                              567
+                             Door/
+TRANS SPORT                             NP              S1098H/B45 [-P, -PC]                                                    S1098WH/B79                                                            14
+                1991    1996 Other
+                             Ignition   J, K            P1098E/B44 [-P, -PC]                                                    B77                                                                    14
+                             Door/
+                                        NP              S1098D/B51 [-P, -PC]                                                    S1098WD/B67                                                            14
+                1988    1990 Other
+                             Ignition   AB              P1098C/B50 [-P, -PC]                                                    B63                                                                    14
+                2009    2010 All        50000-69999     TOY44D-PT(optional) (LAL)   Smart Pro/TCP/MVPP/TKO/SDD                  Service Key TR47        Texas Instruments (4D67) Encrypted System      1420
+                                                        EK3-TOY43/EK3LB-TOY43*/     RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                2009    2010 All        50000-69999                                                                            Service Key TR47         Texas Instruments (4D67) Encrypted System      1420
+VIBE                                                    TOY43-GTK#                  Clone, Plus Box
+                2003    2009 All        50000-69999     X217/TR47 [-P, -PC] (LAL)                                               Service Key X217/TR47                                                  1420
+                                                        DW04RT6                     OBP A                                       DW04RAP                 Megamos Encrypted Transponder (Optional)       110
+WAVE (CANADA)   2005    2010 All        T1-T1200        DWO4R-GTS w/ T48
+                                                                                    RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box   DW04RAP                 Megamos Encrypted Transponder (Optional)       110
+                                                        Transponder
+PORSCHE
+
+
+
+
+                             Ignition/
+924             1976    1988 Door/ VB/HV 1-9282         X9/73VB [-P]                                                            X88/PA8, X139/V35                                                      49/50
+                             Trunk
+944             1983    1991 All       VB1-VB9282       X9/73VB [-P]                                                            X88/PA8, X139/V35                                                      49/50
+                1992    1995 All       VB1-VB9282       X9/73VB [-P]                                                            X88/PA8, X139/V35                                                      49/50
+968                                                                                                                                                     High Security Key. Megamos Encrypted System,
+                1999    2005 All        0001-6000 EXT HU66T6                                                                    Service Key HU66P                                                      2399
+                                                                                                                                                        Ordered by VIN
+911 TURBO
+                2004    2005 All        0001-6000 EXT Dealer Key                                                                Service Key HU66P       High Security Key. Megamos Fixed Code System   2399
+CABRIOLET
+
+
+
+
+                                                             Page 117
+                                                                                                                              SUBARU
+                                                                             Page 118                                                                                   SUZUKI
+
+                                  Lock      Code                          Ilco/Ilco EZ                                    Transponder                                                                                                                           Card
+           Model    Start   End                                                                                                                                                      Substitues                                     Notes
+                                  Apps      Series                          (Plastic)                                 Equipment Required +                                                                                                                      No.
+                    1999    2009 All   0001-6000 EXT             Dealer Key                               Porsche System Tester                                             Service Key HU66P                 High Security Key. Megamos Encrypted System      2399
+                                       HC1-HC2080                PO5                                                                                                        -                                                                                  35
+911, 912                         All
+                    1981    1998       SC1-SC2080                PO7                                                                                                        -                                                                                  35
+                                 Valet NC1-NC2080                X32/PO6                                                                                                    -                                                                                  35
+928 WITH ALARM      1981    1995 All   1234                      HF55-P                                                                                                     -                                 High Security Key                                597
+928 WITHOUT ALARM   1981    1995 All   1234                      HF52-P                                                                                                     -                                 High Security Key                                598
+                                                                 61VW                                                                                                       62VW                                                                               109
+                                                                 S62DW                                                                                                      -                                                                                  109
+944, 924            1976    1988 GB         SC1-SC240
+                                                                 U61VW                                                                                                      VO6                                                                                109
+                                                                 V61VW                                                                                                      62VW                                                                               109
+                                                                                                          RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                    2005    2011 All        0001-6000 EXT HU66MH#                                                                                                           Service Key HU66P                                                                  2399
+                                                                                                          Clone Plus, EZ Clone
+                                                                                                                                                                                                              High Security Key. Megamos Encrypted System,
+BOXSTER             1999    2008 All        0001-6000 EXT Dealer Key                                      Porsche System Tester                                             Service Key HU66P                                                                   2399
+                                                                                                                                                                                                              Ordered by VIN
+                                                                                                          RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ                                                                High Security Key. Megamos Fixed Code System. May
+                    1997    1998 All        0001-6000 EXT HU66T5                                                                                                            Service Key HU66P                                                                   970
+                                                                                                          Clone Plus, EZ Clone                                                                                use Restricted Dealer Key 2008
+                                                                                                          RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                                 HU66MH#                                                                                                    Service Key HU66P                                                                  2399
+                                                                                                          Clone Plus, EZ Clone
+CAYENNE             2003    2010 All        1-6000 EXT
+                                                                                                                                                                                                              High Security Key. Megamos Encrypted System,
+                                                                 HU66T6                                                                                                     Service Key HU66P                                                                  2399
+                                                                                                                                                                                                              Ordered by VIN
+                                                                                                                                                                                                              High Security Key. Megamos Encrypted System,
+CAYMAN              2006    2009 All        1-6000 EXT           Dealer Key                                                                                                 Service Key HU66P                                                                  2399
+                                                                                                                                                                                                              Ordered by VIN
+GT3                 2004    2007 All        1-6000 EXT           Dealer Key                                                                                                 Service Key HU66P                 High Security Key. Megamos Fixed Code System     2399
+RENAULT
+
+
+
+
+                                 Door/
+                                            K1-K1000             X150/RN27                                                                                                  S1970AM/RA3                                                                        144
+ALLIANCE ENCORE     1986    1988 Trunk
+                                 Ignition   M-N-P-R-S            X147/RN30                                                                                                  -                                                                                  122
+                                 Door/
+                                            K1-K1000             X150/RN27                                                                                                  S1970AM/RA3                                                                        144
+FUEGO               1986    1986 Hatch
+                                 Ignition   M-N-P-R-S            X147/RN30                                                                                                  -                                                                                  122
+ROLLS ROYCE (BENTLEY)
+
+
+
+
+                                            NRRM1001-
+PHANTOM             2004    2007 All                      Dealer Key                                      Dealer Tool Only                                                  Service Key 62HF                                                                   303
+                                            2000
+                                            NRRM1001-
+SILVER SPIRIT       1981    1991 All                      62HF                                                                                                              -                                                                                  303
+                                            2000
+SILVER SPUR         1981    1991 Valet      NRRL1001-2000 62HG                                                                                                              Service Key RR8R                                                                   303
+SAAB
+
+
+
+
+                                              (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                   Lock       Code                Ilco/Ilco EZ                  Transponder                                                                                             Card
+           Model   Start   End                                                                                                    Substitues                                Notes
+                                   Apps       Series                (Plastic)               Equipment Required +                                                                                        No.
+
+
+
+
+900                1994    1998   All     BC1-BC2865    S32YS-P                                                             -                       High Security Key                                   33
+9000               1986    1998   All     BC1-BC2865    S32YS-P                                                             -                       High Security Key                                   33
+9-3                2004    2011   All     DA1-2892      OEM # 12783781           Tech 2 Device                              Service Key WT47T       Philips Crypto Transponder                          524+
+9-5                2004    2009   All     2S1-2S675     OEM # 5363015            Smart Pro/TCP/MVPP                         Service Key WT47T       High Security Key. Megamos System                   337
+900, 99            1981    1993   All     AC1-AC3192    X52/SAA1 [-P]                                                       -                       High Security Key                                   52
+9-2X               2005    2008   All     30001-37850   Dealer Key               Dealer Tool Only                           -                                                                           607
+                                                        OEM # 4851762            Tech 2 Device                              -                       High Security Key. Megamos Encrypted System         33
+9-3, 9-5           1999    2003 All       BC1-BC2865                             RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                        YM30T5                                                              -                                                                           33
+                                                                                 Clone Plus, EZ Clone
+                                                                                                                                                    Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+9-4X               2010    2011 All       Z0001-Z6000   Dealer Key               Smart Pro/TCP/MVPP                         P1116/B119                                                                  2200
+                                                                                                                                                    6000(card 766)
+                                                                                 OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                        PT04-PT                                                             Service Key B106-P      PK3 Megamos (13)Fixed Code System                   567
+                                                                                 TKO/SDD
+                   2006    2009 All       O5000-O6999
+9-7,                                                                             RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                        PT04-PT5                                                            Service Key B106-P      PK3 Megamos (13)Fixed Code System                   567
+                                                                                 Clone Plus, EZ Clone
+                   2006    2008 All       S000A-S999K   P1113/B102 [-P]                                                     -                                                                           567
+SATURN
+
+
+
+
+ALL                1997    2000 All       1-2000        P1110/B96 [-P]                                                      P1106/B86                                                                   567
+                                                                                                                                                    Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+ASTRA              2008    2009 All       Z0001-Z6000   OEM # 93192428           OBP Program A or G                         Service Key HF56                                                            2200
+                                                                                                                                                    6000(card 766)
+                                                                                 OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                        B111-PT (LAL)                                                       Service Key B106-P      Circle +, Philips (46) Encrypted System             2020
+                                                                                 TKO/SDD
+AURA               2007    2010 All       G0000-G3631
+                                                        EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                            Service Key B106-P      Circle +, Philips (46) Encrypted System             2020
+                                                        B111-GTK#                Plus, Plus Box
+ION                2003    2007 All       G0000-G3631   P1115/B106 [-P]                                                     Service Key B106-P                                                          2020
+L SERIES           2000    2005 All       H0001-H3988   P1110/B96                                                           -                                                                           567
+L300               2003    2005 All       O5000-O6999   P1110/B96 [-P]                                                      -                                                                           567
+                                                                                 OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                        B111-PT (LAL)                                                       Service Key B106-P      Circle +, Philips (46) Encrypted System             2020
+                                                                                 TKO/SDD
+OUTLOOK            2007    2010 All       G0000-G3631
+                                                        EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                            Service Key B106-P      Circle +, Philips (46) Encrypted System             2020
+                                                        B111-GTK#                Plus, Plus Box
+                                                        PT04-PT                  OBP Program A or G                         Service Key B106-P      PK3 Megamos (13)Fixed Code System                   567
+                   Early   Early
+                                 All      O5000-O6999                            RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                   2005    2005                         PT04-PT5                                                            Service Key B106-P      PK3 Megamos (13)Fixed Code System                   567
+                                                                                 Clone Plus, EZ Clone
+RELAY                                                                            RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                        B97-PT5                                                             Service Key P1106/B86   Megamos (13)Fixed Code System                       567
+                                                                                 Clone Plus, EZ Clone
+                   2005    2007 All       S000A-S999K
+                                                                                 OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                        B97-PT (LAL)                                                        Service Key P1106/B86   Megamos (13)Fixed Code System                       567
+                                                                                 TKO/SDD
+
+
+                                                             Page 119
+                                                                                                                           TOYOTA
+                                                                         Page 120                                                                                  TOYOTA
+
+                                Lock      Code              Ilco/Ilco EZ                                                    Transponder                                                                                                                     Card
+          Model   Start   End                                                                                                                                                    Substitues                                       Notes
+                                Apps      Series              (Plastic)                                                 Equipment Required +                                                                                                                No.
+                  2001    2002 All   S000A-S999K P1110/B96 [-P] (LAL)                                                                                                                                                                                      567
+SC & SL           1997    2000 All   1-2000         P1110/B96 [-P]                                                                                                      -                                                                                  567
+                  1991    1996 All   R0-999, T0-999 P1108/B88 [-P, -PC]                                                                                                 -                                                                                  468
+                                                                                                      OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                             B111-PT (LAL)                                                                                              Service Key B106-P                Circle +, Philips (46) Encrypted System          2020
+                                                                                                      TKO/SDD
+SKY               2007    2010 All     G0000-G3631
+                                                      EK3P-B111/EK3LB-B111*/                          RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                        Service Key B106-P                Circle +, Philips (46) Encrypted System          2020
+                                                      B111-GTK#                                       Plus, Plus Box
+                  2001    2001 All     S000A-S999K P1110/B96 [-P]                                                                                                                                                                                          567
+SW                1997    2000 All     1-2000         P1110/B96 [-P]                                                                                                    -                                                                                  567
+                  1993    1996 All     R0-999, T0-999 P1108/B88 [-P, -PC]                                                                                               -                                                                                  468
+                                                                                      OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                             B114-PT or B114R-PT (LAL)                                                                                  DW04RAP or DW05RAP Circle +, Philips (46) Encrypted System                         110
+                                                                                      TKO/SDD
+VUE               2008    2010 All     V2001-V3200
+                                                             EK3P-B114R/EK3LB-B114R*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                        DW04RAP or DW05RAP Circle +, Philips (46) Encrypted System                         110
+                                                             B114R-GTK#               Plus, Plus Box
+VUE               2002    2007 All     H0001-H3988           P1110/B96 [-P] (LAL)                                                                                       P1106/B86                                                                          567
+SCION
+
+
+
+
+                                                             OEM# SU003-01445 or
+FR-S              2013    2016 All     50000-69999                                                    Smart Pro/TCP/MVPP                                                Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+                                                             SU003-05282
+                                                             OEM# 89904-WB003 or
+IA                2016    2016 All     10100-12283                                                    Smart Pro/TCP/MVPP                                                                                                                                   288
+                                                             DD1B-67-5RY
+IM                2016    2016 All     40000-49999           OEM# 89070-12B00                                                                                           Service Key LXP90-P               Texas Instruments (4D74) 128 bit System          950
+IQ                2012    2014 All     50000-69999           X217/TR47 (LAL)                                                                                            Service Key TR47                                                                   1420
+                  2012    2013 All     50000-69999           TOY44G-PT (LAL)                          Smart Pro/TCP/MVPP/TKO/SDD                                        Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+IQ (CANADA)                                                  TOY43-GTS w/ T80
+                  2012    2013 All     50000-69999                                                    RW5, SA+, RW4 Plus, EZ Clone Plus                                 Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+                                                             Transponder (GTHT80)
+                  2014    2014 All     40000-49999           OEM# 89070-52G30                         Smart Pro/TCP/MVPP/TKO/SDD                                        Service Key LXP90-P               Limited Release Edition                          950
+                                                             TOY44G-PT (LAL)                          Smart Pro/TCP/MVPP/TKO/SDD                                        Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+                  2011    2015 All     50000-69999           TOY43-GTS w/ T80
+                                                                                                      RW5, SA+, RW4 Plus, EZ Clone Plus                                 Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+TC                                                           Transponder (GTHT80)
+                                                             EK3-TOY43/EK3LB-TOY43*/                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                                        Service Key TR47                  Texas Instruments (4D67) Encrypted Code System   1420
+                  2005    2010 All     50000-69999           TOY43-GTK#                               Clone, Plus Box
+                                                             TOY44D-PT (LAL)                          Smart Pro/TCP/MVPP/TKO/SDD                                        Service Key TR47                  Texas Instruments (4D67) Encrypted Code System   1420
+                                                             EK3-TOY43/EK3LB-TOY43*/                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+XA                2004    2007 All     50000-69999                                                                                                                      Service Key TR47                  Texas Instruments (4D67) Encrypted Code System   1420
+                                                             TOY43-GTK#                               Clone, Plus Box
+                                                             TOY44G-PT                                Smart Pro/TCP/MVPP/TKO/SDD                                        Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+XB (CANADA)       2011    2012 All     50000-69999           TOY43-GTS w/ T80
+                                                                                                      RW5, SA+, RW4 Plus, EZ Clone Plus                                 Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+                                                             Transponder (GTHT80)
+                  2004    2014 All     50000-69999           X217/TR47 (LAL)                          SDD/TKO for optional TOY44D-PT             Service Key TR47                                                                                          1420
+XB                                                           EK3-TOY43/EK3LB-TOY43*/                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                  2004    2008 All     50000-69999                                                                                               Service Key TR47                                         Texas Instruments (4D67) Encrypted Code System   1420
+                                                             TOY43-GTK#                               Clone, Plus Box
+                                                             TOY44G-PT (LAL)                          Smart Pro/TCP/MVPP/TKO/SDD                 Service Key TR47                                         Texas Instruments 80 Bit Encrypted System        1420
+XD (CANADA)       2011    2012 All     50000-69999           TOY43-GTS w/ T80
+                                                                                                      RW5, SA+, RW4 Plus, EZ Clone Plus                                 Service Key TR47                  Texas Instruments 80 Bit Encrypted System        1420
+                                                             Transponder (GTHT80)
+                  2008    2014 All     50000-69999           X217/TR47                                SDD/TKO for optional TOY44D-PT             Service Key TR47                                                                                          1420
+XD                                                           EK3-TOY43/EK3LB-TOY43*/                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                  2008    2008 All     50000-69999                                                                                               Service Key TR47                                         Texas Instruments (4D67) Encrypted Code System   1420
+                                                             TOY43-GTK#                               Clone, Plus Box
+SMART
+
+
+
+                                          (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                   Lock       Code               Ilco/Ilco EZ                   Transponder                                                                       Card
+         Model      Start   End                                                                                                   Substitues                              Notes
+                                   Apps       Series               (Plastic)                Equipment Required +                                                                  No.
+
+
+
+
+                                                        OEM# A4518203797         Smart Pro/TCP/MVPP                                               Philips (46) Encrypted System   2552
+FORTWO              2008    2016 All      93000-95999                            RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                        VA6MH#                                                                                    Philips (46) Encrypted System   2552
+                                                                                 Plus, Plus Box
+STERLING
+
+
+
+
+                    1987    1991 All      E8000-E8999   X170/NE48                                                           -                                                     68
+                                 Door/
+                                          AK1-AK1000    X86/FC7 [-P]                                                        X20/FC2                                               13
+STERLING, 3500S                  Trunk
+                    1981    1986
+                                          RO1001-
+                                 Ignition               X157/LF17                                                           -                                                     9
+                                          RO2000
+                    2004    2007 All      Ford 10-cut   1630-P                                                              -                                                     194
+AKTERA                                                                                                                      1184FD/H54, 1193MU/
+                    2000    2003 All      A-B-C-D-E     1193FD/H67 [-P, -PC]                                                                                                      194
+                                                                                                                            H66
+                                 Door     FB0-FB1863    S1167FD/H50 [-PC]                                                   H56                                                   140
+ALL OTHERS          1998    2004
+                                 Ignition FA0-FA1863    1167FD/H51 [-PC]                                                    -                                                     140
+                                                        Y164-PT (LAL)                                                       Service Key Y159      Philips (46) Encrypted System   745
+BULLET              2008    2009 All      M1-M2618      EK3P-Y164/EK3LB-Y160*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                            Service Key Y159      Philips (46) Encrypted System   745
+                                                        Y160-GTK#                Plus, Plus Box
+                                 Door/
+                                          FT101-FT225   62FT                                                                -                                                     72
+CARGO               2000    2004 GB
+                                 Ignition E2001-E3000   X239/RV4 [-P]                                                       -                                                     68
+SUBARU
+
+
+
+
+ASCENT W/ REGULAR                                                                                                           Service Key P1114/
+                    2019    2022 All      70000-79999   TOY43RH-PT               Smart Pro/TCP/MVPP                                               "H" Chip                        3645
+IGNITION                                                                                                                    B110[-P]
+
+
+
+
+                                                               Page 121
+                                                                                                                          TOYOTA
+

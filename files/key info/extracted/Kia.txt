@@ -1,0 +1,281 @@
+                                   Lock       Code               Ilco/Ilco EZ                         Transponder                                                                                Card
+           Model    Start   End                                                                                                        Substitues                           Notes
+                                   Apps       Series               (Plastic)                      Equipment Required +                                                                           No.
+                                                        NI01T or NI02T               Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34    Texas Instruments (4D60) Encrypted System   607
+                    2000    2002 All      1-22185       EK3-NI02/EK3LB-NI02*/NI02-   RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                Service Key DA34    Texas Instruments (4D60) Encrypted System   607
+                                                        GTK#                         Clone, Plus Box
+G20
+                    1999    1999 All      1-22185       X237/DA34 [-P]                                                          -                                                               607
+                                 All      X1-X8000      X210/DA31 [-P, -PC]                                                     DA25                                                            145
+                    1991    1998
+                                 Valet    Y1-Y8000      X124/DA28                                                               -                                                               145
+                                                        OEM# 285E3-JK62A or                                                     Service Key DA34/
+G25                 2011    2012 All      1-22185                                                                                                                                               607
+                                                        285E3-JK65A (LAL)                                                       Emerg. Key NI06-P
+                                                        NI04T (LAL)                  Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34    Philips Crypto (46)Transponder key          607
+G35                 2003    2004 All      1-22185       EK3P-NI04/EK3LB-NI02*/       RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                Service Key DA34    Philips Crypto (46)Transponder key          607
+                                                        NI02-GTK#                    Plus, Plus Box
+G35 W/ PUSH                                                                                                                     Service Key DA34/
+                    2007    2008 All      40000-41520   Dealer Prox FOB (LAL)                                                                       Philips Crypto (46)Transponder key          607
+BUTTON START                                                                                                                    Emerg. Key NI06-P
+G35 W/ REGULAR                                          NI04T (LAL)                  Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34    Philips Crypto (46)Transponder key          607
+                    2005    2008 All      1-22185       EK3P-NI04/EK3LB-NI02*/       RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+IGNITION                                                                                                                        Service Key DA34    Philips Crypto (46)Transponder key          607
+                                                        NI02-GTK#                    Plus, Plus Box
+G35 W/ TWIST KNOB
+                    2005    2008 All      1-22185       Dealer Prox FOB/NI05T        Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34    Optional                                    607
+IGNITION
+                                                                                                                                Service Key DA34/
+G37 COUPE           2008    2013 All      40000-41520   OEM# 285E3-JK65A             Smart Pro/TCP/MVPP/TKO/SDD                                                                                 607
+                                                                                                                                Emerg. Key NI06-P
+                                                        OEM# 285E3-JK62A or                                                     Service Key DA34/
+G37 SEDAN           2009    2014 All      40000-41520                                Smart Pro/TCP/MVPP/TKO/SDD                                                                                 607
+                                                        285E3-JK65A (LAL)                                                       Emerg. Key NI06-P
+                                                        NI01T or NI02T (LAL)       Smart Pro/TCP/MVPP/TKO/SDD                   Service Key DA34    Texas Instruments (4D60) Encrypted System   607
+                    2000    2004 All      1-22185       EK3-NI02/EK3LB-NI02*/NI02- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                              Service Key DA34      Texas Instruments (4D60) Encrypted System   607
+                                                        GTK#                       Clone, Plus Box
+I30, I35
+                                                                                   RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                    1999    1999 All      X1-X8000      NSN11T2                                                               Service Key DA31      Megamos Fixed Code System                   145
+                                                                                   Clone Plus, EZ Clone
+                    1997    1998 All      X1-X8000      X243/DA38 [-P]                                                        -                                                                 145
+I30, I35            1996    1996 All      X1-X8000      X210/DA31 [-P, -PC]                                                   DA25                                                              145
+                                                                                                                              Service Key DA34/
+IPL G COUPE         2011    2012 All      40000-41520   Dealer Prox FOB            Smart Pro/TCP/MVPP/TKO/SDD                                                                                   607
+                                                                                                                              Emerg. Key NI06-P
+                    1997    1997 All      X1-X8000      X243/DA38 [-P]                                                        -                                                                 145
+J30
+                    1993    1996 All      X1-X8000      X210/DA31 [-P, -PC]                                                   DA25                                                              145
+                                                                                                                              Service Key DA34/
+JX35                2013    2015 All      1-22185       OEM# 285E3-3JA5A           Smart Pro/TCP/MVPP/TKO/SDD                                       Philips Crypto (46)Transponder key          607
+                                                                                                                              Emerg. Key NI06-P
+M30                 1990    1992 All      X1-X8000      X210/DA31 [-P, -PC]                                                   DA25                                                              145
+                    2006    2010 All      40000-41520   OEM# 285E3-EH11A           Smart Pro/TCP/MVPP TKO/SDD(2006-2009)      Service Key DA34      Philips Crypto (46)Transponder key          607
+M35
+                    2003    2004 All      1-22185       OEM# H0561-AR200           Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34      Optional                                    607
+                                                                                                                              Service Key DA34/
+M37                 2011    2013 All      1-22185       OEM# 285E3-1MP0D           Smart Pro/TCP/MVPP/TKO/SDD                                       Philips Crypto (46)Transponder key          607
+                                                                                                                              Emerg. Key NI06-P
+                    2006    2010 All      40000-41520   OEM# 285E3-EH11A           Smart Pro/TCP/MVPP TKO/SDD(2006-2009)      Service Key DA34      Philips Crypto (46)Transponder key          607
+                                                        NI04T (LAL)                Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34      Philips Crypto (46)Transponder key          607
+M45                 2003    2006 All      1-22185       EK3P-NI04/EK3LB-NI02*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                              Service Key DA34      Philips Crypto (46)Transponder key          607
+                                                        NI02-GTK#                  Plus, Plus Box
+                    2003    2004 All      1-22185       OEM# H0561-AR200           Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34      Optional                                    607
+                                                        OEM# 285E3-EH11A or                                                   Service Key DA34/
+M56                 2011    2013 All      1-22185                                  Smart Pro/TCP/MVPP                                               Philips Crypto (46)Transponder key          607
+                                                        285E3-1MP0D                                                           Emerg. Key NI06-P
+                                                                                                                              Service Key DA34/
+Q40                 2015    2015 All      1-22185       OEM# 285E3-JK65A (LAL)     Smart Pro/TCP/MVPP                                                                                           607
+                                                                                                                              Emerg. Key NI06-P
+                                                        NI04T                      Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34      Philips Crypto (46)Transponder key          607
+                    2002    2005 All      1-22185       EK3P-NI04/EK3LB-NI02*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                              Service Key DA34      Philips Crypto (46)Transponder key          607
+                                                        NI02-GTK#                  Plus, Plus Box
+Q45                                                     INF45-PT                   Smart Pro/TCP/MVPP/TKO/SDD                 Service Key DA34      Texas Instruments (4C) Fixed Code System    607
+                    1997    2001 All      1-22185       EK3-NI02/EK3LB-NI02*/NI02- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                              Service Key DA34      Texas Instruments (4C) Fixed Code System    607
+                                                        GTK#                       Clone, Plus Box
+                    1990    1996 All      1-6000        INF90                                                                 -                                                                 14
+
+
+
+
+                                                             Page 73                                                            JEEP
+                                                                      Page 74                                                           JEEP - KENWORTH
+
+                                 Lock      Code                      Ilco/Ilco EZ                                      Transponder                                                                                                                      Card
+        Model      Start   End                                                                                                                                                    Substitues                                       Notes
+                                 Apps     Series                       (Plastic)                                   Equipment Required +                                                                                                                 No.
+                   2020    2023 All   40000-41520             OEM# 285E3-6HE1A                         Smart Pro/TCP/MVPP                                                Service Key DA34                                                              607
+Q50                                                                                                                                                                      Service Key DA34/
+                   2014    2019 All    1-22185                OEM# 285E3-4HD04                         Smart Pro/TCP/MVPP                                                                                  Philips Crypto (46)Transponder key          607
+                                                                                                                                                                         Emerg. Key NI06-P
+                   2020    2022 All    40000-41520            OEM# 285E3-6HE1A                         Smart Pro/TCP/MVPP                                                Service Key DA34                                                              607
+Q60                                                                                                                                                                      Service Key DA34/
+                   2014    2019 All    1-22185                OEM# 285E3-JK65A (LAL)                   Smart Pro/TCP/MVPP/TKO/SDD                                                                          Philips Crypto (46)Transponder key          607
+                                                                                                                                                                         Emerg. Key NI06-P
+                                                                                                                                                                         Service Key DA34/
+Q70                2014    2019 All    1-22185                OEM# 285E3-1MP0D                         Smart Pro/TCP/MVPP/TKO/SDD                                                                          Philips Crypto (46)Transponder key          607
+                                                                                                                                                                         Emerg. Key NI06-P
+                                                                                                                                                                         Service Key DA34/
+Q70L               2017    2018 All    1-22185                OEM# 285E3-1MP0D                                                                                                                             Philips Crypto (46)Transponder key          607
+                                                                                                                                                                         Emerg. Key NI06-P
+                                                              EK3-NI02/EK3LB-NI02*/NI02- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                   1999    2003 All    1-22185                                                                                                                           Service Key DA34                  Texas Instruments (4D60) Encrypted System   607
+QX4                                                           GTK#                       Clone, Plus Box
+                   1997    1998 All    1-22185                X237/DA34 [-P]                                                                                             -                                                                             607
+QX30               2017    2018 All    40000-41520            OEM# 285E3-5DM1B                                                                                                                                                                         607
+                                                              OEM# 285E3-5NA2A/ 285E3-                                                                                   Service Key DA34/
+                   2019    2024 All    40000-41520                                       Smart Pro (Thru 2023)                                                                                                                                         607
+                                                              5NA3A/285E3-5NA7A                                                                                          Emerg. Key NI06-P
+                                                              OEM# 285E3-5NA2A/ 285E3-                                                                                   Service Key DA34/
+QX50               2019    2025 All    40000-41520                                       Smart Pro/TCO/MVPP                                                                                                                                            607
+                                                              5NA3A/285E3-5NA7A                                                                                          Emerg. Key NI06-P
+                                                              OEM# 285E3-1BA5A or                                                                                        Service Key DA34/
+                   2014    2018 All    1-22185                                           Smart Pro/TCP/MVPP/TKO/SDD                                                                                        Philips Crypto (46)Transponder key          607
+                                                              285E3-1BA7A                                                                                                Emerg. Key NI06-P
+                                                              OEM# 285E3-5NY6A or                                                                                        Service Key DA34/
+QX55               2022    2024 All    40000-41520                                       Smart Pro (2022)                                                                                                                                              607
+                                                              285E3-5NY7A                                                                                                Emerg. Key NI06-P
+                                                              OEM# 285E3-ZQ30B or                                                                                        Service Key DA34/
+                   2008    2013 All    40000-41520                                       Smart Pro/TCP/MVPP/TKO/SDD                                                                                        Philips Crypto (46)Transponder key          607
+                                                              285E3-1LL0D                                                                                                Emerg. Key NI06-P
+QX56                                                          NI04T (LAL)                Smart Pro/TCP/MVPP/TKO/SDD                                                      Service Key DA34                  Philips Crypto (46)Transponder key          607
+                   2004    2007 All    1-22185                EK3P-NI04/EK3LB-NI02*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                         Service Key DA34                  Philips Crypto (46)Transponder key          607
+                                                              NI02-GTK#                  Plus, Plus Box
+                                                              OEM# 285E3-6SA3A or                                                                                        Service Key DA34/
+                   2022    2025 All    40000-41520                                       Smart Pro (Thru 2023)                                                                                                                                         607
+                                                              285E3-6SA7B                                                                                                Emerg. Key NI06-P
+                                                              OEM# 285E3-6E1A or 285E3-
+                   2020    2021 All    40000-41520                                       Smart Pro (2020)                                                                                                                                              607
+                                                              6HE6A
+                                                              OEM# 285E3-9NR4A or                                                                                        Service Key DA34/
+QX60               2019    2020 All    1-22185                                           Smart Pro/TCP/MVPP                                                                                                                                            607
+                                                              285E3-9NR5B                                                                                                Emerg. Key NI06-P
+                                                              OEM# 285E3-                                                                                                Service Key DA34/
+                   2016    2018 All    1-22185                                                         Smart Pro/TCP/MVPP                                                                                                                              607
+                                                              9NB3A/9NF3A/9NB4A/9NF4A                                                                                    Emerg. Key NI06-P
+                                                              OEM# 285E3-3JA5A or                                                                                        Service Key DA34/
+                   2014    2015 All    1-22185                                                         Smart Pro/TCP/MVPP                                                                                  Philips Crypto (46)Transponder key          607
+                                                              285E3-3JA2A                                                                                                Emerg. Key NI06-P
+                                                              OEM# 285E3-1CA5A or                                                                                        Service Key DA34/
+QX70               2014    2018 All    1-22185                                                         Smart Pro/TCP/MVPP/TKO/SDD                                                                          Philips Crypto (46)Transponder key          607
+                                                              285E3-1CA7A                                                                                                Emerg. Key NI06-P
+                                                                                                                                                                         Service Key DA34/
+QX80               2014    2025 All    1-22185                OEM# 285E3-1LA5A                         Smart Pro (Thru 2023)                                                                               Philips Crypto (46)Transponder key          607
+                                                                                                                                                                         Emerg. Key NI06-P
+INTERNATIONAL
+                   2019    2022 All    V0001-V5573            B119-PT                                                                                                    P1116/B119                                                                    3647
+CV4500/5500/6500
+                                                              EK3P-HU100/EK3LB-HU100*/ RW5.Smart Aerial Plus, RW5, SA+, RW4 Plus,
+                   2019    2022 All    V0001-V5573                                                                                                                       P1116/B119                                                                    3647
+                                                              HU100-GTK#               EZ Clone Plus, Plus Box
+ISUZU
+
+
+
+
+                                       (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                     Lock        Code              Ilco/Ilco EZ                  Transponder                                                Card
+        Model        Start   End                                                                                                      Substitues   Notes
+                                     Apps        Series              (Plastic)               Equipment Required +                                           No.
+                                            N5001-N7000   X184/B65 [-P]                                                       X185/SUZ15                   264
+                     1998    2000 All
+AMIGO                                       5001-8442     X250/B101 [-P]                                                      X214/HD103                   262
+                     1985    1987   All     C6001-C7042   X121/DC3 [-P, -PC]                                                  -                            89
+AMIGO VIN #4S1       1990    1993   All     D4001-D6000   X198/B74 [-P]                                                       -                            288
+AMIGO VIN #JAA       1988    1993   All     N5001-N7000   X184/B65 [-P]                                                       X185/SUZ15                   264
+ASCENDER             2003    2006   All     S000A-S999K   P1113/B102 [-P] (LAL)                                               P1106/B86                    567
+                                                          OEM # 8-97319-522-0     Smart Pro/TCP/MVP                           X214/HD103                   262
+                     2003    2004 All       5001-8442     HD106-GTS w/ T48
+                                                                                  RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box   X214/HD103                   262
+AXIOM                                                     Transponder
+                                    All     5001-8442     X250/B101 [-P]                                                      X214/HD103                   262
+                     2002    2002
+                                    Valet   5001-8442     X215/HD104                                                          HD95/HD96-P                  262
+FTR DIESEL TRUCK,    1985    1990   All     A8001-A9400   X143/B53                                                            B57                          156
+TILTMASTER, I MARK   1984    2002   All     S8001-S9000   X154/B54                                                            -                            145
+                     2000    2001   All     S000A-S999K   P1113/B102 [-P]                                                     P1106/B86                    567
+HOMBRE PICK UP       1999    1999   All     AA00-7T51     P1113/B102 [-P]                                                     P1106/B86                    567
+                     1996    1998   All     AA00-7T51     P1107/B89 [-P]                                                      P1106/B86                    567
+i-280 EXT. CAB
+(REBADGED
+                     2006    2007 All       70000-75928   P1114/B110 [-P] (LAL)                                               P1114                        1420
+CANYON/COLORADO
+PICKUP)
+i-290 - S, LS        2007    2007 All       70000-75928   P1114/B110 [-P] (LAL)                                               -                            1420
+i-350 EXT. CAB
+(REBADGED
+                     2006    2007 All       70000-75928   P1114/B110 [-P] (LAL)                                               P1114                        1420
+CANYON/COLORADO
+PICKUP)
+                     1990    1993 All       N5001-N7000   X184/B65 [-P]                                                       X185/SUZ15                   264
+IMPULSE
+                     1983    1989 All       H0001-H5143   X121/DC3 [-P, -PC]                                                  -                            89
+NPR                  2008    2014 All       N5001-N7000   X275/B113                                                           X185/SUZ15                   264
+NRR                  2008    2022 All       N5001-N7000   X275/B113                                                           X185/SUZ15                   264
+NPR, NRR, NQR,       1989    2004 All       N5001-N7000   X184/B65 [-P]                                                       X185/SUZ15                   264
+DIESEL TRUCK, FSR    1986    1988 All       A8001-9400    X158/B57                                                            B53                          156
+                                  All       5001-8442     X250/B101 [-P]                                                      X214/HD103                   262
+OASIS                1996    2001
+                                  Valet     5001-8442     X215/HD104                                                          HD95/HD96-P                  262
+PICKUP -P’UP         1985    1987 All       C6001-C7042   X121/DC3 [-P, -PC]                                                  -                            89
+PICKUP -P’UP VIN
+                     1990    1995 All       D4001-D6000   X198/B74 [-P]                                                       -                            288
+#4S1
+
+
+
+
+                                                               Page 75                                                            KIA
+                                                                          Page 76                                                                                                KIA
+
+                                    Lock         Code                          Ilco/Ilco EZ                                      Transponder                                                                                                                        Card
+         Model      Start   End                                                                                                                                                       Substitues                                      Notes
+                                    Apps         Series                          (Plastic)                                   Equipment Required +                                                                                                                   No.
+PICKUP -P’UP VIN
+                    1988    1995 All       N5001-N7000            X184/B65 [-P]                                                                                              X185/SUZ15                                                                            264
+#JAA
+                                                                  OEM # 8-97319-522-0                      Smart Pro/TCP/MVP                                                 X214/HD103                                                                            262
+                    2003    2004 All       5001-8442              HD106-GTS w/ T48
+                                                                                                           RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                         X214/HD103                                                                            262
+                                                                  Transponder
+                                 All       5001-8442              X250/B101 [-P]                                                                                             X214/HD103                                                                            262
+RODEO               1998    2003
+                                 Valet     5001-8442              X215/HD104                                                                                                 HD95/HD96-P                                                                           262
+                    1996    1997 All       N5001-N7000            X184/B65 [-P]                                                                                              X185/SUZ15                                                                            264
+                                           N5001-N7000            X184/B65 [-P]                                                                                              X185/SUZ15                                                                            264
+                    1995    1995 All
+                                           D4001-D6000            X198/B74 [-P]                                                                                              -                                                                                     288
+RODEO               1991    1994   All     D4001-D6000            X198/B74 [-P]                                                                                              -                                                                                     288
+RODEO SPORT         2001    2003   All     5001-8442              X250/B101 [-P]                                                                                             -                                                                                     262
+STYLUS              1990    1993   All     N5001-N7000            X184/B65 [-P]                                                                                              X185/SUZ15                                                                            264
+TROOPER, TROOPER    1991    2003   All     N5001-N7000            X184/B65 [-P]                                                                                              X185/SUZ15                                                                            264
+II                  1984    1990   All     C6001-7042             X121/DC3 [-P, -PC]                                                                                         -                                                                                     89
+VEHICROSS           2000    2002   All     N5001-N7000            X184/B65 [-P]                                                                                              X185/SUZ15                                                                            264
+IVECO TRUCK
+
+
+
+
+                                          1501-2000               FT37                                                                                                       -                                                                                     4
+                                   Doors
+                    1983    1988          3501-4000               FT38                                                                                                       -                                                                                     4
+                                 Ignition 501-3278                X155/IV1                                                                                                   -                                                                                     131
+ALL                                       1501-2000               FT37                                                                                                       -                                                                                     4
+                                 Doors
+                                          3501-4000               FT38                                                                                                       -                                                                                     4
+                    1981    1982
+                                          RO1001-
+                                 Ignition                         X157/LF17                                                                                                  -                                                                                     9
+                                          RO2000
+JAGUAR
+
+
+
+
+                    2003    2008 All       T111111-T444444        FO21T7 (LAL)                             Smart Pro/TCP/MVP                                                                                   Tibbe Key. Texas Instruments (4D60) Encrypted System 2240
+                                                                                                           OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                    2000    2002 All       T111111-T444444        FO21T7                                                                                                     -                                 Tibbe Key. Texas Instruments (4D60) Encrypted System 2240
+S-TYPE                                                                                                     SDD
+                                                                                                           RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                    2000    2008 All       T111111-T444444        FO21MH#                                                                                                    -                                 Tibbe Key. Texas Instruments (4D60) Encrypted System 2240
+                                                                                                           Clone, Plus Box
+XF                  2008    2014 All       4000-9000              OEM # C2P-17155                          Smart Pro/TCP/MVP                                                 HU101                                                                                 N/A
+XJ                  2010    2014 All       4000-9000              OEM # C2P-17155                          Smart Pro/TCP/MVP                                                 HU101                                                                                 N/A
+                                                                                                                                                                                                               High Security Key. Texas Instruments Encrypted
+                    2000    2008 All       T111111-T444444        OEM # XR8-1611                           Smart Pro/TCP/MVP                                                 -                                                                                     2240
+                                                                                                                                                                                                               System
+XJ, XK , XK8, XKR
+                                                                                                           RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                    1998    1999 All       T11111111-T33333333 TBE1T5                                                                                                        -                                 Tibbe Key. Megamos Fixed Code System                386
+                                                                                                           Clone Plus, EZ Clone
+
+
+                                           (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+

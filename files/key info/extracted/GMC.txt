@@ -1,0 +1,264 @@
+                                                                           Page 56                                          FORD TRUCKS - GENESIS
+
+                                     Lock         Code                     Ilco/Ilco EZ                                           Transponder                                                                                                                      Card
+        Model         Start   End                                                                                                                                                      Substitues                                        Notes
+                                     Apps         Series                     (Plastic)                                        Equipment Required +                                                                                                                 No.
+                                                                   OEM# 164-R8149/164-
+                                                                   R8150/164-R8151/164-
+                      2018    2022 All      10,001-11,500                                                   Smart Pro/TCP/MVPP                                                P1117/HU101                       Philips (46) PCF7939PA                             1838
+                                                                   R8163/164-R8182/164-
+EXPLORER W/ PROX                                                   R8197/164-R8198 (LAL)
+                      2016    2017 All      10,001-11,500          OEM# 164-R8109 (LAL)                     Smart Pro/TCP/MVPP                                                P1117/HU101                                                                          1838
+                                                                   OEM # 164-R8091 or 164-                  OBP Program Q, Smart Pro/TCP/MVPP/TKO/
+                      2010    2015 All      1X-1706X                                                                                                                          Service Key H86                   Texas Instruments Encrypted Code System            612
+                                                                   R8092 (LAL)                              SDD
+                                                                   EK3-H84/EK3LB-H84*/H84-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                      MID-                                                                                                                                                    Service Key H86                   Texas Instruments (4D63) Encrypted Code System     612
+                                                                   GTK#                                     Clone, Plus Box
+                              2010 All      1X-1706X
+                      2001                                                                                  OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H92-PT (LAL)                                                                                               Service Key H86                   Texas Instruments (4D63) Encrypted Code System     612
+                                                                                                            SDD
+EXPLORER
+                                                                   EK3-H72/EK3LB-H72*/H72-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                                              Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                              mid-                                 GTK#                                     Clone, Plus Box
+                      1998         All      1X-1706X
+                              2001                                                                          OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H72-PT (LAL)                                                                                               Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                                                                                                            SDD
+                      1996    1998 All      1X-1706X               1196FD/H75 [-P, -PC]                                                                                       -                                                                                    612
+                                                                                                                                                                              1184FD/H54, 1193MU/
+                      1995    1996 All      A-B-C-D-E              1193FD/H67 [-P, -PC]                                                                                                                                                                            194
+                                                                                                                                                                              H66
+                                   GB        FB0-FB1863            S1167FD/H50 [-PC]                                                                                          S1181FD/H52                                                                          140
+EXPLORER &                         Ignition/
+                      1994    1994                                                                                                                                            1184FD/H54, 1193MU/
+EXPLORER SPORT                     Door/ A-B-C-D-E                 1193FD/H67 [-P, -PC]                                                                                                                                                                            194
+                                                                                                                                                                              H66
+                                   Hatch
+                                   GB        FB0-FB1863            S1167FD/H50 [-PC]                                                                                          S1181FD/H52                                                                          140
+                      1991    1993 Ignition/                                                                                                                                  1190LN/H60, 1193FD/
+                                             A-B-C-D-E             1184FD/H54 [-PC]                                                                                                                                                                                194
+                                   Door                                                                                                                                       H67
+                                                                   EK3-H72/EK3LB-H72*/H72-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                                              Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                              mid-                                 GTK#                                     Clone, Plus Box
+EXPLORER SPORT        1999         All      1X-1706X
+                              2001                                                                          OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H72-PT                                                                                                     Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                                                                                                            SDD
+                                                                   EK3-H84/EK3LB-H84*/H84-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+EXPLORER SPORT        MID-                                                                                                                                                    Service Key H86                   Texas Instruments (4D63) Encrypted Code System     612
+                                                                   GTK#                                     Clone, Plus Box
+                              2010 All      1X-1706X
+TRAC                  2001                                                                                  OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H92-PT (LAL)                                                                                               Service Key H86                   Texas Instruments (4D63) Encrypted Code System     612
+                                                                                                            SDD
+                                                                   EK3-H72/EK3LB-H72*/H72-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                                              Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                                                                   GTK#                                     Clone, Plus Box
+F-150 HERITAGE        2004    2004 All      1X-1706X
+                                                                                                            OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H72-PT                                                                                                     Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                                                                                                            SDD
+                                                                   OEM# 164-R8163 or 164-
+F-150 W/ PROX         2018    2025 All      10,001-11,500                                                   Smart Pro (thru 2020)                                             P1117/HU101                       Philips (46) PCF7939PA                             1838
+                                                                   R8166 (LAL)
+F-150 W/ REGULAR
+                      2015    2025 All      10,001-11,500          H128-PT (LAL)                            Smart Pro (thru 2020)                                             P1117/HU101                       Philips (46) PCF7939PA                             1838
+IGNITION
+                                                                                                            OBP Program J, Smart Pro/TCP/MVPP/TKO/
+                      2011    2014 All      1X-1706X               H92-PT (LAL)                                                                                               Service Key H86                   Texas Instruments (80 Bit) Encrypted Code System   612
+                                                                                                            SDD
+F-150
+                                                                   H84-GTS/T80+ or EB3-D-H84/
+                      2011    2014 All      1X-1706X                                          RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                                       Service Key H86                   Texas Instruments (80 Bit) Encrypted Code System   612
+                                                                   GTHT80+
+                                                                   EK3-H84/EK3LB-H84*/H84- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                                              Service Key H86                   Texas Instruments (4D63) Encrypted Code System     612
+                                                                   GTK#                       Clone, Plus Box
+                      2004    2010 All      1X-1706X
+                                                                                              OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H92-PT (LAL)                                                                                               Service Key H86                   Texas Instruments (4D63) Encrypted Code System     612
+F-150, F-250 SERIES                                                                           SDD
+                                                                   1196FD/H75 [-P, -PC]                                                                                       -                                                                                    612
+LIGHT DUTY                                                         EK3-H72/EK3LB-H72*/H72- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                                              Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                      1999    2003 All      1X-1706X               GTK#                       Clone, Plus Box
+                                                                                              OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H72-PT (LAL)                                                                                               Service Key H86                   Texas Instruments (4C) Encrypted System            612
+                                                                                              SDD
+
+
+
+
+                                            (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                      Lock      Code                  Ilco/Ilco EZ                      Transponder                                                                                            Card
+       Model            Start   End                                                                                                        Substitues                               Notes
+                                      Apps      Series                  (Plastic)                   Equipment Required +                                                                                       No.
+                        1997    1998 All   1X-1706X           1196FD/H75 [-P, -PC]                                                   -                                                                        612
+                                                                                                                                     1184FD/H54, 1193MU/
+                                              A-B-C-D-E       1193FD/H67 [-P, -PC]                                                                                                                            194
+                        1996    1996 All                                                                                             H66
+                                               1X-1706X       1196FD/H75 [-P, -PC]                                                   -                                                                        612
+F-150, F-250 SERIES                  GB        FB0-FB1863     S1167FD/H50 [-PC]                                                      S1181FD/H52                                                              140
+LIGHT DUTY              1994    1995 Ignition/                                                                                       1184FD/H54, 1193MU/
+                                               A-B-C-D-E      1193FD/H67 [-P, -PC]                                                                                                                            194
+                                     Door                                                                                            H66
+                                     GB        FB0-FB1863     S1167FD/H50 [-PC]                                                      S1181FD/H52                                                              140
+                        1992    1993 Ignition/                                                                                       1190LN/H60, 1193FD/
+                                               A-B-C-D-E      1184FD/H54 [-PC]                                                                                                                                194
+                                     Door                                                                                            H67
+F-150, F-250 SERIES                  Door/
+                                               FB0-FB1863     S1167FD/H50 [-PC]                                                      S1181FD/H52                                                              140
+                        1980    1991 GB
+LIGHT DUTY                           Ignition FA0-FA1863      1167FD/H51 [-PC]                                                       1181FD/H53                                                               140
+F-250, 350, 450, 550
+                        2017    2025 All      10,001-11,500   H128-PT (LAL)              Smart Pro/TCP/MVPP                          P1117/HU101           Philips (46) PCF7939PA                             1838
+SUPER DUTY SERIES
+F-250, 350, 450 , 550
+                                                              OEM# 164-R8163 or 164-
+SUPER DUTY SERIES       2017    2025 All      10,001-11,500                              Smart Pro/TCP/MVPP                          P1117/HU101                                                              1838
+                                                              R8166 (LAL)
+W/ PROX
+                                                                                         OBP Program J, Smart Pro/TCP/MVPP/TKO/
+                        2011    2016 All      1X-1706X        H92-PT (LAL)                                                           Service Key H86       Texas Instruments (80 Bit) Encrypted Code System   612
+                                                                                         SDD
+                                                              H84-GTS/T80+ or EB3-D-H84/
+F-250, 350, 450         2011    2016 All      1X-1706X                                   RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box   Service Key H86       Texas Instruments (80 Bit) Encrypted Code System   612
+                                                              GTHT80+
+SUPER DUTY SERIES                                             EK3-H84/EK3LB-H84*/H84- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                     Service Key H86       Texas Instruments (4D63) Encrypted Code System     612
+                                                              GTK#                       Clone, Plus Box
+                        2004    2010 All      1X-1706X
+                                                                                         OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                              H92-PT (LAL)                                                           Service Key H86       Texas Instruments (4D63) Encrypted Code System     612
+                                                                                         SDD
+                                                              EK3-H84/EK3LB-H84*/H84- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                     Service Key H86       Texas Instruments (4D63) Encrypted Code System     612
+                                                              GTK#                       Clone, Plus Box
+FREESTAR                2004    2007 All      1X-1706X
+                                                                                         OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                              H92-PT (LAL)                                                           Service Key H86       Texas Instruments (4D63) Encrypted Code System     612
+                                                                                         SDD
+LIGHTNING W/
+                        2023    2024 All      30,001-31,544   H128-PT                                                                P1117/HU101           Philips (46) PCF7939PA                             4320
+REGULAR IGNITION
+                                                              OEM# 164-R8303 & 164-
+                        2024    2024 All      30,001-31,544                                                                          P1117/HU101           Philips (46) PCF7939PA                             4320
+                                                              R8304
+LIGHTNING W/ PROX
+                                                              OEM# 164-R8163 or 164-
+                        2023    2023 All      30,001-31,544                                                                          P1117/HU101                                                              4320
+                                                              R8166 (LAL)
+MAVERICK W/
+                        2020    2023 All      30,001-31,544   H128-PT                                                                P1117/HU101           Philips (46) PCF7939PA                             4320
+REGULAR IGNITION
+                                                              OEM# 164-R8163/164-
+MAVERICK W/ PROX        2022    2023 All      30,001-31,544   R8182/164-R8197/ 164-R8198                                             P1117/HU101           Philips (46) PCF7939PA                             4320
+                                                              (LAL)
+                        2019    2023 All      1-4,000         H128-PT (LAL)              Smart Pro/TCP/MVPP                          P1117/HU101           Philips (46) PCF7939PA                             1838
+                                                                                         OBP Program J, Smart Pro/TCP/MVPP/TKO/
+                                                              H92-PT (LAL)                                                           Service Key H86       Texas Instruments Encrypted Code System            612
+                                                                                         SDD
+                        2011    2012 All      1X-1706X
+                                                              EK3-H84/EK3LB-H84*/H84- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                     Service Key H86       Texas Instruments (4D63) Encrypted Code System     612
+RANGER PICKUP                                                 GTK#                       Clone, Plus Box
+                                                              EK3-H84/EK3LB-H84*/H84- RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                     Service Key H86       Texas Instruments (4D63) Encrypted Code System     612
+                                                              GTK#                       Clone, Plus Box
+                        2006    2010 All      1X-1706X
+                                                                                         OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                              H92-PT (LAL)                                                           Service Key H86       Texas Instruments (4D63) Encrypted Code System     612
+                                                                                         SDD
+
+
+
+
+                                                                   Page 57                                                 GEO - GMC
+                                                                           Page 58                                                                                                GMC
+
+                                   Lock      Code                               Ilco/Ilco EZ                                      Transponder                                                                                                                        Card
+       Model         Start   End                                                                                                                                                       Substitues                                        Notes
+                                   Apps      Series                               (Plastic)                                   Equipment Required +                                                                                                                   No.
+                     2005    2005 All   1X-1706X                   H75                                                                                 -                                                                                                            612
+                                                                   EK3-H84/EK3LB-H84*/H84-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                       Service Key H86                                          Texas Instruments (4D63) Encrypted Code System      612
+                                                                   GTK#                                     Clone, Plus Box
+                     2001    2004 All      1X-1706X
+                                                                                                            OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H92-PT (LAL)                                                                        Service Key H86                                          Texas Instruments (4D63) Encrypted Code System      612
+                                                                                                            SDD
+                                                                   1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+                                                                   EK3-H72/EK3LB-H72*/H72-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                       Service Key H86                                          Texas Instruments (4C) Encrypted System             612
+                     1999    2000 All      1X-1706X                GTK#                                     Clone, Plus Box
+                                                                                                            OBP Program C, Smart Pro/TCP/MVPP/TKO/                                                              Texas Instruments (4C) Encrypted System Std on V6
+                                                                   H72-PT (LAL)                                                                        Service Key H86                                                                                              612
+                                                                                                            SDD                                                                                                 Model, Optional on 4 cyl
+                     1997    1998 All      1X-1706X                1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+RANGER PICKUP                                                                                                                                          1184FD/H54, 1193MU/
+                                           A-B-C-D-E               1193FD/H67 [-P, -PC]                                                                                                                                                                             194
+                     1996    1996 All                                                                                                                  H66
+                                           1X-1706X                1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+                                  GB       FB0-FB1863              S1167FD/H50 [-PC]                                                                   S1181FD/H52                                                                                                  140
+                     1994    1995 Ignition/                                                                                                            1184FD/H54, 1193MU/
+                                            A-B-C-D-E              1193FD/H67 [-P, -PC]                                                                                                                                                                             194
+                                  Door                                                                                                                 H66
+                                  GB        FB0-FB1863             S1167FD/H50 [-PC]                                                                   S1181FD/H52                                                                                                  140
+                     1993    1993 Ignition/                                                                                                            1190LN/H60, 1193FD/
+                                            A-B-C-D-E              1184FD/H54 [-PC]                                                                                                                                                                                 194
+                                  Door                                                                                                                 H67
+                                  Door/
+                                            FB0-FB1863             S1167FD/H50 [-PC]                                                                                          S1181FD/H52                                                                           140
+                     1980    1992 GB
+                                  Ignition FA0-FA1863              1167FD/H51 [-PC]                                                                                           1181FD/H53                                                                            140
+RANGER PICKUP W/                                                   OEM# 164-R8163 or 164-
+                     2019    2023 All      10,001-11,500                                                    Smart Pro/TCP/MVPP                                                P1117/HU101                                                                           1838
+PROX                                                               R8182 (LAL)
+SUPER DUTY SERIES    2008    2017 All      1X-1706X                H87-P                                                                                                      Service Key H86                                                                       612
+                                                                   EK3-H72/EK3LB-H72*/H72-                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+TRANSFER HEAVY                                                                                                                                         Service Key H86                                          Texas Instruments (4C) Encrypted System             612
+                                                                   GTK#                                     Clone, Plus Box
+                     2000    2004 All      1X-1706X
+TRUCKS 6000, 9000,                                                                                          OBP Program C, Smart Pro/TCP/MVPP/TKO/
+                                                                   H72-PT                                                                              Service Key H86                                          Texas Instruments (4C) Encrypted System             612
+CF7000                                                                                                      SDD
+                     1996    1999 All       1X-1706X               1196FD/H75 [-P, -PC]                                                                -                                                                                                            612
+                                  GB        FB0-FB1863             S1167FD/H50 [-PC]                                                                   S1181FD/H52                                                                                                  140
+TRANSFER HEAVY       1986    1996 Ignition/                                                                                                            1190LN/H60, 1193FD/
+                                            A-B-C-D-E              1184FD/H54 [-PC]                                                                                                                                                                                 194
+                                  Door                                                                                                                 H67
+TRUCKS 6000, 9000,
+                                  Door/
+CF7000                                      FB0-FB1863             S1167FD/H50 [-PC]                                                                                          S1181FD/H52                                                                           140
+                     1980    1985 GB
+                                  Ignition FA0-FA1863              1167FD/H51 [-PC]                                                                                           1181FD/H53                                                                            140
+TRANSFER HEAVY                    Ignition
+                     1996    1999                                  RV1                                                                                                        -                                                                                     N/A
+TRUCKS CF7000                     Door
+                     2020    2025 All       10,001-11,500          H128-PT (LAL)                            Smart Pro/TCP/MVPP                                                P1117/HU101                       Philips (46) PCF7939PA                              1838
+TRANSIT                                                            H94-PT (LAL)                             Smart Pro/TCP/MVPP (thru 2017)                                    P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+                     2013    2019 All      10,001-11,500
+                                                                   HU101GTS/T80+                            RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                         P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+TRANSIT CONNECT
+                     2020    2023 All      10,001-11,500           H128-PT (LAL)                            Smart Pro/TCP/MVPP                                                P1117/HU101                       Philips (46) PCF7939PA                              1838
+W/ REG IGNITION
+TRANSIT CONNECT                                                    OEM# 164-R8234 or 164-
+                     2019    2023 All      10,001-11,500                                                    Smart Pro                                                         P1117/HU101                                                                           1838
+W/ PROX                                                            R8235
+                                                                   H94-PT (LAL)                             Smart Pro/TCP/MVPP                                                P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+                     2014    2019 All      10,001-11,500
+                                                                   HU101GTS/T80+                            RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                         P1117/HU101                       Texas Instruments (80 Bit) Encrypted Code System    1838
+TRANSIT CONNECT                                                    FO21T17 (LAL)                            OBP Program L                                                     S30FDP                            Texas Instruments (4D63) Encrypted Code System      220
+                     2010    2013 All      T111111-T444444                                                  RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                   FO21MH#                                                                                                    S30FDP                            Texas Instruments (4D63) Encrypted Code System      220
+                                                                                                            Clone, Plus Box
+
+
+
+
+                                            (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+

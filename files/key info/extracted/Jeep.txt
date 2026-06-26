@@ -1,0 +1,226 @@
+                                                                         Page 70                                                                                          ISUZU
+
+                                   Lock         Code                     Ilco/Ilco EZ                                           Transponder                                                                                                                      Card
+        Model      Start   End                                                                                                                                                       Substitues                                       Notes
+                                   Apps         Series                     (Plastic)                                        Equipment Required +                                                                                                                 No.
+ELANTRA                                                          EB3-F-TOY48/GTHT80+ or
+                   2013    2017 All       T1001-T3500                                                     RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                                                                                                              3336
+GT(CANADA)                                                       TOY48-GTS/T80+
+                   2024    2024   All     B0001-B3000            OEM# 95440-AA500                                                                                           KK12-P                                                                               4129
+                   2021    2023   All                            OEM# 95440-AA000                         Smart Pro                                                         KK12-P
+                   2019    2020   All     M0001-M2500            OEM# 95440-F3002                                                                                           Emergency Key HY15-P                                                                 2503
+ELANTRA W/ PROX
+                   2018    2018   All     M0001-M2500            OEM# 95440-F3000                                                                                                                                                                                2503
+                   2015    2017   All     M0001-M2500            OEM# 95440-3X520                         Smart Pro/TCP/MVPP                                                Emergency Key HY15-P Philips (46) Encrypted System                                   2503
+                   2011    2014   All     M0001-M2500            OEM# 95440-3X200 (LAL)                   Smart Pro/TCP/MVPP/TKO/SDD                                        Emergency Key HY15-P Philips (46) Encrypted System                                   2503
+ENTOURAGE          2007    2008   All     M0001-M2500            HY15-P                                                                                                     -                                                                                    2503
+ENTOURAGE                                                        HYN14RT14                                Smart Pro/TCP/MVPP                                                -                    Philips (46) Encrypted System                                   2503
+                   2007    2009 All       M0001-M2500                                                     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+(CANADA)                                                         HYN14RMH#                                                                                                  -                                 Philips (46) Encrypted System                      2503
+                                                                                                          Plus, Plus Box
+                                                                 OEM# 95440-3N470 or 95443-
+                   2014    2016 All       I001-2608                                         Smart Pro/TCP/MVPP                                                              LXP90-P                                                                              3742
+                                                                 3N100
+EQUUS
+                                                                 OEM # 81999-3M020 or
+                   2011    2013 All       J1-2500                                           Smart Pro/TCP/MVPP                                                              Emergency Key HY22                High Security Key, Philips Encrypted System        2372
+                                                                 95440-3N250
+                   1990    1994 All       X1001-X2000            X196/HY5 [-P]                                                                                              -                                                                                    221
+EXCEL
+                   1986    1989 All       X1-X1000               X160/HY2 [-P]                                                                                              X196/HY5                                                                             221
+GENESIS COUPE W/                                                 OEM# 95440-2M300, 2M351
+                   2010    2015 All       M0001-M2500                                       Smart Pro/TCP/MVPP (10-13)                                                      Emergency Key HY21                Philips (46) Encrypted System                      2503
+PROX                                                             or 2M420
+GENESIS COUPE                                                    HYN14RT14                  Smart Pro/TCP/MVPP/TKO/SDD                                                      HY15                              Philips (46) Encrypted System                      2503
+                   2010    2016 All       M0001-M2500                                       RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+W/O PROX                                                         HYN14RMH#                                                                                                  HY15                              Philips (46) Encrypted System                      2503
+                                                                                            Plus, Plus Box
+
+GENESIS W/ PROX    2015    2015 All       I001-2608              OEM# 95440-B1200-BLH                                                                                       LXP90-P                                                                              3742
+(4 DR.)            2009    2014 All       J1-2500                OEM # 95440-3M220                        Smart Pro/TCP/MVPP/TKO/SDD                                        LXP90-P                                                                              2372
+                   2009    2010 All       J1-2500                HY20-PT                                  SDD/TKO                                                           LXP90-P                           High Security Key, Philips (46) Encrypted System   2372
+GENESIS W/O PROX                                                 EK3P-HY20/EK3LB-TOY48*/                  RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                   2009    2010 All       J1-2500                                                                                                                           LXP90-P                           High Security Key, Philips (46) Encrypted System   2372
+(4 DR.)                                                          TOY48-GTK#                               Plus, Plus Box
+                   2020     2022 All      B0001-B3000            OEM# 95440-G2500                         Smart Pro (thru 2021)                                             KK12-P                                                                               4129
+IONIQ              2019     2019 All      B0001-B3000            OEM# 95440-G2010                                                                                           KK12-P                                                                               4129
+                   2017    2019 All       B0001-B3000            OEM# 95440-G2000                         Smart Pro                                                                                                                                              4129
+IONIQ 5            2022     2023 All      B0001-B3000            OEM# 95440-GI050                         Smart Pro                                                         KK12-P                                                                               4129
+KONA W/ REGULAR
+                   2018    2023 All       B0001-B3000            KK12-P                                                                                                                                                                                          4129
+KEY
+                                                                 OEM# 95440-BE060 or 95440-
+                   2024    2025 All       X0001-X3000                                                                                                                       KK12-P                                                                               4129
+                                                                 BE200
+KONA W/ PROX
+                   2022    2023 All       B0001-B3000            OEM# 95440-J9450                                                                                           KK12-P                                                                               4129
+                   2018    2021 All       H1-H2500               OEM# 95440-J9000           Smart Pro                                                                                                         Texas Instruments 128 bit AES                      4362
+                                                                 OEM# 95440-M5300 or
+NEXO (CANADA)      2019    2023 All       I001-2608                                         Smart Pro/TCP.MVPP                                                              LXP90-P                                                                              3742
+                                                                 95440-M5310
+                                                                 OEM# 95440-S8550 or 95440-
+                   2023    2025 All       S1-S2500                                          Smart Pro                                                                       KK12-P                                                                               4732
+                                                                 S8600
+PALISADE W/ PROX
+                                                                 OEM# 95440-S8010 or 95440-
+                   2020    2022 All       S1-S2500                                          Smart Pro/TCP.MVPP                                                                                                                                                   4732
+                                                                 8310
+PALISADE W/
+                   2020    2021 All       S1-S2500               KK12-P                                                                                                                                                                                          4732
+REGULAR IGNITION
+PONY               1985    1987 All       H0001-H5143            X121/DC3 [-P, -PC]                                                                                         -                                                                                    89
+                                                                 OEM# 95440-K5002 or 95440-
+SANTA CRUZ         2023    2025 All       K1-K2500                                                                                                                          -KK10-P                                                                              2372
+                                                                 K5012
+                   2020    2021   All     S1-S2500               KK12-P                                                                                                                                                                                          4732
+                   2013    2018   All     C1001-C3500            HY18R-P                                                                                                                                      High Security Key                                  3618
+SANTE FE
+                   2007    2012   All     M0001-M2500            HY15-P (LAL)                                                                                               -                                 Cut Depths: 5 = deepest, 1 = shallowest            2503
+                   2001    2006   All     S1-S1000               X232/HY12 [-P]                                                                                             -                                                                                    487
+
+
+
+
+                                          (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                    Lock       Code             Ilco/Ilco EZ                         Transponder                                                                                           Card
+      Model         Start   End                                                                                                        Substitues                              Notes
+                                    Apps       Series             (Plastic)                      Equipment Required +                                                                                      No.
+                                                         HYN14RT14                  Smart Pro/TCP/MVPP/TKO/SDD                  HY15                   Philips (46) Encrypted System                      2503
+                    2007    2010 All       M0001-M2500                              RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                         HYN14RMH#                                                              HY15                   Philips (46) Encrypted System                      2503
+SANTE FE (CANADA)                                                                   Plus, Plus Box
+                                                                                    RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                    2002    2006 All       A1-A1000      HYN6MH#                                                                -                      Philips (46) Encrypted System                      487
+                                                                                    Plus, Plus Box
+                                                         OEM# 95440-S1660 or 95440-
+                    2023    2023 All       S3001-S5409                              Smart Pro                                   KK12-P                                                                    5096
+                                                         S1670
+                                                         OEM# 95440-S2500 or 95440-
+SANTA FE W/ PROX    2021    2022 All       S3001-S5409                              Smart Pro (thru 2021)                       KK12-P                                                                    5096
+                                                         S1570
+                    2019     2020 All      B0001-B3000   OEM# 95440-S2000           Smart Pro                                   KK12-P                                                                    4192
+                    2013    2018 All       C1001-C3500   OEM# 95440-4Z200 (LAL)     Smart Pro/TCP/MVPP/TKO/SDD                  HY18R-P                                                                   3618
+SANTA FE SPORT      2013    2019 All       C1001-C3500   HY18R-P                                                                                                                                          3618
+SANTA FE SPORT W/
+                    2013    2018 All       C1001-C3500   OEM# 95440-4Z200                                                       HY18R-P                                                                   3618
+PROX
+SANTA FE
+                    2013    2019 All       C1001-C3500   HY18R-GTS/T80+             RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box   HY18R-P                                                                   3618
+SPORT(CANADA)
+SCOUPE              1991    1994   All     X1001-X2000   X196/HY5 [-P]                                                          -                                                                         221
+                    2006    2010   All     F0001-F2500   HY15-P (LAL)                                                           -                                                                         2330
+SONATA              1995    2006   All     S1-S1000      X232/HY12 [-P]                                                         -                                                                         487
+                    1989    1994   All     Y1001-Y2000   X187/HY4 [-P]                                                          -                                                                         221
+                                                         HY20-PT                    Smart Pro/TCP/MVPP                          LXP90-P                High Security Key, Philips (46) Encrypted System   2372
+SONATA (CANADA)     2011    2018 All       K1-K2500      EK3P-HY20/EK3LB-TOY48*/    RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                LXP90-P                High Security Key, Philips (46) Encrypted System   2372
+                                                         TOY48-GTK#                 Plus, Plus Box
+                                                         OEM# 95440-L1010/95440-
+                    2019    2023 All       K1-K2500                                 Smart Pro/TCP/MVPP                          Emergency Key KK10-P                                                      2372
+                                                         L1060/95440-L1500
+SONATA W/ PROX      2018    2019   All     K1-K2500      OEM# 95440-C2500           Smart Pro/TCP/MVPP                          Emergency Key KK10-P                                                      2372
+                    2015    2017   All     K1-K2500      OEM# 95440-C1000           Smart Pro/TCP/MVPP                          Emergency Key KK10-P High Security Key                                    2372
+                    2011    2014   All     K1-K2500      OEM# 95440-3Q000 (LAL)     Smart Pro/TCP/MVPP/TKO/SDD                  Emergency Key KK10-P High Security Key                                    2372
+SONATA W/           2020    2022   All     D1-D3000      KK12-P                                                                                                                                           4129
+REGULAR KEY         2011    2019   All     K1-K2500      KK10-P (LAL)                                                                                  High Security Key                                  2372
+SONATA HYBRID W/    2016    2018   All     K1-K2500      OEM# 95440-C1001           Smart Pro                                                                                                             2372
+PROX                2011    2015   All     K1-K2500      OEM# 95440-3Q000           Smart Pro/TCP/MVPP/TKO/SDD                  Emergency Key KK10-P High Security Key                                    2372
+                    2002    2009   All     T1-T1000      X236/HY14 [-P]             HY022-PT (2002-05 Canada only)              -                                                                         487
+TIBURON
+                    1996    2001   All     T1-T1000      X236/HY14 [-P]                                                         -                                                                         487
+                                                                                    RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+TIBURON (CANADA)    2001    2010 All       T1-T1000      HYN6MH#                                                                -                      Philips (46) Encrypted System                      487
+                                                                                    Plus, Plus Box
+                    2021    2022   All     D1-D3000      KK12-P                                                                                                                                           4129
+                    2012    2020   All     K1-K2500      KK10-P (LAL)                                                                                  High Security Key                                  2372
+TUCSON
+                    2011    2011   All     M0001-M2500   HY15-P (LAL)                                                           -                      Cut Depths: 5 = deepest, 1 = shallowest            2503
+                    2005    2010   All     V1-V1200      X236/HY14 [-P] (LAL)                                                   -                                                                         2281/487
+                                                         OEM# 95440-N9072 or 95440-
+                    2023    2024 All       H1-H2500                                 Smart Pro                                   KK10-P                                                                    2372
+                                                         N9082
+                                                         OEM# 95440-N9050
+TUCSON W/ PROX
+                    2022    2022 All       K1-K2500      OEM# 95440-N9070           Smart Pro                                   KK10-P                                                                    2372
+                                                         OEM# 95440-N9080
+                    2019    2021 All       K1-K2500      OEM# 95440-D3510           Smart Pro                                   KK10-P                                                                    2372
+TUCSON W/ PROX      2016    2018 All       K1-K2500      OEM# 95440-D3100           Smart Pro                                                                                                             2372
+
+
+
+
+                                                              Page 71                            IVECO TRUCK - JAGUAR
+                                                                           Page 72                                                                   JAGUAR - JEEP
+
+                                     Lock         Code                     Ilco/Ilco EZ                                           Transponder                                                                                                                       Card
+           Model     Start   End                                                                                                                                                       Substitues                                       Notes
+                                     Apps         Series                     (Plastic)                                        Equipment Required +                                                                                                                  No.
+                                                                   EB3-G-TOY40/GTHT80+ or
+                     2016    2019 All       K1-K2500                                                        RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                         LXP90-P                                                                              2372
+                                                                   TOY40-GTS/T80+
+                                                                   HY20-PT                                  Smart Pro/TCP/MVPP                                                LXP90-P                           High Security Key, Philips (46) Encrypted System   2372
+                     2013    2015 All       K1-K2500               EK3P-HY20/EK3LB-TOY48*/                  RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                              LXP90-P                           High Security Key, Philips (46) Encrypted System   2372
+                                                                   TOY48-GTK#                               Plus, Plus Box
+TUCSON (CANADA)
+                                                                   HYN14RT14                                Smart Pro/TCP/MVPP/TKO/SDD                                        HY15                              Philips (46) Encrypted System                      2503
+                     2010    2012 All       M0001-M2500                                                     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                   HYN14RMH#                                                                                                  HY15                              Philips (46) Encrypted System                      2503
+                                                                                                            Plus, Plus Box
+                                                                                                            RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                     2005    2009 All       V1-V1200               HYN6MH#                                                                                                    -                                 Philips (46) Encrypted System                      2281/487
+                                                                                                            Plus, Plus Box
+                     2019     2022 All      B0001-B3000            OEM# 95440-K9000                         Smart Pro (thru 2020)                                             KK12-P                                                                               4129
+VELOSTER W/ PROX     2018     2021 All      B0001-B3000            OEM# 95440-J3000                         Smart Pro (thru 2020)                                                                                                                                  4129
+                     2013    2017 All       T1001-T3500            OEM# 95440-2V100 (LAL)                   Smart Pro/TCP/MVPP                                                Emergency Key HY18-P                                                                 3336
+                     2018     2020 All      B0001-B3000            KK12-P                                                                                                                                                                                          4129
+VELOSTER
+                     2012    2017 All       T1001-T3500            HY18-P (LAL)                                                                                                                                 High Security Key                                  3336
+VELOSTER(CANADA)     2015     2016 All      T1001-T3500            HY18-GTS/T80+                            RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                         HY18-P                                                                               3336
+                     2023    2023 All       H1-H2500               OEM# 95440-K2410                         Smart Pro/TCP/MVPP                                                KK12-P                                                                               4362
+                                                                   OEM# 95440-J9000
+VENUE W/ PROX
+                     2020    2022 All       H1-H2500               OEM# 95440-K2400                         Smart Pro/TCP/MVPP                                                Emergency Key KK12-P Texas Instruments 128 bit AES                                   4362
+                                                                   OEM# 95440-K2500
+VERACRUZ W/ PROX
+                     2008    2012 All       M0001-M2500            OEM# 95440-3J600                         Smart Pro/TCP/MVPP                                                Emergency Key HY15                Philips Encrypted System                           2503
+SYSTEM
+VERACRUZ W/
+                     2007    2012 All       M0001-M2500            HY15-P                                                                                                     -                                 Cut Depths: 5 = deepest, 1 = shallowest            2503
+REGULAR IGNITION
+                                                                                                            RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+VERACRUZ (CANADA)    2007    2010 All       M0001-M2500            HYN6MH#                                                                                                    -                                 Philips Crypto (46)Transponder key                 2503
+                                                                                                            Plus, Plus Box
+                     2001    2003 All       S1-S1000               X232/HY12 [-P]                           HY021-PT (2002-03 Canada only)                                    -                                                                                    487
+XG300
+                     2002    2005 All       S1-S1000               X232/HY12 [-P]                           HY021-PT (2002-05 Canada only)                                    -                                                                                    487
+INFINITI
+
+
+
+
+                                                                   OEM# 285E3-1BA2A or                                                                                        Service Key DA34/
+EX35                 2008    2013 All       40000-41520                                                     Smart Pro/TCP/MVPP TKO/SDD (thru 2011)                                                              Philips Crypto (46)Transponder key                 607
+                                                                   285E3-1BA5A (LAL)                                                                                          Emerg. Key NI06-P
+                                                                   OEM# 285E3-1BA2A or                                                                                        Service Key DA34/
+EX37                 2013    2013 All       40000-41520                                                     Smart Pro/TCP/MVPP/TKO/SDD                                                                          Philips Crypto (46)Transponder key                 607
+                                                                   285E3-1BA5A                                                                                                Emerg. Key NI06-P
+FX35/FX45 W/                                                       NI04T (LAL)                              Smart Pro/TCP/MVPP/TKO/SDD                                        Service Key DA34                  Philips Crypto (46)Transponder key                 607
+                     2003    2008 All       1-22185                EK3P-NI04/EK3LB-NI02*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+REGULAR IGNITION                                                                                                                                                              Service Key DA34                  Philips Crypto (46)Transponder key                 607
+                                                                   NI02-GTK#                                Plus, Plus Box
+FX35/FX45 W/ TWIST
+                     2003    2008 All       40000-41520            Dealer Prox FOB/NI05T                    Smart Pro/TCP/MVPP/TKO/SDD                                        Service Key DA34                  Optional                                           607
+KNOB IGNITION
+                                                                   OEM# 285E3-1BA2A or                                                                                        Service Key DA34/
+FX35/FX50            2009    2013 All       1-22185                                                         Smart Pro/TCP/MVPP/TKO/SDD                                                                          Philips Crypto (46)Transponder key                 607
+                                                                   285E3-1BA5A                                                                                                Emerg. Key NI06-P
+                                                                   OEM# 285E3-1BA2A or                                                                                        Service Key DA34/
+FX50                 2009    2013 All       40000-41520                                                     Smart Pro/TCP/MVPP/TKO/SDD                                                                          Philips (46) Encrypted System                      607
+                                                                   285E3-1BA5A                                                                                                Emerg. Key NI06-P
+
+
+
+
+                                            (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+

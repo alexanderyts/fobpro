@@ -1,0 +1,595 @@
+                                    Lock            Code               Ilco/Ilco EZ                       Transponder                                                                                            Card
+       Model       Start   End                                                                                                                Substitues                             Notes
+                                    Apps            Series               (Plastic)                    Equipment Required +                                                                                       No.
+                                  Door/
+                                             L, M            S1098H/B45 [-P, -PC]                                                      S1098WH/B79                                                               14
+                   1991    1996   Trunk
+                                  Ignition   J, K            P1098E/B44 [-P, -PC]                                                      B77, B78                                                                  14
+                                  Door/
+                                             NPSU            S1098D/B51 [-P, -PC]                                                      S1098WD/B67                                                               14
+                   1987    1990   Trunk
+                                  Ignition   ABNP            P1098C/B50 [-P, -PC]                                                      B63                                                                       14
+                                  Door/
+MODELS AND YEARS                             VWXY            S1098B/B49 [-P, -PC]                                                      -                                                                         14
+                   1983    1986   Trunk
+NOT REFERENCED                    Ignition   VWXY            P1098A/B48 [-P, -PC]                                                      -                                                                         14
+ELSEWHERE                         Door/
+                                  Trunk/     EFGH            S1098K/B47                                                                -                                                                         14
+                   1982    1982
+                                  GB
+                                  Ignition   EFGH            P1098J/B46                                                                -                                                                         14
+                                  Door/
+                                  Trunk/     L, M            S1098H/B45 [-P, -PC]                                                      S1098WH/B79                                                               14
+                   1981    1981
+                                  GB
+                                  Ignition   J, K            P1098E/B44 [-P, -PC]                                                   B77                                                                          14
+                                                                                          OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                             B99-PT                                                                 Service Key P1106/B86    Megamos Fixed Code System                           567
+                                                                                          TKO/SDD
+                                  All        H0001-H3988
+                                                                                          RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                             B99-PT5                                                                Service Key P1106/B86    Megamos Fixed Code System                           567
+                   2000    2005                                                           Clone Plus, EZ Clone
+                                                             B100-PT                      OBP Program A or G                        Service Key P1106/B86    Megamos Fixed Code System                           567
+                                  Valet      H0001-H3988                                  RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                             B100-PT5                                                               Service Key P1106/B86    Megamos Fixed Code System                           567
+SEVILLE                                                                                   Clone Plus, EZ Clone
+                                                             B99-PT                       OBP Program A, Smart Pro/TCP/MVPP/TKO/SDD Service Key P1106/B86    Megamos Fixed Code System                           567
+                                  All        1-1988                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                             B99-PT5                                                                Service Key P1106/B86    Megamos Fixed Code System                           567
+                                                                                          Clone Plus, EZ Clone
+                   1997    1999
+                                                             B100-PT                      OBP Program A                             Service Key P1106/B86    Megamos Fixed Code System                           567
+                                  Valet      1-1988                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                             B100-PT5                                                               Service Key P1106/B86    Megamos Fixed Code System                           567
+                                                                                          Clone Plus, EZ Clone
+                                Door/
+                                Trunk/       L, M            S1098H/B45 [-P, -PC]                                                      S1098W/B79                                                                14
+                   1991    1996 GB
+                                                             VATS SYSTEM (B62-P-1
+                                  Ignition J, K                                           -                                                                                                                      14
+                                                             THRU 15)
+                                Door/
+                                Trunk/       C, D            S1098D/B51 [-P, -PC]                                                      S1098WD/B67                                                               14
+SEVILLE
+                   1989    1990 GB
+                                                             VATS SYSTEMS (B62-P-1
+                                  Ignition A, B                                           -                                                                                                                      14
+                                                             thru 15)
+                                Door/
+                                Trunk/ N, P                  S1098D/B51 [-P, -PC]                                                      S1098WD/B67                                                               14
+                   1987    1988
+                                GB
+                                Ignition A, B                P1098C/B50 [-P, -PC]                                                      B63                                                                       14
+                   2015    2017 All      V0001-V5718         OEM# 13580800 (LAL)          Smart Pro/TCP/MVPP (thru 2016)               Emergency Key B121                                                        3647
+SRX                                                                                                                                                          Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                   2010    2014 All          Z0001-Z6000     Dealer Key (LAL)             Smart Pro/TCP/MVPP                           Emergency Key B117                                                        2200
+                                                                                                                                                             6000(card 766)
+                                                             EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                                 Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                   2010    2013 All          Z0001-Z6000                                                                                P1116/B119                                                               2200
+                                                             HU100-GTK#                  Plus, Plus Box                                                      6000(card 766)
+                   2008    2009 All          G0000-G3631     B111-PT                     OBP Program A or G, Smart Pro/TCP/MVPP/TKO/SDD Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                   2007    2007 All          G0000-G3631     B111-PT                     OBP Program G, Smart Pro/TCP/MVPP/TKO/SDD Service Key B106-P        Circle +, Philips (46) Encrypted System             2020
+SRX
+                                                             EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                   2007    2009 All          G0000-G3631                                                                                Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                             B111-GTK#                   Plus, Plus Box
+                                                             B115-PT                     OBP Program G, Smart Pro/TCP/MVPP/TKO/SDD Service Key B106-P        PK3+ System                                         2020
+                   2004    2006 All          G0000-G3631
+                                                             B111-GTS w/ T48 Transponder RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box Service Key B106-P        PK3+ System                                         2020
+                                                             B111-PT                     OBP Program G                                  Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+STS, STS V         2004    2011 All          G0000-G3631     EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                        Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                             B111-GTK#                   Plus, Plus Box
+
+
+                                                                  Page 27                             CADILLAC - CHEVROLET
+                                                                            Page 28                                                                          CHEVROLET
+
+                                    Lock          Code                       Ilco/Ilco EZ                                    Transponder                                                                                                                              Card
+       Model         Start   End                                                                                                                                                        Substitues                                       Notes
+                                    Apps         Series                        (Plastic)                                 Equipment Required +                                                                                                                         No.
+STS, STS V W/ PROX   2008    2011 All        G0000-G3631            Dealer FOB                               Smart Pro/TCP/MVPP                                                Service Key B106-P                                                                    2020
+XLR, XLR V           2004    2009 All        G0000-G3631            Dealer FOB                               OBP Program G                                                     Service Key B106-P                                                                    2020
+XTS                  2013    2017 All        Z0001-Z6000            OEM# 22856930                            Smart Pro/TCP/MVPP                                                Emergency Key B117                Circle +, Philips (46) Encrypted System             2020
+XT3                  2019     2019 All       V0001-V5718                                                                                                                                                                                                             3647
+                     2020     2025 All       V0001-V5718            OEM# 13522879                            Smart Pro                                                         Emergency Key B121                                                                    3647
+XT4
+                     2019     2020 All       V0001-V5718            OEM# 13591382 (LAL)                                                                                                                                                                              3647
+                     2020    2025 All        V0001-V5718            OEM# 13522879                            Smart Pro                                                         Emergency Key B121                                                                    3647
+XT5
+                     2017    2019 All        V0001-V5718            OEM# 13580811 (LAL)                      Smart Pro/TCP/MVPP                                                Emergency Key B121                                                                    3647
+XT6                  2020    2025 All        V0001-V5718            OEM# 13522879                                                                                              Emergency Key B121                                                                    3647
+CHEVROLET
+
+
+
+
+AVEO, AVEO 5         2004    2010 All        T1-T1200               DW04RAP                                                                                                    -                                                                                     110
+                                  Door/
+BERETTA, CORSICA                  Trunk/     L, M                   S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                           14
+                     1991    1996
+W/O TILT WHEEL                    GB
+                                  Ignition   J, K                   P1098E/B44 [-P, -PC]                                                                                       P1098EV/B77                                                                           14
+                                  Door/
+BERETTA, CORSICA                  Trunk/     L, M                   S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                           14
+                     1991    1996
+W/TILT WHEEL                      GB
+                                  Ignition   J, K                   P1098EV/B77 [-P, -PC]                                                                                      -                                                                                     14
+                                  Door/
+BERETTA, CORSICA                  Trunk/     NPSU                   S1098D/B51 [-P, -PC]                                                                                       S1098WD/B67                                                                           14
+                     1987    1990
+W/TILT WHEEL                      GB
+                                  Ignition   ABNP                   P1098CV/B63 [-P, -PC]                                                                                      B64                                                                                   14
+                                                                    OEM# 13522890/13522885/13 Smart Pro                                                                                                          Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+CAMARO W/ PROX       2021    2025 All        Z0001-Z6000                                                                                                                       Emergency Key B122                                                                    2200
+                                                                    522891/13522886                                                                                                                              6000(card 766)
+CAMARO W/ PROX       2016    2020 All        V0001-V5718            OEM# 13584504 / 13529662 / Smart Pro                                                                       Emergency Key B122                                                                    3647
+                                                                    13522891 (LAL)
+
+
+
+                                             (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                              Lock           Code               Ilco/Ilco EZ                    Transponder                                                                                         Card
+      Model   Start   End                                                                                                         Substitues                            Notes
+                              Apps           Series               (Plastic)                 Equipment Required +                                                                                    No.
+                                                                               OBP Program M, Smart Pro/TCP/MVPP/TKO/                           Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                      B119-PT (LAL)                                                        P1116/B119                                                               2200
+                                                                               SDD                                                              6000(card 766)
+CAMARO        2010    2016 All        Z0001-Z6000
+                                                      EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                           Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                           P1116/B119                                                               2200
+                                                      HU100-GTK#               Plus, Plus Box                                                   6000(card 766)
+                           Door/
+                           Trunk/     L, M            S1098H/B45 [-P, -PC]                                                 S1098WH/B79                                                              14
+CAMARO, Z28   1991    2002 GB
+                                                      VATS SYSTEM (B62-P-1
+                             Ignition J, K                                       -                                                                                                                  14
+                                                      THRU 15)
+                           Door/
+                           Trunk/     NPSU            S1098D/B51 [-P, -PC]                                                 S1098WD/B67                                                              14
+CAMARO, Z28   1989    1990 GB
+                                                      VATS SYSTEM (B62-P-1
+                             Ignition ABNP                                       -                                                                                                                  14
+                                                      THRU 15)
+                                                                                                                                                Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                      B119-PT                                                              P1116/B119                                                               2200
+                                                                                                                                                6000(card 766)
+              2014    2017 All        Z0001-Z6000
+CAPRICE PPV                                           EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                           Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                           P1116/B119                                                               2200
+                                                      HU100-GTK#               Plus, Plus Box                                                   6000(card 766)
+(POLICE &
+                                                                               OBP Program A or G, Smart Pro/TCP/MVPP/
+DETECTIVE)                                            OEM# 92193937/92201609                                               GM45                 Circle +, Philips (46) Encrypted System             882
+                                                                               TKO/SDD
+              2011    2013 All        60000-62113
+                                                      EK3P-GM45/EK3LB-GM45*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                           GM45                 Circle +, Philips (46) Encrypted System             882
+                                                      GM45-GTK#                Plus, Plus Box
+              2000    2005 All        S000A-S999K     P1107/B89 [-P]                                                       P1106/B86                                                                567
+              1995    1999 All        GM10 Cut        P1107/B89 [-P]                                                       P1106/B86                                                                567
+                           Door/
+                           Trunk/     L, M            S1098H/B45 [-P, -PC]                                                 S1098WH/B79                                                              14
+              1993    1994
+CAVALIER                   GB
+                           Ignition   J               P1101/B84 [-P]                                                       P1099/B68                                                                14
+                           Door/
+                                      J               S1098H/B45 [-P, -PC]                                                 S1098WH/B79                                                              14
+              1991    1992 Trunk
+                           Ignition   J               P1099/B68 [-P, -PC]                                                  -                                                                        14
+                                                                                 OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                      B111-PT                                                              Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                                                 TKO/SDD
+              2006    2010 All        G0000-G3631
+COBALT                                                EK3P-B111/EK3LB-B111*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                           Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                      B111-GTK#                  Plus, Plus Box
+              2005    2005 All        G0000-G3631     B106-P                                                               Service Key B106-P                                                       2020
+                                                      OEM# 13538851 / 13536982 /
+              2020    2025 All        V0001-V5718                                Smart Pro                                 -                                                                        3647
+                                                      13538852
+              2014    2019 All        Z0001-Z6000     OEM# 22779879 or 22779880 Smart Pro/TCP/MVPP                                                                                                  2200
+CORVETTE      2005    2013 All        G0000-G3631     Dealer FOB only (B106-P)                                             Service Key B106-P                                                       2020
+                                                      VATS SYSTEM (B104-P-2
+              2000    2004 All        S000A-S999K                                -                                                                                                                  567
+                                                      THRU 15)
+                                                      VATS SYSTEM (B104-P-2
+              1997    1999 All        AA00-7T51                                  -                                                                                                                  567
+                                                      THRU 15)
+                             Door/
+                                      L, M            S1098H/B45 [-P, -PC]                                                 S1098WH/B79                                                              14
+                             GB
+              1991    1996
+                                                      VATS SYSTEM (B62-P-1
+                             Ignition J, K                                       -                                                                                                                  14
+                                                      THRU 15)
+CORVETTE
+                             Door/
+                                      NPSU            S1098D/B51 [-P, -PC]                                                 S1098WD/B67                                                              14
+                             GB
+              1987    1990
+                                                      VATS SYSTEM (B62-P-1
+                             Ignition ABNP                                       -                                                                                                                  14
+                                                      THRU 15)
+
+
+
+
+                                                           Page 29                                               CHEVROLET
+                                                                         Page 30                 CHEVROLET - CHEVROLET TRUCKS
+
+                                  Lock     Code                               Ilco/Ilco EZ                                      Transponder                                                                                                                       Card
+         Model    Start   End                                                                                                                                                        Substitues                                       Notes
+                                  Apps    Series                                (Plastic)                                   Equipment Required +                                                                                                                  No.
+                                 Door/
+                                       NPSU                      S1098B/B49 [-P, -PC]                                                                                       -                                                                                     14
+                                 GB
+CORVETTE          1986    1986
+                                                                 VATS SYSTEM (B62-P-1
+                                 Ignition ABNP                                                            -                                                                                                                                                       14
+                                                                 THRU 15)
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                  2016    2019 All        Z0001-Z6000            OEM# 13584504 (LAL)                                                                                        P1116/B119                                                                            2200
+                                                                                                                                                                                                              6000(card 766)
+CRUZE W/ PROX
+                                                                 OEM# 13500318 or 13500319                                                                                                                    Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                  2011    2015 All        Z0001-Z6000                                      Smart Pro/TCP/MVPP                                                               P1116/B119                                                                            2200
+                                                                 (LAL)                                                                                                                                        6000(card 766)
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                  2017    2019 All        Z0001-Z6000            OEM# 13514135 or 13588756                                                                                  P1116/B119                                                                            2200
+                                                                                                                                                                                                              6000(card 766)
+                                                                                          OBP Program M, Smart Pro/TCP/MVPP/TKO/                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+CRUZE                                                            B119-PT (LAL)                                                                                              P1116/B119                                                                            2200
+                                                                                          SDD                                                                                                                 6000(card 766)
+                  2011    2016 All        Z0001-Z6000
+                                                                 EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                                                            P1116/B119                                                                            2200
+                                                                 HU100-GTK#               Plus, Plus Box                                                                                                      6000(card 766)
+                                                                                          RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+EPICA             2004    2007 All        V1-V1200               DW05T5                                                                                                     -                                 Megamos Fixed Code System                           110
+                                                                                          Clone Plus, EZ Clone
+                                                                 OEM#
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+IMPALA W/ PROX    2014    2020 All        Z0001-Z6000            13500318/13500319/13585687               Smart Pro/TCP/MVPP                                                P1116/B119                                                                            2200
+                                                                 (LAL)
+                                                                                                                                                                                                              6000(card 766)
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                 B119-PT (LAL)                            Smart Pro/TCP/MVPP                                                P1116/B119                                                                            2200
+                                                                                                                                                                                                              6000(card 766)
+                  2014    2019 All        Z0001-Z6000
+                                                                 EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                                                            P1116/B119                                                                            2200
+                                                                 HU100-GTK#               Plus, Plus Box                                                                                                      6000(card 766)
+IMPALA
+                                                                                          OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                                 B111-PT                                                                                                    Service Key B106-P                Circle +, Philips (46) Encrypted System             2020
+                                                                                          TKO/SDD
+                  2006    2013 All        G0000-G3631
+                                                                 EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key B106-P                Circle +, Philips (46) Encrypted System             2020
+                                                                 B111-GTK#                Plus, Plus Box
+                  2000    2005 All      S000A-S999K              P1111/B91 [-P]                                                                                             -                                                                                     567
+                               Door/
+                                        L, M                     S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                           14
+                               Trunk
+                  1995    1996
+                                                                 VATS SYSTEM (B62-P-1
+                               Ignition J, K                                                              -                                                                                                                                                       14
+                                                                 THRU 15)
+IMPALA, CAPRICE                Door/
+                                          L, M                   S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                           14
+                  1991    1994 Trunk
+                               Ignition   K. L                   P1098E/B44 [-P, -PC]                                                                                       B77                                                                                   14
+                               Door/
+                                          C, D                   S1098D/B51 [-P -PC]                                                                                        S1098WD/B67                                                                           14
+                  1989    1990 Trunk
+                               Ignition   A, B                   P1098C/B50 [-P -PC]                                                                                        B63                                                                                   14
+                               Door/
+                                          L, M                   S1098WH/B79                                                                                                -                                                                                     14
+                               Trunk
+                  1995    2001
+                                                                 VATS SYSTEM (B62-P-1
+                               Ignition   J, K                                                            -                                                                                                                                                       14
+                                                                 THRU 15)
+                               Door/
+LUMINA                                    L. M                   S1098WH/B79                                                                                                -                                                                                     14
+                  1991    1994 Trunk
+                               Ignition   J, K                   P1098WE/B78 [-P]                                                                                           B77                                                                                   14
+                               Door/
+                                          N, P, S, U             S1098WC/B67                                                                                                -                                                                                     14
+                  1990    1990 Trunk
+                               Ignition   A, B                   P1098WC/B64 [-P]                                                                                           -                                                                                     14
+                                                                 OEM# 13584504/13529662/13
+MALIBU W/ PROX    2016    2025 All        V0001-V5718                                      Smart Pro                                                                        Emergency Key B122                                                                    3647
+                                                                 522890/13522891 (LAL)
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+MALIBU            2014    2016 All        Z0001-Z6000            B119-PT (LAL)                            Smart Pro/TCP/MVPP                                                P1116/B119                                                                            2200
+                                                                                                                                                                                                              6000(card 766)
+                                                                                                          OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                                 B111-PT                                                                                                    Service Key B106-P                Circle +, Philips (46) Encrypted System             2020
+                                                                                                          TKO/SDD
+MALIBU / MALIBU   2004    2013 All        G0000-G3631
+                                                                 EK3P-B111/EK3LB-B111*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key B106-P                Circle +, Philips (46) Encrypted System             2020
+MAX                                                              B111-GTK#                                Plus, Plus Box
+                  2000    2004 All        S000A-S999K            P1111/B91 [-P]                                                                                             -                                                                                     567
+                  1997    1999 All        AA00-7T51              P1111/B91 [-P]                                                                                             -                                                                                     567
+MALIBU CLASSIC    2004    2005 All        S000A-S999K            P1111/B91 [-P]                                                                                             -                                                                                     567
+
+                                          (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                 Lock      Code                    Ilco/Ilco EZ                       Transponder                                                                                          Card
+         Model     Start   End                                                                                                         Substitues                             Notes
+                                 Apps     Series                     (Plastic)                    Equipment Required +                                                                                     No.
+METRO              1998    2001 All   18100-19299          X180/B69s                                                             X186/SUZ17                                                               288
+                                                                                       OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                           B111-PT                                                               Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                                                       TKO/SDD
+                   2006    2007 All          G0000-G3631
+                                                           EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                 Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                           B111-GTK#                   Plus, Plus Box
+                   2000    2005 All      S000A-S999K       P1111/B91 [-P]                                                        -                                                                        567
+                                Door/
+                                         L, M              S1098WH/B79                                                           -                                                                        14
+                                Trunk
+                   1995    1999
+MONTE CARLO                                                VATS SYSTEM (B62-P-1
+                                Ignition J, K                                          -                                                                                                                  14
+                                                           THRU 15)
+                                  Door/
+                                             NPSU          S1098D/B51 [-P, -PC]                                                  S1098WD/B67                                                              14
+                   1987    1990   Trunk
+                                  Ignition   ABNP          P1098C/B50 [-P, -PC]                                                  B63                                                                      14
+                                  Door/
+                                             VWXY          S1098B/B49 [-P, -PC]                                                  -                                                                        14
+                   1983    1986   Lock
+                                  Ignition   VWXY          P1098A/B48 [-P, -PC]                                                  B62                                                                      14
+                                  Door/
+                                             S1-S699       X146/B56                                                              -                                                                        532
+NOVA               1986    1988   Trunk
+                                  Ignition   R001-R6HR     X145/B55                                                              -                                                                        89
+OPTRA              2004    2007   All        J1-J1200      DW04RAP                                                                                                                                        110
+PRIZM              1998    2002   All        10001-15000   X217/TR47 [-P, -PC]                                                   X225/B80                                                                 514
+                                                                                    OBP Program M, Smart Pro/TCP/MVPP/TKO/                            Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                           B119-PT (LAL)                                                         P1116/B119                                                               2200
+                                                                                    SDD                                                               6000(card 766)
+SONIC              2012    2018 All          Z0001-Z6000
+                                                           EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                            Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                 P1116/B119                                                               2200
+                                                           HU100-GTK#               Plus, Plus Box                                                    6000(card 766)
+                                                                                                                                                      Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                           B119-PT (LAL)                                                         P1116/B119                                                               2200
+                                                                                                                                                      6000(card 766)
+                   2016    2024 All          Z0001-Z6000
+                                                           EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                            Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                 P1116/B119                                                               2200
+SPARK                                                      HU100-GTK#               Plus, Plus Box                                                    6000(card 766)
+                                                           DWO4CT6                  OBP Program G, Smart Pro/TCP/MVPP                                 Megamos Encrypted (48) System                       110
+                   2013    2015 All          M1-M1200      EK3P-B114R/EK3LB-B114R*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                      Philips (46+) Encrypted System                      110
+                                                           B114R-GTK#               Plus, Plus Box
+SPECTRUM           1985    1989 All          A8001-A9400   X143/B53                                                              B57                                                                      156
+SPRINT             1984    1988 All          U3001-U4000   X54/DC1 [-P]                                                          X121/DC3                                                                 89
+                                                           OEM# 13519177 / 13585728 /
+                   2018    2023 All          V0001-Z6000                              Smart Pro/TCP/MVPP                         Emergency Key B122                                                       2200
+                                                           13519188 (LAL)
+TRAVERSE                                                                               OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                           B111-PT                                                               Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                                                       TKO/SDD
+                   2009    2017 All          G0000-G3631
+                                                           EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                 Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                           B111-GTK#                   Plus, Plus Box
+                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+VIVANT             2004    2007 All          V1-V1200      DW05RT5                                                               -                    Megamos Fixed Code System                           110
+                                                                                       Clone Plus, EZ Clone
+                                                           OEM# 13585722 or 13585728
+                   2016    2021 All          V0001-V5718                                                                         Emergency Key B122   Philips (46+) Encrypted System                      3647
+                                                           (LAL)
+                                                                                    OBP Program M, Smart Pro/TCP/MVPP/TKO/                            Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+VOLT                                                       OEM# 20951857                                                         P1116/B119                                                               2200
+                                                                                    SDD                                                               6000(card 766)
+                   2011    2015 All          Z0001-Z6000
+                                                           EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                            Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                 P1116/B119                                                               2200
+                                                           HU100-GTK#               Plus, Plus Box                                                    6000(card 766)
+CHEVROLET TRUCKS, VANS, SUVS
+                    2000 2005 All            S000A-S999K   P1113/B102 [-P]                                                       P1106/B86                                                                567
+ASTRO VAN           1999 1999 All            AA00-7T51     P1113/B102 [-P]                                                       -                                                                        567
+                    1996 1998 All            AA00-7T51     P1107/B89 [-P]                                                        P1106/B86                                                                567
+                                                                                       OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                           B111-PT                                                               Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                                                       TKO/SDD
+                   2007    2013 All          G0000-G3631
+AVALANCHE                                                  EK3P-B111/EK3LB-B111*/      RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                 Service Key B106-P   Circle +, Philips (46) Encrypted System             2020
+                                                           B111-GTK#                   Plus, Plus Box
+                   2001    2006 All          S000A-S999K   P1113/B102 [-P]                                                       -                                                                        567
+
+
+                                                                Page 31                                 CHEVROLET TRUCKS
+                                                                         Page 32                                                    CHEVROLET TRUCKS
+
+                                 Lock            Code                         Ilco/Ilco EZ                                      Transponder                                                                                                                       Card
+         Model    Start   End                                                                                                                                                        Substitues                                       Notes
+                                 Apps            Series                         (Plastic)                                   Equipment Required +                                                                                                                  No.
+                                                                 OEM# 13529638
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                  2019    2023 All        Z0001-Z6000            OEM# 13585728                            Smart Pro/TCP/MVPP                                                P1116/B119                                                                            2200
+                                                                 OEM# 13530713
+                                                                                                                                                                                                              6000(card 766)
+                  2000    2006 All        S000A-S999K            P1113/B102 [-P]                                                                                            -                                                                                     567
+                  1999    1999 All        AA00-7T51              P1113/B102 [-P]                                                                                            P1106/B86                                                                             567
+BLAZER                                    AA00-7T51 or
+                  1995    1998 All                               P1107/B89 [-P]                                                                                             P1106/B86                                                                             567
+                                          S000A-S999K
+                               Door/
+                               Hatch/ L, M                       S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                           14
+                  1991    1994
+                               GB
+                               Ignition J, K                     P1098E/B44 [-P, -PC]                                                                                       B77                                                                                   14
+                                                                                          OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                                 B114R-PT                                                                                                   DW05RAP                           Circle +, Philips (46) Encrypted System             110
+                                                                                          TKO/SDD
+CAPTIVA SPORT     2012    2015 All        V2001-V3200
+                                                                 EK3P-B114R/EK3LB-B114R*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            DW05RAP                           Circle +, Philips (46) Encrypted System             110
+                                                                 B114R-GTK#               Plus, Plus Box
+                                                                 NI04T (LAL)              Smart Pro/TCP/MVPP/TKO/SDD                                                        Service Key DA34                  Philips Crypto (46) Transponder key                 607
+CITY EXPRESS      2015    2018 All        1-22185                EK3P-NI04/EK3LB-NI02*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key DA34                  Philips Crypto (46) Transponder key                 607
+                                                                 NI02-GTK#                Plus, Plus Box
+                  2004    2006 All        70000-75928            P1114/B110 [-P]                                                                                            -                                                                                     1420
+                                                                 P1107/B89 [-P]                                                                                             P1106/B86                                                                             567
+                  2000    2005 All        S000A-S999K
+C/K PICK UP,                                                     P1113/B102 [-P]                                                                                            -                                                                                     567
+SILVERADO,        1999    1999 All        AA00-7T51              P1113/B102 [-P]                                                                                            P1106/B86                                                                             567
+                  1995    1998 All        AA00-7T51              P1107/B89 [-P]                                                                                             P1106/B86                                                                             567
+TYPHOON
+                               Door/
+                                          L, M                   S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                                           14
+                  1991    1994 GB
+                               Ignition   J, K                   P1098E/B44 [-P, -PC]                                                                                       B77                                                                                   14
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+COLORADO -                                                       B119-PT                                  Smart Pro/TCP/MVPP                                                P1116/B119                                                                            2200
+                                                                                                                                                                                                              6000(card 766)
+                  2015    2024 All        Z0001-Z6000
+CREW, EXTENDED,                                                  EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                                                            P1116/B119                                                                            2200
+REGULAR CABS                                                     HU100-GTK#               Plus, Plus Box                                                                                                      6000(card 766)
+                  2004    2012 All        70000-75928            P1114/B110 [-P]                                                                                            -                                                                                     1420
+COLORADO -                                                                                                                                                                  Service Key P1114/
+                                                                 OEM#19267217                                                                                                                                 Megamos (48) Encrypted System                       1420
+CREW, EXTENDED,                                                                                                                                                             B110[-P]
+                  2008    2012 All        70000-75928
+REGULAR CABS                                                     TOY43R-GTS w/ T48                                                                                          Service Key P1114/
+                                                                                                          RW5, SA+, RW4 Plus/EZ Clone Plus w/ M-Box                                                           Megamos (48) Encrypted System                       1420
+(CANADA)                                                         Transponder                                                                                                B110[-P]
+                                                                 OEM# 13585723 / 13585722 /
+EQUINOX W/ PROX   2018    2021 All        Z0001-Z6000                                       Smart Pro/TCP/MVPP                                                                                                                                                    2200
+                                                                 13584498 (LAL)
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                 B119-PT (LAL)                            OBP Program M, Smart Pro/TCP/MVPP/TKO/SDD P1116/B119                                                                                                    2200
+                                                                                                                                                                                                              6000(card 766)
+                  2010    2019 All        Z0001-Z6000
+                                                                 EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                                                            P1116/B119                                                                            2200
+EQUINOX                                                          HU100-GTK#               Plus, Plus Box                                                                                                      6000(card 766)
+                                                                                          OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                                 B111-PT                                                                                                    Service Key B106-P                Circle +, Philips (46) Encrypted System             2020
+                                                                                          TKO/SDD
+                  2007    2009 All        G0000-G3631
+                                                                 EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key B106-P                Circle +, Philips (46) Encrypted System             2020
+                                                                 B111-GTK#                Plus, Plus Box
+                  2005    2006 All        O5000-O6999            P1110/B96 [-P]                                                                                             -                                                                                     567
+                                                                                                                                                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                 B120-PT                                  Smart Pro/TCP/MVPP/TKO/SDD                                        P1116/B119                                                                            3647
+                                                                                                                                                                                                              6000(card 766)
+                  2015    2024 All        V0001-V5573
+                                                                 EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone                                                                              Z1-2000(card 758), Z2001-4000(card 923), & Z4001-
+                                                                                                                                                                            P1116/B119                                                                            3647
+                                                                 HU100-GTK#               Plus, Plus Box                                                                                                      6000(card 766)
+                                                                                          OBP Program A or G, Smart Pro/TCP/MVPP/
+EXPRESS                                                          B111-PT                                                                                                    Service Key B106-P                Circle +, Philips (46) Encrypted System             567
+                                                                                          TKO/SDD
+                  2008    2014 All        S000A-S999K
+                                                                 EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key B106-P                Circle +, Philips (46) Encrypted System             567
+                                                                 B111-GTK#                Plus, Plus Box
+                  1999    2007 All        S000A-S999K            P1113/B102 [-P]                                                                                            P1106/B86                                                                             567
+                  1995    1998 All        AA00-7T51              P1107/B89 [-P]                                                                                             P1106/B86                                                                             567
+
+
+
+                                          (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                   Lock      Code                     Ilco/Ilco EZ                    Transponder                                                                                Card
+       Model         Start   End                                                                                                       Substitues                             Notes
+                                   Apps     Series                      (Plastic)                 Equipment Required +                                                                           No.
+                     2006    2007 All   S8001-S9000          P1113/B102 [-P]                                                     -                                                              145
+FSR, FRR, FTR
+                     1984    2005 All   S8001-S9000          X154/B54                                                            -                                                              145
+                                                                                       OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                             B111-PT                                                             Service Key B106-P   Circle +, Philips (46) Encrypted System   2020
+                                                                                       TKO/SDD
+HHR                  2006    2011 All          G0000-G3631
+                                                             EK3P-B111/EK3LB-B111*/    RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                 Service Key B106-P   Circle +, Philips (46) Encrypted System   2020
+                                                             B111-GTK#                 Plus, Plus Box
+                                    Door/
+                                    Hatch/     L, M          S1098H/B45 [-P, -PC]                                                S1098WH/B79                                                    14
+LUMINA APV           1991    1995
+                                    GB
+                                    Ignition   J, K          P1098E/B44 [-P, -PC]                                                B77                                                            14
+                                    Door/
+                                    Hatch/     NPSU          S1098D/B51 [-P, -PC]                                                S1098WD/B67                                                    14
+LUMINA APV           1990    1990
+                                    GB
+                                    Ignition   ABNP          P1098C/B50 [-P, -PC]                                                B63                                                            14
+MODELS AND YEARS                    Door/
+                                               L, M          S1098H/B45 [-P, -PC]                                                S1098WH/B79                                                    14
+NOT REFERENCED       1991    1996   Trunk
+ELSEWHERE                           Ignition   J, K          P1098E/B44 [-P, -PC]                                                B77, B78                                                       14
+                                    Door/
+                                               NPSU          S1098D/B51 [-P, -PC]                                                S1098WD/B67                                                    14
+                     1987    1990   Trunk
+                                    Ignition   ABNP          P1098C/B50 [-P, -PC]                                                B63                                                            14
+                                    Door/
+                                               VWXY          S1098B/B49 [-P, -PC]                                                -                                                              14
+                     1983    1986   Trunk
+MODELS AND YEARS                    Ignition   VWXY          P1098A/B48 [-P, -PC]                                                B62                                                            14
+                                    Door/
+NOT REFERENCED
+                                    Trunk/     EFGH          S1098K/B47                                                          -                                                              14
+ELSEWHERE            1982    1982
+                                    GB
+                                    Ignition   EFGH          P1098J/B46                                                          -                                                              14
+                                    Door/
+                                    Trunk/     L, M          S1098H/B45 [-P, -PC]                                                S1098WH/B79                                                    14
+                     1981    1981
+                                    GB
+                                    Ignition   J, K          P1098E/B44 [-P, -PC]                                                B77, B78                                                       14
+ORLANDO (CANADA)     2012    2014 All          Z0001-Z6000   OEM# 13500222 or 13504199 Smart Pro/TCP/MVPP (12-13)                P1116/B119           Circle +, Philips (46) Encrypted System   2020
+                     1989    2000 All          N5001-N7000   X184/B65 [-P]                                                       MIT1, SUZ15                                                    264
+NPR, NRR, W4, W5
+                     1986    1988 All          A8001-A9400   X158/B57                                                            B53                                                            156
+NQR                  2000    2003 All          N5001-N7000   X184/B65 [-P]                                                       MIT1, SUZ15                                                    264
+                     2000    2004 All          S000A-S999K   P1113/B102 [-P]                                                                                                                    567
+                     1999    1999 All          AA00-7T51     P1113/B102 [-P]                                                                                                                    567
+                     1995    1998 All          AA00-7T51     P1107/B89 [-P]                                                                                                                     567
+S-10 PICK-UP
+                                  Door/
+                                               L, M          S1098H/B45 [-P, -PC]                                                                                                               14
+                     1991    1994 GB
+                                  Ignition     J, K          P1098E/B44 [-P, -PC]                                                                                                               14
+                                                                                      OBP Program M or R, Smart Pro/TCP/MVPP/
+                                                             B119-PT                                                             P1116/B119                                                     3647
+                                                                                      TKO/SDD
+SILVERADO - 1500     2014    2024 All          V0001-V5573
+                                                             EK3P-HU100/EK3LB-HU100*/ RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+CREW, EXTENDED                                                                                                                   P1116/B119                                                     3647
+                                                             HU100-GTK#               Plus, Plus Box
+CABS, SILVERADO                                                                       OBP Program A or G, Smart Pro/TCP/MVPP/
+                                                             B111-PT                                                             Service Key B106-P   Circle +, Philips (46) Encrypted System   2020
+HYBRID, SSR                                                                           TKO/SDD
+                     2007    2013 All          G0000-G3631
+                                                             EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                 Service Key B106-P   Circle +, Philips (46) Encrypted System   2020
+                                                             B111-GTK#                Plus, Plus Box
+                                                                                      OBP Program A or G, Smart Pro/TCP/MVPP/
+SILVERADO -                                                  B111-PT                                                             Service Key B106-P   Circle +, Philips (46) Encrypted System   2020
+                                                                                      TKO/SDD
+                     2007    2014 All          G0000-G3631
+CLASSIC SS                                                   EK3P-B111/EK3LB-B111*/   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                 Service Key B106-P   Circle +, Philips (46) Encrypted System   2020
+                                                             B111-GTK#                Plus, Plus Box
+SILVERADO 1500/HD/
+                     2004    2007 All          O5000-O6999   P1114/B110 [-P]                                                     -                                                              567
+SS, 2500/HD/3500
+
+
+
+
+                                                                   Page 33                              CHEVROLET TRUCKS
+

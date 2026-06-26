@@ -1,0 +1,500 @@
+                                Lock       Code                Ilco/Ilco EZ                      Transponder                                                                                    Card
+      Model      Start   End                                                                                                        Substitues                              Notes
+                                Apps       Series                (Plastic)                   Equipment Required +                                                                               No.
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                     Y164-PT (LAL)                                                           Service Key Y159       Philips (46) Encrypted System               745
+                                                                                SDD
+                 2006    2011 All      M1-M2618
+                                                     EK3P-Y164/EK3LB-Y160*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                             Service Key Y159       Philips (46) Encrypted System               745
+                                                     Y160-GTK#                  Plus, Plus Box
+PT CRUISER                                           P1795/Y159 [-P]                                                         Y157                                                               745
+                                                     EK3-Y160/EK3LB-Y160*/      RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                             Service Key Y159       Texas Instruments (4D64) Encrypted System   745
+                 2001    2005 All      M1-M2618      Y160-GTK#                  Clone, Plus Box
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                     Y160-PT                                                                 Service Key Y159       Texas Instruments (4D64) Encrypted System   745
+                                                                                SDD
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                     Y164-PT (LAL)                                                           Service Key Y159       Philips (46) Encrypted System               745
+                                                                                SDD
+                 2007    2011 All      M1-M2618
+                                                     EK3P-Y164/EK3LB-Y160*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                             Service Key Y159       Philips (46) Encrypted System               745
+                                                     Y160-GTK#                  Plus, Plus Box
+SEBRING                                              P1795/Y159 [-P]                                                         Y157                                                               745
+                                                     EK3-Y160/EK3LB-Y160*/      RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+CONVERTIBLE                                                                                                                Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                 1998    2006 All      M1-M2618      Y160-GTK#                  Clone, Plus Box
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                     Y160-PT                                                               Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                                                SDD
+                              All      L1-L3580      P1794/Y157 [-P, -PC]                                                  P1795/Y159                                                           537
+                 1996    1997
+                              Valet    L1-L3580      1794V                                                                 -                                                                    537
+                                                     Y165-PT                    Smart Pro/TCP/MVPP/TKO/SDD                 Service Key MIT6         Texas Instruments (4D61) Encrypted System   9709
+                 2001    2006 All      F1-F1571      EK3-MIT9/EK3LB-MIT9*/      RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+SEBRING COUPE                                                                                                              Service Key MIT6         Texas Instruments (4D61) Encrypted System   9709
+                                                     MIT9-GTK#                  Clone, Plus Box
+                 2001    2001 All      F1-F1571      Y162-PT                    Smart Pro/TCP/MVPP/TKO/SDD                 Service Key MIT6         Texas Instruments (4D61) Encrypted System   9709
+                                                     X245/MIT4 [-P]                                                        X176/MIT1                                                            264
+                 1998    2000 All      E5001-E7679                                                                         Service Key X176/MIT1,
+                                                     X213/MIT2                                                                                                                                  264
+                                                                                                                           MIT4 [-P, -PC]
+SEBRING COUPE
+                 1996    1997 All      E5001-E7679   X245/MIT4 [-P]                                                        X176/MIT1                                                            264
+                                                                                                                           Service Key X176/MIT1,
+                 1995    1995 All      E5001-E7679   X176/MIT1 [-P, -PC]                                                                                                                        264
+                                                                                                                           MIT4 [-P, -PC]
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                     Y164-PT (LAL)                                                         Service Key Y159         Philips (46) Encrypted System               745
+                                                                                SDD
+                 2007    2011 All      M1-M2618
+                                                     EK3P-Y164/EK3LB-Y160*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                           Service Key Y159         Philips (46) Encrypted System               745
+SEBRING SEDAN                                        Y160-GTK#                  Plus, Plus Box
+                                                     P1795/Y159 [-P]                                                       Y157                                                                 745
+(4-DOOR)                                             EK3-Y160/EK3LB-Y160*/      RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                           Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                 2001    2006 All      M1-M2618      Y160-GTK#                  Clone, Plus Box
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                     Y160-PT                                                               Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                                                SDD
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/     Service Key Y159/
+                                                     Dealer FOB/Y170-PT (LAL)                                                                       Philips (46) Encrypted System               745
+                                                                                SDD                                        Emerg. Key Y171-P
+                 2008    2016 All      M1-M2618
+                                                     EK3P-Y170/EK3LB-Y170*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+TOWN & COUNTRY                                                                                                             Service Key Y159         Philips (46) Encrypted System               745
+                                                     Y170-GTK#                  Plus, Plus Box
+VAN                                                                             OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                     Y164-PT (LAL)                                                         Service Key Y159         Philips (46) Encrypted System               745
+                                                                                SDD
+                 2004    2007 All      M1-M2618
+                                                     EK3P-Y164/EK3LB-Y160*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                           Service Key Y159         Philips (46) Encrypted System               745
+                                                     Y160-GTK#                  Plus, Plus Box
+
+
+
+
+                                                          Page 37                       CHRYSLER - DIAMOND RED
+                                                                      Page 38                                                                                      DODGE
+
+                                Lock         Code                     Ilco/Ilco EZ                                           Transponder                                                                                                                   Card
+         Model   Start   End                                                                                                                                                      Substitues                                       Notes
+                                Apps         Series                     (Plastic)                                        Equipment Required +                                                                                                              No.
+                                                              P1795/Y159 [-P]                                                                     Y157                                                     Optional Texas Instruments Read/Write system   745
+                                                              EK3-Y160/EK3LB-Y160*/                    RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                  Service Key Y159                                         Texas Instruments (4D64) Encrypted System      745
+                 2001    2003 All      M1-M2618               Y160-GTK#                                Clone, Plus Box
+                                                                                                       OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                              Y160-PT                                                                             Service Key Y159                                         Texas Instruments (4D64) Encrypted System      745
+                                                                                                       SDD
+                 1998    2000 All      M1-M2618               P1795/Y159 [-P]                                                                     Y157                                                                                                    745
+TOWN & COUNTRY
+                 1996    1997 All      L1-L3580               P1795/Y159 [-P]                                                                     P1794/Y157                                                                                              537
+VAN                           All      L1-L3580               P1794/Y157 [-P, -PC]                                                                P1795/Y159                                                                                              537
+                 1994    1995
+                              Valet    L1-L3580               1794V                                                                               -                                                                                                       537
+                              All      J1-J3580               P1793/Y155 [-P, -PC]                                                                -                                                                                                       537
+                 1993    1993
+                              Valet    J1-J3580               1793V                                                                               -                                                                                                       537
+                                       G1-G1394               P1789/Y154 [-P, -PC]                                                                -                                                                                                       287
+                 1992    1992 All
+                                       J1-J3580               P1793/Y155 [-P, -PC]                                                                -                                                                                                       537
+TOWN & COUNTRY   1991    1991 All      G1-G1394               P1789/Y154 [-P, -PC]                                                                -                                                                                                       287
+VAN              1990    1990 All      EP1-EP3000             P1786/Y153 [-P]                                                                     P1770U/Y152                                                                                             139
+                                                              OEM# 68217827/68241531/
+                 2020    2024 All      M1-M2618               68217829/68241532/682178                 Smart Pro                                                                                                                                          745
+                                                              32 (LAL)
+                                                              P1795/Y159 [-P]                                                                     Y157                                                     Optional Texas Instruments Read/Write system   745
+VOYAGER
+                                                              EK3-Y160/EK3LB-Y160*/                    RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                  Service Key Y159                                         Texas Instruments (4D64) Encrypted System      745
+                 2001    2003 All      M1-M2618               Y160-GTK#                                Clone, Plus Box
+                                                                                                       OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                              Y160-PT                                                                             Service Key Y159                                         Texas Instruments (4D64) Encrypted System      745
+                                                                                                       SDD
+DAEWOO
+
+
+
+
+                 2004    2004 All      V2001-V3200            DW05RAP                                                                                                    -                                                                                110
+LANOS                                                                                                  RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                 2000    2003 All      T0001-T1200            DW05RT5                                                                                                    -                                 Transponder is buyer option                    110
+                                                                                                       Clone Plus, EZ Clone
+LANOS            1998    1999 All      T0001-T1200            DW05RAP                                                                                                    -                                 Transponder is buyer option                    110
+                 2005    2005 All      V2001-V3200            DW05AP                                                                                                     -                                 Transponder is buyer option                    110
+                                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+LEGANZA          2000    2004 All      V1-V1200               DW05T5                                                                                                     -                                 Transponder is buyer option                    110
+                                                                                                       Clone Plus, EZ Clone
+                 1998    1999 All      V1-V1200               DW05AP                                                                                                     -                                 Transponder is buyer option                    110
+                 2004    2004 All      J1-J1200               DW04RAP                                                                                                    -                                 Transponder is buyer option                    110
+                                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                 2001    2002 All      J1-J1200               DW04RT5                                                                                                    DW04RAP                           Transponder is buyer option                    110
+                                                                                                       Clone Plus, EZ Clone
+NUBIRA
+                                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                 1998    2000 All      J1-J1200               DW04RT5                                                                                                    DW04RAP                           Transponder is buyer option                    110
+                                                                                                       Clone Plus, EZ Clone
+                 1997    1997 All      J1-J1200               DW04RAP                                                                                                    -                                 Transponder is buyer option                    110
+DAIHATSU
+CHARADE, ROCKY   1988    1992 All      D0001-D3000            X174/TR40 [-P, -PC]                                                                                        -                                                                                264
+DE LOREAN
+                              Door      X1-X1000              X169/WB3                                                                                                                                                                                    221
+DE LOREAN        1981    1981 Ignition/
+                                        7001-9000             X29/VO73                                                                                                                                                                                    68
+                              Trunk
+DIAMOND REO
+
+
+
+                                       (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                         Lock      Code                 Ilco/Ilco EZ                            Transponder                                                                                                             Card
+        Model          Start     End                                                                                                                       Substitues                                    Notes
+                                         Apps     Series                  (Plastic)                         Equipment Required +                                                                                                        No.
+ALL                     ALL       All   All   H601-H1100        1098M/B1                                                                           1098GM                                                                              142
+DODGE
+
+
+
+
+    1793V          1794V         1970AM/RA4        HU64-GTK      MIT9-GTK     P1770U/Y152 [-PC] P1786/Y153 [-P]    P1789/Y154 [-P]   P1793/Y155 [-P]   P1794/Y157 [-P]   P1795/Y159 [-P]   S1770U/Y149      X54/DC1 [-P]    X121/DC3 [-P]
+
+
+
+
+   X122/RN29    X175/RN32 [-P]   X176/MIT1 [-P]     X213/MIT2     X224/MIT3       X229/MIT5      X245 /MIT4 [-P]       Y160-GTK          Y160-PT           Y162-PT            Y164-PT         Y165-PT            Y170-GTK      YM15T5-SI
+                                      All         L1-L3580      P1794/Y157 [-P, -PC]                                                               P1795/Y159                                                                          537
+                        1995     1996
+                                      Valet       L1-L3580      1794V                                                                              Y155                                                                                537
+                                      All         L1-L3580      P1794/Y157 [-P, -PC]                                                               P1795/Y159                                                                          537
+                        1994     1994
+                                      Valet       L1-L3580      1794V                                                                              Y155                                                                                537
+2 DOOR & 4 DOOR                       All         J1-J3580      P1793/Y155 [-P, -PC]                                                               -                                                                                   537
+                        1993     1993
+MODELS AND YEARS                      Valet       J1-J3580      1793V                                                                              Y155                                                                                537
+                                                  G1-G1394      P1789/Y154 [-P, -PC]                                                               -                                                                                   287
+NOT REFERENCED          1992     1992 All
+                                                  J1-J3580      P1793/Y155 [-P, -PC]                                                               -                                                                                   537
+ELSEWHERE               1990     1991 All         G1-G1394      P1789/Y154 [-P, -PC]                                                               -                                                                                   287
+                                      Ignition/
+                                                EP1-EP3000      P1786/Y153 [-P]                                                                    P1770U/Y152                                                                         139
+                                      Door
+                        1986     1989
+                                      Trunk/
+                                                ES1-ES3000      S1770U/Y149                                                                        -                                                                                   139
+                                      GB
+2 DOOR & 4 DOOR                       Ignition/
+                                                EP1-EP3000      P1770U/Y152 [-PC]                                                                  -                                                                                   139
+MODELS AND YEARS                      Door
+                        1981     1985
+NOT REFERENCED                        Trunk/
+                                                ES1-ES3000      S1770U/Y149                                                                        -                                                                                   139
+ELSEWHERE                             GB
+                                      All       L1-L3580        P1794/Y157 [-P, -PC]                                                               P1795/Y159                                                                          537
+                        1995     1996
+                                      Valet     L1-L3580        1794V                                                                              Y155                                                                                537
+3 DOOR & 5 DOOR                       All       L1-L3580        P1794/Y157 [-P, -PC]                                                               P1795/Y159                                                                          537
+MODELS AND YEARS        1994     1994
+                                      Valet     L1-L3580        1794V                                                                              Y155                                                                                537
+NOT REFERENCED                        All       J1-J3580        P1793/Y155 [-P, -PC]                                                               -                                                                                   537
+                        1993     1993
+ELSEWHERE                             Valet     J1-J3580        1793V                                                                              -                                                                                   537
+                                                G1-G1394        P1789/Y154 [-P, -PC]                                                               -                                                                                   287
+                        1992     1992 All
+                                                J1-J3580        P1793/Y155 [-P, -PC]                                                               -                                                                                   537
+                        1990     1991 All       G1-G1394        P1789/Y154 [-P, -PC]                                                               -                                                                                   287
+                                      GB        ES1-ES3000      S1770U/Y149                                                                        -                                                                                   139
+3 DOOR & 5 DOOR                       Hatch/
+MODELS AND YEARS        1986     1989
+                                      Ignition/ EP1-EP3000      P1786/Y153 [-P]                                                                    P1770Y/Y152                                                                         139
+NOT REFERENCED                        Doors
+ELSEWHERE                             GB        ES1-ES3000      S1770U/Y149                                                                        -                                                                                   139
+                        1981     1985 Ignition/
+                                                EP1-EP3000      P1770U/Y152 [-PC]                                                                  -                                                                                   139
+                                      Doors/
+
+
+
+                                                                     Page 39                                                                    DODGE
+                                                                         Page 40                                                                                      DODGE
+
+                                   Lock         Code                          Ilco/Ilco EZ                                 Transponder                                                                                                                    Card
+       Model       Start   End                                                                                                                                                       Substitues                                       Notes
+                                   Apps         Series                          (Plastic)                              Equipment Required +                                                                                                               No.
+                                                                                                          OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                 Y164-PT (LAL)                                                                                              Service Key Y159                  Philips (46) Encrypted System               745
+                                                                                                          SDD
+                   2008    2014 All       M1-M2618
+                                                                 EK3P-Y164/EK3LB-Y160*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key Y159                  Philips (46) Encrypted System               745
+AVENGER                                                          Y160-GTK#                                Plus, Plus Box
+                   1996    2000 All       E5001-E7679            X245 /MIT4 [-P]                                                                                            X176/MIT1                                                                     264
+                                                                                                                                                                            Service Key X176/MIT1,
+                   1995    1995 All       E5001-E7679            X176/MIT1 [-P, -PC]                                                                                                                                                                      264
+                                                                                                                                                                            MIT4 [-P, -PC]
+                                                                                                          OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                 Y164-PT (LAL)                                                                                              Service Key Y159                  Philips (46) Encrypted System               745
+                                                                                                          SDD
+CALIBER            2007    2012 All       M1-M2618
+                                                                 EK3P-Y164/EK3LB-Y160*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key Y159                  Philips (46) Encrypted System               745
+                                                                 Y160-GTK#                                Plus, Plus Box
+                                                                 OEM# 68394195AA/68394196                                                                                   Service Key Y159/
+                   2019    2023 All       M1-M2618                                            Smart Pro/TCP/MVPP                                                                                                                                          745
+                                                                 AA/68394202AA (LAL)                                                                                        Emerg. Key Y172
+                                                                                              OBP Program F, Smart Pro/TCP/MVPP/TKO/                                        Service Key Y159/
+CHALLENGER                                                       Dealer FOB/Y170-PT (LAL)                                                                                                                     Philips (46) Encrypted System               745
+                                                                                              SDD                                                                           Emerg. Key Y171-P
+                   2008    2019 All       M1-M2618
+                                                                 EK3P-Y170/EK3LB-Y170*/       RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key Y159                  Philips (46) Encrypted System               745
+                                                                 Y170-GTK#                    Plus, Plus Box
+                                                                 OEM#
+                                                                                                                                                                            Service Key Y159/
+                   2019    2023 All       M1-M2618               68394195AA/68394196AA        Smart Pro/TCP/MVPP                                                                                                                                          745
+                                                                                                                                                                            Emerg. Key Y172
+                                                                 (LAL)
+CHARGER                                                                                       OBP Program F, Smart Pro/TCP/MVPP/TKO/                                        Service Key Y159/
+                                                                 Dealer FOB/Y170-PT (LAL)                                                                                                                     Philips (46) Encrypted System               745
+                                                                                              SDD                                                                           Emerg. Key Y171-P
+                   2009    2019 All       M1-M2618
+                                                                 EK3P-Y170/EK3LB-Y170*/       RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key Y159                  Philips (46) Encrypted System               745
+                                                                 Y170-GTK#                    Plus, Plus Box
+                                                                                              OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                 Y164-PT (LAL), or Dealer FOB                                                                               Service Key Y159                  Philips (46) Encrypted System               745
+                                                                                              SDD
+                   2008    2008 All       M1-M2618
+                                                                 EK3P-Y164/EK3LB-Y160*/       RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+CHARGER, CHARGER                                                                                                                                                            Service Key Y159                  Philips (46) Encrypted System               745
+                                                                 Y160-GTK#                    Plus, Plus Box
+DAYTONA R/T                                                                                   OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                 Y164-PT (LAL)                                                                                              Ser vice KeyY159                  Philips (46) Encrypted System               745
+                                                                                              SDD
+                   2005    2007 All       M1-M2618
+                                                                 EK3P-Y164/EK3LB-Y160*/       RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key Y159                  Philips (46) Encrypted System               745
+                                                                 Y160-GTK#                    Plus, Plus Box
+                                All       30010-32009            X224/MIT3                                                                                                  MIT5                                                                          288
+                   1993    1994
+                                Valet     30010-32009            X229/MIT5                                                                                                  MIT3                                                                          288
+                                                                                                                                                                            Service Key X176/MIT1,
+COLT, COLT VISTA   1989    1992 All       E5001-E7679            X176/MIT1 [-P, -PC]                                                                                                                                                                      264
+                                                                                                                                                                            MIT4 [-P, -PC]
+                   1987    1988 All       H0001-H5143            X121/DC3 [-P, -PC]                                                                                         -                                                                             89
+                   1981    1986 All       H0001-H5143            X54/DC1 [-P]                                                                                               X121/DC3                                                                      89
+                                                                                                                                                                            Service Key Y159/
+                                                                 Dealer FOB/Y170-PT (LAL)                 Smart Pro/TCP/MVPP/TKO/SDD                                                               Philips (46) Encrypted System                          745
+                                                                                                                                                                            Emerg. Key Y171-P
+DART               2013    2016 All       M1-M2618
+                                                                 EK3P-Y170/EK3LB-Y170*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                            Service Key Y159                  Philips (46) Encrypted System               745
+                                                                 Y170-GTK#                                Plus, Plus Box
+                                                                 OEM# 68051387AC or                                                                                         Service Key Y159/
+DART W/ PROX       2013    2017 All       M1-M2618                                                        Smart Pro/TCP/MVPP                                                                                  Philips (46) Encrypted System               745
+                                                                 05026676AC (LAL)                                                                                           Emerg. Key Y172
+                                                                                                                                                                            Service Key Y159/
+HORNET             2023    2024 All       DE1-DE11210            OEM# 7QV80LXHPA                          Smart Pro/TCP/MVPP                                                                                  Philips (46) Encrypted System               583
+                                                                                                                                                                            Emerg. Key Y172
+                                                                 P1795/Y159 [-P]                                                                                            Y157                                                                          745
+                                                                 EK3-Y160/EK3LB-Y160*/                    RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                     Service Key Y159                                         Texas Instruments (4D64) Encrypted System   745
+                                  All     M1-M2618               Y160-GTK#                                Clone, Plus Box
+                   1998    2004
+                                                                                                          OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                 Y160-PT                                                                             Service Key Y159                                         Texas Instruments (4D64) Encrypted System   745
+                                                                                                          SDD
+                                Valet     M1-M2618               1794V                                                                               -                                                                                                    745
+INTREPID
+                                All       L1-L3580               P1794/Y157 [-P, -PC]                                                                P1795/Y159                                                                                           537
+                   1995    1997
+                                Valet     L1-L3580               1794V                                                                               -                                                                                                    537
+                                All       L1-L3580               P1794/Y157 [-P, -PC]                                                                -                                                                                                    537
+                   1994    1994
+                                Valet     L1-L3580               1794V                                                                               -                                                                                                    537
+                                All       J1-J3580               P1793/Y155 [-P, -PC]                                                                -                                                                                                    537
+                   1993    1993
+                                Valet     J1-J3580               1793V                                                                               Y155                                                                                                 537
+
+
+                                          (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                   Lock       Code                Ilco/Ilco EZ                      Transponder                                                                                           Card
+         Model     Start   End                                                                                                       Substitues                                Notes
+                                   Apps       Series                (Plastic)                   Equipment Required +                                                                                      No.
+                                                                                   OBP Program F, Smart Pro/TCP/MVPP/TKO/     Service Key Y159/
+                                                        Dealer FOB/Y170-PT (LAL)                                                                       Philips (46) Encrypted System                      745
+                                                                                   SDD                                        Emerg. Key Y171-P
+JOURNEY            2009    2015 All       M1-M2618
+                                                        EK3P-Y170/EK3LB-Y170*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                              Service Key Y159         Philips (46) Encrypted System                      745
+                                                        Y170-GTK#                  Plus, Plus Box
+                                                                                   OBP Program F, Smart Pro/TCP/MVPP/TKO/     Service Key Y159/
+                                                        Dealer FOB/Y170-PT (LAL)                                                                       Philips (46) Encrypted System                      745
+                                                                                   SDD                                        Emerg. Key Y171-P
+                   2008    2009 All       M1-M2618
+                                                        EK3P-Y170/EK3LB-Y170*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                              Service Key Y159         Philips (46) Encrypted System                      745
+                                                        Y170-GTK#                  Plus, Plus Box
+MAGNUM
+                                                                                   OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                        Y164-PT (LAL)                                                         Service Key Y159         Philips (46) Encrypted System                      745
+                                                                                   SDD
+                   2005    2007 All       M1-M2618
+                                                        EK3P-Y164/EK3LB-Y160*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                              Service Key Y159         Philips (46) Encrypted System                      745
+                                                        Y160-GTK#                  Plus, Plus Box
+                                Door/
+                                         2700-4816      X122/RN29                                                             -                                                                           74
+MONACO             1990    1992 Trunk
+                                Ignition AM1-AM1000     X175/RN32 [-P]                                                        -                                                                           290
+                                                        EK3-Y160/EK3LB-Y160*/      RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                  All     M1-M2618                                                                            Service Key Y159         Texas Instruments (4D64) Encrypted System          745
+                                                        Y160-GTK#                  Clone, Plus Box
+                   2000    2005
+                                                                                   OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                  All     M1-M2618      Y160-PT                                                               Service Key Y159         Texas Instruments (4D64) Encrypted System          745
+                                                                                   SDD
+NEON, SRT
+                                All       M1-M2618      P1794/Y157 [-P, -PC]                                                  P1795/Y159                                                                  745
+                   1998    1999
+                                Valet     M1-M2618      1794V                                                                 -                                                                           745
+                                All       L1-L3580      P1794/Y157 [-P, -PC]                                                  P1795/Y159                                                                  537
+                   1994    1997
+                                Valet     L1-L3580      1794V                                                                 -                                                                           537
+                                                                                   OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                        Y164-PT (LAL)                                                         Service Key Y159         Philips (46) Encrypted System                      745
+                                                                                   SDD
+NITRO - SLT, SXT   2007    2012 All       M1-M2618
+                                                        EK3P-Y164/EK3LB-Y160*/     RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                              Service Key Y159         Philips (46) Encrypted System                      745
+                                                        Y160-GTK#                  Plus, Plus Box
+                                All       L1-L3580      P1794/Y157 [-P, -PC]                                                  P1795/Y159                                                                  537
+                   1994    1995
+                                Valet     L1-L3580      1794V                                                                 Y155                                                                        537
+                                All       J1-J3580      P1793/Y155 [-P, -PC]                                                  -                                                                           537
+                   1993    1993
+                                Valet     J1-J3580      1793V                                                                 Y155                                                                        537
+SPIRIT
+                                          G1-G1394      P1789/Y154 [-P, -PC]                                                  -                                                                           287
+                   1992    1992 All
+                                          J1-J3580      P1793/Y155 [-P, -PC]                                                  -                                                                           537
+                   1990    1991 All       G1-G1394      P1789/Y154 [-P, -PC]                                                  -                                                                           287
+                   1989    1989 All       EP1-EP3000    P1786/Y153[-P, -PC]                                                   P1770U/Y152                                                                 139
+                                                        Dealer Key                                                            Service Key HU64         High Security Key, Ordered by VIN                  913
+                   2007    2013 All       1-6700        EK3P-HU64/EK3LB-HU64*/     RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                              Service Key HU64         High Security Key, Philips (46) Encrypted System   913
+SPRINTER                                                HU64-GTK#                  Clone
+                                                                                   RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                   2003    2006 All       NF1-NF1200    YM15T5-SI                                                                                      -                                                  15
+                                                                                   Clone Plus, EZ Clone
+                                                                                                                              Service Key X176/MIT1,
+                                  All     E5001-E7679   X176/MIT1 [-P, -PC]                                                                                                                               264
+                                                                                                                              MIT4 [-P, -PC]
+STEALTH            1991    1996
+                                                                                                                              Service Key X176/MIT1,
+                                  Valet   E5001-E7679   X213/MIT2                                                                                                                                         264
+                                                                                                                              MIT4 [-P, -PC]
+                                                        Y165-PT                    Smart Pro/TCP/MVPP/TKO/SDD                 Service Key MIT6         Texas Instruments (4D61) Encrypted System          1029
+                   2002    2005 All       F1-F1571      EK3-MIT9/EK3LB-MIT9*/      RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+STRATUS COUPE                                                                                                                 Service Key MIT6         Texas Instruments (4D61) Encrypted System          1029
+                                                        MIT9-GTK#                  Clone, Plus Box
+                   2001    2001 All       F1-F1571      Y162-PT                    Smart Pro/TCP/MVPP/TKO/SDD                 Service Key MIT6         Texas Instruments (4D61) Encrypted System          1029
+                                                        P1795/Y159 [-P]                                                       Y157                                                                        745
+                                                        EK3-Y160/EK3LB-Y160*/      RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                              Service Key Y159         Texas Instruments (4D64) Encrypted System          745
+                   1999    2006 All       M1-M2618      Y160-GTK#                  Clone, Plus Box
+STRATUS SEDAN                                                                      OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                        Y160-PT                                                               Service Key Y159         Texas Instruments (4D64) Encrypted System          745
+                                                                                   SDD
+                   1998    1998 All       M1-M2618      P1795/Y159 [-P]                                                       Y157                                                                        745
+                   1995    1997 All       L1-L3580      P1794/Y157 [-P, -PC]                                                  P1795/Y159                                                                  537
+
+
+
+
+                                                             Page 41                         DODGE - DODGE TRUCKS
+                                                                           Page 42                                                                DODGE TRUCKS
+
+                                     Lock         Code                     Ilco/Ilco EZ                                           Transponder                                                                                                                  Card
+        Model        Start   End                                                                                                                                                       Substitues                                       Notes
+                                     Apps         Series                     (Plastic)                                        Equipment Required +                                                                                                             No.
+                                                                   OEM# 05035395AA or                                                                                         Service Key Y159/
+                     2013    2017 All       M1-M2618                                                                                                                                                            Philips (46) Encrypted System                  745
+                                                                   05035188AB (LAL)                                                                                           Emerg. Key Y172
+VIPER               2003     2006   All     M1-M2618               P1795/Y159 [-P]                                                                                            P1794/Y157                                                                       745
+                    1998     2002   All     M1-M2618               P1794/Y157 [-P, -PC]                                                                                       P1795/Y159                                                                       745
+                    1994     1997   All     L1-L3580               P1794/Y157 [-P, -PC]                                                                                       P1795/Y159                                                                       537
+                    1993     1993   All     J1-J3580               P1793/Y155 [-P, -PC]                                                                                       -                                                                                537
+VIPER
+                    1992     1992   All     G1-G1394               P1789/Y154 [-P, -PC]                                                                                       -                                                                                287
+DODGE TRUCKS, VANS,SUVS
+                                                                                                            OBP Program F, Smart Pro/TCP/MVPP/TKO/                            Service Key Y159/
+                                                                   Dealer FOB/Y170-PT (LAL)                                                                                                                     Philips (46) Encrypted System                  745
+                                                                                                            SDD                                                               Emerg. Key Y171-P
+                     2008    2020 All       M1-M2618
+                                                                   EK3P-Y170/EK3LB-Y170*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                              Service Key Y159                  Philips (46) Encrypted System                  745
+                                                                   Y170-GTK#                                Plus, Plus Box
+                                                                                                            OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                   Y164-PT (LAL)                                                                                              Service Key Y159                  Philips (46) Encrypted System                  745
+                                                                                                            SDD
+                     2004    2007 All       M1-M2618
+                                                                   EK3P-Y164/EK3LB-Y160*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+                                                                                                                                                                              Service Key Y159                  Philips (46) Encrypted System                  745
+                                                                   Y160-GTK#                                Plus, Plus Box
+                                                                   P1795/Y159 [-P]                                                                                            Y155/Y157                         Optional Texas Instruments Read/Write system   745
+                                                                   EK3-Y160/EK3LB-Y160*/                    RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                                                       Service Key Y159                                         Texas Instruments (4D64) Encrypted System      745
+                     2001    2003 All       M1-M2618               Y160-GTK#                                Clone, Plus Box
+                                                                                                            OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                   Y160-PT                                                                             Service Key Y159                                         Texas Instruments (4D64) Encrypted System      745
+                                                                                                            SDD
+                     1998    2000 All       M1-M2618               P1795/Y159 [-P]                                                                     Y157                                                                                                    745
+                                  All       L1-L3580               P1795/Y159 [-P]                                                                     Y157                                                                                                    537
+                     1996    1997
+CARAVAN & GRAND                   Valet     L1-L3580               1794V                                                                               Y155                                                                                                    537
+CARAVAN                           All       L1-L3580               P1794/Y157 [-P, -PC]                                                                P1795/Y159                                                                                              537
+                     1995    1995
+                                  Valet     L1-L3580               1794V                                                                               Y155                                                                                                    537
+                                  All       L1-L3580               P1794/Y157 [-P, -PC]                                                                P1795/Y159                                                                                              537
+                     1994    1994
+                                  Valet     L1-L3580               1794V                                                                               Y155                                                                                                    537
+                                            J1-J3580               P1793/Y155 [-P, -PC]                                                                -                                                                                                       537
+                     1993    1993 All       G1-G1394               P1789/Y154 [-P, -PC]                                                                -                                                                                                       287
+                                            J1-J3580               P1793/Y155 [-P, -PC]                                                                -                                                                                                       537
+                     1991    1991 All       G1-G1394               P1789/Y154 [-P, -PC]                                                                -                                                                                                       287
+                                  GB        ES1-ES3000             S1770U/Y149                                                                         -                                                                                                       139
+                                  Ignition/
+                     1987    1990
+                                  Door/ EP1-EP3000                 P1786/Y153 [-P]                                                                                            P1770U/Y152                                                                      139
+                                  Tailgate
+                                  GB        ES1-ES3000             S1770U/Y149                                                                                                -                                                                                139
+                                  Ignition/
+                     1984    1986
+                                  Door/ EP1-EP3000                 P1770U/Y152 [-PC]                                                                                          -                                                                                139
+                                  Tailgate
+D50 PICKUP            ALL     All All       H0001-H5143            X121/DC3 [-P, -PC]                                                                                         -                                                                                89
+                                                                   P1795/Y159 [-P]                                                                                            -                                                                                745
+DAKOTA               2001    2004 All       M1-M2618                                                        OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                   Y160-PT                                                                                                    Service Key Y159                  Texas Instruments (4D64) Encrypted System      745
+                                                                                                            SDD
+                                                                   EK3-Y160/EK3LB-Y160*/                    RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+DAKOTA               2001    2004 ALL       M1-M2618                                                                                                                          Service Key Y159                  Texas Instruments (4D64) Encrypted System      745
+                                                                   Y160-GTK#                                Clone, Plus Box
+DAKOTA CLUB/                                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                                   Y164-PT (LAL)                                                                                              Service Key Y159                  Philips (46) Encrypted System                  745
+                                                                                                            SDD
+QUAD CABS SLT, ST,   2005    2012 All       M1-M2618
+                                                                   EK3P-Y164/EK3LB-Y160*/                   RW5, SA+, RW5, SA+, RW4 Plus, EZ Clone
+LARAMIE                                                                                                                                                                       Service Key Y159                  Philips (46) Encrypted System                  745
+                                                                   Y160-GTK#                                Plus, Plus Box
+
+
+
+
+                                            (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+

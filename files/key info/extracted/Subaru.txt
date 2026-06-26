@@ -1,0 +1,190 @@
+                                                                         Page 112                                                              PORSHE - SAAB
+
+                                Lock        Code                          Ilco/Ilco EZ                                      Transponder                                                                                              Card
+       Model    Start   End                                                                                                                                                      Substitues                                  Notes
+                                Apps        Series                          (Plastic)                                   Equipment Required +                                                                                         No.
+
+
+
+
+                             All       L1-L3580              P1794/Y157 [-P, -PC]                                                                                       P1795/Y159                                                   537
+                1994    1994
+                             Valet     L1-L3580              1794V                                                                                                      -                                                            537
+                1993    1993 All       J1-J3580              P1793/Y155 [-P, -PC]                                                                                       -                                                            537
+                             All       G1-G1394              P1789/Y154 [-P, -PC]                                                                                       -                                                            287
+                1992    1992
+                             All       J1-J3580              P1793/Y155 [-P, -PC]                                                                                       -                                                            537
+3 AND 5 DOOR    1990    1991 All       G1-G1394              P1789/Y154 [-P, -PC]                                                                                       -                                                            287
+HATCHBACK                    GB        ES1-ES3000            S1770U/Y149                                                                                                -                                                            139
+                               Ignition/
+                1986    1989   Door/     EP1-EP3000          P1786/Y153 [-P]                                                                                            P1770U/Y152                                                  139
+                               Hatchback
+                             GB        ES1-ES3000            S1770U/Y149                                                                                                -                                                            139
+                1968    1985 Ignition/
+                                       EP1-EP3000            P1770U/Y152 [-PC]                                                                                          -                                                            139
+                             Door/
+4 DR. STATION                          G1-G1394              P1789/Y154 [-P, -PC]                                                                                       -                                                            287
+                1992    1992 All
+                                       J1-J3580              P1793/Y155 [-P, -PC]                                                                                       -                                                            537
+WAGON           1990    1991 All       G1-G1394              P1789/Y154 [-P, -PC]                                                                                       -                                                            287
+                             Ignition/
+                                       EP1-EP3000            P1786/Y153 [-P]                                                                                            P1770U/Y152                                                  139
+                             Door
+                1986    1989
+                             Trunk/
+4 DR. STATION                          ES1-ES3000            S1770U/Y149                                                                                                -                                                            139
+                             GB
+WAGON                        Ignition/
+                                       EP1-EP3000            P1770U/Y152 [-PC]                                                                                          -                                                            139
+                             Door
+                1981    1985
+                             Trunk/
+                                       ES1-ES3000            S1770U/Y149                                                                                                -                                                            139
+                             GB
+                             All       L1-L3580              P1794/Y157 [-P, -PC]                                                                                       P1795/Y159                                                   537
+                1995    1995
+                             Valet     L1-L3580              1794V                                                                                                      -                                                            537
+                             All       L1-L3580              P1794/Y157 [-P, -PC]                                                                                       P1795/Y159                                                   537
+                1994    1994
+                             Valet     L1-L3580              1794V                                                                                                      -                                                            537
+ACCLAIM                      All       J1-J3580              P1793/Y155 [-P, -PC]                                                                                       -                                                            537
+                1993    1993
+                             Valet     J1-J3580              1793V                                                                                                      -                                                            537
+                                       G1-G1394              P1789/Y154 [-P, -PC]                                                                                       -                                                            287
+                1992    1992 All
+                                       J1-J3580              P1793/Y155 [-P, -PC]                                                                                       -                                                            537
+                1989    1991 All       G1-G1394              P1789/Y154 [-P, -PC]                                                                                       -                                                            287
+
+
+
+
+                                          (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+                                   Lock       Code              Ilco/Ilco EZ                     Transponder                                                                                    Card
+        Model      Start   End                                                                                                    Substitues                              Notes
+                                   Apps       Series              (Plastic)                  Equipment Required +                                                                               No.
+                                                        EK3-Y160/EK3LB-Y160*/   RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                                                                                           Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                        Y160-GTK#               Clone Plus, EZ Clone
+                   1999    2000 All       M1-M2618
+BREEZE                                                                          OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                        Y160-PT                                                            Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                                                SDD
+                   1998    1998 All       M1-M2618      P1795/Y159 [-P]                                                    Y157                                                                 745
+                                All       L1-L3580      P1794/Y157 [-P, -PC]                                               P1795/Y159                                                           537
+BREEZE             1996    1997
+                                Valet     L1-L3580      1794V                                                              -                                                                    537
+                                All       30010-32009   X224/MIT3                                                          MIT5                                                                 288
+                   1993    1994
+                                Valet     30010-32009   X229/MIT5                                                          MIT3                                                                 288
+COLT, COLT VISTA                                                                                                           Service Key X176/MIT1,
+                   1989    1992 All       E5001-E7679   X176/MIT1 [-P, -PC]                                                                                                                     264
+                                                                                                                           MIT4 [-P, -PC]
+                   1983    1988 All       H0001-H5143   X121/DC3 [-P, -PC]                                                 -                                                                    89
+CONQUEST           1984    1986 All       H0001-H5143   X121/DC3 [-P, -PC]                                                 -                                                                    89
+                                                        EK3-Y160/EK3LB-Y160*/   RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                                                                                           Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                        Y160-GTK#               Clone Plus, EZ Clone
+                   2001    2003 All       M1-M2618
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                        Y160-PT                                                            Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                                                SDD
+                   1998    2000 All       M1-M2618      P1795/Y159 [-P]                                                    Y157                                                                 745
+                   1996    1997 All       L1-L3580      P1795/Y159 [-P]                                                    Y157                                                                 537
+                                All       L1-L3580      P1794/Y157 [-P, -PC]                                               P1795/Y159                                                           537
+                   1995    1995
+                                Valet     L1-L3580      1794V                                                              -                                                                    537
+                                All       L1-L3580      P1794/Y157 [-P, -PC]                                               P1795/Y159                                                           537
+GRAND VOYAGER,     1994    1994
+                                Valet     L1-L3580      1794V                                                              -                                                                    537
+VOYAGER            1993    1993 All       J1-J3580      P1793/Y155 [-P, -PC]                                               -                                                                    537
+                                          G0-G1394      P1789/Y154 [-P, -PC]                                               -                                                                    287
+                   1992    1992 All
+                                          J1-J3580      P1789/Y154 [-P, -PC]                                               -                                                                    537
+                   1991    1991 All       G0-G1394      P1789/Y154 [-P, -PC]                                               -                                                                    287
+                                GB        ES1-ES3000    S1770U/Y149                                                        -                                                                    139
+                   1987    1990 Ignition/
+                                          EP1-EP3000    P1786/Y153 [-P]                                                    Y152                                                                 139
+                                Door/
+                                GB        ES1-ES3000    S1770U/Y149                                                        -                                                                    139
+                   1984    1986 Ignition/
+                                          EP1-EP3000    P1770U/Y152 [-PC]                                                  -                                                                    139
+                                Door/
+                                                                                                                           Service Key X176/MIT1,
+LASER              1990    1994 All       E5001-E7679   X176/MIT1 [-P, -PC]                                                                                                                     264
+                                                                                                                           MIT4 [-P, -PC]
+MODELS AND YEARS                All       L1-L3580      P1794/Y157 [-P, -PC]                                               P1795/Y159                                                           537
+                   1994    1996
+NOT REFERENCED                  Valet     L1-L3580      1794V                                                              -                                                                    537
+ELSEWHERE          1993    1993 All       J1-J3580      P1793/Y155 [-P, -PC]                                               -                                                                    537
+                                                        EK3-Y160/EK3LB-Y160*/   RW5, SA+, RW4 Plus, RW4, EZ Clone Plus, EZ
+                                                                                                                           Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                        Y160-GTK#               Clone, Plus Box
+                   2000    2001 All       M1-M2618
+                                                                                OBP Program F, Smart Pro/TCP/MVPP/TKO/
+                                                        Y160-PT (LAL)                                                      Service Key Y159         Texas Instruments (4D64) Encrypted System   745
+                                                                                SDD
+NEON               1998    1999 All       M1-M2618      P1794/Y157 [-P,-PC]                                                P1795/Y159                                                           745
+                                  All     L1-L3580      P1794/Y157 [-P,-PC]                                                P1795/Y159                                                           537
+                   1994    1997
+                                  Valet   L1-L3580      1794                                                               -                                                                    537
+PROWLER            1998    2002 All       M1-M2618      P1795/Y159 [-P] (LAL)                                              Y157                                                                 745
+PONTIAC
+
+
+
+
+                                                               Page 113
+                                                                                                            SAAB - SATURN
+                                                                          Page 114                                                                SCION - SMART
+
+                                Lock           Code                        Ilco/Ilco EZ                                      Transponder                                                                                                   Card
+        Model   Start   End                                                                                                                                                       Substitues                                    Notes
+                                Apps           Series                        (Plastic)                                   Equipment Required +                                                                                              No.
+
+
+
+
+                                                                                                       OBP Program A, Smart Pro/TCP/MVPP/TKO/
+                                                              B99-PT (LAL)                                                                                               Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                                                                                                       SDD
+                               All      H0001-H3988
+                                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                              B99-PT5                                                                                                    Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                                                                                                       Clone Plus, EZ Clone
+AZTEK           2001    2005
+                                                              B100-PT                                  OBP Program A                                                     Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                               Valet    H0001-H3988
+                                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                              B100-PT5                                                                                                   Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                                                                                                       Clone Plus, EZ Clone
+                                                                                                       OBP Program A, Smart Pro/TCP/MVPP/TKO/
+                                                              B99-PT (LAL)                                                                                               Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                                                                                                       SDD
+                               All      O5000-O6999
+                                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                              B99-PT5                                                                                                    Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                                                                                                       Clone Plus, EZ Clone
+BONNEVILLE      2000    2005
+                                                              B100-PT                                  OBP Program A                                                     Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                               Valet    O5000-O6999
+                                                                                                       RW5, SA+, RW4 Plus, RW4, RW3, RW2,EZ
+                                                              B100-PT5                                                                                                   Service Key P1106/B86             Megamos (13)Fixed Code System   567
+                                                                                                       Clone Plus, EZ Clone
+                             Door/
+                             Trunk/     L, M                  S1098H/B45 [-P, -PC]                                                                                       S1098WH/B79                                                       14
+BONNEVILLE      1992    1999 GB
+                                                              VATS SYSTEM (B62-P-1
+                               Ignition J, K                                                           -                                                                                                                                   14
+                                                              THRU 15) (LAL)
+                                                              VATS SYSTEM (B62-P-1
+FIREBIRD        1991    2002 Ignition J, K                                                             -                                                                                                                                   14
+                                                              THRU 15)
+                             Door/
+FORMULA         1991    2002 Trunk/     L, M                  S1098H/B45[-P, -PC]                                                                                        S1098WH/B79                                                       14
+                             GB
+
+
+
+
+                                           (LAL): Means there is an Ilco Look-Alike remote equivalent for all or part of the model coverage years. Check www.ilcolookalike.com or MyKeyPro for complete Look-Alike coverage
+
