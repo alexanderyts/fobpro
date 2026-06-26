@@ -221,6 +221,14 @@ body{font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;background:radial-g
 .rk{font-size:11.5px;color:var(--text3);}
 .rv{font-size:12px;font-weight:600;color:var(--text1);font-family:monospace;text-align:right;max-width:62%;}
 
+/* COPY BUTTON (shell / key blade part numbers) */
+.copy-btn{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:700;padding:3px 8px;border-radius:20px;border:1px solid var(--accent3);background:var(--accent2);color:var(--accent);cursor:pointer;font-family:inherit;letter-spacing:.02em;white-space:nowrap;transition:all .15s;}
+.copy-btn:hover{background:var(--accent3);color:#06222a;}
+.copy-btn:active{transform:scale(.95);}
+.copy-btn.copied{background:var(--green);border-color:var(--green);color:#06281d;}
+.copy-btn svg{width:11px;height:11px;flex-shrink:0;}
+.shbt-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;}
+
 /* SHELL BLOCKS */
 .shb{border-radius:9px;padding:9px 13px;margin-top:7px;}
 .shb.oem{background:var(--blue2);border:1px solid #2f6fb0;}
@@ -1257,6 +1265,8 @@ function doLookup(){
   const cl=d.km100==='yes'?'✓ KM100 can do this job':d.km100==='partial'?'⚠ KM100 — proceed with caution':'✗ KM100 cannot do this job';
   const trim=document.getElementById('l-trim').value.trim();
   const trimNote=trim&&d.trimNotes&&d.trimNotes[trim]?`<div style="font-size:11px;color:var(--amber);margin-top:6px;padding:6px 10px;background:var(--amber2);border-radius:8px;">Trim note (${trim}): ${d.trimNotes[trim]}</div>`:'';
+  const hasTrimVariance=d.trimNotes&&Object.keys(d.trimNotes).length>0;
+  const partsVerifyWarning=hasTrimVariance?`<div class="ban y" style="margin-top:9px;"><div class="bt">⚠ Part #s shown are typical for this model — not year/trim-specific</div><div class="bb">${trim?`This vehicle has known fob differences by trim (e.g. ${Object.keys(d.trimNotes).join(', ')}). `:`This vehicle has known fob differences by trim or year (e.g. ${Object.keys(d.trimNotes).join(', ')}). `}Before buying a shell or blank, confirm the FCC ID stamped on the customer's existing fob matches what's shown here — don't order on the part # alone.</div></div>`:'';
   const veh=getVehicleName();
   const provenCount=getProvenCount(make,model);
   const provenBadge=provenCount>0?`<span class="skill-badge beginner" style="margin-left:5px;background:var(--accent2);color:var(--accent3);">✓ Proven ×${provenCount}</span>`:'';
@@ -1292,10 +1302,11 @@ function doLookup(){
 
     <div class="card res-card">
       <div class="card-title accent">6 · Transponder &amp; shells</div>
-      <div class="rc"><div class="rch"><span class="rchl">Transponder specs — auto-filled</span></div><div class="rcb"><div class="rcs"><div class="rr"><span class="rk">Chip</span><span class="rv">${d.chip}</span></div><div class="rr"><span class="rk">Frequency</span><span class="rv">${d.freq} MHz</span></div><div class="rr"><span class="rk">Protocol</span><span class="rv">${d.proto}</span></div><div class="rr"><span class="rk">Blade blank</span><span class="rv">${d.blank||'—'}</span></div><div class="rr"><span class="rk">FCC ID</span><span class="rv">${d.fcc}</span></div></div></div></div>
+      ${partsVerifyWarning}
+      <div class="rc" style="margin-top:${hasTrimVariance?'9px':'0'};"><div class="rch"><span class="rchl">Transponder specs — auto-filled</span></div><div class="rcb"><div class="rcs"><div class="rr"><span class="rk">Chip</span><span class="rv">${d.chip}</span></div><div class="rr"><span class="rk">Frequency</span><span class="rv">${d.freq} MHz</span></div><div class="rr"><span class="rk">Protocol</span><span class="rv">${d.proto}</span></div><div class="rr"><span class="rk">Blade blank</span><span class="rv">${d.blank||'—'}</span></div><div class="rr"><span class="rk">FCC ID</span><span class="rv">${d.fcc}</span></div></div></div></div>
       <div class="row2" style="margin-top:9px;align-items:start;">
-        <div class="shb oem" style="margin-top:0;"><div class="shbt">OEM shell</div><div class="shr"><span class="shk">Part #</span><span class="shv">${d.oemShell}</span></div><div class="shr"><span class="shk">Buttons</span><span class="shv">${d.oemButtons}</span></div><div class="shr"><span class="shk">Buy from</span><span class="shv">${d.oemSupplier}</span></div>${d.shellNote?`<div class="shn">${d.shellNote}</div>`:''}</div>
-        <div class="shb gen" style="margin-top:0;"><div class="shbt">Generic aftermarket (budget)</div><div class="shr"><span class="shk">Part #</span><span class="shv">${d.genericShell}</span></div><div class="shr"><span class="shk">Buttons</span><span class="shv">${d.genericButtons}</span></div><div class="shr"><span class="shk">Buy from</span><span class="shv">${d.genericSupplier}</span></div><div class="shn">${d.genericNote}</div></div>
+        <div class="shb oem" style="margin-top:0;"><div class="shbt-row"><div class="shbt" style="margin-bottom:0;">OEM shell</div>${copyBtn(`${d.oemShell} ${d.fcc}`,'Copy part # + FCC ID to search online')}</div><div class="shr"><span class="shk">Part #</span><span class="shv">${d.oemShell}</span></div><div class="shr"><span class="shk">Buttons</span><span class="shv">${d.oemButtons}</span></div><div class="shr"><span class="shk">Buy from</span><span class="shv">${d.oemSupplier}</span></div>${d.shellNote?`<div class="shn">${d.shellNote}</div>`:''}</div>
+        <div class="shb gen" style="margin-top:0;"><div class="shbt-row"><div class="shbt" style="margin-bottom:0;">Generic aftermarket (budget)</div>${copyBtn(`${d.genericShell}`,'Copy part # to search online')}</div><div class="shr"><span class="shk">Part #</span><span class="shv">${d.genericShell}</span></div><div class="shr"><span class="shk">Buttons</span><span class="shv">${d.genericButtons}</span></div><div class="shr"><span class="shk">Buy from</span><span class="shv">${d.genericSupplier}</span></div><div class="shn">${d.genericNote}</div></div>
       </div>
     </div>
 
@@ -1312,6 +1323,8 @@ function doLookup(){
 // ═══════════════════════════════════════════════════════════════════════════
 function renderKeyCutInfo(d,vinData){
   const hasVin=vinData&&vinData.vin&&!vinData.error;
+  const hasTrimVariance=d.trimNotes&&Object.keys(d.trimNotes).length>0;
+  const blankVerifyWarning=hasTrimVariance?`<div style="font-size:10.5px;color:var(--amber);margin-bottom:8px;padding:6px 8px;background:rgba(245,166,35,.12);border-radius:6px;line-height:1.5;">⚠ The keyway/blank shown is typical for this model — it can change by trim or model year (this vehicle has known fob differences by trim: ${Object.keys(d.trimNotes).join(', ')}). Match it against the customer's existing key before cutting or ordering.</div>`:'';
   let vinRows='';
   if(hasVin){
     vinRows=`
@@ -1328,10 +1341,12 @@ function renderKeyCutInfo(d,vinData){
   const copyMethod=`<div style="font-size:10.5px;color:var(--amber);margin-top:5px;line-height:1.55;"><strong>To COPY (duplicate) from an existing key:</strong> ${d.bladeless?'transfer the existing blade or':''} clone the transponder chip with your KM100 (read original → write to new ${d.blank||'blank'}), and duplicate the physical cuts from the working blade. Both the chip AND the cuts must match for the copy to start the car.</div>`;
 
   return `<div class="keyinfo res-card">
-    <div class="keyinfo-title">5 · Physical key — cut &amp; copy info</div>
+    <div class="shbt-row"><div class="keyinfo-title" style="margin-bottom:0;">5 · Physical key — cut &amp; copy info</div>${copyBtn(`${d.blank||d.keyway||''}`.trim(),'Copy blade/blank # to search online')}</div>
+    ${blankVerifyWarning}
     <div class="keyinfo-row"><span class="keyinfo-k">Keyway / profile</span><span class="keyinfo-v">${d.keyway||d.blank||'—'}</span></div>
     <div class="keyinfo-row"><span class="keyinfo-k">Ilco blank #</span><span class="keyinfo-v">${d.blank||'—'}</span></div>
     <div class="keyinfo-row"><span class="keyinfo-k">Bitting code source</span><span class="keyinfo-v">VIN → AllKeys</span></div>
+    <div class="keyinfo-row"><span class="keyinfo-k">🔋 Fob battery (for replacement)</span><span class="keyinfo-v">${d.fobBattery||'CR2032'}</span></div>
     ${vinRows}
     ${!hasVin?`<div style="font-size:10.5px;color:var(--amber);margin-top:6px;padding:6px 8px;background:rgba(245,166,35,.12);border-radius:6px;line-height:1.5;">💡 Enter the VIN in the header bar above to decode year, plant, and key serial for this exact vehicle.</div>`:''}
     ${cutMethod}
@@ -1652,6 +1667,36 @@ function renderInvoice(){
   preview.scrollIntoView({behavior:'smooth'});
 }
 function copyInvoice(){const text=document.getElementById('invoice-preview').innerText;if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>alert('Invoice copied.'));}else{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert('Invoice copied.');}}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// COPY-TO-CLIPBOARD (shell / key blade part numbers — for searching to buy)
+// ═══════════════════════════════════════════════════════════════════════════
+function copyText(text,btn){
+  const done=()=>{
+    if(!btn)return;
+    const original=btn.innerHTML;
+    btn.innerHTML='✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.innerHTML=original;btn.classList.remove('copied');},1400);
+  };
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>{copyTextFallback(text);done();});
+  }else{
+    copyTextFallback(text);done();
+  }
+}
+function copyTextFallback(text){
+  const ta=document.createElement('textarea');
+  ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');}catch(e){}
+  document.body.removeChild(ta);
+}
+function copyBtn(text,label){
+  const safe=String(text).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+  const title=label?` title="${String(label).replace(/"/g,'&quot;')}"`:'';
+  return `<button type="button" class="copy-btn" onclick="event.stopPropagation();copyText('${safe}',this)"${title}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copy</button>`;
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TROUBLESHOOTER (AI-powered with local fallback)
