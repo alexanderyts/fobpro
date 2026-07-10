@@ -8,7 +8,14 @@ FobPro is a **single-file, mobile-first HTML web app** for a car key fob replace
 
 The app is used in the field — driveways, parking garages, often with poor or no signal. **Everything critical must work offline.** No external libraries, no build step, no framework. All HTML, CSS, and JS live inline in one `.html` file.
 
-**Current file:** `fobpro_v8.html` (~204KB, 48 vehicles, 54 JS functions). This is the canonical latest version.
+**Current file:** `files/fobpro_v8.html` (48 vehicles). This is the canonical tracked copy; a convenience copy lives at the repo root — keep them in sync (copy after editing).
+
+## Versioning (added v8.1.0)
+
+- `APP_VERSION` constant + `CHANGELOG` array live at the top of the inline `<script>`. Bump the version and add a changelog entry on every meaningful change (semver-ish: data/feature = minor, fix = patch).
+- The version shows in the app header and the "What's new" card on the Ref tab (rendered by `renderChangelog()`).
+- Mirror releases with an annotated git tag (`git tag -a v8.1.0 -m "..."`) and an entry in `CHANGELOG.md` at the repo root.
+- The filename stays `fobpro_v8.html` — versions are tracked in-app and in git, not by renaming the file.
 
 ## Hard rules (do not break these)
 
@@ -69,7 +76,12 @@ Class conventions: `.fi` inputs, `.btn`/`.btn-primary`/`.btn-green`/`.btn-outlin
 
 ## Known accuracy issues / domain facts to preserve
 
-- **CRITICAL — KM100 all-keys-lost removed in North America (late 2024).** Autel removed AKL for **Toyota, Lexus, GM (Chevrolet/GMC), Ford, Mazda, Nissan, and Chrysler/Dodge/Jeep/RAM** in N. America (Toyota legal/licensing pressure). These makes now have `fromScratch:false` and `akl_removed:true`. **Add-key still works** (with an existing key); zero-key jobs on these makes must be referred out or done with another tool (Xhorse/Lonsdor/SmartPro/XTool). Do NOT revert these to claiming AKL works. Hyundai, Kia, Subaru, VW were NOT affected.
+- **CRITICAL — KM100 all-keys-lost removed in North America (late 2024).** Autel removed AKL for **Toyota, Lexus, GM (Chevrolet/GMC), Ford, Mazda, Nissan, and Chrysler/Dodge/Jeep/RAM** in N. America (Toyota legal/licensing pressure). These makes now have `fromScratch:false` and `akl_removed:true`. **Add-key still works** (with an existing key); zero-key jobs on these makes must be referred out or done with another tool (Xhorse/Lonsdor/SmartPro/XTool). Do NOT revert these to claiming AKL works. Hyundai, Kia, Subaru, VW were NOT affected. The removal is permanent (no rollback once the tool has been online).
+- **2025+ Toyota/Lexus (BA/B6-type immobilizers): NO aftermarket AKL exists from any tool as of July 2026.** Lonsdor's July 2026 K518 update added add-key only, and it requires the FP30 30-pin cable. Zero-key 2025+ Toyotas are dealer-only. (Verified via Lonsdor/OBDII365 update notes, July 2026.)
+- **Ford 2015+ uses ID49 Hitag Pro 128-bit chips (PCF7939FA), NOT DST80.** DST80/4D63 was the 2011–14 generation. H128-PT/HU101 blades pair with ID49.
+- **Hyundai/Kia 2011–2021 base turn-key trims: many have NO immobilizer** — cut-only key, zero programming (the theft-wave cars). The 2023 anti-theft software update adds an ignition kill: car must be unlocked with the remote before it will crank, so a cut-only key alone won't start an updated car.
+- **FCC IDs are generation-specific** — DB `fcc` fields now carry year ranges (e.g. "HYQ14FBA (2012-17) / HYQ14FBC (2018-24)"). GQ4-53T is RAM-fobik-only; Dodge/Jeep smart keys are M3N-40821302; 2019+ Ram DT is OHT-4882056 (4A chip); 2022+ GM trucks / 2021+ GM SUVs are YG0G21TB2 (ID49); 2019+ Nissan is KR5TXN1 (4A, 433 MHz); 2022+ Honda is KR5TP-4 (4A).
+- **"SGW" flags:** FCA-style secure gateway = 2018+ Stellantis; Ford's gateway = 2020+ Explorer/Escape, 2021+ F-150. GM has no SGW — its barrier is CAN FD (2019+ T1 trucks, 2021+ full-size SUVs); the MaxiVCI V200 supports CAN FD.
 - **Honda** = add-key only on KM100 regardless (needs an existing working key for authentication; AKL needs IM608). `fromScratch:false`.
 - **Subaru** = erases ALL keys during programming; every existing key must be present or it's permanently locked out. `eraseWarning:true`. Max 4 keys.
 - **VW MQB** = KM100 only partial; recommend IM508S/VVDI. All keys must be present.
@@ -79,7 +91,8 @@ Class conventions: `.fi` inputs, `.btn`/`.btn-primary`/`.btn-green`/`.btn-outlin
 
 ## Known limitations (candidate future work)
 
-- **No persistent storage.** `jobs[]` and `provenVehicles{}` reset on reload. Top requested upgrade. In Claude Code this becomes feasible — could use a real storage layer or split into multiple files with a small backend.
+- ~~No persistent storage~~ **Fixed in v8.1.0:** `jobs[]`, `provenVehicles{}`, invoice business info, and the troubleshooter API key persist via `localStorage` (`persistState()`/`loadState()`; keys `fobpro_*`). Per-device only — no sync/backup yet (export feature is a candidate).
+- **AI troubleshooter requires the user's Anthropic API key** (Help tab → saved to localStorage; sent via `x-api-key` + `anthropic-dangerous-direct-browser-access` headers, model `claude-opus-4-8`). No key or no signal → offline `ERROR_KB` fallback, which is the designed behavior.
 - **Single-file constraint** is by choice (chat-interface artifact origin). Once in Claude Code, splitting the DB into its own file is reasonable if Alex wants it.
 - VIN decode resolves make + year reliably; model isn't standardized in the VIN, so the user still picks the model. Bitting codes require AllKeys Plus / dealer (proprietary — can't be embedded).
 - Database coverage gaps: no Lexus/Acura/Mazda/Subaru-beyond-3/Mercedes/BMW/Infiniti yet; missing some high-volume models (Explorer variants, Traverse, Colorado, Frontier, Murano, etc.).
