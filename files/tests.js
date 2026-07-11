@@ -60,8 +60,7 @@ is('full state name (mississippi)', getTaxRate('mississippi').rate===7);
 is('garbage → null', getTaxRate('xyzzy 12345')===null);
 is('no-comma City ST works', getTaxRate('Pearl MS').state==='MS');
 const jNoSpace=getTaxRate('Jackson,MS');
-is('comma-no-space still resolves state', jNoSpace&&jNoSpace.state==='MS');
-if(jNoSpace&&jNoSpace.rate===7) FINDING('L1','low','CITY_TAX lookup is format-sensitive: "Jackson,MS" (no space) resolves the state but misses the +1% Jackson local add-on. Proposed: normalize commas/whitespace before city lookup.');
+is('L1 FIXED: comma-no-space finds city add-on (Jackson,MS = 8%)', jNoSpace&&jNoSpace.rate===8);
 
 console.log('\\n[U] unit — escaping & CSV');
 is('esc neutralizes script tag', esc('<script>x</script>')==='&lt;script&gt;x&lt;/script&gt;');
@@ -70,7 +69,7 @@ is('esc null-safe', esc(null)===''&&esc(undefined)==='');
 is('csvCell wraps commas', csvCell('a,b')==='"a,b"');
 is('csvCell doubles quotes', csvCell('say "hi"')==='"say ""hi"""');
 is('csvCell wraps newlines', csvCell('a\\nb')==='"a\\nb"');
-if(csvCell('=1+1')==='=1+1') FINDING('S1','medium','CSV formula injection: a customer name like =HYPERLINK(...) or +1-... executes as a formula when the export opens in Excel/Sheets. Proposed: prefix cells starting with = + - @ with a single quote in csvCell().');
+is('S1 FIXED: formula injection neutralized', csvCell('=1+1')==="'=1+1"&&csvCell('@cmd')==="'@cmd"&&csvCell('+1-601')==="'+1-601");
 
 console.log('\\n[U] unit — generation matching');
 const cam=DB.Toyota.Camry;
@@ -81,7 +80,8 @@ is('no year → fallback, confident:false', getSpecVariant(cam,'').confident===f
 is('vehicle without variants → null', getSpecVariant(DB.Kia.Soul,'2016')===null);
 const below=getSpecVariant(cam,'2005');
 is('below-range year still returns a variant (not crash)', !!below&&below.confident===false);
-if(below&&below.yearStart>=2018) FINDING('L2','medium','Out-of-range-LOW years fall back to the NEWEST generation (a 2005 Camry shows 2025+ data with only an amber warning). Proposed: fall back to the NEAREST generation by year distance instead of newest.');
+is('L2 FIXED: 2005 falls back to NEAREST gen (2012-17 FBA), not newest', below.yearStart===2012&&below.fcc.includes('FBA'));
+is('L2: no-year fallback still prefers newest gen', getSpecVariant(cam,'').yearStart===2025);
 
 console.log('\\n[U] unit — misc pure logic');
 is('normalizeVehicle strips year', normalizeVehicle('2019 Toyota Camry')==='toyota camry');
@@ -95,12 +95,16 @@ is('dataBadge covers all 3 levels distinctly', new Set(['verified','partial','mo
 console.log('\\n[L] logic — cross-table coverage');
 const noUsedRules=Object.keys(DB).filter(mk=>!USED_FOB_RULES[mk]);
 is('fobTriageText never crashes for any make', Object.keys(DB).every(mk=>!!fobTriageText(mk,'used').body));
-if(noUsedRules.length) FINDING('L3','low','Makes without make-specific used-fob guidance (fall back to generic text): '+noUsedRules.join(', ')+'. Proposed: add USED_FOB_RULES entries (Lexus=Toyota rule, Acura=Honda rule, Mazda=locked).');
+is('L3 FIXED: every make has make-specific used-fob guidance', noUsedRules.length===0, noUsedRules.join(','));
 const camPricing=Object.keys(DB).every(mk=>Object.keys(DB[mk]).every(md=>{const p=DB[mk][md].pricing;return p&&Object.values(p).some(v=>v>0);}));
 is('every vehicle has at least one nonzero price', camPricing);
+el('l-trim').value='';
 is('jrSvc maps 0 keys → all_lost', (jr.keys='0', jrSvc(DB.Toyota.Camry)==='all_lost'));
 is('jrSvc maps IKEY-method vehicle → smart', (jr.keys='1', jrSvc(DB.Lexus.RX)==='smart'));
-if(jrSvc(DB.Toyota.Camry)==='fob_only'&&DB.Toyota.Camry.trimNotes&&DB.Toyota.Camry.trimNotes.XSE) FINDING('L4','medium','Journey/quote service-type inference is method-based and TRIM-BLIND: a Camry XSE (prox trim) quotes fob_only \$130 instead of smart \$185 because the model-level km100Method says "add key". Proposed: when the selected trim is a prox trim (getTrimClass → prox), infer the smart service type.');
+is('jrSvc plain trim stays fob_only', jrSvc(DB.Toyota.Camry)==='fob_only');
+el('l-trim').value='XSE';
+is('L4 FIXED: prox trim (Camry XSE) infers smart service ($185, not $130)', jrSvc(DB.Toyota.Camry)==='smart');
+el('l-trim').value='';
 
 // ═══ [W] WORKFLOW / STATE MACHINE ══════════════════════════════════════════
 console.log('\\n[W] workflows');
@@ -159,16 +163,16 @@ is('troubleshooter history escaped', !el('ts-history').innerHTML.includes('<img'
 tsHistory=[];
 // VIN display sink
 currentVehicle=null;
-el('hdr-vin').value='<A"B>C1D2E3F4G5H6'; // exactly 17 chars, no I/O/Q — passes format checks
+is('S2 FIXED: markup chars rejected by VIN charset validation', !!decodeVinOffline('<A"B>C1D2E3F4G5H6').error);
+el('hdr-vin').value='<A"B>C1D2E3F4G5H6';
 decodeVIN();
-// Note: the uppercase I/O/Q rejection accidentally blocks onerror/onload/script
-// payloads (all contain O), so this is markup/link injection, not scriptable XSS.
-if(el('vin-result-bar').innerHTML.includes('<A"')) FINDING('S2','low','VIN result bar renders raw WMI (and renderKeyCutInfo renders the full raw VIN) — crafted input like <A HREF=//evil>… injects markup. Event-handler XSS is blocked by the I/O/Q filter, so impact is display corruption / link injection. Proposed: validate charset [A-HJ-NPR-Z0-9]{17} up front and esc() all decoded fragments.');
+is('S2 FIXED: VIN result bar shows error, no raw markup', !el('vin-result-bar').innerHTML.includes('<A"'));
 // photo src trust
-jobs=[{name:'p',vehicle:'v',status:'done',price:'1',date:'Jul',photos:['javascript:alert(1)']}];
+jobs=[{name:'p',vehicle:'v',status:'done',price:'1',date:'Jul',photos:['javascript:alert(1)','data:image/jpeg;base64,OK']}];
 created.length=0;renderJobs();
 const pcard=created.find(c=>c.className==='card jcard');
-if(pcard&&pcard.innerHTML.includes('src="javascript:')) FINDING('S3','medium','Job photos render any string as <img src> — a tampered backup could inject javascript:/external URLs. Proposed: only render photos that start with data:image/.');
+is('S3 FIXED: non-data:image photo sources are never rendered', pcard&&!pcard.innerHTML.includes('javascript:')&&pcard.innerHTML.includes('data:image/jpeg;base64,OK'));
+is('S3 FIXED: showPhoto refuses non-image URIs', (created.length=0, showPhoto('javascript:alert(1)'), created.length===0));
 jobs=[];
 is('API key is never written into DB or HTML at build time', !${JSON.stringify(false)}||true); // placeholder truth — key only ever in localStorage
 console.log('\\n[S] security — notes');
@@ -187,18 +191,15 @@ console.log('\n[X] static UX / accessibility');
 // contrast: relative luminance for the dimmest text on its usual surface
 const lum = hex => { const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(v => v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
 const ratio = (a, b) => { const [l1, l2] = [lum(a), lum(b)].sort((x, y) => y - x); return (l1 + 0.05) / (l2 + 0.05); };
-const r4 = ratio('#5b647d', '#141a28');
-console.log(`  · --text4 on --surface contrast = ${r4.toFixed(2)}:1 (WCAG AA small-text needs 4.5:1)`);
-if (r4 < 4.5) findings.push({ id: 'X1', sev: 'low', desc: `--text4 (#5b647d) on surface fails WCAG AA at ${r4.toFixed(2)}:1 — used for hints/sublabels. Proposed: lighten to ~#77809b (≥4.5:1) for field use in sunlight.` }), console.log('  ⚑ FINDING X1 [low] logged');
-const fiSize = (dom.match(/\.fi\{[^}]*font-size:([\d.]+)px/) || [])[1] || (html.match(/\.fi\{[^}]*\}/) || [''])[0].match(/font-size:([\d.]+)px/)?.[1];
-console.log(`  · .fi input font-size = ${fiSize || 'not found'}px (iOS zooms on focus when <16px)`);
-if (fiSize && parseFloat(fiSize) < 16) findings.push({ id: 'X2', sev: 'low', desc: `Inputs are ${fiSize}px — iOS Safari auto-zooms on focus below 16px, disorienting mid-job. Proposed: bump .fi/.ts-input to 16px.` }), console.log('  ⚑ FINDING X2 [low] logged');
-const smallBtns = (html.match(/min-width:34px/g) || []).length;
-console.log(`  · ${smallBtns} buttons at 34px min-width (Apple HIG touch target = 44px)`);
-if (smallBtns) findings.push({ id: 'X3', sev: 'low', desc: `${smallBtns} +/−/✕ buttons (inventory, Lishi, photos) are ~34px — below the 44px touch-target guideline; risky with gloves/cold hands. Proposed: enlarge to 44px.` }), console.log('  ⚑ FINDING X3 [low] logged');
+const text4 = (html.match(/--text4:(#[0-9a-fA-F]{6})/) || [])[1];
+const r4 = ratio(text4, '#141a28');
+console.log(`  · --text4 (${text4}) on --surface contrast = ${r4.toFixed(2)}:1`);
+is(`X1 FIXED: dimmest text passes WCAG AA (${r4.toFixed(2)}:1 ≥ 4.5:1)`, r4 >= 4.5);
+is('X2 FIXED: 16px input override present (no iOS zoom-on-focus)', /\.fi,\.ts-input,\.notes-area,\.guided-gate input,\.hdr-vin-input\{font-size:16px !important;\}/.test(html));
+is('X3 FIXED: no sub-44px touch targets remain', (html.match(/min-width:34px/g) || []).length === 0);
 const iconBtnsNoLabel = (dom.match(/<button[^>]*>(?:\s*<svg|✕)/g) || []).filter(b => !b.includes('aria-label') && !b.includes('title')).length;
-console.log(`  · icon-only buttons without aria-label/title: ${iconBtnsNoLabel}`);
-if (iconBtnsNoLabel) findings.push({ id: 'X4', sev: 'info', desc: `${iconBtnsNoLabel} icon-only buttons lack aria-labels; photo overlay has no keyboard dismiss. Proposed: add aria-labels + Escape handler (screen-reader/accessibility polish).` }), console.log('  ⚑ FINDING X4 [info] logged');
+is('X4 FIXED: all icon-led buttons carry aria-label/title', iconBtnsNoLabel === 0, iconBtnsNoLabel + ' unlabeled');
+is('X4 FIXED: photo overlay dismissible via Escape', js.includes("e.key==='Escape'"));
 console.log('  · viewport meta present:', dom.includes('name="viewport"') ? 'yes' : 'NO');
 
 // ═══ SUMMARY ═════════════════════════════════════════════════════════════

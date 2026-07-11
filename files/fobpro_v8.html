@@ -17,7 +17,7 @@
   --teal:#4be3c8;--teal2:#102e2e;--teal3:#21b3a0;
   --purple:#c0a3ff;--purple2:#241c3d;
   --bg:#0c1018;--surface:#141a28;--surface2:#1b2336;--border:#283146;--border2:#374159;
-  --text1:#f1f5fb;--text2:#c1c9da;--text3:#8993ad;--text4:#5b647d;
+  --text1:#f1f5fb;--text2:#c1c9da;--text3:#98a2bb;--text4:#7d87a3; /* text3/text4 brightened to pass WCAG AA 4.5:1 on surface — sunlight readability */
   --radius:14px;--radius-sm:10px;--radius-lg:18px;
   --shadow:0 1px 3px rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.3);
   --shadow-md:0 4px 18px rgba(0,0,0,.45);
@@ -504,6 +504,10 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
   .app{max-width:920px;}
   .data-grid{grid-template-columns:repeat(4,1fr);}
 }
+/* FIELD USABILITY (v8.8): 16px inputs stop iOS Safari's zoom-on-focus;
+   keep the compact look via the existing labels/cards. */
+.fi,.ts-input,.notes-area,.guided-gate input,.hdr-vin-input{font-size:16px !important;}
+
 /* JOB JOURNEY (guided contextual flow) */
 .jr-wrap{margin-top:12px;}
 .jr-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
@@ -559,31 +563,31 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
 
 <!-- BOTTOM NAV -->
 <div class="bnav">
-  <button class="bnav-btn active" onclick="showTab('lookup',this)" id="nav-lookup">
+  <button class="bnav-btn active" aria-label="Lookup tab" onclick="showTab('lookup',this)" id="nav-lookup">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <span>Lookup</span>
   </button>
-  <button class="bnav-btn" onclick="showTab('guide',this)" id="nav-guide">
+  <button class="bnav-btn" aria-label="Guide tab" onclick="showTab('guide',this)" id="nav-guide">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12h6M9 16h4"/></svg>
     <span>Guide</span>
   </button>
-  <button class="bnav-btn" onclick="showTab('quote',this)" id="nav-quote">
+  <button class="bnav-btn" aria-label="Quote tab" onclick="showTab('quote',this)" id="nav-quote">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
     <span>Quote</span>
   </button>
-  <button class="bnav-btn" onclick="showTab('trouble',this)" id="nav-trouble">
+  <button class="bnav-btn" aria-label="Help tab" onclick="showTab('trouble',this)" id="nav-trouble">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
     <span>Help</span>
   </button>
-  <button class="bnav-btn" onclick="showTab('ref',this)" id="nav-ref">
+  <button class="bnav-btn" aria-label="Reference tab" onclick="showTab('ref',this)" id="nav-ref">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
     <span>Ref</span>
   </button>
-  <button class="bnav-btn" onclick="showTab('learn',this)" id="nav-learn">
+  <button class="bnav-btn" aria-label="Learn tab" onclick="showTab('learn',this)" id="nav-learn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
     <span>Learn</span>
   </button>
-  <button class="bnav-btn" onclick="showTab('jobs',this)" id="nav-jobs">
+  <button class="bnav-btn" aria-label="Jobs tab" onclick="showTab('jobs',this)" id="nav-jobs">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
     <span>Jobs</span>
   </button>
@@ -620,11 +624,11 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
         <div class="ac-drop hidden" id="ac-trim"></div>
       </div>
     </div>
-    <button class="btn btn-primary" onclick="doLookup()" style="margin-top:4px;">
+    <button class="btn btn-primary" aria-label="Look up fob specs" onclick="doLookup()" style="margin-top:4px;">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       Look up fob specs &amp; generate guide
     </button>
-    <button class="btn btn-green" id="journey-launch" onclick="startJourney()" style="margin-top:8px;">
+    <button class="btn btn-green" id="journey-launch" aria-label="Start guided job journey" onclick="startJourney()" style="margin-top:8px;">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Start a job — guided journey (one step at a time)
     </button>
@@ -710,7 +714,7 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
     <div id="tax-info-bar"></div>
     <div class="qsum" id="qsum-box"></div>
     <div id="market-ctx" style="font-size:12.5px;color:var(--text3);line-height:1.55;margin-bottom:9px;"></div>
-    <button class="btn btn-green" onclick="buildInvoice()">
+    <button class="btn btn-green" aria-label="Generate customer invoice" onclick="buildInvoice()">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Generate customer invoice
     </button>
@@ -1028,8 +1032,9 @@ const ALL_TOOLS=[
 // VERSION — bump on every meaningful change; add a CHANGELOG entry to match.
 // Git tags mirror these versions (v8.1.0 etc.).
 // ═══════════════════════════════════════════════════════════════════════════
-const APP_VERSION="8.7.0";
+const APP_VERSION="8.8.0";
 const CHANGELOG=[
+  {v:"8.8.0",date:"2026-07-10",notes:["HARDENING RELEASE — all 11 findings from the 56-test engineering audit fixed, with owner approval, and locked in as permanent test assertions.","Security: CSV exports neutralize spreadsheet formula injection; VIN input strictly validated (letters/digits only); job photos render only from safe embedded image data.","Pricing accuracy: quotes are now TRIM-AWARE — a prox trim like Camry XSE correctly quotes the smart-key price ($185) instead of the base add-key price ($130), in both the journey and the auto-quote.","Data accuracy: out-of-range years now fall back to the NEAREST generation (a 2005 vehicle no longer shows 2025 electronics); \"Jackson,MS\" formatting variants find the city tax add-on; Lexus/Mazda/Acura got make-specific used-fob rules.","Field usability: 16px inputs (iPhone no longer zooms when you tap a field), 44px touch targets on all +/− buttons (glove-friendly), hint text brightened to pass WCAG AA contrast for sunlight readability.","Accessibility: labels on all icon buttons, Escape-key dismiss on the photo viewer."]},
   {v:"8.7.0",date:"2026-07-10",notes:["FULL-DATABASE ACCURACY AUDIT: re-verified the suspect FCC set from the original build. Fixed confirmed errors — Elantra (was a phantom ID; real: OSLOKA-360T 2011-16 / OSLOKA-423T 2017-20), Santa Fe (listed fob was actually a Kona part; real 2013-18 prox is SY5DMFNA04), Optima (NYODD4TX1306 / SY5JFRGE04), Sorento (TQ8-FOB-4F06 / SY5MQ4FGE05), Highlander (HYQ14FBA 2014-19 / HYQ14FBC 2020-24 — 'HYQ14FBW' was unconfirmable). Tucson and Sportage verified correct as listed. Tacoma/Tundra prox confirmed HYQ14FBA; 2022+ Tundra flagged as new-gen BA immobilizer.","HONEST-CONFIDENCE SYSTEM: every one of the 60 vehicles now carries a verification level — 41 verified / 17 partial / 2 model-level — shown as a badge on every lookup and in the journey's parts step. Prius, Soul and Odyssey were DOWNGRADED because their IDs couldn't be independently confirmed: the app now says 'verify on fob' instead of pretending.","Data-confidence scoreboard on the Ref tab: counts, the re-verification queue, and the standing rule — the FCC printed on the customer's fob outranks this database.","Guide headers now state the provenance: steps cross-checked against official tool manuals (Jul 2026)."]},
   {v:"8.6.0",date:"2026-07-10",notes:["COVERAGE EXPANSION: 12 new vehicles, 3 new makes — Lexus RX/NX, Mazda3/CX-5, Acura MDX/RDX, Chevy Traverse/Colorado, Nissan Frontier/Murano, Toyota 4Runner, Ford Edge — all verified against July-2026 supplier listings, with generation-split electronics and the correct AKL/add-key rules per make. VIN decoder recognizes the new makes.","OWNERSHIP PHOTO CAPTURE (Jobs tab): snap ID + registration straight into the job record (compressed ~40-90KB each, max 3, stays on this device, rides in backups, tap to view full-screen). Storage-full guard added.","LISHI PRACTICE TRACKER (Learn tab): 12 keyways matched to this database's vehicles, rep counter per keyway, proficiency ladder (25 clean bench reps = field-ready). Genuine-Lishi-only warning ties to the cheap-tools pitfall.","Audit hardened: make-level AKL consistency rule (Toyota/Lexus/GM/Ford/Mazda/Nissan/Stellantis must carry akl_removed + no-AKL flags; Honda/Acura add-key-only) and WMI coverage check for every make."]},
   {v:"8.5.0",date:"2026-07-10",notes:["PITFALLS & FIELD PROTOCOLS (Learn tab): 8 verified failure modes from other people's scars — the FTC-documented scam networks (4,500+ complaints in 2024), bricked-module horror stories, the stolen-car setup, night-call safety, underquoting, cheap tools, burnout, dead inventory — each with the protocol that prevents it. Ack-boxes persist.","TRUCK INVENTORY (Jobs tab): on-hand counts with par levels; below-par items flag red as this week's order. Stock follows the Jobs log, never the catalog.","BUSINESS HEALTH (Jobs tab): revenue, average ticket, callback rate against the 1-in-20 threshold, and your most-seen vehicles — the log becomes business intelligence.","Night-call safety protocol surfaced in the journey's triage step.","Inventory and pitfall progress included in backup/restore."]},
@@ -1162,6 +1167,7 @@ function decodeVinOffline(vin){
   vin=vin.toUpperCase().trim();
   if(vin.length!==17)return {error:"A full 17-character VIN is required."};
   if(/[IOQ]/.test(vin))return {error:"Invalid VIN — VINs never contain I, O, or Q."};
+  if(!/^[A-HJ-NPR-Z0-9]{17}$/.test(vin))return {error:"Invalid VIN — only letters and digits are allowed."};
   const wmi=vin.substring(0,3);
   const make=WMI[wmi];
   const yearChar=vin.charAt(9);
@@ -1939,7 +1945,8 @@ function renderGuideSteps(d,veh){
 // ═══════════════════════════════════════════════════════════════════════════
 function getTaxRate(location){
   if(!location)return null;
-  const loc=location.trim().toLowerCase();
+  // Normalize comma/space variants so "Jackson,MS" still finds the city add-on
+  const loc=location.trim().toLowerCase().replace(/\s*,\s*/g,', ').replace(/\s+/g,' ');
   // try city match first
   if(CITY_TAX[loc]!==undefined){
     // find state from the city string
@@ -1981,6 +1988,9 @@ function autoFillQuote(d){
   let autoSvc='fob_only';
   if(d.bladeless===false)autoSvc='fob_outsource';
   if(d.km100Method&&d.km100Method.toLowerCase().includes('ikey')&&!d.km100Method.toLowerCase().includes('add key'))autoSvc='smart';
+  // Trim-aware: prox trims are smart-key jobs regardless of the model-level method
+  const qTrim=document.getElementById('l-trim')?document.getElementById('l-trim').value.trim():'';
+  if(getTrimClass(d,qTrim)==='prox'&&d.pricing&&d.pricing.smart>0)autoSvc='smart';
   if(d.pricing&&d.pricing[autoSvc]===0)autoSvc='smart';
   document.getElementById('q-service').value=autoSvc;
   document.getElementById('q-shellcost').value=d.shellCostOEM||'';
@@ -2169,7 +2179,7 @@ function getFobVariant(d,year,trim){
   if(!candidates.length)candidates=d.fobVariants;
   let exact=y?candidates.find(v=>y>=v.yearStart&&y<=v.yearEnd):null;
   if(exact)return {...exact,confident:true};
-  const fallback=candidates.slice().sort((a,b)=>b.yearEnd-a.yearEnd)[0];
+  const fallback=nearestVariant(candidates,y);
   if(!fallback)return null;
   return {...fallback,confident:false};
 }
@@ -2180,13 +2190,22 @@ function getFobVariant(d,year,trim){
 // verified generation splits carry specVariants; everything else falls back
 // to the flat annotated fields.
 // ═══════════════════════════════════════════════════════════════════════════
+function nearestVariant(list,y){
+  // With a year: nearest generation by year distance (a 2005 car should show
+  // the oldest known gen, not the newest). Without a year: newest known.
+  return list.slice().sort((a,b)=>{
+    if(!y)return b.yearEnd-a.yearEnd;
+    const da=Math.min(Math.abs(y-a.yearStart),Math.abs(y-a.yearEnd));
+    const db=Math.min(Math.abs(y-b.yearStart),Math.abs(y-b.yearEnd));
+    return da-db;
+  })[0];
+}
 function getSpecVariant(d,year){
   if(!d.specVariants||!d.specVariants.length)return null;
   const y=parseInt(year,10)||null;
   const exact=y?d.specVariants.find(v=>y>=v.yearStart&&y<=v.yearEnd):null;
   if(exact)return {...exact,confident:true};
-  const fallback=d.specVariants.slice().sort((a,b)=>b.yearEnd-a.yearEnd)[0];
-  return {...fallback,confident:false};
+  return {...nearestVariant(d.specVariants,y),confident:false};
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -2208,7 +2227,10 @@ const USED_FOB_RULES={
   "Jeep":"Fobiks can sometimes be virginized; smart keys are usually locked. Test-read first.",
   "RAM":"Fobiks can sometimes be virginized; DT prox fobs are usually locked. Test-read first.",
   "Subaru":"Used Subaru smart keys are locked to the donor car — assume not reusable.",
-  "Volkswagen":"Used MQB fobs carry the donor car's immobilizer data — need a virginizing service. Assume not reusable."
+  "Volkswagen":"Used MQB fobs carry the donor car's immobilizer data — need a virginizing service. Assume not reusable.",
+  "Lexus":"Same rule as Toyota: used Lexus smart fobs pair once and lock to the donor. 'Unlocking' needs a dedicated function/adapter and doesn't always work — assume NOT usable unless your tool reads it as virgin.",
+  "Acura":"Same rule as Honda: used Acura smart fobs are generally locked to the donor vehicle. New aftermarket is fine.",
+  "Mazda":"Used Mazda smart fobs are generally locked to the donor vehicle — assume not reusable; new aftermarket is fine."
 };
 function fobTriageText(make,source){
   if(source==='new')return {cls:'g',title:'Customer bought a NEW fob — usually workable',body:'A sealed OEM fob or a quality NEW aftermarket fob will program normally IF the FCC ID and frequency match this vehicle. Verify the part against the lookup before starting, and set the expectation: no refund on programming labor if their part turns out defective.'};
@@ -2455,12 +2477,20 @@ function removePendingPhoto(i){pendingPhotos.splice(i,1);renderPendingPhotos();}
 function renderPendingPhotos(){
   const wrap=document.getElementById('j-photos');
   if(!wrap)return;
-  wrap.innerHTML=pendingPhotos.map((p,i)=>`<div style="position:relative;"><img src="${p}" style="height:52px;border-radius:6px;border:1px solid var(--border2);" alt="ownership doc"/><button type="button" onclick="removePendingPhoto(${i})" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;border:none;background:var(--red3);color:#fff;font-size:10px;cursor:pointer;line-height:1;">✕</button></div>`).join('');
+  wrap.innerHTML=pendingPhotos.map((p,i)=>`<div style="position:relative;"><img src="${p}" style="height:52px;border-radius:6px;border:1px solid var(--border2);" alt="ownership doc"/><button type="button" onclick="removePendingPhoto(${i})" style="position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:50%;border:none;background:var(--red3);color:#fff;font-size:13px;cursor:pointer;line-height:1;">✕</button></div>`).join('');
 }
 function showPhoto(src){
+  // Trust boundary: only data:image/ URIs may render (a tampered backup
+  // could otherwise inject javascript:/external URLs).
+  if(typeof src!=='string'||src.indexOf('data:image/')!==0)return;
   const ov=document.createElement('div');
   ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:999;display:flex;align-items:center;justify-content:center;padding:16px;';
-  ov.onclick=()=>document.body.removeChild(ov);
+  ov.setAttribute('role','dialog');
+  ov.setAttribute('aria-label','Ownership document photo — click or press Escape to close');
+  const close=()=>{if(ov.parentNode)document.body.removeChild(ov);document.removeEventListener('keydown',onKey);};
+  const onKey=e=>{if(e.key==='Escape')close();};
+  ov.onclick=close;
+  document.addEventListener('keydown',onKey);
   ov.innerHTML=`<img src="${src}" style="max-width:100%;max-height:100%;border-radius:10px;" alt="ownership doc"/>`;
   document.body.appendChild(ov);
 }
@@ -2475,7 +2505,10 @@ function downloadFile(name,content,type){
   setTimeout(()=>URL.revokeObjectURL(a.href),2000);
 }
 function csvCell(v){
-  const s=String(v==null?'':v);
+  let s=String(v==null?'':v);
+  // Neutralize spreadsheet formula injection (OWASP): a leading = + - @ would
+  // execute as a formula when the export opens in Excel/Sheets.
+  if(/^[=+\-@\t\r]/.test(s))s="'"+s;
   return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;
 }
 function exportJobsCSV(){
@@ -2539,7 +2572,7 @@ function renderJobs(){
       j.timeTaken?`Time: ${esc(j.timeTaken)}`:''
     ].filter(Boolean);
     const c=document.createElement('div');c.className='card jcard';
-    c.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div><div style="font-size:14.5px;font-weight:600;">${esc(j.name)}</div><div style="font-size:12.5px;color:var(--text3);">${esc(j.vehicle)}</div></div><div style="text-align:right;">${j.price?`<div style="font-size:14.5px;font-weight:700;">$${esc(j.price)}</div>`:''}<div style="font-size:10.5px;color:var(--text4);">${esc(j.date)}</div></div></div><div class="sr"><div class="sdot ${sc}"></div><span style="font-size:12.5px;color:var(--text3);">${sl}</span>${j.phone?`<span style="font-size:12.5px;color:var(--text4);margin-left:auto;">${esc(j.phone)}</span>`:''}</div>${specChips.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">${specChips.map(s=>`<span style="font-size:10.5px;color:var(--blue);background:var(--blue2);border-radius:5px;padding:3px 8px;">${s}</span>`).join('')}</div>`:''}${j.notes?`<div style="font-size:12.5px;color:var(--text3);line-height:1.5;border-top:1px solid var(--border);padding-top:6px;margin-top:6px;">${esc(j.notes)}</div>`:''}${j.photos&&j.photos.length?`<div style="display:flex;gap:5px;margin-top:6px;">${j.photos.map((p,pi)=>`<img src="${p}" style="height:40px;border-radius:5px;border:1px solid var(--border2);cursor:pointer;" onclick="showPhoto(jobs[${ji}].photos[${pi}])" alt="ownership doc" title="Ownership doc — tap to view"/>`).join('')}<span style="font-size:10px;color:var(--text4);align-self:center;">🪪 docs</span></div>`:''}`;
+    c.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div><div style="font-size:14.5px;font-weight:600;">${esc(j.name)}</div><div style="font-size:12.5px;color:var(--text3);">${esc(j.vehicle)}</div></div><div style="text-align:right;">${j.price?`<div style="font-size:14.5px;font-weight:700;">$${esc(j.price)}</div>`:''}<div style="font-size:10.5px;color:var(--text4);">${esc(j.date)}</div></div></div><div class="sr"><div class="sdot ${sc}"></div><span style="font-size:12.5px;color:var(--text3);">${sl}</span>${j.phone?`<span style="font-size:12.5px;color:var(--text4);margin-left:auto;">${esc(j.phone)}</span>`:''}</div>${specChips.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">${specChips.map(s=>`<span style="font-size:10.5px;color:var(--blue);background:var(--blue2);border-radius:5px;padding:3px 8px;">${s}</span>`).join('')}</div>`:''}${j.notes?`<div style="font-size:12.5px;color:var(--text3);line-height:1.5;border-top:1px solid var(--border);padding-top:6px;margin-top:6px;">${esc(j.notes)}</div>`:''}${j.photos&&j.photos.length?`<div style="display:flex;gap:5px;margin-top:6px;">${j.photos.map((p,pi)=>typeof p==='string'&&p.indexOf('data:image/')===0?`<img src="${p}" style="height:40px;border-radius:5px;border:1px solid var(--border2);cursor:pointer;" onclick="showPhoto(jobs[${ji}].photos[${pi}])" alt="ownership doc" title="Ownership doc — tap to view"/>`:'').join('')}<span style="font-size:10px;color:var(--text4);align-self:center;">🪪 docs</span></div>`:''}`;
     list.appendChild(c);
   });
   renderStats();
@@ -2581,6 +2614,10 @@ function jrChoice(key,val,label,cur){
 }
 function jrSvc(d){
   if(jr.keys==='0')return 'all_lost';
+  // Trim-aware: a prox trim (Camry XSE etc.) is a smart-key job even when the
+  // model-level method says plain add-key — quoting fob_only underprices it.
+  const trim=document.getElementById('l-trim')?document.getElementById('l-trim').value.trim():'';
+  if(getTrimClass(d,trim)==='prox'&&d.pricing&&d.pricing.smart>0)return 'smart';
   if(d.km100Method&&d.km100Method.toLowerCase().includes('ikey'))return 'smart';
   return 'fob_only';
 }
@@ -2820,8 +2857,8 @@ function renderLishi(){
         <div class="li-d" style="color:${col};font-weight:700;">${lbl} — ${r} clean reps</div>
       </div>
       <div style="display:flex;gap:4px;flex-shrink:0;">
-        <button class="jr-choice" style="flex:none;min-width:34px;padding:6px 0;" onclick="lishiRep(${i},-1)">−</button>
-        <button class="jr-choice" style="flex:none;min-width:44px;padding:6px 0;" onclick="lishiRep(${i},1)">+1 rep</button>
+        <button class="jr-choice" style="flex:none;min-width:44px;min-height:40px;padding:8px 0;" onclick="lishiRep(${i},-1)">−</button>
+        <button class="jr-choice" style="flex:none;min-width:52px;min-height:40px;padding:8px 0;" onclick="lishiRep(${i},1)">+1 rep</button>
       </div>
     </div>`;
   }).join('')}</div>
@@ -2958,9 +2995,9 @@ function renderInv(){
         <div class="li-d">on hand: <strong>${it.qty}</strong> · par: ${it.par}</div>
       </div>
       <div style="display:flex;gap:4px;align-items:center;flex-shrink:0;">
-        <button class="jr-choice" style="flex:none;min-width:34px;padding:6px 0;" onclick="invAdj(${i},-1)">−</button>
-        <button class="jr-choice" style="flex:none;min-width:34px;padding:6px 0;" onclick="invAdj(${i},1)">+</button>
-        <button class="jr-choice" style="flex:none;min-width:34px;padding:6px 0;color:var(--text4);" onclick="invDel(${i})" title="Remove item">✕</button>
+        <button class="jr-choice" style="flex:none;min-width:44px;min-height:40px;padding:8px 0;" onclick="invAdj(${i},-1)">−</button>
+        <button class="jr-choice" style="flex:none;min-width:44px;min-height:40px;padding:8px 0;" onclick="invAdj(${i},1)">+</button>
+        <button class="jr-choice" style="flex:none;min-width:44px;min-height:40px;padding:8px 0;color:var(--text4);" onclick="invDel(${i})" title="Remove item">✕</button>
       </div>
     </div>`;
   }).join('')+(low?`<div style="font-size:11.5px;font-weight:700;color:var(--red);margin-top:6px;">${low} item${low>1?'s':''} below par — add to this week's order</div>`:`<div style="font-size:11.5px;font-weight:700;color:var(--green);margin-top:6px;">All items at or above par ✓</div>`);

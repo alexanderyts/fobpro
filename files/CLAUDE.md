@@ -19,7 +19,7 @@ The app is used in the field — driveways, parking garages, often with poor or 
 
 ## Hard rules (do not break these)
 
-1. **Validate JS after every edit.** Extract the script and run `node --check`. A prior `str_replace` once silently deleted a `function updateGuide(d){` opening line and broke the whole app. Always verify before considering an edit done:
+1. **Validate after every edit — three gates:** `node --check` on the extracted script, then `node files/audit.js` (wiring/integration/DB invariants), then `node files/tests.js` (71 unit/security/UX assertions). All three must pass before an edit is done. A prior `str_replace` once silently deleted a `function updateGuide(d){` opening line and broke the whole app:
    ```bash
    node -e "const fs=require('fs');const h=fs.readFileSync('fobpro_v8.html','utf8');const m=h.match(/<script>([\s\S]*?)<\/script>/);fs.writeFileSync('/tmp/check.js',m[1]);" && node --check /tmp/check.js && echo "JS VALID"
    ```

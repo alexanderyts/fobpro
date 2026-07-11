@@ -2,6 +2,16 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.8.0 — 2026-07-10
+
+### Engineering audit + hardening (owner-approved fix bundles A–D)
+A 56-test suite (`files/tests.js`) was built across unit/logic/workflow/security/UX and surfaced 11 findings; all were approved and fixed, and every finding is now a permanent test assertion (71 tests total, all passing).
+
+- **Security:** CSV formula-injection neutralized (leading `=`/`+`/`-`/`@` quoted per OWASP); VIN input strictly validated to `[A-HJ-NPR-Z0-9]{17}` (markup injection closed); job photos render only `data:image/` sources and the viewer refuses anything else (tampered-backup safety); backups verified to exclude the API key.
+- **Pricing/logic:** trim-aware service inference — prox trims (e.g. Camry XSE) now quote smart-key pricing in the journey AND auto-quote (was underquoting $130 vs $185); out-of-range years fall back to the *nearest* generation instead of the newest (a 2005 Camry now shows 2012-gen data, not 2025); "Jackson,MS" comma variants find the city tax add-on; Lexus/Acura/Mazda used-fob rules added.
+- **Field usability:** all inputs 16px (stops iOS zoom-on-focus mid-job); +/−/✕ touch targets enlarged to ≥44px (glove-friendly); `--text3`/`--text4` brightened to pass WCAG AA 4.5:1 (sunlight readability).
+- **Accessibility:** aria-labels on all 10 icon-led buttons; photo overlay is a labeled dialog dismissible with Escape.
+
 ## v8.7.0 — 2026-07-10
 
 ### Full-database accuracy audit
