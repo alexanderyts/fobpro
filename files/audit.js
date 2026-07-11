@@ -98,6 +98,17 @@ const tests = `
     if(!(DEFAULT_PRICES[s]>0))T.bad('DEFAULT_PRICES missing '+s);
   });
   T.ok('all 7 service types have labels + default prices');
+  // v8.5: pitfalls, inventory, stats
+  renderPitfalls();togglePitfall(0);
+  store['fobpro_pitfalls']?T.ok('pitfalls render + ack persists ('+PITFALLS.length+' entries)'):T.bad('pitfalls persistence broken');
+  loadInv();
+  el('inv-name').value='Autel IKEY 4-btn';el('inv-qty').value='1';el('inv-par').value='2';
+  invAdd();
+  inv.length===1&&inv[0].qty<inv[0].par?T.ok('inventory add works, below-par detected'):T.bad('inventory broken');
+  invAdj(0,2);
+  inv[0].qty===3?T.ok('inventory +/- adjusts and persists'):T.bad('inventory adjust broken');
+  renderStats();
+  el('job-stats').innerHTML.includes('Business health')?T.ok('business stats render from jobs log'):T.bad('stats broken');
   console.log('  APP_VERSION',APP_VERSION);
 })();
 `;

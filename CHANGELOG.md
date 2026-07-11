@@ -2,6 +2,21 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.5.0 — 2026-07-10
+
+### Pitfalls & field protocols (Learn tab)
+- 8 verified failure modes with prevention protocols, each documented from real incidents rather than theory: the organized locksmith-scam networks (FTC: 4,500+ complaints in 2024 — never become a dispatch sub, differentiate loudly), bricked modules (stay in lane, one-retry rule), the stolen-car setup (ownership gate has no exceptions), night-call personal safety (callback confirmation, live location sharing, walk-away rule), underquoting, cheap tools, burnout (after-hours = premium, not obligation), and dead inventory. Acknowledgment checkboxes persist.
+- Night-call safety protocol also surfaces in the journey's phone-triage step.
+
+### Truck inventory manager (Jobs tab)
+- On-hand counts with par levels; +/− adjusters; below-par items flag red as this week's order; add anything by name or FCC ID. Enforces the rule: stock follows the Jobs log, never the catalog.
+
+### Business health dashboard (Jobs tab)
+- Revenue (completed), average ticket, jobs logged, and callback rate scored against the 1-in-20 quality threshold (warns when exceeded — usually skipped post-job testing). Most-seen vehicles listed so stocking and training follow reality.
+
+### Docs & tooling
+- Playbook Part 7: pitfalls with sources. Backup/restore now includes inventory + pitfall progress. Audit suite extended to 19 runtime tests (all passing).
+
 ## v8.4.0 — 2026-07-10
 
 ### New job types

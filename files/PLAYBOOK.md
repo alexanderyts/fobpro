@@ -182,4 +182,16 @@ Batteries (CR2032/CR2450/CR2025/CR1620) in Panasonic/Energizer bulk from a distr
 
 ---
 
+## Part 7 — Pitfalls: learning from other people's scars
+
+Every entry here is documented, not hypothetical. The app's Learn tab carries the working version with protocols; this is the background.
+
+1. **The scam-network problem is bigger than you think.** The [locksmith scam](https://en.wikipedia.org/wiki/Locksmith_scam) is an organized model: thousands of fake "local" listings route to national call centers, quote $29, dispatch an unlicensed sub, then extort $200-400 cash on-site. The **FTC logged 4,500+ locksmith complaints in 2024**. Consequences for you: customers arrive pre-burned and suspicious, and lead-gen networks will offer to "send you work" — becoming their dispatch sub rents out your hands and torches your name. Counter-strategy: real address on your Google profile, phone quotes you honor in writing, insurance mentioned up front, cards accepted, and report listing-squatters to Google.
+2. **Bricked modules are the trade's tuition — don't pay it.** Documented cases (BMW FEM, VW BCM) all share a shape: out-of-lane make + marginal voltage or a flaky cable + retry-on-failure. A killed module is $1,500-3,000 plus a tow plus the review. The app's verdict card, voltage gate, and one-retry rule exist because of these stories.
+3. **The stolen-car setup is real.** Urgency + odd location + "lost the paperwork" + cash bonus to hurry = walk away. Locksmiths have been prosecuted as accessories. Ownership verification has no VIP exceptions.
+4. **Night-call safety protocol** (highest-margin calls, highest physical risk): confirm the callback number before rolling; share live location; park nose-out under light; advertise card payment (less cash on you); dash cam covering the work area; unconditional walk-away rule.
+5. **Underquoting, cheap tools, burnout, dead inventory** — the four slow killers, each with its protocol in the app: price from the tiers without flinching; buy quality once (a $30 knockoff cable is priced against a $1,500 module); after-hours is premium not obligation, one protected day weekly; stock follows the log, never the catalog.
+
+---
+
 *Sources: ALOA education catalog; UHS Hardware, American Key Supply, Locksmith Ledger and Workiz business guides (2026); locksmith supplier part listings (Locksmith Keyless, UHS, Key4, American Key Supply); Lonsdor/Xhorse/Autel update notes via OBDII365/VXDAS (2025–2026); NHTSA/Hyundai anti-theft campaign documentation; CLK Supplies ownership-verification guidance.*
