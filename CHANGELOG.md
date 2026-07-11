@@ -2,6 +2,32 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.4.0 — 2026-07-10
+
+### New job types
+- **Vehicle lockout** ($95 default, market $75–150) and **fob battery swap** ($45 default, market $35–55) in the quote calculator, job log, and market guidance. Lockout kit (air wedge + long-reach) added to the van-stock checklist with technique cautions (frameless glass, deadlocked Euro cars).
+
+### Backup & export (Jobs tab)
+- Jobs → CSV (Excel/Sheets-ready, proper quoting) for taxes and restock reviews.
+- Full JSON backup of everything on the device (jobs, proven vehicles, learn/stock progress, business info) + one-tap restore.
+
+### Warranty & callbacks
+- New job status "Callback / warranty return" with red indicator.
+- Invoice policy now leads with the industry-standard 30-day workmanship warranty (parts per manufacturer; customer-supplied parts labor-only).
+
+### Typeface
+- Standardized on **Satoshi** (Fontshare FF EULA), embedded as a base64 data URI (~57KB) so the offline-first rule holds. Variable weight 300–900; monospace kept for VIN entry.
+
+### Business-start content (Playbook)
+- Mississippi setup verified 2026: $50 LLC Certificate of Formation, free annual report, $25 DBA, free sales-tax permit via TAP, no locksmith license in MS; insurance ladder.
+- Lockout service technique + pricing; battery-swap upsell flow; warranty/callback policy norms with a 1-in-20 callback quality threshold.
+
+### Tooling
+- `files/audit.js` — repeatable audit harness: element/handler wiring checks, 15-test runtime smoke suite, DB integrity, font embed. Run `node files/audit.js` after any edit.
+
+### UI sweep
+- 7-tab bottom nav fitted (ellipsis guard, tightened sizing); callback status dot style; all 81 referenced element IDs and 45 event handlers verified wired.
+
 ## v8.3.0 — 2026-07-10
 
 ### Sourcing & inventory (Ref tab + Playbook Part 6)

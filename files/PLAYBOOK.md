@@ -97,6 +97,23 @@ Stop. Don't keep tapping, don't unplug. Check battery voltage first, reseat the 
 
 ## Part 5 — Running it as a business (Mississippi edition)
 
+### Mississippi setup, step by step (verified 2026)
+1. **LLC**: file a Certificate of Formation online with the MS Secretary of State — **$50**. Annual report required but **free** for domestic LLCs. A DBA (trade name) is $25 if you want a different public name.
+2. **EIN**: free from the IRS online, 10 minutes.
+3. **Sales tax**: register on MS TAP (Taxpayer Access Point) — free permit. Locksmith services are taxable at 7% + local add-ons (Jackson +1%). The app's quote tab calculates it; file monthly or quarterly per your assignment.
+4. **No locksmith license exists in Mississippi** — your invoice trail and ownership-verification records ARE your compliance story.
+5. **Insurance**: general liability before the first customer car (~$40–80/mo mobile locksmith). Add commercial auto if the vehicle is business-titled; inland marine rider once tool value exceeds a few thousand dollars.
+
+### Add-on services worth carrying from day one
+- **Lockouts ($75–150, zero parts cost).** Kit: air wedge + long-reach tool (~$40–90 from any locksmith distributor). Technique: wedge the top corner of the door gently, inflate to a small controlled gap, reach the unlock button or pull handle. Cautions: verify ownership *before* opening; frameless-glass doors (Mustang, Challenger, Camaro, Teslas) chip easily — wedge low and slow; a "double-locked"/deadlocked European car can't be opened from the inside button — refer it rather than fight it. After-hours lockouts command the top of the range.
+- **Fob battery swaps ($35–55 mobile, or $15–25 as an add-on).** Five minutes, pure margin, and a trust-builder that converts to spare-key sales. Test the fob BEFORE swapping — a fob that still fails after a fresh battery is a programming/hardware job, and you want the customer to watch you prove it.
+
+### Warranty & callback policy (industry norm)
+- **30-day workmanship warranty**: if a key you programmed stops being recognized within 30 days, without customer damage, you re-program free. It's cheap goodwill — genuine programming failures inside 30 days are rare.
+- **Parts**: manufacturer's warranty passes through (most distributors warranty aftermarket fobs 90 days–1 year; keep the vendor invoice).
+- **Customer-supplied parts**: labor-only, no warranty on their part — say it up front and it's printed on the invoice.
+- **Track callbacks in the Jobs tab** (status: "Callback / warranty return"). More than ~1 callback per 20 jobs means a process problem — usually skipped post-job testing.
+
 ### Legal & liability
 - **Verify ownership on every job, every time.** Photo ID **plus** registration or insurance card matching the vehicle (bill of sale for just-bought cars). Names don't match → lock it back up, charge the service-call fee, leave. Photograph/record the documents with the invoice. This is what stands between you and "accessory to auto theft."
 - Mississippi has **no state locksmith license**, which means your paper trail *is* your protection: invoice every job (FobPro generates one with the no-refund policy and signature lines), keep the ownership records with it.
