@@ -142,6 +142,61 @@ is('backup includes all persistence keys', ['fobpro_jobs','fobpro_inv','fobpro_l
 is('backup EXCLUDES the Anthropic API key (safe to share)', !backupJson.includes('fobpro_api_key'));
 is('restore rejects foreign JSON', (alerts.length=0, global.FileReader=class{readAsText(){this.result='{"app":"NotFobPro"}';this.onload();}}, restoreBackup({files:[{}],value:''}), alerts.some(a=>a.includes('valid FobPro'))));
 
+// ═══ [W] CALL INTAKE + PIPELINE (v8.9.0) ═══════════════════════════════════
+console.log('\\n[W] call intake & job pipeline');
+jobs=[];provenVehicles={};inv=[];
+startIntake();
+is('intake opens at step 1', ic!==null&&ic.active&&ic.step===1);
+alerts.length=0;icNext();
+is('anti-scam gate: no callback number → no advance', ic.step===1&&alerts.length===1);
+icInput('phone','601-555-0100');icSet('lead','google');icNext();
+is('step 2 after callback number captured', ic.step===2);
+alerts.length=0;icNext();
+is('step 2 requires a vehicle (DB pick or free text)', ic.step===2&&alerts.length===1);
+icSet('mk','Toyota');icSet('md','Camry');icInput('yr','2015');icNext();
+is('step 3 with DB vehicle locked', ic.step===3);
+alerts.length=0;icNext();
+is('step 3 requires all four triage answers', ic.step===3&&alerts.length===1);
+icSet('keys','0');icSet('fobSrc','mine');icSet('push','key');icSet('alarm','no');icNext();
+is('0-keys Toyota intake → refer-out verdict (AKL truth holds on the phone)', el('intake-view').innerHTML.includes('refer this one out')||el('intake-view').innerHTML.includes('Outside your current tooling'));
+icSaveReferred();
+is('referred call logged done/referred with NO proven credit', jobs[0].method==='referred'&&jobs[0].status==='done'&&!provenVehicles['toyota camry']);
+is('referred save closes the wizard', ic===null);
+startIntake();
+icInput('phone','601-555-0101');icInput('name','Test Caller');icSet('lead','referral');
+icSet('mk','Toyota');icSet('md','Camry');icInput('yr','2021');ic.step=3;
+icSet('keys','1');icSet('fobSrc','mine');icSet('push','push');icSet('alarm','no');icNext();
+is('push-button answer quotes the smart tier (not base add-key)', el('intake-view').innerHTML.includes('$'+DB.Toyota.Camry.pricing.smart));
+is('empty truck stock triggers the deposit guard', el('intake-view').innerHTML.toLowerCase().includes('deposit before you order'));
+inv=[{name:'Toyota HYQ14FBC prox fob',qty:2,par:1}];renderIntake();
+is('matching truck stock is detected (FCC token match)', el('intake-view').innerHTML.includes('on the truck'));
+inv=[];
+icInput('dep','90');ic.step=5;renderIntake();
+icInput('appt','Tomorrow 10am');icInput('addr','123 Main St, Pearl');icSave();
+is('booked intake saves as scheduled ticket with structured vehicle', jobs[0].status==='scheduled'&&jobs[0].mk==='Toyota'&&jobs[0].md==='Camry');
+is('intake carries deposit, lead source, address onto the job', jobs[0].deposit==='90'&&jobs[0].leadSrc==='referral'&&jobs[0].addr==='123 Main St, Pearl');
+is('intake without appointment would be quoted', (()=>{startIntake();icInput('phone','601-555-0102');icSet('mk','Honda');icSet('md','Civic');ic.step=5;renderIntake();icSave();return jobs[0].status==='quoted';})());
+setJobStatus(1,'done');
+is('pipeline advance to done marks proven exactly once', provenVehicles['toyota camry']===1);
+setJobStatus(1,'working');setJobStatus(1,'done');
+is('status bouncing never double-counts proven', provenVehicles['toyota camry']===1);
+setJobField(1,'price','185');setJobField(1,'cost','45');
+renderStats();
+is('stats compute profit = revenue − parts cost ($140)', el('job-stats').innerHTML.includes('$140'));
+is('stats show open-pipeline count', el('job-stats').innerHTML.includes('Open pipeline'));
+setJobStatus(0,'nonsense');
+is('setJobStatus rejects unknown statuses', jobs[0].status==='quoted');
+jobs=[];provenVehicles={};
+
+// content invariants — the researched business-path & tool-protection facts
+console.log('\\n[L] content — business path & tool protection');
+is('NASTF milestone carries the concrete 2026 checklist', LEARN_PATH[3].steps.some(s=>s.d.includes('$435')&&s.d.includes('liability')&&s.d.includes('Mississippi')));
+is('roadside lead-flow step exists in Phase 2', LEARN_PATH[2].steps.some(s=>/HONK|Urgently|roadside/i.test(s.t+s.d)));
+is('update-discipline pitfall present with protocol', PITFALLS.some(p=>/update/i.test(p.t)&&/release notes/i.test(p.p)));
+is('gray-market AKL unlock warning present (fixMyKM)', PITFALLS.some(p=>/fixMyKM/i.test(p.d)));
+is('pitfall library grew to 10', PITFALLS.length===10);
+is('every pitfall still has title/description/protocol', PITFALLS.every(p=>p.t&&p.d&&p.p));
+
 // ═══ [S] SECURITY ══════════════════════════════════════════════════════════
 console.log('\\n[S] security — XSS sink matrix');
 const payload='<img src=x onerror=alert(1)>';
@@ -201,6 +256,15 @@ const iconBtnsNoLabel = (dom.match(/<button[^>]*>(?:\s*<svg|✕)/g) || []).filte
 is('X4 FIXED: all icon-led buttons carry aria-label/title', iconBtnsNoLabel === 0, iconBtnsNoLabel + ' unlabeled');
 is('X4 FIXED: photo overlay dismissible via Escape', js.includes("e.key==='Escape'"));
 console.log('  · viewport meta present:', dom.includes('name="viewport"') ? 'yes' : 'NO');
+
+// v8.9.0 static wiring
+is('X5: intake launch card + view container present', dom.includes('id="intake-launch"') && dom.includes('id="intake-view"'));
+is('X5: intake shortcut on the Lookup tab', dom.includes('startIntake()') && dom.split('startIntake()').length >= 3);
+is('X5: pipeline statuses selectable in job form', dom.includes('value="quoted"') && dom.includes('value="scheduled"'));
+is('X5: parts-cost + deposit fields in job form', dom.includes('id="j-cost"') && dom.includes('id="j-deposit"'));
+is('X5: CSV export carries economics + intake columns', js.includes("'price','cost','deposit'") && js.includes("'leadSrc'"));
+is('X5: digital-key horizon card on Ref tab', dom.includes('id="digital-horizon"') && /UWB/.test(dom));
+is('X5: quoted/scheduled status dots styled', html.includes('.sdot.quoted') && html.includes('.sdot.scheduled'));
 
 // ═══ SUMMARY ═════════════════════════════════════════════════════════════
 console.log('\n══════════════════════════════════════');

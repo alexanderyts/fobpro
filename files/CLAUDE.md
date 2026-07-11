@@ -8,7 +8,7 @@ FobPro is a **single-file, mobile-first HTML web app** for a car key fob replace
 
 The app is used in the field — driveways, parking garages, often with poor or no signal. **Everything critical must work offline.** No external libraries, no build step, no framework. All HTML, CSS, and JS live inline in one `.html` file.
 
-**Current file:** `files/fobpro_v8.html` (48 vehicles). This is the canonical tracked copy; a convenience copy lives at the repo root — keep them in sync (copy after editing).
+**Current file:** `files/fobpro_v8.html` (16 makes / 60 models). This is the canonical tracked copy; a convenience copy lives at the repo root — keep them in sync (copy after editing).
 
 ## Versioning (added v8.1.0)
 
@@ -19,7 +19,7 @@ The app is used in the field — driveways, parking garages, often with poor or 
 
 ## Hard rules (do not break these)
 
-1. **Validate after every edit — three gates:** `node --check` on the extracted script, then `node files/audit.js` (wiring/integration/DB invariants), then `node files/tests.js` (71 unit/security/UX assertions). All three must pass before an edit is done. A prior `str_replace` once silently deleted a `function updateGuide(d){` opening line and broke the whole app:
+1. **Validate after every edit — three gates:** `node --check` on the extracted script, then `node files/audit.js` (wiring/integration/DB invariants), then `node files/tests.js` (unit/security/UX assertions — 104 as of v8.9.0; exit 1 on failure). All three must pass before an edit is done. A prior `str_replace` once silently deleted a `function updateGuide(d){` opening line and broke the whole app:
    ```bash
    node -e "const fs=require('fs');const h=fs.readFileSync('fobpro_v8.html','utf8');const m=h.match(/<script>([\s\S]*?)<\/script>/);fs.writeFileSync('/tmp/check.js',m[1]);" && node --check /tmp/check.js && echo "JS VALID"
    ```
@@ -30,23 +30,24 @@ The app is used in the field — driveways, parking garages, often with poor or 
 
 ## Architecture
 
-Single `.html` file with three parts: inline `<style>`, the HTML body (6 tabs), and one inline `<script>`.
+Single `.html` file with three parts: inline `<style>`, the HTML body (7 tabs), and one inline `<script>`.
 
 ### Tabs (bottom nav, `showTab(name, btn)`)
-- **Lookup** — vehicle search (autocomplete + offline VIN decode), fob specs, skill badge, decision helper, customer script, data tiles, key cut/copy info, shell recommendations.
+- **Lookup** — vehicle search (autocomplete + offline VIN decode), fob specs, skill badge, decision helper, customer script, data tiles, key cut/copy info, shell recommendations, guided job journey launcher.
 - **Guide** — tool selector + step-by-step, plus **guided first-job mode** (one step at a time with safety gates).
 - **Quote** — auto-quote from lookup, pricing tiers, location-based sales tax, invoice generator with no-refund policy.
 - **Help** — AI troubleshooter (with offline fallback) + error quick reference.
-- **Ref** — KM100 chip support, tool comparison, frequencies, programming notes.
-- **Jobs** — job log + confidence tracker (marks vehicles "proven" after completed jobs).
+- **Ref** — KM100 chip support, tool comparison, frequencies, programming notes, data-confidence scoreboard, changelog.
+- **Learn** — becoming-a-locksmith path (`LEARN_PATH` phases 0–3 with progress tracking), pitfall library (`PITFALLS`), Lishi practice tracker (`LISHI_LIST`), starter stock list (`STOCK_LIST`), parts inventory with counts.
+- **Jobs** — call-intake wizard (guided phone flow → job ticket with deposit guard), job pipeline (quoted → scheduled → working → done statuses editable on cards), job log + photos + confidence tracker (marks vehicles "proven" after completed jobs), parts-cost/profit economics, business stats, CSV export, backup/restore.
 
 ### Database (`const DB`)
-Structure: `DB[Make][Model] = {...}`. **13 makes, 48 models:** Toyota, Honda, Ford, Chevrolet, Nissan, Hyundai, Kia, Dodge, Jeep, GMC, RAM, Subaru, Volkswagen.
+Structure: `DB[Make][Model] = {...}`. **16 makes, 60 models:** Toyota, Honda, Ford, Chevrolet, Nissan, Hyundai, Kia, Dodge, Jeep, GMC, RAM, Subaru, Volkswagen, Lexus, Mazda, Acura. Each vehicle also carries `verified` ('verified'|'partial'|'model') and year-aware `specVariants`/`fobVariants`.
 
 Per-vehicle fields:
 `trims[], trimNotes{}, chip, freq, proto, blank, fcc, oemShell, oemButtons, oemSupplier, genericShell, genericButtons, genericSupplier, genericNote, shellNote, bladeless(bool), bladeNote, fromScratch(bool), scratchNote, keyway, bestTool, toolWhy, km100("yes"/"partial"/"no"), km100Method, km100Detail, pricing{fob_only,fob_outsource,smart,all_lost,clone}, shellCostOEM, shellCostGeneric, skill("beginner"/"intermediate"/"advanced"), obd, battery, sgw(bool), sgwNote, fobBattery, duration, maxKeys, eraseWarning(bool), gotcha, akl_removed(bool)`
 
-Note: the DB is currently stored as a single minified JSON-style object (was machine-augmented). If you need to add fields to all vehicles, do it with a Node script that parses the DB, mutates it, and re-serializes — don't hand-edit 48 entries.
+Note: the DB is currently stored as a single minified JSON-style object (was machine-augmented). If you need to add fields to all vehicles, do it with a Node script that parses the DB, mutates it, and re-serializes — don't hand-edit 60 entries.
 
 ### Key data tables
 - `STATE_TAX{}` — all 50 states + DC base sales-tax rates. `CITY_TAX{}` — local add-ons for common MS/LA/AL/TN cities. MS = 7%.
@@ -95,7 +96,7 @@ Class conventions: `.fi` inputs, `.btn`/`.btn-primary`/`.btn-green`/`.btn-outlin
 - **AI troubleshooter requires the user's Anthropic API key** (Help tab → saved to localStorage; sent via `x-api-key` + `anthropic-dangerous-direct-browser-access` headers, model `claude-opus-4-8`). No key or no signal → offline `ERROR_KB` fallback, which is the designed behavior.
 - **Single-file constraint** is by choice (chat-interface artifact origin). Once in Claude Code, splitting the DB into its own file is reasonable if Alex wants it.
 - VIN decode resolves make + year reliably; model isn't standardized in the VIN, so the user still picks the model. Bitting codes require AllKeys Plus / dealer (proprietary — can't be embedded).
-- Database coverage gaps: no Lexus/Acura/Mazda/Subaru-beyond-3/Mercedes/BMW/Infiniti yet; missing some high-volume models (Explorer variants, Traverse, Colorado, Frontier, Murano, etc.).
+- Database coverage gaps: Lexus/Mazda/Acura added in v8.6; still no Mercedes/BMW/Infiniti/Mitsubishi/Buick/Cadillac; 17 vehicles are `verified:'partial'` and 2 are `'model'` — re-verification queue documented in the Ref-tab scoreboard.
 
 ## Tone for Alex-facing copy
 

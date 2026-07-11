@@ -434,6 +434,8 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
 .sdot.working{background:var(--blue3);}
 .sdot.done{background:var(--teal3);}
 .sdot.callback{background:var(--red3);}
+.sdot.quoted{background:var(--purple);}
+.sdot.scheduled{background:var(--green);}
 .sr{display:flex;gap:7px;align-items:center;margin-bottom:7px;}
 
 /* TAX BADGE */
@@ -632,6 +634,7 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Start a job — guided journey (one step at a time)
     </button>
+    <button class="btn btn-outline btn-sm" aria-label="Start call intake on the Jobs tab" onclick="showTab('jobs',document.getElementById('nav-jobs'));startIntake()" style="margin-top:7px;width:100%;">📞 Phone ringing? Take the call — guided intake</button>
     <div id="journey-view" class="hidden"></div>
     <div id="l-result"></div>
   </div>
@@ -811,6 +814,17 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
       <li class="si"><div class="sn"></div><div class="sb"><div class="stit">Autel IM508S</div><div class="sdsc">Full diagnostics + better BMW/Benz/VW coverage than entry-level tools. ~$1,500.</div></div></li>
       <li class="si"><div class="sn"></div><div class="sb"><div class="stit">Autel IM608 Pro II</div><div class="sdsc">Industry standard. Widest coverage, EEPROM, dealer-level access. ~$2,800.</div></div></li>
     </ol>
+    <div style="margin-top:9px;padding-top:8px;border-top:1px solid var(--border);font-size:11.5px;color:var(--amber);line-height:1.55;"><strong>Update discipline:</strong> a software update can REMOVE capability — the 2024 AKL removals shipped as routine updates. Read the release notes and your tool's user group before updating, never the night before booked work. And skip the gray-market "AKL restore" unlocks entirely (Learn tab → Pitfalls explains why).</div>
+  </div>
+  <div class="card" id="digital-horizon">
+    <div class="card-title">2026+ horizon — digital keys &amp; what to decline</div>
+    <div class="card-explain">Phone-as-key (BLE/UWB "digital key") is spreading — roughly 6% of 2024 cars, heading toward ~40% by 2030. It doesn't kill fob work, but know which calls to pass on before you roll.</div>
+    <ul style="margin:6px 0 0 16px;font-size:12.5px;color:var(--text3);line-height:1.6;">
+      <li><strong style="color:var(--red);">Tesla / Rivian / Lucid:</strong> closed to the aftermarket. Decline warmly and point them to the dealer or the brand's mobile service — no tool you can buy changes this.</li>
+      <li><strong style="color:var(--text2);">"Add my phone as a key" requests</strong> (2024+ BMW, Hyundai/Kia, GM with CCC Digital Key): that's done in the automaker's phone app, not with a programmer. The physical fob or key card on those same cars IS still your job.</li>
+      <li><strong style="color:var(--text2);">What to say:</strong> "That part is managed through the manufacturer's app — I'd be charging you for something the dealer does for free. If you need the physical key or fob handled, that I can do."</li>
+      <li><strong style="color:var(--text2);">Why OBD + credentials is the future-proof lane:</strong> UWB keys are built to defeat relay/clone tricks, so shortcut methods keep dying. Programming through the OBD port with legitimate access (NASTF VSP) is the lane that survives every security upgrade.</li>
+    </ul>
   </div>
   <div class="card">
     <div class="card-title accent">Data confidence — what this app actually knows</div>
@@ -902,6 +916,12 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
 
 <!-- ===== JOB LOG ===== -->
 <div class="section" id="tab-jobs">
+  <div class="card" id="intake-launch">
+    <div class="card-title accent">📞 New call — guided intake</div>
+    <div class="card-explain">Phone ringing? This walks the whole call: callback number first, triage before quoting, a quote you can say without flinching, and a booked job ticket — before you commit to rolling.</div>
+    <button class="btn btn-green" aria-label="Start call intake" onclick="startIntake()">Take the call →</button>
+  </div>
+  <div id="intake-view" class="hidden"></div>
   <div id="job-stats"></div>
   <div class="card">
     <div class="card-title accent">New job</div>
@@ -913,6 +933,10 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
     <div class="row2">
       <div class="field-row"><div class="field-label">Vehicle <span style="color:var(--text4);font-size:10px;">(from Lookup/Quote)</span></div><input class="fi" type="text" id="j-vehicle" placeholder="Set in Lookup tab" oninput="syncJobToQuote('vehicle')"/></div>
       <div class="field-row"><div class="field-label">Price charged $ <span style="color:var(--text4);font-size:10px;">(from Quote total)</span></div><input class="fi" type="number" id="j-price" placeholder="Set in Quote tab"/></div>
+    </div>
+    <div class="row2">
+      <div class="field-row"><div class="field-label">Parts cost $ <span style="color:var(--text4);font-size:10px;">(what YOU paid — fob + cut)</span></div><input class="fi" type="number" id="j-cost" placeholder="0" min="0"/></div>
+      <div class="field-row"><div class="field-label">Deposit taken $</div><input class="fi" type="number" id="j-deposit" placeholder="0" min="0"/></div>
     </div>
     <button class="btn btn-outline btn-sm" type="button" onclick="pullFromQuote()" style="margin-bottom:9px;">↻ Pull customer/vehicle/price from Quote tab</button>
 
@@ -964,7 +988,7 @@ body{font-family:'Satoshi',Helvetica,'Helvetica Neue',Arial,sans-serif;backgroun
     <button class="btn btn-outline btn-sm" type="button" onclick="pullSpecsFromLookup()" style="margin-bottom:9px;">↻ Pull chip/blank/FCC from current Lookup</button>
 
     <div class="field-row"><div class="field-label">Status</div>
-      <select class="fi" id="j-status"><option value="pending">Pending</option><option value="working">In progress</option><option value="done">Complete</option><option value="callback">Callback / warranty return</option></select>
+      <select class="fi" id="j-status"><option value="quoted">Quoted — awaiting decision</option><option value="scheduled">Scheduled / booked</option><option value="pending">Pending</option><option value="working">In progress</option><option value="done">Complete</option><option value="callback">Callback / warranty return</option></select>
     </div>
     <div class="field-row"><div class="field-label">Notes</div><textarea class="notes-area" id="j-notes" placeholder="PIN, error codes, anything that differed from the lookup..."></textarea></div>
     <div class="field-row">
@@ -1032,8 +1056,9 @@ const ALL_TOOLS=[
 // VERSION — bump on every meaningful change; add a CHANGELOG entry to match.
 // Git tags mirror these versions (v8.1.0 etc.).
 // ═══════════════════════════════════════════════════════════════════════════
-const APP_VERSION="8.8.0";
+const APP_VERSION="8.9.0";
 const CHANGELOG=[
+  {v:"8.9.0",date:"2026-07-11",notes:["CALL-INTAKE WIZARD (Jobs tab + Lookup shortcut): a guided flow for the moment the phone rings — callback number first (anti-scam gate), vehicle triage with the four questions that change the price, an instant verdict + quote range with a say-it-like-this script, a truck-stock check against your inventory, and a deposit guard before any part gets ordered. Saves straight into the job pipeline.","JOB PIPELINE: new 'Quoted' and 'Scheduled' statuses; open job cards now carry their own status/price/parts-cost controls and a one-tap 'Load into Lookup' — a ticket moves from call to done without re-entering anything.","JOB ECONOMICS: parts-cost and deposit fields on every job; Business health now shows real profit, parts spend, margin % against the 60-75% healthy band, and your open pipeline. CSV export carries the new columns.","BUSINESS PATH (researched Jul 2026): the NASTF VSP milestone now carries the full 2026 checklist ($435/2yr, $1M/$500K liability certificate, FEIN, two references — and no locksmith license needed in Mississippi); new Phase-2 step: roadside platforms (AAA/HONK/Urgently/Agero) as paid Lishi practice and early lead flow.","TOOL PROTECTION: two new pitfalls — updates can DELETE capability (the 2024 AKL removals shipped as updates; read release notes first, never update before booked work) and the gray-market 'AKL restore' unlock trap (fixMyKM et al.) with the reasons it risks warranty, insurance, and reputation.","2026+ HORIZON (Ref tab): digital-key/UWB landscape card — which calls to decline (Tesla/Rivian/Lucid, phone-as-key enrollment), what to say, and why OBD + NASTF credentials is the future-proof lane."]},
   {v:"8.8.0",date:"2026-07-10",notes:["HARDENING RELEASE — all 11 findings from the 56-test engineering audit fixed, with owner approval, and locked in as permanent test assertions.","Security: CSV exports neutralize spreadsheet formula injection; VIN input strictly validated (letters/digits only); job photos render only from safe embedded image data.","Pricing accuracy: quotes are now TRIM-AWARE — a prox trim like Camry XSE correctly quotes the smart-key price ($185) instead of the base add-key price ($130), in both the journey and the auto-quote.","Data accuracy: out-of-range years now fall back to the NEAREST generation (a 2005 vehicle no longer shows 2025 electronics); \"Jackson,MS\" formatting variants find the city tax add-on; Lexus/Mazda/Acura got make-specific used-fob rules.","Field usability: 16px inputs (iPhone no longer zooms when you tap a field), 44px touch targets on all +/− buttons (glove-friendly), hint text brightened to pass WCAG AA contrast for sunlight readability.","Accessibility: labels on all icon buttons, Escape-key dismiss on the photo viewer."]},
   {v:"8.7.0",date:"2026-07-10",notes:["FULL-DATABASE ACCURACY AUDIT: re-verified the suspect FCC set from the original build. Fixed confirmed errors — Elantra (was a phantom ID; real: OSLOKA-360T 2011-16 / OSLOKA-423T 2017-20), Santa Fe (listed fob was actually a Kona part; real 2013-18 prox is SY5DMFNA04), Optima (NYODD4TX1306 / SY5JFRGE04), Sorento (TQ8-FOB-4F06 / SY5MQ4FGE05), Highlander (HYQ14FBA 2014-19 / HYQ14FBC 2020-24 — 'HYQ14FBW' was unconfirmable). Tucson and Sportage verified correct as listed. Tacoma/Tundra prox confirmed HYQ14FBA; 2022+ Tundra flagged as new-gen BA immobilizer.","HONEST-CONFIDENCE SYSTEM: every one of the 60 vehicles now carries a verification level — 41 verified / 17 partial / 2 model-level — shown as a badge on every lookup and in the journey's parts step. Prius, Soul and Odyssey were DOWNGRADED because their IDs couldn't be independently confirmed: the app now says 'verify on fob' instead of pretending.","Data-confidence scoreboard on the Ref tab: counts, the re-verification queue, and the standing rule — the FCC printed on the customer's fob outranks this database.","Guide headers now state the provenance: steps cross-checked against official tool manuals (Jul 2026)."]},
   {v:"8.6.0",date:"2026-07-10",notes:["COVERAGE EXPANSION: 12 new vehicles, 3 new makes — Lexus RX/NX, Mazda3/CX-5, Acura MDX/RDX, Chevy Traverse/Colorado, Nissan Frontier/Murano, Toyota 4Runner, Ford Edge — all verified against July-2026 supplier listings, with generation-split electronics and the correct AKL/add-key rules per make. VIN decoder recognizes the new makes.","OWNERSHIP PHOTO CAPTURE (Jobs tab): snap ID + registration straight into the job record (compressed ~40-90KB each, max 3, stays on this device, rides in backups, tap to view full-screen). Storage-full guard added.","LISHI PRACTICE TRACKER (Learn tab): 12 keyways matched to this database's vehicles, rep counter per keyway, proficiency ladder (25 clean bench reps = field-ready). Genuine-Lishi-only warning ties to the cheap-tools pitfall.","Audit hardened: make-level AKL consistency rule (Toyota/Lexus/GM/Ford/Mazda/Nissan/Stellantis must carry akl_removed + no-AKL flags; Honda/Acura add-key-only) and WMI coverage check for every make."]},
@@ -1756,7 +1781,7 @@ function renderKeyCutInfo(d,vinData){
   const cutMethod=d.bladeless?
     `<div style="font-size:10.5px;color:var(--amber);margin-top:7px;line-height:1.55;"><strong>To COPY this key (you have a working blade):</strong> the cut transfers directly — pull the existing blade from the old fob/shell and reuse it, or hand the working key to a hardware-store or locksmith duplicator to copy the cuts onto a fresh ${cleanBlank}. No code needed when you have the original.</div>`
     :
-    `<div style="font-size:10.5px;color:var(--amber);margin-top:7px;line-height:1.55;"><strong>To CUT this key (no working blade):</strong> you need the bitting code. Get it three ways — (1) the VIN's last 6-8 digits map to the key code in AllKeys Plus / Ilco; (2) the dealer can pull the cut code from the VIN; (3) decode an existing lock with a Lishi tool. Then cut on a machine or outsource to a locksmith with the code.</div>`;
+    `<div style="font-size:10.5px;color:var(--amber);margin-top:7px;line-height:1.55;"><strong>To CUT this key (no working blade):</strong> you need the bitting code. Get it three ways — (1) the VIN's last 6-8 digits map to the key code in AllKeys Plus / Ilco; (2) the dealer — or you directly, once NASTF VSP-registered (Learn tab, Phase 3) — can pull the cut code from the VIN; (3) decode an existing lock with a Lishi tool. Then cut on a machine or outsource to a locksmith with the code.</div>`;
 
   const copyMethod=`<div style="font-size:10.5px;color:var(--amber);margin-top:5px;line-height:1.55;"><strong>To COPY (duplicate) from an existing key:</strong> ${d.bladeless?'transfer the existing blade or':''} clone the transponder chip with your programmer (read original → write to new ${cleanBlank}), and duplicate the physical cuts from the working blade. Both the chip AND the cuts must match for the copy to start the car.</div>`;
 
@@ -2422,6 +2447,8 @@ function saveJob(){
     shell:document.getElementById('j-shell').value,
     fcc:document.getElementById('j-fcc').value,
     timeTaken:document.getElementById('j-time').value,
+    cost:document.getElementById('j-cost').value,
+    deposit:document.getElementById('j-deposit').value,
     status:status,notes:document.getElementById('j-notes').value,
     photos:pendingPhotos.slice(),
     date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})
@@ -2430,6 +2457,7 @@ function saveJob(){
   if(status==='done'&&vehicle){
     const key=normalizeVehicle(vehicle);
     provenVehicles[key]=(provenVehicles[key]||0)+1;
+    jobs[0]._proven=true;
   }
   persistState();
   renderJobs();clearJob();
@@ -2513,7 +2541,7 @@ function csvCell(v){
 }
 function exportJobsCSV(){
   if(!jobs.length){alert('No jobs to export yet.');return;}
-  const cols=['date','name','phone','vehicle','price','method','tool','status','chip','blank','fcc','shell','shellType','bladeCut','timeTaken','notes'];
+  const cols=['date','name','phone','vehicle','price','cost','deposit','method','tool','status','leadSrc','addr','appt','chip','blank','fcc','shell','shellType','bladeCut','timeTaken','notes'];
   const rows=[cols.join(',')].concat(jobs.map(j=>cols.map(c=>csvCell(c==='method'?(SVC_LABELS[j[c]]||j[c]):j[c])).join(',')));
   downloadFile('fobpro-jobs-'+new Date().toISOString().slice(0,10)+'.csv',rows.join('\r\n'),'text/csv');
 }
@@ -2545,7 +2573,7 @@ function restoreBackup(input){
 }
 
 function clearJob(){
-  ['j-name','j-phone','j-vehicle','j-price','j-shell','j-notes','j-chip','j-blank','j-fcc','j-time'].forEach(id=>document.getElementById(id).value='');
+  ['j-name','j-phone','j-vehicle','j-price','j-shell','j-notes','j-chip','j-blank','j-fcc','j-time','j-cost','j-deposit'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('j-method').value='';
   document.getElementById('j-status').value='pending';
   document.getElementById('j-tool').value='km100';
@@ -2554,13 +2582,26 @@ function clearJob(){
   pendingPhotos=[];
   renderPendingPhotos();
 }
+// Pipeline statuses: a job ticket lives from the phone call (quoted) through
+// booking (scheduled) to the driveway (working/done). Cards for open statuses
+// carry their own controls so the pipeline can advance without re-entering data.
+const STATUS_META={
+  quoted:{c:'quoted',l:'Quoted — awaiting decision'},
+  scheduled:{c:'scheduled',l:'Scheduled / booked'},
+  pending:{c:'pending',l:'Pending'},
+  working:{c:'working',l:'In progress'},
+  done:{c:'done',l:'Complete'},
+  callback:{c:'callback',l:'⚠ Callback / warranty'}
+};
+const LEAD_LABELS={google:'Google',referral:'Referral',roadside:'Roadside platform',repeat:'Repeat customer',other:'Other'};
 function renderJobs(){
   const list=document.getElementById('job-list');
   document.getElementById('no-jobs').style.display=jobs.length===0?'block':'none';
   list.querySelectorAll('.jcard').forEach(e=>e.remove());
   jobs.forEach((j,ji)=>{
-    const sc=j.status==='done'?'done':j.status==='working'?'working':j.status==='callback'?'callback':'pending';
-    const sl=j.status==='done'?'Complete':j.status==='working'?'In progress':j.status==='callback'?'⚠ Callback / warranty':'Pending';
+    const meta=STATUS_META[j.status]||STATUS_META.pending;
+    const sc=meta.c,sl=meta.l;
+    const pipeline=['quoted','scheduled','pending','working'].includes(j.status);
     const toolName=j.tool?(ALL_TOOLS.find(t=>t.id===j.tool)||{}).name:null;
     const specChips=[
       j.chip?`Chip: ${esc(j.chip)}`:'',
@@ -2569,13 +2610,46 @@ function renderJobs(){
       j.shell?`Shell: ${esc(j.shell)}${j.shellType?` (${esc(j.shellType)})`:''}`:'',
       toolName?`Tool: ${esc(toolName)}`:'',
       j.bladeCut?'Blade cut performed':'',
-      j.timeTaken?`Time: ${esc(j.timeTaken)}`:''
+      j.timeTaken?`Time: ${esc(j.timeTaken)}`:'',
+      j.deposit&&parseFloat(j.deposit)>0?`Deposit: $${esc(j.deposit)}`:'',
+      j.leadSrc?`Lead: ${esc(LEAD_LABELS[j.leadSrc]||j.leadSrc)}`:'',
+      j.status==='done'&&j.cost!==''&&j.cost!=null&&j.price?`Profit: $${((parseFloat(j.price)-parseFloat(j.cost))||0).toFixed(0)}`:''
     ].filter(Boolean);
     const c=document.createElement('div');c.className='card jcard';
-    c.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div><div style="font-size:14.5px;font-weight:600;">${esc(j.name)}</div><div style="font-size:12.5px;color:var(--text3);">${esc(j.vehicle)}</div></div><div style="text-align:right;">${j.price?`<div style="font-size:14.5px;font-weight:700;">$${esc(j.price)}</div>`:''}<div style="font-size:10.5px;color:var(--text4);">${esc(j.date)}</div></div></div><div class="sr"><div class="sdot ${sc}"></div><span style="font-size:12.5px;color:var(--text3);">${sl}</span>${j.phone?`<span style="font-size:12.5px;color:var(--text4);margin-left:auto;">${esc(j.phone)}</span>`:''}</div>${specChips.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">${specChips.map(s=>`<span style="font-size:10.5px;color:var(--blue);background:var(--blue2);border-radius:5px;padding:3px 8px;">${s}</span>`).join('')}</div>`:''}${j.notes?`<div style="font-size:12.5px;color:var(--text3);line-height:1.5;border-top:1px solid var(--border);padding-top:6px;margin-top:6px;">${esc(j.notes)}</div>`:''}${j.photos&&j.photos.length?`<div style="display:flex;gap:5px;margin-top:6px;">${j.photos.map((p,pi)=>typeof p==='string'&&p.indexOf('data:image/')===0?`<img src="${p}" style="height:40px;border-radius:5px;border:1px solid var(--border2);cursor:pointer;" onclick="showPhoto(jobs[${ji}].photos[${pi}])" alt="ownership doc" title="Ownership doc — tap to view"/>`:'').join('')}<span style="font-size:10px;color:var(--text4);align-self:center;">🪪 docs</span></div>`:''}`;
+    c.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div><div style="font-size:14.5px;font-weight:600;">${esc(j.name)}</div><div style="font-size:12.5px;color:var(--text3);">${esc(j.vehicle)}</div></div><div style="text-align:right;">${j.price?`<div style="font-size:14.5px;font-weight:700;">$${esc(j.price)}</div>`:''}<div style="font-size:10.5px;color:var(--text4);">${esc(j.date)}</div></div></div><div class="sr"><div class="sdot ${sc}"></div><span style="font-size:12.5px;color:var(--text3);">${sl}</span>${j.phone?`<span style="font-size:12.5px;color:var(--text4);margin-left:auto;">${esc(j.phone)}</span>`:''}</div>${j.appt||j.addr?`<div style="font-size:12px;color:var(--text2);margin-top:5px;">${j.appt?`📅 ${esc(j.appt)}`:''}${j.appt&&j.addr?' · ':''}${j.addr?`📍 ${esc(j.addr)}`:''}</div>`:''}${pipeline?`<div style="display:flex;gap:6px;margin-top:7px;align-items:flex-end;flex-wrap:wrap;"><div style="flex:2;min-width:130px;"><div style="font-size:10px;color:var(--text4);margin-bottom:2px;">Status</div><select class="fi" onchange="setJobStatus(${ji},this.value)" aria-label="Update job status">${Object.keys(STATUS_META).map(s=>`<option value="${s}" ${j.status===s?'selected':''}>${STATUS_META[s].l}</option>`).join('')}</select></div><div style="flex:1;min-width:70px;"><div style="font-size:10px;color:var(--text4);margin-bottom:2px;">Price $</div><input class="fi" type="number" value="${esc(j.price||'')}" onchange="setJobField(${ji},'price',this.value)" aria-label="Price charged"/></div><div style="flex:1;min-width:70px;"><div style="font-size:10px;color:var(--text4);margin-bottom:2px;">Parts $</div><input class="fi" type="number" value="${esc(j.cost||'')}" onchange="setJobField(${ji},'cost',this.value)" aria-label="Parts cost"/></div>${j.mk?`<button class="btn btn-outline btn-sm" onclick="jobToLookup(${ji})" style="white-space:nowrap;" aria-label="Load this vehicle into Lookup">▶ Lookup</button>`:''}</div>`:''}${specChips.length?`<div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;">${specChips.map(s=>`<span style="font-size:10.5px;color:var(--blue);background:var(--blue2);border-radius:5px;padding:3px 8px;">${s}</span>`).join('')}</div>`:''}${j.notes?`<div style="font-size:12.5px;color:var(--text3);line-height:1.5;border-top:1px solid var(--border);padding-top:6px;margin-top:6px;">${esc(j.notes)}</div>`:''}${j.photos&&j.photos.length?`<div style="display:flex;gap:5px;margin-top:6px;">${j.photos.map((p,pi)=>typeof p==='string'&&p.indexOf('data:image/')===0?`<img src="${p}" style="height:40px;border-radius:5px;border:1px solid var(--border2);cursor:pointer;" onclick="showPhoto(jobs[${ji}].photos[${pi}])" alt="ownership doc" title="Ownership doc — tap to view"/>`:'').join('')}<span style="font-size:10px;color:var(--text4);align-self:center;">🪪 docs</span></div>`:''}`;
     list.appendChild(c);
   });
   renderStats();
+}
+function setJobStatus(i,st){
+  const j=jobs[i];
+  if(!j||!STATUS_META[st])return;
+  j.status=st;
+  // Proven credit exactly once per job, no matter how the status bounces.
+  if(st==='done'&&j.vehicle&&!j._proven&&j.method!=='referred'){
+    const key=normalizeVehicle(j.vehicle);
+    provenVehicles[key]=(provenVehicles[key]||0)+1;
+    j._proven=true;
+  }
+  persistState();
+  renderJobs();
+}
+function setJobField(i,k,v){
+  const j=jobs[i];
+  if(!j||(k!=='price'&&k!=='cost'))return;
+  j[k]=v;
+  persistState();
+  renderStats();
+}
+function jobToLookup(i){
+  const j=jobs[i];
+  if(!j||!j.mk||!DB[j.mk])return;
+  document.getElementById('l-make').value=j.mk;
+  document.getElementById('l-model').value=j.md||'';
+  document.getElementById('l-year').value=j.yr||'';
+  document.getElementById('l-trim').value=j.trim||'';
+  showTab('lookup',document.getElementById('nav-lookup'));
+  doLookup();
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -2758,6 +2832,216 @@ function renderJourney(){
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// CALL INTAKE — the guided phone-call wizard (Jobs tab). Jobs are won or lost
+// on the phone: callback number first (anti-scam gate), triage before quoting,
+// quote from the same DB/pricing the journey uses, deposit before ordering
+// parts. Saves straight into the Jobs pipeline as 'quoted' or 'scheduled'.
+// Free-text inputs write through icInput (no re-render — keeps focus);
+// chip choices go through icSet (re-renders).
+// ═══════════════════════════════════════════════════════════════════════════
+let ic=null;
+const IC_STEPS=["Who's calling","The vehicle","Triage the job","Verdict & quote","Book it"];
+function startIntake(){
+  ic={active:true,step:1,name:'',phone:'',lead:null,mk:'',md:'',yr:'',trim:'',vehText:'',keys:null,fobSrc:null,push:null,alarm:null,addr:'',appt:'',dep:'',notes:''};
+  document.getElementById('intake-launch').classList.add('hidden');
+  document.getElementById('intake-view').classList.remove('hidden');
+  renderIntake();
+}
+function exitIntake(){
+  ic=null;
+  document.getElementById('intake-view').classList.add('hidden');
+  document.getElementById('intake-view').innerHTML='';
+  document.getElementById('intake-launch').classList.remove('hidden');
+}
+function icSet(k,v){if(!ic)return;ic[k]=v;if(k==='mk')ic.md='';renderIntake();}
+function icInput(k,v){if(!ic)return;ic[k]=v;}
+function icChoice(k,v,label){return `<button type="button" class="jr-choice ${ic[k]===v?'sel':''}" onclick="icSet('${k}','${v}')">${label}</button>`;}
+function icVehicle(){return (ic&&ic.mk&&ic.md&&DB[ic.mk]&&DB[ic.mk][ic.md])?DB[ic.mk][ic.md]:null;}
+function icVehName(){return ic.mk?`${ic.yr?ic.yr+' ':''}${ic.mk} ${ic.md}${ic.trim?' '+ic.trim:''}`.trim():ic.vehText.trim();}
+function icSvc(d){
+  if(ic.keys==='0')return 'all_lost';
+  if(ic.push==='push'&&d.pricing&&d.pricing.smart>0)return 'smart';
+  if(getTrimClass(d,ic.trim)==='prox'&&d.pricing&&d.pricing.smart>0)return 'smart';
+  if(d.km100Method&&d.km100Method.toLowerCase().includes('ikey'))return 'smart';
+  return 'fob_only';
+}
+function icPartsCheck(d){
+  // Is the fob this job needs already on the truck? Match FCC/part tokens
+  // against inventory item names (6+ chars so generic words never match).
+  const sv=getSpecVariant(d,ic.yr);
+  const fcc=(sv?sv.fcc:d.fcc)||'';
+  const fv=getFobVariant(d,ic.yr,ic.trim);
+  const part=(fv?fv.oemPart:d.oemShell)||'';
+  const tokens=(fcc+' '+part).toUpperCase().split(/[^A-Z0-9-]+/).filter(t=>t.length>=6);
+  const hit=inv.find(it=>(parseInt(it.qty)||0)>0&&tokens.some(t=>String(it.name||'').toUpperCase().includes(t)));
+  return {fcc,part,hit:hit||null};
+}
+function icNext(){
+  if(!ic)return;
+  if(ic.step===1&&!ic.phone.trim()){alert('Get the callback number first — it\'s the anti-scam gate. Real customers never mind.');return;}
+  if(ic.step===2&&!icVehName()){alert('Pick the vehicle from the lists, or describe it in the "not in the list" box.');return;}
+  if(ic.step===3&&(ic.keys===null||ic.fobSrc===null||ic.push===null||ic.alarm===null)){alert('Answer all four triage questions — each one changes the price or the verdict.');return;}
+  if(ic.step<5){ic.step++;renderIntake();window.scrollTo(0,0);}
+}
+function icBack(){if(ic&&ic.step>1){ic.step--;renderIntake();window.scrollTo(0,0);}}
+function icBaseJob(){
+  return {
+    id:Date.now(),
+    name:ic.name.trim()||'Unknown',phone:ic.phone.trim(),
+    vehicle:icVehName()||'Unknown',
+    mk:icVehicle()?ic.mk:'',md:icVehicle()?ic.md:'',yr:ic.yr||'',trim:ic.trim||'',
+    cost:'',deposit:ic.dep||'',
+    leadSrc:ic.lead||'',addr:ic.addr.trim(),appt:ic.appt.trim(),
+    tool:'km100',bladeCut:false,chip:'',blank:'',shellType:'',shell:'',fcc:'',timeTaken:'',
+    photos:[],src:'call',
+    date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'})
+  };
+}
+function icSave(){
+  const d=icVehicle();
+  const svc=d?icSvc(d):'';
+  const price=d&&d.pricing&&d.pricing[svc]?d.pricing[svc]:(DEFAULT_PRICES[svc]||'');
+  const j=icBaseJob();
+  j.price=price?String(price):'';
+  j.method=svc;
+  j.status=ic.appt.trim()?'scheduled':'quoted';
+  j.notes='📞 Call intake — keys: '+(ic.keys==='0'?'ALL LOST':ic.keys)+' · fob: '+(ic.fobSrc||'?')+' · start: '+(ic.push==='push'?'push-button':'turn-key')+' · alarm: '+(ic.alarm||'?')+(ic.notes.trim()?' — '+ic.notes.trim():'');
+  jobs.unshift(j);
+  persistState();
+  renderJobs();
+  exitIntake();
+}
+function icSaveReferred(){
+  const j=icBaseJob();
+  j.price='';j.method='referred';j.status='done';j._proven=true;
+  j.notes='📞 Call intake — ALL KEYS LOST, outside current tooling → referred out. (The refused-work log is your tool-ladder business case.)'+(ic.notes.trim()?' — '+ic.notes.trim():'');
+  jobs.unshift(j);
+  persistState();
+  renderJobs();
+  exitIntake();
+}
+function renderIntake(){
+  if(!ic||!ic.active)return;
+  const view=document.getElementById('intake-view');
+  const d=icVehicle();
+  const pct=Math.round((ic.step-1)/4*100);
+  let body='',nav='';
+  const nextBtn=(label)=>`<button class="btn btn-primary" style="flex:2;" onclick="icNext()">${label||'Continue →'}</button>`;
+  const backBtn=ic.step>1?`<button class="btn btn-outline" style="flex:1;" onclick="icBack()">Back</button>`:'';
+
+  if(ic.step===1){
+    body=`
+      <div class="jr-title">Who's calling</div>
+      <div class="jr-sub">Callback number FIRST, before any price talk. Scammers and setups avoid giving one; if they won't, the call is over.</div>
+      <div class="field-row"><div class="field-label">Callback number (required)</div><input class="fi" type="tel" value="${esc(ic.phone)}" placeholder="601-555-0100" oninput="icInput('phone',this.value)"/></div>
+      <div class="field-row"><div class="field-label">Name (optional for now)</div><input class="fi" type="text" value="${esc(ic.name)}" placeholder="First name is enough" oninput="icInput('name',this.value)"/></div>
+      <div class="jr-q">How did they find you?</div>
+      <div class="jr-choices">${icChoice('lead','google','Google')}${icChoice('lead','referral','Referral')}${icChoice('lead','roadside','Roadside platform')}${icChoice('lead','repeat','Repeat')}${icChoice('lead','other','Other')}</div>
+      <div class="jr-note">This one answer, logged every time, tells you in 90 days where your marketing money should go.</div>`;
+    nav=nextBtn();
+  }
+
+  if(ic.step===2){
+    const mkOpts='<option value="">Make…</option>'+Object.keys(DB).map(m=>`<option value="${m}" ${ic.mk===m?'selected':''}>${m}</option>`).join('');
+    const mdOpts='<option value="">Model…</option>'+(ic.mk&&DB[ic.mk]?Object.keys(DB[ic.mk]).map(m=>`<option value="${m}" ${ic.md===m?'selected':''}>${m}</option>`).join(''):'');
+    const sv=d?getSpecVariant(d,ic.yr):null;
+    body=`
+      <div class="jr-title">The vehicle</div>
+      <div class="jr-sub">Year, make, model — and whether it's push-button — decide the price. If they're not sure, have them read the VIN off the windshield corner; the 10th character is the year.</div>
+      <div class="row2">
+        <div class="field-row"><div class="field-label">Make</div><select class="fi" onchange="icSet('mk',this.value)" aria-label="Vehicle make">${mkOpts}</select></div>
+        <div class="field-row"><div class="field-label">Model</div><select class="fi" onchange="icSet('md',this.value)" ${ic.mk?'':'disabled'} aria-label="Vehicle model">${mdOpts}</select></div>
+      </div>
+      <div class="row2">
+        <div class="field-row"><div class="field-label">Year</div><input class="fi" type="number" value="${esc(ic.yr)}" placeholder="2018" oninput="icInput('yr',this.value)" onchange="renderIntake()"/></div>
+        <div class="field-row"><div class="field-label">Trim (if known)</div><input class="fi" type="text" value="${esc(ic.trim)}" placeholder="LE, XSE, Sport…" oninput="icInput('trim',this.value)"/></div>
+      </div>
+      ${d?`<div class="ban g"><div class="bt">✓ ${esc(icVehName())} — in the database ${dataBadge(d.verified)}</div><div class="bb">${d.specVariants&&!ic.yr?'<strong>Get the year</strong> — this model changed key electronics across generations.':(sv&&sv.confident?`Electronics matched to the ${sv.yearStart}-${sv.yearEnd} generation.`:'Vehicle locked in.')}</div></div>`
+          :`<div class="field-row" style="margin-top:4px;"><div class="field-label">Not in the list? Describe it</div><input class="fi" type="text" value="${esc(ic.vehText)}" placeholder="e.g. 2019 Infiniti QX60" oninput="icInput('vehText',this.value)"/></div>
+           ${ic.vehText.trim()?'<div class="ban y"><div class="bt">Outside the verified database</div><div class="bb">You can still book it — but quote a WIDE range, say the final number is confirmed on site, and research the vehicle before rolling.</div></div>':''}`}`;
+    nav=nextBtn();
+  }
+
+  if(ic.step===3){
+    body=`
+      <div class="jr-title">Triage — ask these four</div>
+      <div class="jr-sub">Each answer changes the price or kills the job. Ask them exactly like this.</div>
+      <div class="jr-q">1 · "How many working keys do you have right now?"</div>
+      <div class="jr-choices">${icChoice('keys','0','None — all lost')}${icChoice('keys','1','One')}${icChoice('keys','2','Two or more')}</div>
+      ${ic.keys==='0'&&d&&!d.fromScratch?`<div class="jr-note" style="color:var(--red);">Zero keys on this vehicle is outside your current tooling — the next step gives you the refer-out script. Don't quote it.</div>`:''}
+      ${ic.keys&&ic.keys!=='0'&&d&&d.eraseWarning?`<div class="jr-note" style="color:var(--red);">This vehicle ERASES all keys during programming — tell them now: every key they own must be at the car.</div>`:''}
+      <div class="jr-q">2 · "Do you push a button to start it, or twist a key?"</div>
+      <div class="jr-choices">${icChoice('push','push','Push-button')}${icChoice('push','key','Turn-key')}</div>
+      ${ic.push==='push'?`<div class="jr-note" style="color:var(--amber);">Push-button = smart-key job — higher part cost, higher price. Quote the smart tier, never the basic add-key number.</div>`:''}
+      <div class="jr-q">3 · "Do you already have a fob, or do I bring one?"</div>
+      <div class="jr-choices">${icChoice('fobSrc','mine','I bring it')}${icChoice('fobSrc','new','They have — NEW')}${icChoice('fobSrc','used','They have — USED')}</div>
+      ${ic.fobSrc==='used'&&ic.mk&&DB[ic.mk]?(()=>{const tr=fobTriageText(ic.mk,'used');return tr?`<div class="ban ${tr.cls}" style="margin-top:6px;"><div class="bt">${tr.title}</div><div class="bb">${tr.body}</div></div>`:'';})():''}
+      <div class="jr-q">4 · "Any aftermarket alarm or remote start on it?"</div>
+      <div class="jr-choices">${icChoice('alarm','no','No')}${icChoice('alarm','yes','Yes')}</div>
+      ${ic.alarm==='yes'?`<div class="jr-note" style="color:var(--amber);">Aftermarket systems block programming — they must fully disarm it before you start. Add time to the estimate.</div>`:''}`;
+    nav=nextBtn('Get the verdict →');
+  }
+
+  if(ic.step===4){
+    const aklBlocked=ic.keys==='0'&&d&&!d.fromScratch;
+    if(aklBlocked){
+      body=`
+        <div class="jr-title">The verdict: refer this one out</div>
+        <div class="jr-sub">All keys lost on this vehicle needs equipment you don't run yet. Saying no well is a reputation builder.</div>
+        <div class="decision stop"><div class="decision-icon">🛑</div><div class="decision-body"><div class="decision-verdict">Outside your current tooling</div><div class="decision-reason">${esc(d.scratchNote||'AKL support for this make was removed from budget tools in late 2024.')}</div></div></div>
+        <div class="ban b" style="margin-top:9px;"><div class="bt">Say it like this</div><div class="bb">"With zero working keys, this particular vehicle needs equipment I don't run yet. I can connect you with someone who does — or if you can find ANY working key, I'll make you spares same-day at a much better price."</div></div>
+        <div class="jr-note">Log it as referred either way — the refused-work log is exactly what tells you which tool to buy next (Learn tab, Phase 3).</div>`;
+      nav=`<button class="btn btn-primary" style="flex:2;" onclick="icSaveReferred()">Log as referred &amp; end call ✓</button>`;
+    }else if(d){
+      const svc=icSvc(d);
+      const price=(d.pricing&&d.pricing[svc])||DEFAULT_PRICES[svc]||0;
+      const lo=Math.round(price*TIER_MULT.value),hi=Math.round(price*TIER_MULT.premium);
+      const pc=icPartsCheck(d);
+      const needsOrder=!pc.hit;
+      const recDep=Math.max(50,Math.round(price*0.5/10)*10);
+      body=`
+        <div class="jr-title">Verdict &amp; quote</div>
+        <div class="jr-sub">Same data as the lookup — say the number without flinching. You're not competing with $29 scam ads; you're competing with the dealer at $350 plus a tow.</div>
+        ${renderDecision(d)}
+        <div class="ban g" style="margin-top:9px;"><div class="bt">Quote: $${lo} – $${hi} <span style="font-weight:400;">(standard $${price})</span></div><div class="bb">Service: ${SVC_LABELS[svc]||svc}.</div></div>
+        <div class="ban b"><div class="bt">Say it like this</div><div class="bb">"For a ${esc(icVehName())}, that runs $${lo} to $${hi} depending on the fob. I come to you, the part is matched to your VIN, and you watch everything work before you pay."</div></div>
+        ${needsOrder?
+          `<div class="ban y"><div class="bt">Part is NOT on the truck — deposit before you order</div><div class="bb">Needed: ${esc(pc.fcc||'—')}${pc.part?' / '+esc(pc.part):''}. Take a card deposit (recommended $${recDep}) before ordering — the part is matched to their vehicle and non-returnable. This one habit prevents the classic ghost-after-ordering burn.</div></div>`
+          :`<div class="ban g"><div class="bt">✓ Part is on the truck — ${esc(pc.hit.name)} (${parseInt(pc.hit.qty)||0} on hand)</div><div class="bb">No ordering wait. You can book this one same-day.</div></div>`}
+        <div class="field-row" style="margin-top:8px;"><div class="field-label">Deposit taken $ ${needsOrder?'(recommended '+recDep+')':'(optional)'}</div><input class="fi" type="number" value="${esc(ic.dep)}" placeholder="${needsOrder?recDep:'0'}" oninput="icInput('dep',this.value)"/></div>`;
+      nav=nextBtn('They said yes → book it');
+    }else{
+      body=`
+        <div class="jr-title">Verdict &amp; quote — outside the database</div>
+        <div class="jr-sub">Unknown vehicle: quote wide, commit to nothing until you've researched it.</div>
+        <div class="ban y"><div class="bt">Quote a range, not a number</div><div class="bb">"Depending on the key type it's usually $${DEFAULT_PRICES.fob_only||130}–$${Math.round((DEFAULT_PRICES.all_lost||280)*TIER_MULT.premium)} — I'll confirm the exact price before I start any work." Then research it before rolling (AllKeys Plus, tool coverage list, the fob in their hand).</div></div>
+        <div class="jr-note" style="color:var(--amber);">If it's European (BMW/Mercedes/Audi) or a Tesla-type digital-key car: refer it out now — see Ref tab → 2026+ horizon.</div>
+        <div class="field-row" style="margin-top:8px;"><div class="field-label">Deposit taken $ (if ordering anything)</div><input class="fi" type="number" value="${esc(ic.dep)}" placeholder="50" oninput="icInput('dep',this.value)"/></div>`;
+      nav=nextBtn('They said yes → book it');
+    }
+  }
+
+  if(ic.step===5){
+    body=`
+      <div class="jr-title">Book it</div>
+      <div class="jr-sub">Lock the time, the place, and the paperwork expectation — then hang up and prep.</div>
+      <div class="field-row"><div class="field-label">When (leave empty = just quoted)</div><input class="fi" type="text" value="${esc(ic.appt)}" placeholder="e.g. Tomorrow 10am" oninput="icInput('appt',this.value)"/></div>
+      <div class="field-row"><div class="field-label">Where (address / landmark)</div><input class="fi" type="text" value="${esc(ic.addr)}" placeholder="e.g. 123 Main St, Pearl — home driveway" oninput="icInput('addr',this.value)"/></div>
+      ${callout('info','🪪','Say this before hanging up','"Have your photo ID and the registration or insurance card for the car ready — I photograph both before I start. It protects your car and my license." Setting it up now means zero awkwardness on site.')}
+      <div class="field-row"><div class="field-label">Call notes</div><textarea class="notes-area" oninput="icInput('notes',this.value)" placeholder="Anything odd about the call, the car, the location...">${esc(ic.notes)}</textarea></div>
+      <div class="jr-note">Saving creates a job ticket — <strong>${ic.appt.trim()?'Scheduled / booked':'Quoted — awaiting decision'}</strong>. Advance its status right on the job card as things move.</div>`;
+    nav=`<button class="btn btn-primary" style="flex:2;" onclick="icSave()">Save job ticket ✓</button>`;
+  }
+
+  view.innerHTML=`<div class="card jr-wrap">
+    <div class="jr-head"><span class="jr-step-count">Call — step ${ic.step} of 5 — ${IC_STEPS[ic.step-1]}</span><button class="jr-exit" onclick="exitIntake()">exit</button></div>
+    <div class="jr-bar"><div class="jr-bar-fill" style="width:${pct}%"></div></div>
+    ${body}
+    <div class="jr-nav">${backBtn}${nav}</div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // LEARN — the "becoming an automotive locksmith" roadmap.
 // Compiled July 2026 from ALOA course listings, American Key Supply academy
 // schedules, Penn Foster program data, Locksmith Ledger training calendars,
@@ -2779,6 +3063,7 @@ const LEARN_PATH=[
   {title:"Phase 2 — First 10 paying jobs",sub:"Legal, insured, findable",steps:[
     {t:"Make it a real business",d:"LLC (cheap in MS), separate bank account, general liability insurance (~$40-80/mo — non-negotiable before touching customer property), Square/Stripe card reader, MS sales tax registration (7% + local)."},
     {t:"Get findable",d:"Google Business Profile with photos of your setup — most 'car key replacement near me' calls go to whoever has reviews and answers the phone. Vehicle magnets/wrap. Ask EVERY happy customer for a review on the spot."},
+    {t:"Plug into roadside lead flow",d:"AAA contractor networks, HONK, Urgently, Agero — they dispatch lockout calls to insured independent providers. Pay is thin ($25-60/call), but it's PAID Lishi practice, five-star reviews, and steady call volume while your Google profile is young. Treat it as reps, not the business model — and never let a dispatcher push you into programming work beyond your verdict card."},
     {t:"Take only green-verdict jobs at first",d:"Use this app's decision helper: beginner-friendly add-key jobs where you supply the fob. Refer out AKL and anything amber/red — a referred job costs you nothing; a botched one costs a review and maybe a BCM."},
     {t:"Verify ownership on every single job",d:"Photo ID + registration/insurance match, photographed and kept with the invoice. The invoice generator records it. This habit is your legal armor — start it on job #1."},
     {t:"Find your refer-out partner",d:"An established locksmith with an IM608 who takes your AKL referrals — and sends you overflow add-key work back. B2B beats B2C: used-car dealers, property managers, tow operators pay invoices, not haggles."}
@@ -2787,7 +3072,7 @@ const LEARN_PATH=[
     {t:"Add Lishi picks + practice locks",d:"Learn 2-3 common keyways (HU101 Ford, TOY43/48 Toyota, HY/KIA). Decoding a lock on-site means you can originate blades without a code."},
     {t:"Bring cutting in-house when volume justifies",d:"Start by outsourcing cuts; buy a portable cutter once you're outsourcing 10+/month. Machine + software is a real investment — let demand prove it first."},
     {t:"Climb the tool ladder",d:"IM508S or IM608 Pro II restores all-keys-lost capability on domestic makes; Lonsdor K518 if your area skews Toyota. Buy the tool your ACTUAL job log says you're refusing work for."},
-    {t:"Get certified & registered",d:"ALOA's CAL (Certified Automotive Locksmith) for the website and credibility. Then NASTF VSP registration — the Vehicle Security Professional credential that lets you legally pull key codes and immobilizer data from the OEMs like a dealer."},
+    {t:"Get certified & registered",d:"ALOA's CAL (Certified Automotive Locksmith) for the website and credibility. Then NASTF VSP registration — the credential that lets you legally pull key codes, PINs, and immobilizer data from the OEM portals like a dealer. The 2026 checklist: $435 for 2 years · a $1M aggregate / $500K per-event general liability policy (your insurance agent emails the certificate to NASTF) · FEIN + business registration · driver's license · two professional references with phone numbers. Mississippi doesn't license locksmiths, so there's no license to upload. Once you're in, the 'dealer-only' doors in this app (bitting codes by VIN, PIN pulls) open to you."},
     {t:"Review your numbers monthly",d:"The Jobs log is your business intelligence: which models keep appearing, what you refused, what earned the most per hour. Stock and train toward what's actually in your area."}
   ]}
 ];
@@ -2926,7 +3211,9 @@ const PITFALLS=[
   {t:"The stolen-car setup",d:"Someone calls for an urgent all-keys-lost on a car 'they just bought' at a odd location, pressures you to skip paperwork, offers extra cash. Locksmiths have been prosecuted as accessories.",p:"PROTOCOL: the ownership gate has no exceptions — ID + registration/insurance match, photographed, or you charge the service call and leave. Extra pressure to skip verification IS the red flag. No paperwork, no key, no matter the money."},
   {t:"Night calls are where the physical risk lives",d:"Lockouts at 2 AM in empty lots are the highest-margin AND highest-risk calls. Field-service workers get robbed where there's cash, darkness, and isolation.",p:"PROTOCOL: confirm callback number before rolling (scammers and setups avoid callbacks). Share live location with someone for every after-hours call. Park nose-out under light. Card payments advertised = less cash on you. If your gut says leave — leave; a $150 call is never worth it. Consider a dash cam that covers your work area."},
   {t:"Burnout via the always-on trap",d:"Solo mobile locksmiths quit from 24/7 phone slavery more than from lack of work. Answering at 3 AM for a $75 lockout every night is a business model that consumes its owner.",p:"PROTOCOL: after-hours is a PREMIUM service (top of the price range), not an obligation. Set answering hours; let voicemail state the after-hours rate — it filters the calls that aren't worth waking for. One protected day per week, minimum."},
-  {t:"Dead inventory is money in a drawer",d:"The classic pattern: a beginner buys 40 fobs 'to be ready', half never fit a job, batteries age out, $800 sits in a bin while the truck lacks the one part this week's jobs needed.",p:"PROTOCOL: stock follows the log, never the catalog. Universals absorb the unknown. Par levels only for what the Jobs tab proves you use (the Inventory card below enforces this). Date your battery stock; rotate it."}
+  {t:"Dead inventory is money in a drawer",d:"The classic pattern: a beginner buys 40 fobs 'to be ready', half never fit a job, batteries age out, $800 sits in a bin while the truck lacks the one part this week's jobs needed.",p:"PROTOCOL: stock follows the log, never the catalog. Universals absorb the unknown. Par levels only for what the Jobs tab proves you use (the Inventory card below enforces this). Date your battery stock; rotate it."},
+  {t:"A tool update can DELETE capability overnight",d:"The 2024 Autel AKL removals shipped as routine software updates — locksmiths updated the night before booked jobs and found whole menus gone, permanently. Coverage is licensed from the OEMs, and licenses get pulled without warning.",p:"PROTOCOL: never update a programmer the night before booked work. Read the release notes AND your tool's user group (Autel/Lonsdor/Xhorse Facebook groups) first — feature removals surface there within hours. Update on your slow day, then re-test one known-good vehicle before trusting the tool again."},
+  {t:"Gray-market 'AKL restore' unlocks are a trap",d:"Services like fixMyKM ($49-129) sell hardware-bound hacks that re-enable the all-keys-lost menus Autel removed. Tempting — but the removal came from OEM legal/licensing action: the hack can die with any future update, it voids warranty support, and an insurance adjuster or courtroom will ask exactly why your tool had circumvented menus in it.",p:"PROTOCOL: capability comes from the tool ladder, never from unlocks — IM508S/IM608 or Lonsdor for AKL, or refer it out and keep the referral partner warm. Your whole business is a trust story; don't bolt a liability onto the tool it stands on."}
 ];
 function renderPitfalls(){
   const wrap=document.getElementById('pitfalls-list');
@@ -3012,7 +3299,12 @@ function renderStats(){
   if(!jobs.length){el.innerHTML='';return;}
   const done=jobs.filter(j=>j.status==='done');
   const callbacks=jobs.filter(j=>j.status==='callback').length;
+  const open=jobs.filter(j=>['quoted','scheduled','pending','working'].includes(j.status)).length;
   const revenue=done.reduce((s,j)=>s+(parseFloat(j.price)||0),0);
+  const parts=done.reduce((s,j)=>s+(parseFloat(j.cost)||0),0);
+  const profit=revenue-parts;
+  const costLogged=done.some(j=>j.cost!==''&&j.cost!=null&&!isNaN(parseFloat(j.cost)));
+  const margin=revenue>0?profit/revenue*100:0;
   const avg=done.length?revenue/done.length:0;
   const cbRate=jobs.length?callbacks/jobs.length:0;
   const byVeh={};
@@ -3022,10 +3314,13 @@ function renderStats(){
     <div class="card-title accent">Business health</div>
     <div class="data-grid">
       <div class="data-tile"><div class="data-tile-label">💵 Revenue (completed)</div><div class="data-tile-value">$${revenue.toFixed(0)}</div></div>
+      <div class="data-tile"><div class="data-tile-label">📈 Profit (rev − parts)</div><div class="data-tile-value">${costLogged?'$'+profit.toFixed(0):'—'}</div></div>
+      <div class="data-tile"><div class="data-tile-label">📦 Parts spend</div><div class="data-tile-value">${costLogged?'$'+parts.toFixed(0):'—'}</div></div>
       <div class="data-tile"><div class="data-tile-label">🧾 Avg ticket</div><div class="data-tile-value">${done.length?'$'+avg.toFixed(0):'—'}</div></div>
-      <div class="data-tile"><div class="data-tile-label">📋 Jobs logged</div><div class="data-tile-value">${jobs.length}</div></div>
+      <div class="data-tile"><div class="data-tile-label">📞 Open pipeline</div><div class="data-tile-value">${open}</div></div>
       <div class="data-tile ${cbRate>0.05?'alert':''}"><div class="data-tile-label">↩ Callback rate</div><div class="data-tile-value">${(cbRate*100).toFixed(0)}%</div></div>
     </div>
+    ${costLogged&&revenue>0?`<div style="font-size:11.5px;color:var(--text3);margin-top:6px;">Margin ${margin.toFixed(0)}% — healthy mobile key work runs 60-75% after parts. Below that, your quotes or your part sourcing need attention.</div>`:`<div style="font-size:11.5px;color:var(--text4);margin-top:6px;">Log the parts cost on each job to unlock profit &amp; margin — price alone can't tell you if a job was worth it.</div>`}
     ${cbRate>0.05?'<div style="font-size:11.5px;color:var(--red);margin-top:6px;font-weight:600;">Above the 1-in-20 threshold — usually skipped post-job testing. Slow down on the verification checklist.</div>':''}
     ${top.length?`<div style="font-size:11.5px;color:var(--text3);margin-top:7px;">Most-seen vehicles: ${top.map(([k,n])=>esc(titleCase(k))+' ×'+n).join(' · ')} — stock and train toward these.</div>`:''}
   </div>`;

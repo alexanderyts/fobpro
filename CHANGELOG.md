@@ -2,6 +2,19 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.9.0 — 2026-07-11
+
+### The phone call becomes part of the app (owner-approved bundles 1–4)
+Fresh research sweep (NASTF requirements, roadside platforms, the fixMyKM gray-market unlock, digital-key/UWB trajectory) plus a workflow review that found the app covered the driveway but not the phone call — where jobs are actually won or lost.
+
+- **Call-intake wizard** (Jobs tab, plus a shortcut on Lookup): guided 5-step phone flow — callback number first (anti-scam gate), vehicle pick with generation awareness, the four triage questions (keys / push-button / fob source / aftermarket alarm), an instant verdict with quote range and a say-it-like-this script, truck-stock check against inventory, and a **deposit guard** before any part gets ordered. All-keys-lost calls the tools can't do get a refer-out script and log as referred — the refused-work log is the tool-ladder business case.
+- **Job pipeline:** new `quoted` and `scheduled` statuses; open job cards carry their own status/price/parts-cost controls and a "▶ Lookup" button that loads the ticket's vehicle straight into the lookup. A ticket flows call → booked → done without re-entering anything.
+- **Job economics:** parts-cost + deposit fields on every job; Business health now shows profit, parts spend, margin % (against the 60-75% healthy band for mobile key work), and open-pipeline count; per-job profit chip on completed cards; CSV export carries the new columns.
+- **Business path (researched Jul 2026):** NASTF VSP milestone expanded to the concrete checklist — $435/2yr, $1M/$500K general-liability certificate emailed by your agent, FEIN, two references, and **no locksmith license needed in Mississippi** (the state doesn't issue one). New Phase-2 step: roadside platforms (AAA contractor / HONK / Urgently / Agero) as paid Lishi practice and early lead flow. Bitting-code guidance now names the VSP path alongside the dealer.
+- **Tool protection:** two new pitfalls — *updates can DELETE capability* (the 2024 AKL removals shipped as routine updates; read release notes + user groups first, never update before booked work) and *gray-market "AKL restore" unlocks are a trap* (fixMyKM et al.: warranty, insurance, and courtroom exposure; capability comes from the tool ladder, not hacks). Update-discipline note added to the Ref-tab tool card.
+- **2026+ horizon card (Ref tab):** digital-key/UWB landscape — Tesla/Rivian/Lucid are closed to the aftermarket, phone-as-key enrollment is an owner-app task (decline warmly, script provided), and OBD + NASTF credentials is the future-proof lane.
+- Test suite grew 71 → **104 assertions** (intake state machine, pipeline proven-credit idempotence, deposit guard, stock matching, economics math, content invariants, static wiring).
+
 ## v8.8.0 — 2026-07-10
 
 ### Engineering audit + hardening (owner-approved fix bundles A–D)
