@@ -2,6 +2,20 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.7.0 — 2026-07-10
+
+### Full-database accuracy audit
+- Re-verified the suspect FCC set inherited from the original build. **Confirmed and fixed errors:** Elantra (phantom "OST-T111" → OSLOKA-360T 2011-16 / OSLOKA-423T 2017-20, with the 315→433 MHz frequency split), Santa Fe (listed fob was actually a **Kona** part → SY5DMFNA04 for 2013-18 prox), Optima (→ NYODD4TX1306 / SY5JFRGE04), Sorento (→ TQ8-FOB-4F06 / SY5MQ4FGE05), Highlander (unconfirmable "HYQ14FBW" → HYQ14FBA 2014-19 / HYQ14FBC 2020-24, with new specVariants). Tacoma/Tundra prox confirmed on HYQ14FBA; 2022+ Tundra flagged as new-generation BA immobilizer (no aftermarket AKL).
+- **Verified correct as listed:** Tucson (TQ8-RKE-4F25, flip 2016-21) and Sportage (TQ8-FOB-4F08, 2013-21).
+- **Honestly downgraded:** Prius, Kia Soul, and Odyssey — their IDs could not be independently confirmed, so they now instruct "verify on fob" instead of presenting unverified data as fact.
+
+### Honest-confidence system (anti-overconfidence)
+- Every vehicle carries a `verified` level — **41 verified / 17 partial / 2 model-level** — enforced as a required field by the audit.
+- Lookup results and the journey's parts step show the badge: green "data verified Jul 2026", amber "partially verified — confirm FCC on fob", red "model-level — verify every part on the fob".
+- Ref tab gains a **Data confidence scoreboard**: counts, the re-verification queue (partial/model vehicles listed by name), and the standing rule: *the FCC printed on the customer's fob outranks this database; coverage facts older than ~6 months deserve a fresh check.*
+- Guide headers now state provenance: steps cross-checked against official tool manuals (Jul 2026).
+- Audit prints the verification-coverage metric each run (currently 68% fully verified) — the number to push up over time, honestly.
+
 ## v8.6.0 — 2026-07-10
 
 ### Coverage expansion (12 vehicles, 3 new makes — verified July 2026)

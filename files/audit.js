@@ -123,6 +123,15 @@ const tests = `
   // v8.6: lishi tracker
   renderLishi();lishiRep(0,1);lishiRep(0,1);
   store['fobpro_lishi']==='{"0":2}'?T.ok('lishi reps persist ('+LISHI_LIST.length+' keyways)'):T.bad('lishi persistence broken: '+store['fobpro_lishi']);
+  // v8.7: confidence badges surface everywhere they should
+  el('l-make').value='Toyota';el('l-model').value='Camry';el('l-year').value='2021';el('l-trim').value='';
+  doLookup();
+  el('l-result').innerHTML.includes('data verified Jul 2026')?T.ok('verified badge shows on lookup'):T.bad('verified badge missing');
+  el('l-make').value='Kia';el('l-model').value='Soul';el('l-year').value='';
+  doLookup();
+  el('l-result').innerHTML.includes('model-level data')?T.ok('model-level warning shows for downgraded vehicle'):T.bad('downgrade badge missing');
+  renderDataConfidence();
+  el('data-confidence').innerHTML.includes('Standing rule')?T.ok('data-confidence scoreboard renders'):T.bad('scoreboard broken');
   console.log('  APP_VERSION',APP_VERSION);
 })();
 `;
@@ -134,7 +143,8 @@ const DB = JSON.parse(html.match(/^const DB=(\{.*\});$/m)[1]);
 let n = 0, sv = 0, probs = 0;
 for (const mk in DB) for (const md in DB[mk]) {
   n++; const d = DB[mk][md];
-  ['chip', 'freq', 'fcc', 'blank', 'gotcha', 'pricing', 'obd', 'km100Detail'].forEach(f => { if (d[f] === undefined) { bad(`${mk} ${md} missing ${f}`); probs++; } });
+  ['chip', 'freq', 'fcc', 'blank', 'gotcha', 'pricing', 'obd', 'km100Detail', 'verified'].forEach(f => { if (d[f] === undefined) { bad(`${mk} ${md} missing ${f}`); probs++; } });
+  if (!['verified', 'partial', 'model'].includes(d.verified)) { bad(`${mk} ${md} invalid verified level: ${d.verified}`); probs++; }
   if (d.specVariants) { sv++; d.specVariants.forEach(v => { if (!(v.yearStart <= v.yearEnd) || !v.chip || !v.fcc) { bad(`${mk} ${md} bad specVariant`); probs++; } }); }
 }
 if (!probs) ok(`${n} vehicles, ${sv} with specVariants, all required fields present`);
@@ -159,6 +169,11 @@ const wmiSrc = js.match(/const WMI=\{([\s\S]*?)\};/)[1];
 const wmiMakes = new Set([...wmiSrc.matchAll(/:"([^"]+)"/g)].map(x => x[1]));
 const unreachable = Object.keys(DB).filter(mk => !wmiMakes.has(mk));
 unreachable.length ? unreachable.forEach(mk => bad('make not in WMI table: ' + mk)) : ok('all ' + Object.keys(DB).length + ' makes reachable via VIN decode');
+
+// Verification coverage metric — the honesty scoreboard
+const vc = { verified: 0, partial: 0, model: 0 };
+for (const mk in DB) for (const md in DB[mk]) vc[DB[mk][md].verified]++;
+ok(`verification coverage: ${vc.verified} verified / ${vc.partial} partial / ${vc.model} model-level (${Math.round(vc.verified / n * 100)}% fully verified)`);
 
 // ── 5. Font + size ──────────────────────────────────────────────────────────
 console.log('\n[5] font + size');
