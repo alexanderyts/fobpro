@@ -2,6 +2,21 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.6.0 — 2026-07-10
+
+### Coverage expansion (12 vehicles, 3 new makes — verified July 2026)
+- **Lexus RX/NX** (HYQ14FBB G-board 2016-19 / HYQ14FLB 2020-22; 2023+ RX = BA immobilizer, no aftermarket AKL), **Mazda3/CX-5** (WAZSKE13D01/D02, ID49, CR2025 battery), **Acura MDX/RDX** (KR5V1X, 313.8 MHz, Driver-1/Driver-2 memory fobs are different parts; Honda add-key-only rules), **Chevy Traverse** (HYQ4EA 433) & **Colorado** (M3N32337100 flip, shared with Canyon), **Nissan Frontier** (2022+ KR5TXN7 shared with Murano/Titan) & **Murano** (three fob generations), **Toyota 4Runner** (HYQ12BBY G-chip covers 2010-19), **Ford Edge** (M3N-A2C31243300 902 MHz, cross-stocks with Fusion/Explorer/Mustang).
+- All entries carry generation-split specVariants where verified, correct per-make AKL/add-key rules, pricing, and Lexus/Acura premium positioning. New WMI entries (JTH/JTJ/2T2, JM1/JM3/3MZ, 19U/5J8/2HN…) so VIN decode recognizes the new makes.
+
+### Ownership photo capture (Jobs tab)
+- Camera/file capture on the job form; compressed to ~40-90KB (max 900px, JPEG); max 3 per job; thumbnails on job cards with full-screen viewer; photos ride inside job records so backup/restore carries them; CSV export excludes them; storage-full guard with recovery guidance.
+
+### Lishi practice tracker (Learn tab)
+- 12 keyways matched to the database's vehicles (HU101, TOY43/48, HON66, NSN14, B111, HU100, HY22, KK12, CY24/Y159, MAZ24R, SIP22) with difficulty ratings, per-keyway rep counters, and the proficiency ladder: 25 clean bench reps = field-ready. Genuine-Lishi-only warning cross-links the cheap-tools pitfall.
+
+### Cross-step safeguards (how the steps affect each other)
+- New audit invariants: every model under Toyota/Lexus/GM/Ford/Mazda/Nissan/Stellantis must carry `akl_removed:true` + `fromScratch:false`; Honda/Acura must be add-key-only; every DB make must be reachable from the VIN decoder's WMI table. New vehicles flow through the same journey/verdict/quote logic automatically. Audit suite now 24 runtime tests, all passing.
+
 ## v8.5.0 — 2026-07-10
 
 ### Pitfalls & field protocols (Learn tab)

@@ -109,6 +109,20 @@ const tests = `
   inv[0].qty===3?T.ok('inventory +/- adjusts and persists'):T.bad('inventory adjust broken');
   renderStats();
   el('job-stats').innerHTML.includes('Business health')?T.ok('business stats render from jobs log'):T.bad('stats broken');
+  // v8.6: new makes resolve through the full pipeline
+  el('l-make').value='Lexus';el('l-model').value='RX';el('l-year').value='2018';el('l-trim').value='';
+  doLookup();
+  el('l-fcc').value.includes('HYQ14FBB')?T.ok('2018 Lexus RX resolves HYQ14FBB (G board era)'):T.bad('Lexus spec variant wrong: '+el('l-fcc').value);
+  getDecision(currentVehicle).cls!==undefined?T.ok('new-make vehicle flows through decision logic'):T.bad('decision broken for new make');
+  decodeVinOffline('JTHBA1D2XG5000000').make==='Lexus'?T.ok('VIN decode recognizes Lexus WMI'):T.bad('Lexus WMI missing');
+  // v8.6: photos persist with job and render
+  jobs.unshift({id:1,name:'Photo Test',vehicle:'2018 Lexus RX',status:'done',price:'235',photos:['data:image/jpeg;base64,TEST'],date:'Jul 10'});
+  renderJobs();
+  T.ok('job with ownership photos renders ('+(jobs[0].photos.length)+' photo)');
+  jobs.shift();
+  // v8.6: lishi tracker
+  renderLishi();lishiRep(0,1);lishiRep(0,1);
+  store['fobpro_lishi']==='{"0":2}'?T.ok('lishi reps persist ('+LISHI_LIST.length+' keyways)'):T.bad('lishi persistence broken: '+store['fobpro_lishi']);
   console.log('  APP_VERSION',APP_VERSION);
 })();
 `;
@@ -124,6 +138,27 @@ for (const mk in DB) for (const md in DB[mk]) {
   if (d.specVariants) { sv++; d.specVariants.forEach(v => { if (!(v.yearStart <= v.yearEnd) || !v.chip || !v.fcc) { bad(`${mk} ${md} bad specVariant`); probs++; } }); }
 }
 if (!probs) ok(`${n} vehicles, ${sv} with specVariants, all required fields present`);
+
+// Make-level invariants: the 2024 Autel NA removal list must stay consistent,
+// and Honda/Acura are add-key-only by design. A new vehicle that violates
+// these would make the journey/verdict lie about AKL capability.
+const AKL_REMOVED_MAKES = ['Toyota', 'Lexus', 'Chevrolet', 'GMC', 'Ford', 'Mazda', 'Nissan', 'Dodge', 'Jeep', 'RAM'];
+const ADD_KEY_ONLY_MAKES = ['Honda', 'Acura'];
+let aklProbs = 0;
+for (const mk of AKL_REMOVED_MAKES) for (const md in (DB[mk] || {})) {
+  const d = DB[mk][md];
+  if (d.akl_removed !== true || d.fromScratch !== false) { bad(`${mk} ${md} violates AKL-removed invariant`); aklProbs++; }
+}
+for (const mk of ADD_KEY_ONLY_MAKES) for (const md in (DB[mk] || {})) {
+  if (DB[mk][md].fromScratch !== false) { bad(`${mk} ${md} violates Honda/Acura add-key-only invariant`); aklProbs++; }
+}
+if (!aklProbs) ok('make-level AKL/add-key invariants hold across all ' + n + ' vehicles');
+
+// Every DB make must be reachable from the VIN decoder's WMI table
+const wmiSrc = js.match(/const WMI=\{([\s\S]*?)\};/)[1];
+const wmiMakes = new Set([...wmiSrc.matchAll(/:"([^"]+)"/g)].map(x => x[1]));
+const unreachable = Object.keys(DB).filter(mk => !wmiMakes.has(mk));
+unreachable.length ? unreachable.forEach(mk => bad('make not in WMI table: ' + mk)) : ok('all ' + Object.keys(DB).length + ' makes reachable via VIN decode');
 
 // ── 5. Font + size ──────────────────────────────────────────────────────────
 console.log('\n[5] font + size');
