@@ -803,6 +803,36 @@ body{font-family:Helvetica,'Helvetica Neue',Arial,sans-serif;background:radial-g
     </ol>
   </div>
   <div class="card">
+    <div class="card-title accent">Sourcing — the four-rung ladder</div>
+    <div class="card-explain">Cheapest workable option first; climb only when the job demands it. This is how you keep 15 SKUs doing the work of 150.</div>
+    <ol class="slist">
+      <li class="si"><div class="sn"></div><div class="sb"><div class="stit">1 · Universal programmable remotes (60-70% of jobs)</div><div class="sdsc">Autel IKEY (pairs with your KM100) or Xhorse XS/XE/XN series (need an Xhorse tool to generate). One universal SKU covers dozens of models; Xhorse XS supports ID46/47/49/4A/4D/63/MQB48 and unlimited regeneration — a mis-generated key goes back in the bin. Carry 6-10.</div></div></li>
+      <li class="si"><div class="sn"></div><div class="sb"><div class="stit">2 · Model-specific quality aftermarket</div><div class="sdsc">KeylessOption, Keyless2Go, Dorman — when the customer wants the factory look for less. Buy from locksmith distributors, not marketplace sellers (counterfeit boards are real).</div></div></li>
+      <li class="si"><div class="sn"></div><div class="sb"><div class="stit">3 · Refurbished OEM</div><div class="sdsc">Original tested boards in fresh shells — true-OEM electronics at half the dealer price. Only from vendors who bench-test before shipping (most major distributors mark these clearly). NOT the same as a used eBay fob — those are usually VIN-locked.</div></div></li>
+      <li class="si"><div class="sn"></div><div class="sb"><div class="stit">4 · New OEM (Strattec / dealer)</div><div class="sdsc">Strattec IS the OEM manufacturer for most GM/Ford/Stellantis keys — buy via distributors for true-OEM domestic at wholesale. Dealer parts counter for late-model (2023+) prox and anything 2025+ Toyota.</div></div></li>
+    </ol>
+  </div>
+  <div class="card">
+    <div class="card-title">Vendor short-list (verified active, July 2026)</div>
+    <div class="card-explain">Open a wholesale account with ONE primary (tax-exempt pricing, net terms come with volume) + one backup for stockouts. Batch orders weekly to kill shipping costs.</div>
+    <div class="rc"><div class="rcb"><div class="rcs">
+      <div class="rr"><span class="rk">UHS Hardware</span><span class="rv" style="font-weight:500;">Default primary — huge catalog, universal-key collections, van-stock starter bundles</span></div>
+      <div class="rr"><span class="rk">American Key Supply</span><span class="rv" style="font-weight:500;">Distribution + the training academy; strong OEM/refurb lines</span></div>
+      <div class="rr"><span class="rk">Locksmith Keyless</span><span class="rv" style="font-weight:500;">Deep FCC-ID-searchable catalog incl. 2024-26 models — best for exact-part hunts</span></div>
+      <div class="rr"><span class="rk">Transponder Island</span><span class="rv" style="font-weight:500;">Wholesale keys/remotes, locksmith accounts</span></div>
+      <div class="rr"><span class="rk">Best Key Supply</span><span class="rv" style="font-weight:500;">Discount aftermarket volume stocking</span></div>
+      <div class="rr"><span class="rk">Key4 / Royal Key / ABKeys / MK3</span><span class="rv" style="font-weight:500;">OEM + Xhorse universals; MK3 is a major Xhorse US channel</span></div>
+      <div class="rr"><span class="rk">Dealer parts counter</span><span class="rv" style="font-weight:500;">2025+ Toyota, oddballs, VIN-cut blades</span></div>
+      <div class="rr"><span class="rk">Amazon / eBay</span><span class="rv" style="font-weight:500;">Batteries & shells ONLY — never critical electronics (counterfeits)</span></div>
+    </div></div></div>
+    <div style="margin-top:8px;font-size:11.5px;color:var(--text4);line-height:1.5;">Restock rule: let the Jobs log decide. Anything used in the last 60 days → keep 2 on the truck. Used once ever → keep 1. Reorder when you open the last one. Label bins by make with the FCC ID on the label.</div>
+  </div>
+  <div class="card">
+    <div class="card-title accent">Van stock — starter checklist</div>
+    <div class="card-explain">The opening inventory (~$400-600) matched to this database's highest-volume vehicles. Check off as you stock; saves on this device.</div>
+    <div id="stock-list"></div>
+  </div>
+  <div class="card">
     <div class="card-title">Common frequencies</div>
     <div class="freq-g">
       <div class="fcard"><div class="fval">315 MHz</div><div class="flbl">US / Japan domestic</div></div>
@@ -947,8 +977,9 @@ const ALL_TOOLS=[
 // VERSION — bump on every meaningful change; add a CHANGELOG entry to match.
 // Git tags mirror these versions (v8.1.0 etc.).
 // ═══════════════════════════════════════════════════════════════════════════
-const APP_VERSION="8.2.0";
+const APP_VERSION="8.3.0";
 const CHANGELOG=[
+  {v:"8.3.0",date:"2026-07-10",notes:["SOURCING & INVENTORY (Ref tab): the four-rung sourcing ladder (universal remotes → quality aftermarket → refurbished OEM → new OEM/Strattec/dealer), a verified July-2026 vendor short-list with account strategy, and a persistent van-stock starter checklist matched to this database's highest-volume vehicles.","Restock rule baked in: the Jobs log drives reorders — 2 on the truck for anything used in 60 days, reorder on opening the last one.","Playbook Part 6 added: full sourcing/inventory strategy with vendor tiers and counterfeit-avoidance rules."]},
   {v:"8.2.0",date:"2026-07-10",notes:["GUIDED JOB JOURNEY: a start-to-finish contextual flow (identify → phone triage → verdict & price → parts → on-site → wrap-up) that shows one step at a time instead of every card at once. Same data and logic as the classic view — it can't disagree with the lookup.","LEARN TAB: the researched 2026 roadmap to becoming an automotive locksmith — 4 phases, 18 steps, progress saved on this device.","Year-aware electronics: enter the model year and chip/frequency/FCC lock to the exact generation (23 models with verified splits).","Ownership verification baked in: customer-script question, pre-job checklist item, guided-mode legal gate, and a recorded line on the invoice.","Customer-supplied fob triage: per-make used-fob rules (most used OEM prox fobs are VIN-locked), new-fob policy, test-read-first workflow.","Part verification how-to from the KM100 manual: FCC label check, Transponder Reading (chip), Frequency Detection (MHz), and Ignition Coil Detection to read what the CAR expects.","Per-vehicle OBD port location surfaced in the journey's on-site step."]},
   {v:"8.1.0",date:"2026-07-10",notes:["Full data accuracy pass verified against July 2026 sources: fixed wrong chips (Ford 2015+ is ID49 Hitag Pro, not DST80), wrong FCC IDs (Dodge/Jeep smart keys are M3N-40821302, not the RAM fobik; Sonata is CQOFD00120), and generation-split FCC/chip/frequency data for Toyota, Honda, Nissan, GM, RAM, and VW.","Added 2025+ Toyota reality: no aftermarket all-keys-lost exists yet for BA/B6-type immobilizers; add-key needs a current Lonsdor K518 + FP30 cable.","Added Hyundai/Kia no-immobilizer note: many 2011-2021 base turn-key trims need NO programming (cut-only), plus the 2023 anti-theft update behavior.","Jobs and proven-vehicle history now SAVE across reloads (stored on this device).","AI troubleshooter actually works now (needs your Anthropic API key in Help tab; falls back to built-in guide offline).","VIN decoder validates the check digit and flags typos; fixed corrupted WMI entries.","Fixed tax lookup returning the wrong state for city names containing another state's name.","Escaped user-entered text in job cards/invoices (robustness)."]},
   {v:"8.0.0",date:"2026-07",notes:["Beginner-safety suite: guided first-job mode, skill ratings, decision helper, customer script, data tiles, confidence tracker. AKL-removal accuracy correction. Modern UI refresh."]}
@@ -2585,6 +2616,44 @@ function toggleLearnStep(k){
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// VAN STOCK — starter inventory checklist (Ref tab). Matched to the DB's
+// highest-volume vehicles; progress persists per device.
+// ═══════════════════════════════════════════════════════════════════════════
+const STOCK_LIST=[
+  {t:"6-10 Autel IKEY universal remotes (mixed styles)",d:"Your KM100 generates these into most flip/remote jobs — the single biggest SKU-killer. Add Xhorse XS-series universals if/when you run an Xhorse tool."},
+  {t:"2× Toyota H-chip fobs (Camry/Corolla/RAV4 family)",d:"HYQ14FBA + HYQ14FBC era. Highest-volume vehicles in the DB."},
+  {t:"2× Ford flip keys N5F-A08TAA (HU101, ID49)",d:"Covers 2015-22 F-150 + 2020+ Escape and most of the Ford lineup."},
+  {t:"2× GM flip B119 (OUC-series) + 1× YG0G21TB2 prox",d:"Silverado/Sierra 2014-18 flips move constantly; one 2022+ prox for the new trucks."},
+  {t:"2× Nissan KR5TXN1 prox (2019+ Altima/Sentra/Versa)",d:"One FCC ID covers three high-volume sedans."},
+  {t:"2× Honda KR5V2X prox (2016-22 Civic/Accord/CR-V)",d:"Plus one KR5TP-4 when budget allows (2022+ gen)."},
+  {t:"2× RAM GQ4-53T fobiks + 1× OHT-4882056 DT prox",d:"Truck country staples — both bodies sold 2019-24."},
+  {t:"2× Hyundai/Kia flip/remote (HY15R era)",d:"And remember: many 2011-21 base trims need NO programming — just a cut blade."},
+  {t:"Battery assortment: 20× CR2032, 10× CR2450, 5× CR2025, 5× CR1620",d:"Panasonic or Energizer via a distributor — not marketplace bulk lots. Battery swaps are instant-profit visits."},
+  {t:"Blade blanks: TOY43/TOY48 inserts, HU101, B119, Y160, KK12 emergency inserts",d:"Even without a cutter — transfers and outsourced cuts need the raw blank on hand."},
+  {t:"Consumables: fob buttons/pads kit, shell screws, small flathead, plastic pry tools",d:"Shell swaps and battery jobs; the pry tools keep customer fobs unscarred."},
+  {t:"Jump pack + battery tester + OBD extension cable",d:"The safety gear IS inventory — no 12.4V, no job."}
+];
+function renderStock(){
+  const wrap=document.getElementById('stock-list');
+  if(!wrap)return;
+  let prog={};
+  try{prog=JSON.parse(localStorage.getItem('fobpro_stock')||'{}')||{};}catch(e){}
+  const done=STOCK_LIST.filter((s,i)=>prog[i]).length;
+  wrap.innerHTML=`<div class="learn-body" style="border-radius:10px;">${STOCK_LIST.map((s,i)=>{
+    const c=!!prog[i];
+    return `<label class="learn-item ${c?'done':''}"><input type="checkbox" ${c?'checked':''} onchange="toggleStockItem(${i})"/><div><div class="li-t">${s.t}</div><div class="li-d">${s.d}</div></div></label>`;
+  }).join('')}</div><div style="margin-top:7px;font-size:11.5px;font-weight:700;color:var(--accent);">${done}/${STOCK_LIST.length} stocked</div>`;
+}
+function toggleStockItem(i){
+  let prog={};
+  try{prog=JSON.parse(localStorage.getItem('fobpro_stock')||'{}')||{};}catch(e){}
+  prog[i]=!prog[i];
+  if(!prog[i])delete prog[i];
+  try{localStorage.setItem('fobpro_stock',JSON.stringify(prog));}catch(e){}
+  renderStock();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // NAV + INIT
 // ═══════════════════════════════════════════════════════════════════════════
 function showTab(name,btn){
@@ -2607,6 +2676,7 @@ loadState();
 renderJobs();
 renderChangelog();
 renderLearn();
+renderStock();
 const verEl=document.getElementById('app-version');
 if(verEl)verEl.textContent='v'+APP_VERSION;
 </script>

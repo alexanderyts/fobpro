@@ -2,6 +2,13 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.3.0 — 2026-07-10
+
+### Sourcing & inventory (Ref tab + Playbook Part 6)
+- **Four-rung sourcing ladder**: universal programmable remotes (Autel IKEY / Xhorse XS-XE-XN, one SKU covers dozens of models, XS supports unlimited regeneration) → model-specific quality aftermarket (KeylessOption/Keyless2Go/Dorman via distributors, never marketplace) → refurbished OEM (bench-tested original boards) → new OEM (Strattec via distributor = true OEM domestic; dealer for 2025+ Toyota).
+- **Vendor short-list verified active July 2026**: UHS Hardware (primary; van bundles), American Key Supply, Locksmith Keyless (FCC-ID search incl. 2024-26 models), Transponder Island, Best Key Supply, Key4/Royal/ABKeys/MK3. Account strategy: one primary wholesale account + one backup, weekly batch orders.
+- **Van-stock starter checklist** (persistent): 12 items (~$400-600) matched to the DB's highest-volume vehicles, with the restock rule — Jobs log drives reorders, par 2 for 60-day movers, reorder on opening the last one. Never stock used OEM prox fobs.
+
 ## v8.2.0 — 2026-07-10
 
 ### Guided Job Journey (new)
