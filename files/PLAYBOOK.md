@@ -49,7 +49,19 @@ This is the flow for **every** job. The FobPro Guide tab renders a vehicle-speci
 4. **Verify the vehicle on the tool screen against the door sticker** before running anything. Wrong selection = wrong procedure.
 
 ### The work
-5. **Verify the part** — match the FCC ID on the customer's old fob (or FobPro's lookup + the year) to the fob in your hand. Frequency and chip must match; a 433 MHz remote will never pair to a 315 MHz car even if the shell is identical.
+
+**Finding the OBD port.** It's legally required to be near the steering wheel on every 1996+ car sold in the US. In practice: kneel at the driver's door, look **under the dash left of the steering column** (most cars), then right of the column, then behind a small flip-down panel or above the pedals (some Chrysler/RAM hide it behind a cover). It's a 16-pin trapezoid female connector. FobPro stores the exact spot per vehicle (data tiles + the journey's on-site step), so check the app before you crawl.
+
+**Verifying the part (the FCC ID check).** Every remote sold in the US carries an FCC ID on a printed label — open the fob's battery cover (small flathead in the seam) and read it. It must match what FobPro's lookup shows for the year/model. This one label beats guessing from the shape, and when ordering online, search by FCC ID, not by "2019 Camry key".
+
+**Checking chip & frequency — yes, this is where the programmer comes in.** The KM100 has three built-in checks (all from the home screen, per the official manual):
+- **Reading/Cloning → Transponder Reading** — set the key in the tool's key slot; it reads and displays the chip type/ID inside. Confirms what you *bought*.
+- **Transponder Function → Frequency Detection** — hold the fob near the tool and press a button; it displays the transmit frequency in MHz. Confirms the *remote* side.
+- **Ignition Coil Detection** — hold the tool's low-frequency collector within 4 in / 10 cm of the car's ignition coil (cycle the ignition if no signal); it reads the vehicle's IMMO protocol and expected transponder type **straight from the car**. Confirms what the *car wants* — and it's also how you test whether a base-trim Hyundai/Kia has no immobilizer at all.
+
+When all three line up — label matches lookup, chip read matches, car's expected type matches — you program with confidence.
+
+5. **Verify the part** — run the checks above before touching the car. Frequency and chip must match; a 433 MHz remote will never pair to a 315 MHz car even if the shell is identical.
 6. **Handle the blade** — transfer the old blade into the new shell when you can (no cutting, no code needed). Otherwise: pull the bitting code by VIN (AllKeys Plus/dealer), decode the door lock with a Lishi, or outsource the cut.
 7. **Program the chip** — follow the tool's guided flow (KM100: IMMO → Hot Function → Add Key (guided)). If a PIN calculation fails, **stop** — repeated attempts trigger lockouts. Refer out rather than retry blind.
 8. **Sync the remote** — Remote Control Learning, press buttons when prompted.

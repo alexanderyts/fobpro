@@ -2,6 +2,26 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.2.0 — 2026-07-10
+
+### Guided Job Journey (new)
+- Start-to-finish contextual flow on the Lookup tab: identify → phone triage (keys count, who supplies the fob, alarm, ownership docs) → verdict & price → parts → on-site → wrap-up. One step at a time instead of every card at once.
+- Pulls from the same DB and decision logic as the classic view (getDecision / getSpecVariant / fobTriageText), so the journey cannot contradict the reference data. Classic full view remains available; journey is opt-in per job.
+- Zero-keys on AKL-removed makes routes to a refer-out ending with a customer script.
+- On-site step surfaces the per-vehicle OBD port location, battery location, and expected duration.
+
+### Learn tab (new)
+- "Becoming an automotive locksmith" roadmap: 4 phases, 18 steps from $0 orientation to CAL certification and NASTF VSP registration. Compiled from ALOA course listings, American Key Supply academy schedules, Penn Foster program data, Locksmith Ledger training calendars, and practitioner-community advice (July 2026). Progress persists per device.
+
+### Gap features from the v8.1 audit
+- **Year-aware electronics (specVariants):** 23 models carry verified generation splits; entering the model year locks chip/frequency/FCC to the exact generation with a confidence banner. Falls back to annotated model-level data elsewhere.
+- **Ownership verification:** first question in the customer script, first required item on the pre-job checklist, a hard legal gate in guided mode, and a recorded verification line (with document notes) on the invoice.
+- **Customer-supplied fob triage:** per-make used-fob rules (most used OEM smart/prox fobs are VIN-locked to the donor; Ford/GM friendlier; Hyundai/Kia one-time-pair), new-fob policy language, and a test-read-first workflow — in the lookup card, phone script, and journey.
+
+### Part-verification procedure (from the KM100 official manual)
+- New guide step and journey callout: FCC label check → Reading/Cloning → Transponder Reading (chip in hand) → Frequency Detection (remote MHz) → Ignition Coil Detection (reads the IMMO protocol and expected transponder type from the car, collector within 4 in/10 cm).
+- PLAYBOOK.md Part 2 expanded: finding the OBD port, verifying by FCC ID, and the three programmer checks.
+
 ## v8.1.0 — 2026-07-10
 
 ### Data accuracy (verified against July 2026 sources)
