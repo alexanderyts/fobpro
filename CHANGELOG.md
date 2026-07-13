@@ -2,6 +2,19 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.13.0 — 2026-07-11
+
+### Full-database blade challenge vs the 2025 Ilco reference + vendor links
+Method: all 170 blank/keyway entries compared programmatically against the extracted guide text (compact matching to defeat column interleaving), suspects hand-adjudicated against actual guide rows. 139 confirmed; 13 vehicles corrected:
+- **Phantom code eliminated:** `HY15R` (Elantra/Optima/Soul blanks + "Ilco HY15R-PT" shells) doesn't exist in the Ilco catalog. Corrected per guide: Optima 2010-16 = LXP90-P / 2017-20 = KK12-P (+ prox HY22/KK12-P), Soul 2014-19 = KK10-P/LXP90-P (2020+ KK12-P, 2011-13 HY21), Elantra 2011-20 = HY15-P.
+- Sonata 2011-18 flip = LXP90-P (HY20 profile); prox inserts KK10-P through 2023 (was KK12-P for 2020-22).
+- Mustang/Explorer 2015/16+ = HU101 (P1117) prox emergency insert, not H128-PT (keyed-ignition only).
+- Cherokee KL prox = Y171-P emergency / Y159 service (was raw OEM number); keyed = Y164-PT. Charger/Challenger = Y170-PT fobik era. Durango = real OEM numbers 68066349AG/68150061AC. RAM 2019+ = honest "no aftermarket blank listed".
+- Highlander 2020-22 insert = TOY51-P; Prius service key = LXP90-P (card 3102); `TOY48EMER`/`TOY48H-PT` shorthand replaced with real codes (TOY48, TOY44H-PT).
+- **Soul upgraded model → partial** (blade Ilco-verified; FCC still unconfirmed). Scoreboard now 41/18/1.
+- Vendor short-list rows now link to all seven verified distributors.
+- Tests 153 → **165** (11 blade-correction assertions + vendor-link check); audit's model-level probe moved to Prius.
+
 ## v8.12.1 — 2026-07-11
 
 ### Tucson blade data verified against the 2025 Ilco guide (Alex's "why Lexus?" question)

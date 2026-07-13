@@ -127,7 +127,9 @@ const tests = `
   el('l-make').value='Toyota';el('l-model').value='Camry';el('l-year').value='2021';el('l-trim').value='';
   doLookup();
   el('l-result').innerHTML.includes('data verified Jul 2026')?T.ok('verified badge shows on lookup'):T.bad('verified badge missing');
-  el('l-make').value='Kia';el('l-model').value='Soul';el('l-year').value='';
+  // (Soul was upgraded to 'partial' in v8.13.0 after its blade data was
+  // Ilco-verified — Prius remains the model-level probe.)
+  el('l-make').value='Toyota';el('l-model').value='Prius';el('l-year').value='';
   doLookup();
   el('l-result').innerHTML.includes('model-level data')?T.ok('model-level warning shows for downgraded vehicle'):T.bad('downgrade badge missing');
   renderDataConfidence();

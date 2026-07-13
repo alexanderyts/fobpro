@@ -230,6 +230,20 @@ is('2013-15 Tucson blade corrected to LXP90-P (HY20), not HY15', getFobVariant(t
 is('2010-12 Tucson keeps HY15-P (ID46 era)', getFobVariant(tuc,'2011','').blank==='HY15-P');
 is('prox Tucson emergency insert is KK10-P with real OEM part numbers', (()=>{const v=getFobVariant(tuc,'2023','');return v.blank==='KK10-P'&&v.oemPart.includes('95440');})());
 is('Tucson blank copy string is the clean Ilco number', blankToken('LXP90-P')==='LXP90-P');
+
+// v8.13.0 — full-DB blade challenge vs 2025 Ilco reference guide
+console.log('\\n[L] Ilco 2025 full-DB blade corrections');
+is('Optima 2013 flip blade is LXP90-P (was phantom HY15R)', getFobVariant(DB.Kia.Optima,'2013','').blank==='LXP90-P');
+is('Optima 2018 flip blade is KK12-P', getFobVariant(DB.Kia.Optima,'2018','').blank==='KK12-P');
+is('Soul 2016 blade is KK10-P/LXP90-P and Soul upgraded to partial', getFobVariant(DB.Kia.Soul,'2016','').blank.includes('KK10-P')&&DB.Kia.Soul.verified==='partial');
+is('Sonata 2015 flip blade is LXP90-P (HY20 profile, was HY15-P)', getFobVariant(DB.Hyundai.Sonata,'2015','').blank==='LXP90-P');
+is('Mustang 2018 uses the HU101 prox insert (was H128 ignition key)', getFobVariant(DB.Ford.Mustang,'2018','').blank.includes('HU101'));
+is('Cherokee KL prox emergency is Y171-P (was raw OEM number)', (DB.Jeep.Cherokee.fobVariants.find(v=>v.trim==='prox')||{blank:''}).blank.includes('Y171-P'));
+is('Prius service key is LXP90-P per Ilco card 3102', DB.Toyota.Prius.blank.includes('LXP90-P'));
+is('Highlander 2021 insert is TOY51-P per Ilco', getFobVariant(DB.Toyota.Highlander,'2021','').blank.includes('TOY51-P'));
+is('no TOY48EMER shorthand remains anywhere', Object.keys(DB).every(mk=>Object.keys(DB[mk]).every(md=>(DB[mk][md].fobVariants||[]).every(v=>!/TOY48EMER|TOY48-family/i.test(v.blank)))));
+is('no unverifiable raw OEM numbers remain as blank values', Object.keys(DB).every(mk=>Object.keys(DB[mk]).every(md=>(DB[mk][md].fobVariants||[]).every(v=>!/^(68292428|68250338|56046955AC)$/.test(v.blank)))));
+is('the phantom HY15R code is gone from the entire database', !JSON.stringify(DB).includes('HY15R'));
 is('Tucson fobVariants now cover 2005-2024 with no gap', (()=>{for(let y=2005;y<=2024;y++){if(!tuc.fobVariants.some(v=>y>=v.yearStart&&y<=v.yearEnd))return false;}return true;})());
 el('l-make').value='Hyundai';el('l-model').value='Tucson';el('l-year').value='2016';el('l-trim').value='SE';
 doLookup();
@@ -397,6 +411,7 @@ is('X5: parts-cost + deposit fields in job form', dom.includes('id="j-cost"') &&
 is('X5: CSV export carries economics + intake columns', js.includes("'price','cost','deposit'") && js.includes("'leadSrc'"));
 is('X5: digital-key horizon card on Ref tab', dom.includes('id="digital-horizon"') && /UWB/.test(dom));
 is('X5: quoted/scheduled status dots styled', html.includes('.sdot.quoted') && html.includes('.sdot.scheduled'));
+is('X6: vendor short-list rows carry live links', dom.includes('href="https://www.uhs-hardware.com"') && dom.includes('href="https://www.locksmithkeyless.com"') && dom.includes('href="https://transponderisland.com"'));
 
 // ═══ SUMMARY ═════════════════════════════════════════════════════════════
 console.log('\n══════════════════════════════════════');

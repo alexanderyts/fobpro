@@ -96,7 +96,7 @@ Class conventions: `.fi` inputs, `.btn`/`.btn-primary`/`.btn-green`/`.btn-outlin
 - **AI troubleshooter requires the user's Anthropic API key** (Help tab → saved to localStorage; sent via `x-api-key` + `anthropic-dangerous-direct-browser-access` headers, model `claude-opus-4-8`). No key or no signal → offline `ERROR_KB` fallback, which is the designed behavior.
 - **Single-file constraint** is by choice (chat-interface artifact origin). Once in Claude Code, splitting the DB into its own file is reasonable if Alex wants it.
 - VIN decode resolves make + year reliably; model isn't standardized in the VIN, so the user still picks the model. Bitting codes require AllKeys Plus / dealer (proprietary — can't be embedded).
-- Database coverage gaps: Lexus/Mazda/Acura added in v8.6; still no Mercedes/BMW/Infiniti/Mitsubishi/Buick/Cadillac; 17 vehicles are `verified:'partial'` and 2 are `'model'` — re-verification queue documented in the Ref-tab scoreboard.
+- Database coverage gaps: Lexus/Mazda/Acura added in v8.6; still no Mercedes/BMW/Infiniti/Mitsubishi/Buick/Cadillac; 18 vehicles are `verified:'partial'` and 1 is `'model'` (Prius) — re-verification queue documented in the Ref-tab scoreboard. Blade/blank data was fully verified against the 2025 Ilco guide (v8.13.0; the guide PDF lives in `files/key info/`); FCC data for partials remains the open queue.
 
 ## Tone for Alex-facing copy
 
