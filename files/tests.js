@@ -197,6 +197,29 @@ is('gray-market AKL unlock warning present (fixMyKM)', PITFALLS.some(p=>/fixMyKM
 is('pitfall library grew to 10', PITFALLS.length===10);
 is('every pitfall still has title/description/protocol', PITFALLS.every(p=>p.t&&p.d&&p.p));
 
+// ═══ [L] v8.10.0 — Tucson gap fix + honest fallbacks + easy targets ════════
+console.log('\\n[L] Tucson year-gap regression + message honesty');
+const tuc=DB.Hyundai.Tucson;
+is('BUG FIXED: 2016 Tucson resolves a CONFIDENT fob variant', (()=>{const v=getFobVariant(tuc,'2016','SE');return !!v&&v.confident===true&&v.oemPart.includes('D3010');})());
+is('2013 Tucson (LM gen) resolves confidently too', (()=>{const v=getFobVariant(tuc,'2013','');return !!v&&v.confident===true&&v.oemPart.includes('OSLOKA');})());
+is('Tucson fobVariants now cover 2005-2024 with no gap', (()=>{for(let y=2005;y<=2024;y++){if(!tuc.fobVariants.some(v=>y>=v.yearStart&&y<=v.yearEnd))return false;}return true;})());
+el('l-make').value='Hyundai';el('l-model').value='Tucson';el('l-year').value='2016';el('l-trim').value='SE';
+doLookup();
+is('BUG FIXED: 2016 Tucson lookup no longer says "Enter the model year"', !el('l-result').innerHTML.includes('Enter the model year above'));
+is('2016 Tucson lookup shows the year-matched part banner', el('l-result').innerHTML.includes('Part # matched to 2016'));
+el('l-year').value='1999';doLookup();
+is('honest fallback: unmatched year names the year instead of lying', el('l-result').innerHTML.includes('No verified part data for 1999'));
+el('l-make').value='';el('l-model').value='';el('l-year').value='';el('l-trim').value='';currentVehicle=null;
+
+console.log('\\n[L] easy-targets list (Ref tab)');
+const ets=easyTargets();
+is('easy targets exist and every entry is full-KM100 + beginner', ets.length>0&&ets.every(r=>r.d.km100==='yes'&&r.d.skill==='beginner'));
+is('easy targets exclude erase-all and gateway vehicles', ets.every(r=>!r.d.eraseWarning&&!r.d.sgw));
+is('no-immobilizer money-makers rank above unverified entries', (()=>{const mm=ets.findIndex(r=>/MONEY-MAKER/.test(r.d.gotcha||''));return mm>-1&&mm<ets.length/2;})());
+renderEasyTargets();
+is('easy-targets card renders with the walk-away list', el('easy-targets').innerHTML.includes('Walk away as a beginner'));
+is('easy-targets rows are tappable lookups', el('easy-targets').innerHTML.includes('etLookup('));
+
 // ═══ [S] SECURITY ══════════════════════════════════════════════════════════
 console.log('\\n[S] security — XSS sink matrix');
 const payload='<img src=x onerror=alert(1)>';

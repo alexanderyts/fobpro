@@ -2,6 +2,14 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.10.0 — 2026-07-11
+
+### Field bug fix (reported by Alex) + easiest-targets guide
+- **2016 Tucson bug:** the Tucson year-variant table had a 2012-2018 hole; a 2016 lookup fell back to nearest-generation AND the warning wrongly said "enter the model year" when the year was entered. Gap filled with verified data — 2016-21 TL flip (TQ8-RKE-4F25 / 95430-D3010 / 433 MHz / KK10 · Ilco LXP90) and 2010-15 LM (OSLOKA-850T separate remote / 95430-2S200 / HY15 cut key, non-chip). The 2005-11 entry corrected to 2005-09 (JM generation).
+- **Honest fallback messages:** when a year is entered but unmatched, the parts card, electronics banner, key-cut section, and journey parts step now say "No verified data for {year} — showing nearest known" instead of asking for the year again. Regression-tested.
+- **🎯 Where to start (Ref tab):** ranked easiest-first-targets list generated live from the DB (beginner + full KM100 + no erase/gateway traps; no-immobilizer money-makers float up), the 2010-2019 sweet-spot rule, house rules for the first 25 jobs, the walk-away list, and tap-to-load into Lookup.
+- Tests 104 → **115**.
+
 ## v8.9.0 — 2026-07-11
 
 ### The phone call becomes part of the app (owner-approved bundles 1–4)
