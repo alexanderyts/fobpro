@@ -224,6 +224,12 @@ console.log('\\n[L] Tucson year-gap regression + message honesty');
 const tuc=DB.Hyundai.Tucson;
 is('BUG FIXED: 2016 Tucson resolves a CONFIDENT fob variant', (()=>{const v=getFobVariant(tuc,'2016','SE');return !!v&&v.confident===true&&v.oemPart.includes('D3010');})());
 is('2013 Tucson (LM gen) resolves confidently too', (()=>{const v=getFobVariant(tuc,'2013','');return !!v&&v.confident===true&&v.oemPart.includes('OSLOKA');})());
+// v8.12.1 — Ilco-guide blade corrections (Alex's "why Lexus blank" question)
+is('2016 Tucson blank is LXP90-P per Ilco 2025 card 2372 (Lexus-named shared profile)', (()=>{const v=getFobVariant(tuc,'2016','SE');return v.blank==='LXP90-P'&&/Lexus/i.test(v.keyway);})());
+is('2013-15 Tucson blade corrected to LXP90-P (HY20), not HY15', getFobVariant(tuc,'2014','').blank==='LXP90-P');
+is('2010-12 Tucson keeps HY15-P (ID46 era)', getFobVariant(tuc,'2011','').blank==='HY15-P');
+is('prox Tucson emergency insert is KK10-P with real OEM part numbers', (()=>{const v=getFobVariant(tuc,'2023','');return v.blank==='KK10-P'&&v.oemPart.includes('95440');})());
+is('Tucson blank copy string is the clean Ilco number', blankToken('LXP90-P')==='LXP90-P');
 is('Tucson fobVariants now cover 2005-2024 with no gap', (()=>{for(let y=2005;y<=2024;y++){if(!tuc.fobVariants.some(v=>y>=v.yearStart&&y<=v.yearEnd))return false;}return true;})());
 el('l-make').value='Hyundai';el('l-model').value='Tucson';el('l-year').value='2016';el('l-trim').value='SE';
 doLookup();

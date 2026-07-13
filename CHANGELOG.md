@@ -2,6 +2,13 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.12.1 — 2026-07-11
+
+### Tucson blade data verified against the 2025 Ilco guide (Alex's "why Lexus?" question)
+- **The LXP90-P result was correct:** Ilco named the blank for 1990s Lexus; Hyundai's HY20-era 4-track high-security blade shares the same profile, so vendor listings title it "Lexus/Mazda/Hyundai/Kia". Confirmed in the 2025 Ilco Auto/Truck Key Blank Reference (Hyundai, card 2372): Tucson 2016–2019 regular key = LXP90-P. The keyway field now explains the name crossover in-app.
+- **Corrections found while verifying:** 2013–2015 Tucson = HY20-PT key / LXP90-P blank (was wrongly HY15-P — correct only for 2010–2012, which is now its own variant); prox Tucson emergency insert = KK10-P with real OEM numbers (95440-D3510 2019-21, 95440-N9050~N9080 2022+).
+- Tests 148 → **153**.
+
 ## v8.12.0 — 2026-07-11
 
 ### Procedure-conformance test layer + generics re-verification
