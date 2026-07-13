@@ -1065,8 +1065,9 @@ const ALL_TOOLS=[
 // VERSION — bump on every meaningful change; add a CHANGELOG entry to match.
 // Git tags mirror these versions (v8.1.0 etc.).
 // ═══════════════════════════════════════════════════════════════════════════
-const APP_VERSION="8.10.0";
+const APP_VERSION="8.10.1";
 const CHANGELOG=[
+  {v:"8.10.1",date:"2026-07-11",notes:["VIN DECODER AUDITED AGAINST NHTSA vPIC (the federal registry): every WMI in the table was cross-checked plus real published VINs. Three findings, all fixed:","(1) Year decode now applies the federal position-7 rule — VIN year codes repeat every 30 years, and a 1995-2000 vehicle was decoding as 2025-2030. A '98 Civic now reads 1998, not 2028.","(2) KNM prefix corrected: it's Korea-built NISSAN (Renault Samsung Rogues), not Kia.","(3) 5TG removed — it belongs to a trailer manufacturer, not Lexus.","Confirmed good: the check-digit validator agrees with vPIC exactly — it even correctly flags three 'sample VINs' that circulate on the internet as invalid. Every other WMI in the table matched the federal registry."]},
   {v:"8.10.0",date:"2026-07-11",notes:["BUG FIX (found by Alex, 2016 Tucson SE): the Tucson's year-variant table had a 2012-2018 hole, so a 2016 lookup fell back to 'nearest generation' — and the warning wrongly said 'enter the model year' when the year WAS entered. The gap is filled with verified data (2016-21 flip TQ8-RKE-4F25 / 95430-D3010 / KK10 keyway; 2010-15 OSLOKA-850T separate remote + HY15 cut key).","HONEST FALLBACK MESSAGES everywhere: when a year is entered but the database has no verified data for it, the app now says exactly that ('No verified part data for 2016 — showing nearest known variant') instead of telling you to enter the year again. Fixed in the parts card, electronics banner, key-cut section, and the journey's parts step.","🎯 WHERE TO START (Ref tab): a ranked easiest-first-targets list generated live from the database — beginner-rated, full KM100 support, no erase traps, no gateways; the Hyundai/Kia no-immobilizer money-makers float to the top. Includes the 2010-2019 sweet-spot rule, house rules for the first 25 jobs, and the walk-away list. Tap any row to load it into Lookup."]},
   {v:"8.9.0",date:"2026-07-11",notes:["CALL-INTAKE WIZARD (Jobs tab + Lookup shortcut): a guided flow for the moment the phone rings — callback number first (anti-scam gate), vehicle triage with the four questions that change the price, an instant verdict + quote range with a say-it-like-this script, a truck-stock check against your inventory, and a deposit guard before any part gets ordered. Saves straight into the job pipeline.","JOB PIPELINE: new 'Quoted' and 'Scheduled' statuses; open job cards now carry their own status/price/parts-cost controls and a one-tap 'Load into Lookup' — a ticket moves from call to done without re-entering anything.","JOB ECONOMICS: parts-cost and deposit fields on every job; Business health now shows real profit, parts spend, margin % against the 60-75% healthy band, and your open pipeline. CSV export carries the new columns.","BUSINESS PATH (researched Jul 2026): the NASTF VSP milestone now carries the full 2026 checklist ($435/2yr, $1M/$500K liability certificate, FEIN, two references — and no locksmith license needed in Mississippi); new Phase-2 step: roadside platforms (AAA/HONK/Urgently/Agero) as paid Lishi practice and early lead flow.","TOOL PROTECTION: two new pitfalls — updates can DELETE capability (the 2024 AKL removals shipped as updates; read release notes first, never update before booked work) and the gray-market 'AKL restore' unlock trap (fixMyKM et al.) with the reasons it risks warranty, insurance, and reputation.","2026+ HORIZON (Ref tab): digital-key/UWB landscape card — which calls to decline (Tesla/Rivian/Lucid, phone-as-key enrollment), what to say, and why OBD + NASTF credentials is the future-proof lane."]},
   {v:"8.8.0",date:"2026-07-10",notes:["HARDENING RELEASE — all 11 findings from the 56-test engineering audit fixed, with owner approval, and locked in as permanent test assertions.","Security: CSV exports neutralize spreadsheet formula injection; VIN input strictly validated (letters/digits only); job photos render only from safe embedded image data.","Pricing accuracy: quotes are now TRIM-AWARE — a prox trim like Camry XSE correctly quotes the smart-key price ($185) instead of the base add-key price ($130), in both the journey and the auto-quote.","Data accuracy: out-of-range years now fall back to the NEAREST generation (a 2005 vehicle no longer shows 2025 electronics); \"Jackson,MS\" formatting variants find the city tax add-on; Lexus/Mazda/Acura got make-specific used-fob rules.","Field usability: 16px inputs (iPhone no longer zooms when you tap a field), 44px touch targets on all +/− buttons (glove-friendly), hint text brightened to pass WCAG AA contrast for sunlight readability.","Accessibility: labels on all icon buttons, Escape-key dismiss on the photo viewer."]},
@@ -1162,7 +1163,7 @@ const WMI={
   // Hyundai
   "5NP":"Hyundai","KMH":"Hyundai","KM8":"Hyundai","5NM":"Hyundai","KMF":"Hyundai",
   // Kia
-  "5XX":"Kia","KND":"Kia","KNA":"Kia","3KP":"Kia","5XY":"Kia","KNM":"Kia",
+  "5XX":"Kia","KND":"Kia","KNA":"Kia","3KP":"Kia","5XY":"Kia","KNM":"Nissan",
   // Dodge / Chrysler / Stellantis
   "2C3":"Dodge","2B3":"Dodge","1B3":"Dodge","2D4":"Dodge","1C3":"Dodge","3C4":"Dodge","2C4":"Dodge","1C6":"RAM","3C6":"RAM","1D7":"Dodge",
   // Jeep
@@ -1172,7 +1173,7 @@ const WMI={
   // Subaru
   "4S3":"Subaru","4S4":"Subaru","JF1":"Subaru","JF2":"Subaru",
   // Lexus
-  "JTH":"Lexus","JTJ":"Lexus","2T2":"Lexus","5TG":"Lexus",
+  "JTH":"Lexus","JTJ":"Lexus","2T2":"Lexus",
   // Mazda
   "JM1":"Mazda","JM3":"Mazda","3MZ":"Mazda","3MD":"Mazda",
   // Acura
@@ -1206,7 +1207,13 @@ function decodeVinOffline(vin){
   const wmi=vin.substring(0,3);
   const make=WMI[wmi];
   const yearChar=vin.charAt(9);
-  const year=YEAR_CODE[yearChar]||null;
+  let year=YEAR_CODE[yearChar]||null;
+  // NHTSA §565.15 disambiguation: VIN year codes repeat every 30 years.
+  // Position 7 (index 6) is a DIGIT on pre-2010 vehicles and a LETTER on
+  // 2010+ — so a letter year code with a digit at position 7 means the
+  // earlier cycle (e.g. code W + digit pos-7 = 1998, not 2028). Verified
+  // against NHTSA vPIC July 2026.
+  if(year&&year>=2010&&/[0-9]/.test(vin.charAt(6)))year-=30;
   const plant=vin.charAt(10);
   const serial=vin.substring(11);
   const vds=vin.substring(3,8); // vehicle descriptor section (model/body/engine)

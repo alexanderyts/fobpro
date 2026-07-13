@@ -50,6 +50,12 @@ is('lowercase input normalized', decodeVinOffline('4t1bf1fk5hu999999').make==='T
 is('year code S→2025', decodeVinOffline('4T1BF1FK5SU999999').year===2025);
 is('year code 5→2005', decodeVinOffline('4T1BF1FK55U999999').year===2005);
 is('unknown WMI → null make, still decodes year', (()=>{const r=decodeVinOffline('ZZZBF1FK5HU999999');return r.make===null&&r.year===2017;})());
+// v8.10.1 — findings from the NHTSA vPIC cross-audit (2026-07-11)
+is('V1 FIXED: pre-2010 cycle detected via digit at position 7 (1989 bus, not 2019)', decodeVinOffline('1M8GDM9AXKP042788').year===1989);
+is('V1 FIXED: 1998 VIN (code W + digit pos-7) decodes 1998, not 2028', decodeVinOffline('1HGEJ8241WL123456').year===1998);
+is('V1: letter at position 7 keeps the 2010+ cycle (2025 stays 2025)', decodeVinOffline('4T1BF1FK5SU999999').year===2025);
+is('V2 FIXED: KNM decodes as Nissan (Korea-built Rogue), not Kia — per vPIC', decodeVinOffline('KNMAT2MT5JP123456').make==='Nissan');
+is('V3 FIXED: 5TG (trailer mfr) no longer claims to be Lexus', decodeVinOffline('5TGBF1FK5HU999999').make===null);
 
 console.log('\\n[U] unit — tax matcher');
 is('city+state combined rate (Jackson, MS = 8%)', getTaxRate('Jackson, MS').rate===8);

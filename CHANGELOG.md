@@ -2,6 +2,16 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.10.1 — 2026-07-11
+
+### VIN decoder cross-audited against NHTSA vPIC (federal registry)
+Method: every WMI in the app's table was decoded through vPIC's batch API plus a set of real published VINs; the app's WMI/year/check-digit results were compared against the federal answers.
+- **Fixed — year cycle rule (§565.15):** VIN year codes repeat every 30 years, disambiguated by position 7 (digit = pre-2010, letter = 2010+). The app lacked the rule, so 1995–2000 vehicles decoded as 2025–2030. Now a code-W VIN with a digit at position 7 reads 1998, not 2028.
+- **Fixed — `KNM` → Nissan** (Renault Samsung Motors, Korea-built Rogues). Was mapped to Kia.
+- **Fixed — `5TG` removed** (Smart Transport Solutions, a trailer manufacturer — was mapped to Lexus).
+- **Confirmed good:** check-digit validator agrees with vPIC exactly (including flagging three widely-circulated internet "sample VINs" as genuinely invalid); all other WMIs match the registry; make+year agreement on real VINs was 100% within the table's coverage.
+- Tests 115 → **120**.
+
 ## v8.10.0 — 2026-07-11
 
 ### Field bug fix (reported by Alex) + easiest-targets guide
