@@ -2,6 +2,14 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.12.0 — 2026-07-11
+
+### Procedure-conformance test layer + generics re-verification
+- **Conformance layer (new `[P]` test section):** all 60 vehicles × both step generators (`buildSteps`, `buildGuidedSteps`) are validated on every edit against the documented field sequence — ownership first, voltage gate (numeric, 12.4V min) before programming, all-keys-present before programming, OBD-seated before programming, part verification before programming, remote sync after, full test last with originals re-tested. 15 invariants; any missing/reordered gate fails the build.
+- **New audit invariants:** Subaru `eraseWarning` required on every model (erase-all rule can never silently disappear); AKL-removed vehicles may never carry an all-keys `km100Method`.
+- **Generics re-verified:** replaced synthetic house SKUs ("KeylessOption TOY-3B-Flip") with the verified sourcing reality — Autel IKEY universal (official SKU line, KM100-generated, replaces OE smart keys on 3,000+ vehicles) for the 17 vehicles whose verified `km100Method` supports IKEY; FCC-compatibility distributor sourcing for the other 43 (aftermarket boards are sold by FCC compatibility — the Copy button's FCC search IS the part number).
+- Tests 129 → **148**.
+
 ## v8.11.0 — 2026-07-11
 
 ### Sourcing search strings made precise (reported by Alex)

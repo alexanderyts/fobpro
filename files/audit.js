@@ -162,7 +162,21 @@ for (const mk of AKL_REMOVED_MAKES) for (const md in (DB[mk] || {})) {
 for (const mk of ADD_KEY_ONLY_MAKES) for (const md in (DB[mk] || {})) {
   if (DB[mk][md].fromScratch !== false) { bad(`${mk} ${md} violates Honda/Acura add-key-only invariant`); aklProbs++; }
 }
-if (!aklProbs) ok('make-level AKL/add-key invariants hold across all ' + n + ' vehicles');
+// Erase-all invariant: Subaru reprograms the whole key list — a missing
+// eraseWarning would let the guided mode skip the all-keys-present gate and
+// permanently lock out a customer's spare. This is the single most dangerous
+// fact in the DB; it must never silently disappear.
+const ERASE_ALL_MAKES = ['Subaru'];
+for (const mk of ERASE_ALL_MAKES) for (const md in (DB[mk] || {})) {
+  if (DB[mk][md].eraseWarning !== true) { bad(`${mk} ${md} violates erase-all invariant (eraseWarning must be true)`); aklProbs++; }
+}
+// AKL-removed vehicles must never carry an all-keys method string for the
+// KM100 — buildSteps would otherwise print "All-keys-lost is supported".
+for (const mk of AKL_REMOVED_MAKES) for (const md in (DB[mk] || {})) {
+  const meth = (DB[mk][md].km100Method || '').toLowerCase();
+  if (meth.includes('all-keys') || meth.includes('all keys lost')) { bad(`${mk} ${md} km100Method claims AKL on an AKL-removed make`); aklProbs++; }
+}
+if (!aklProbs) ok('make-level AKL/add-key/erase-all invariants hold across all ' + n + ' vehicles');
 
 // Every DB make must be reachable from the VIN decoder's WMI table
 const wmiSrc = js.match(/const WMI=\{([\s\S]*?)\};/)[1];

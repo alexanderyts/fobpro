@@ -242,6 +242,87 @@ renderEasyTargets();
 is('easy-targets card renders with the walk-away list', el('easy-targets').innerHTML.includes('Walk away as a beginner'));
 is('easy-targets rows are tappable lookups', el('easy-targets').innerHTML.includes('etLookup('));
 
+// ═══ [P] PROCEDURE CONFORMANCE ═══════════════════════════════════════════
+// The real-world success sequence (KM100 manual + trainer consensus, PLAYBOOK
+// Part 2): ownership → voltage ≥12.4 → all-keys-present → OBD → verify part →
+// program → remote sync → full test → payment. Every vehicle in the DB is run
+// through the actual step generators and the gates must exist IN THAT ORDER.
+// A green suite now means the generated instructions follow the documented
+// field process for all 60 vehicles — not just that the software runs.
+console.log('\\n[P] procedure conformance — all vehicles × both step generators');
+(function(){
+  const idxOf=(steps,re)=>steps.findIndex(s=>re.test((s.title||s.t||'')+' '+(s.desc||s.d||'')));
+  const P={ownFirst:[],vBeforeProg:[],keysBeforeProg:[],obdBeforeProg:[],partBeforeProg:[],progExists:[],syncAfterProg:[],testLast:[],eraseText:[],sgwGate:[],aklLie:[],hondaGate:[],subaruGate:[],voltageMin:[],finalGate:[]};
+  selectedTool='km100';
+  let vehCount=0;
+  for(const mk in DB)for(const md in DB[mk]){
+    const d=DB[mk][md];vehCount++;
+    el('l-make').value=mk;el('l-model').value=md;el('l-year').value='';el('l-trim').value='';
+    const name=mk+' '+md;
+
+    // — guided mode: the full field flow with hard gates —
+    const g=buildGuidedSteps(d);
+    const gOwn=idxOf(g,/ownership/i);
+    const gVolt=idxOf(g,/battery voltage/i);
+    const gKeys=idxOf(g,/keys are present/i);
+    const gObd=idxOf(g,/OBD connection/i);
+    const gPart=idxOf(g,/verify the part matches/i);
+    const gProg=idxOf(g,/add key|register to vehicle|register all keys|add the new key/i);
+    const gSync=idxOf(g,/sync the remote/i);
+    const gFinal=idxOf(g,/final verification/i);
+    if(gOwn!==0)P.ownFirst.push(name);
+    if(!(gVolt>-1&&gProg>-1&&gVolt<gProg))P.vBeforeProg.push(name);
+    if(!(gKeys>-1&&gKeys<gProg))P.keysBeforeProg.push(name);
+    if(!(gObd>-1&&gObd<gProg))P.obdBeforeProg.push(name);
+    if(!(gPart>-1&&gPart<gProg))P.partBeforeProg.push(name);
+    if(gProg===-1)P.progExists.push(name);
+    if(!(gSync>gProg))P.syncAfterProg.push(name);
+    if(gFinal!==g.length-1)P.testLast.push(name);
+    const voltGate=g[gVolt]&&g[gVolt].gate;
+    if(!(voltGate&&voltGate.type==='number'&&voltGate.min===12.4))P.voltageMin.push(name);
+    if(!(g[gFinal]&&g[gFinal].gate&&/original/i.test(g[gFinal].desc)))P.finalGate.push(name);
+    if(d.eraseWarning&&!/erases all keys/i.test(g[gKeys]?g[gKeys].desc:''))P.eraseText.push(name);
+    if(d.sgw&&idxOf(g,/secure gateway/i)===-1)P.sgwGate.push(name);
+
+    // — classic per-tool steps (KM100) —
+    const s=buildSteps(d,'km100');
+    const sVolt=idxOf(s,/battery voltage/i);
+    const sPart=idxOf(s,/verify the part matches/i);
+    const sProg=idxOf(s,/add key|register to vehicle|register all keys|add the new key/i);
+    const sTest=idxOf(s,/test everything/i);
+    if(sVolt!==0)P.vBeforeProg.push(name+' (steps)');
+    if(!(sPart>-1&&sProg>-1&&sPart<sProg))P.partBeforeProg.push(name+' (steps)');
+    if(sTest!==s.length-1)P.testLast.push(name+' (steps)');
+    const allText=s.map(x=>x.t+' '+x.d).join(' | ');
+    if(d.akl_removed&&/All-keys-lost is supported/i.test(allText))P.aklLie.push(name);
+    if(mk==='Honda'&&idxOf(s,/working key/i)===-1)P.hondaGate.push(name);
+    if(mk==='Subaru'&&!(idxOf(s,/all existing keys are present/i)>-1&&idxOf(s,/all existing keys are present/i)<sProg))P.subaruGate.push(name);
+  }
+  const chk=(label,arr)=>is('P: '+label+' — all '+vehCount+' vehicles',arr.length===0,arr.slice(0,4).join(', ')+(arr.length>4?' +'+(arr.length-4):''));
+  chk('ownership is the FIRST gate (legal gate before anything)',P.ownFirst);
+  chk('voltage gate precedes programming',P.vBeforeProg);
+  chk('voltage gate enforces the 12.4V minimum numerically',P.voltageMin);
+  chk('all-keys-present gate precedes programming',P.keysBeforeProg);
+  chk('OBD-seated gate precedes programming',P.obdBeforeProg);
+  chk('part verification (FCC/chip/coil) precedes programming',P.partBeforeProg);
+  chk('a programming step exists',P.progExists);
+  chk('remote sync comes after programming',P.syncAfterProg);
+  chk('full test is the FINAL step (payment comes after tests)',P.testLast);
+  chk('final gate demands original keys re-tested',P.finalGate);
+  chk('erase-all vehicles state the erasure at the keys gate',P.eraseText);
+  chk('gateway vehicles get the SGW connect-first gate',P.sgwGate);
+  chk('AKL-removed vehicles never claim all-keys-lost support',P.aklLie);
+  chk('Hondas carry the working-key-required pre-step',P.hondaGate);
+  chk('Subarus confirm all keys BEFORE the programming step',P.subaruGate);
+  el('l-make').value='';el('l-model').value='';
+})();
+
+console.log('\\n[L] generic recommendations — verified sourcing rules (v8.12.0)');
+is('every vehicle has a generic recommendation with supplier + note', Object.keys(DB).every(mk=>Object.keys(DB[mk]).every(md=>{const d=DB[mk][md];return d.genericShell&&d.genericSupplier&&d.genericNote;})));
+is('IKEY recommended exactly where km100Method supports it', Object.keys(DB).every(mk=>Object.keys(DB[mk]).every(md=>{const d=DB[mk][md];const smart=(d.km100Method||'').toLowerCase().includes('ikey');return smart===/IKEY/i.test(d.genericShell);})));
+is('non-smart vehicles route to FCC-compatibility sourcing', Object.keys(DB).every(mk=>Object.keys(DB[mk]).every(md=>{const d=DB[mk][md];const smart=(d.km100Method||'').toLowerCase().includes('ikey');return smart||/FCC/i.test(d.genericShell);})));
+is('no synthetic house SKUs remain (KeylessOption XXX-… style)', Object.keys(DB).every(mk=>Object.keys(DB[mk]).every(md=>!/KeylessOption [A-Z]{3}-/.test(DB[mk][md].genericShell))));
+
 // ═══ [S] SECURITY ══════════════════════════════════════════════════════════
 console.log('\\n[S] security — XSS sink matrix');
 const payload='<img src=x onerror=alert(1)>';
