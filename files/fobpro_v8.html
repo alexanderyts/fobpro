@@ -1065,8 +1065,9 @@ const ALL_TOOLS=[
 // VERSION — bump on every meaningful change; add a CHANGELOG entry to match.
 // Git tags mirror these versions (v8.1.0 etc.).
 // ═══════════════════════════════════════════════════════════════════════════
-const APP_VERSION="8.10.1";
+const APP_VERSION="8.11.0";
 const CHANGELOG=[
+  {v:"8.11.0",date:"2026-07-11",notes:["SOURCING SEARCH FIX (reported by Alex): the Copy buttons were producing weak search strings — filler words like 'FCC ID part number' plus raw database fields full of annotations ('HYQ14FBA (2012-17) / HYQ14FBC (2018-24)') that poison vendor search boxes.","Every sourcing Copy button now extracts the YEAR-CORRECT bare token: OEM shell copies the clean part # + FCC ID pair ('95430-D3010 TQ8-RKE-4F25'), key blanks copy the Ilco catalog number ('LXP90 key blank' — how blank listings are actually indexed), the FCC button copies the bare ID, and the journey's parts step copies FCC + part #.","Generic/aftermarket copy now searches by FCC compatibility ('TQ8-RKE-4F25 aftermarket key fob') instead of house SKU names — aftermarket listings are indexed by which FCC they replace.","This is the playbook rule made executable: search by FCC ID, never by '2019 Camry key'."]},
   {v:"8.10.1",date:"2026-07-11",notes:["VIN DECODER AUDITED AGAINST NHTSA vPIC (the federal registry): every WMI in the table was cross-checked plus real published VINs. Three findings, all fixed:","(1) Year decode now applies the federal position-7 rule — VIN year codes repeat every 30 years, and a 1995-2000 vehicle was decoding as 2025-2030. A '98 Civic now reads 1998, not 2028.","(2) KNM prefix corrected: it's Korea-built NISSAN (Renault Samsung Rogues), not Kia.","(3) 5TG removed — it belongs to a trailer manufacturer, not Lexus.","Confirmed good: the check-digit validator agrees with vPIC exactly — it even correctly flags three 'sample VINs' that circulate on the internet as invalid. Every other WMI in the table matched the federal registry."]},
   {v:"8.10.0",date:"2026-07-11",notes:["BUG FIX (found by Alex, 2016 Tucson SE): the Tucson's year-variant table had a 2012-2018 hole, so a 2016 lookup fell back to 'nearest generation' — and the warning wrongly said 'enter the model year' when the year WAS entered. The gap is filled with verified data (2016-21 flip TQ8-RKE-4F25 / 95430-D3010 / KK10 keyway; 2010-15 OSLOKA-850T separate remote + HY15 cut key).","HONEST FALLBACK MESSAGES everywhere: when a year is entered but the database has no verified data for it, the app now says exactly that ('No verified part data for 2016 — showing nearest known variant') instead of telling you to enter the year again. Fixed in the parts card, electronics banner, key-cut section, and the journey's parts step.","🎯 WHERE TO START (Ref tab): a ranked easiest-first-targets list generated live from the database — beginner-rated, full KM100 support, no erase traps, no gateways; the Hyundai/Kia no-immobilizer money-makers float to the top. Includes the 2010-2019 sweet-spot rule, house rules for the first 25 jobs, and the walk-away list. Tap any row to load it into Lookup."]},
   {v:"8.9.0",date:"2026-07-11",notes:["CALL-INTAKE WIZARD (Jobs tab + Lookup shortcut): a guided flow for the moment the phone rings — callback number first (anti-scam gate), vehicle triage with the four questions that change the price, an instant verdict + quote range with a say-it-like-this script, a truck-stock check against your inventory, and a deposit guard before any part gets ordered. Saves straight into the job pipeline.","JOB PIPELINE: new 'Quoted' and 'Scheduled' statuses; open job cards now carry their own status/price/parts-cost controls and a one-tap 'Load into Lookup' — a ticket moves from call to done without re-entering anything.","JOB ECONOMICS: parts-cost and deposit fields on every job; Business health now shows real profit, parts spend, margin % against the 60-75% healthy band, and your open pipeline. CSV export carries the new columns.","BUSINESS PATH (researched Jul 2026): the NASTF VSP milestone now carries the full 2026 checklist ($435/2yr, $1M/$500K liability certificate, FEIN, two references — and no locksmith license needed in Mississippi); new Phase-2 step: roadside platforms (AAA/HONK/Urgently/Agero) as paid Lishi practice and early lead flow.","TOOL PROTECTION: two new pitfalls — updates can DELETE capability (the 2024 AKL removals shipped as updates; read release notes first, never update before booked work) and the gray-market 'AKL restore' unlock trap (fixMyKM et al.) with the reasons it risks warranty, insurance, and reputation.","2026+ HORIZON (Ref tab): digital-key/UWB landscape card — which calls to decline (Tesla/Rivian/Lucid, phone-as-key enrollment), what to say, and why OBD + NASTF credentials is the future-proof lane."]},
@@ -1696,7 +1697,10 @@ function doLookup(){
   const cl=topToolForBanner.grade==='A'?`✓ ${topToolForBanner.name} can do this job`:topToolForBanner.grade==='F'?`✗ No tool in your kit can do this job`:`⚠ ${topToolForBanner.name} — proceed with caution`;
   const trimNote=trim&&d.trimNotes&&d.trimNotes[trim]?`<div style="font-size:12.5px;color:var(--amber);margin-top:6px;padding:6px 10px;background:var(--amber2);border-radius:8px;">Trim note (${trim}): ${d.trimNotes[trim]}</div>`:'';
   const hasTrimVariance=d.trimNotes&&Object.keys(d.trimNotes).length>0;
-  const shellSearchQuery=`${year} ${make} ${model} ${trim} key fob FCC ID part number`.replace(/\s+/g,' ').trim();
+  // Precision sourcing string: bare FCC + part number beats any words. Falls
+  // back to a year/make/model discovery query only when no clean IDs exist.
+  const shellTokens=(partToken(fobVariant?fobVariant.oemPart:d.oemShell)+' '+fccToken(svFcc,year)).trim();
+  const shellSearchQuery=shellTokens?shellTokens+' key fob':`${year} ${make} ${model} ${trim} key fob FCC ID`.replace(/\s+/g,' ').trim();
   const partsVerifyWarning=fobVariant?(fobVariant.confident?
       `<div class="ban g" style="margin-top:9px;"><div class="bt">✓ Part # matched to ${year} model year${trim?' / '+trim:''}</div><div class="bb">OEM part: ${fobVariant.oemPart}. Source: 2025 Ilco Auto/Truck Key Blank Reference.</div></div>`:
       `<div class="ban y" style="margin-top:9px;"><div class="bt">⚠ ${year?`No verified part data for ${year}${trim?' '+trim:''}`:'Enter the model year above for an exact part match'}</div><div class="bb">Showing the ${year?'nearest':'most recent'} known variant (${fobVariant.yearStart}-${fobVariant.yearEnd}): ${fobVariant.oemPart}. This vehicle's fob hardware changed across model years — confirm the FCC ID on the customer's fob before ordering.<div style="margin-top:7px;">${copyBtn(shellSearchQuery,'Copy a search string for this exact year/make/model/trim')}</div></div></div>`
@@ -1725,10 +1729,10 @@ function doLookup(){
         <div class="rr"><span class="rk">OEM part #${info('The dealer/manufacturer part number for the whole remote assembly. Use this to cross-reference or order a genuine factory replacement.')}</span><span class="rv">${fobVariant?fobVariant.oemPart:(hasTrimVariance?'Varies by trim/year — verify':'—')}</span></div>
         <div class="rr"><span class="rk">FCC ID${info('Printed on a small label on the back of most factory remotes, often under the battery cover. It\'s the single most reliable identifier for finding the exact correct replacement online — more reliable than guessing from the car alone. Confirm it against the customer\'s actual fob before ordering.')} ${sv&&sv.confident?'<span style="font-size:10.5px;color:var(--green);">(year-matched)</span>':'<span style="font-size:10.5px;color:var(--text4);">(confirm on fob)</span>'}</span><span class="rv">${svFcc||'—'}</span></div>
       </div></div></div>
-      <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:5px;">${copyBtn(`${year} ${make} ${model} ${trim} FCC ID`.replace(/\s+/g,' ').trim(),'Copy a search string to find the correct FCC ID')}</div>
+      <div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:5px;">${copyBtn(fccToken(svFcc,year)?fccToken(svFcc,year)+' key fob':`${year} ${make} ${model} ${trim} key fob FCC ID`.replace(/\s+/g,' ').trim(),fccToken(svFcc,year)?'Copy the exact FCC ID search — this is how vendors index fobs':'Copy a search string to find the correct FCC ID')}</div>
       <div class="row2" style="margin-top:9px;align-items:start;">
-        <div class="shb oem" style="margin-top:0;"><div class="shbt-row"><div class="shbt" style="margin-bottom:0;">OEM shell${info('Genuine dealer-brand shell. Costs more but is guaranteed to match the original fit and button layout.')}</div>${fobVariant?copyBtn(fobVariant.oemPart,'Copy OEM part # to search online'):(hasTrimVariance?copyBtn(shellSearchQuery,'Copy a search string for this exact year/make/model/trim'):copyBtn(`${d.oemShell} ${d.fcc}`,'Copy part # + FCC ID to search online'))}</div><div class="shr"><span class="shk">Part #</span><span class="shv">${fobVariant?fobVariant.oemPart:(hasTrimVariance?'Varies by trim — see warning above':d.oemShell)}</span></div><div class="shr"><span class="shk">Buttons${info('The remote\'s button layout (e.g. lock/unlock/panic/hatch). Must match what the customer wants — check before ordering, especially for trims with extra buttons like remote start.')}</span><span class="shv">${d.oemButtons}</span></div><div class="shr"><span class="shk">Buy from${info('Where this OEM part is typically sourced — dealer parts counter or an authorized distributor.')}</span><span class="shv">${d.oemSupplier}</span></div>${d.shellNote?`<div class="shn">${d.shellNote}</div>`:''}</div>
-        <div class="shb gen" style="margin-top:0;"><div class="shbt-row"><div class="shbt" style="margin-bottom:0;">Generic aftermarket (budget)${info('Cheaper third-party shell — the same chip/electronics from the original go inside it. A good option for budget-conscious customers; fit and button feel can vary slightly from OEM.')}</div>${copyBtn(`${d.genericShell}`,'Copy part # to search online')}</div><div class="shr"><span class="shk">Part #</span><span class="shv">${d.genericShell}</span></div><div class="shr"><span class="shk">Buttons</span><span class="shv">${d.genericButtons}</span></div><div class="shr"><span class="shk">Buy from</span><span class="shv">${d.genericSupplier}</span></div><div class="shn">${d.genericNote}</div></div>
+        <div class="shb oem" style="margin-top:0;"><div class="shbt-row"><div class="shbt" style="margin-bottom:0;">OEM shell${info('Genuine dealer-brand shell. Costs more but is guaranteed to match the original fit and button layout.')}</div>${fobVariant?copyBtn((partToken(fobVariant.oemPart)+' '+fccToken(svFcc,year)).trim(),'Copy clean part # + FCC ID — paste into any vendor search'):(hasTrimVariance?copyBtn(shellSearchQuery,'Copy a search string for this exact year/make/model/trim'):copyBtn((partToken(d.oemShell)+' '+fccToken(d.fcc,year)).trim(),'Copy clean part # + FCC ID — paste into any vendor search'))}</div><div class="shr"><span class="shk">Part #</span><span class="shv">${fobVariant?fobVariant.oemPart:(hasTrimVariance?'Varies by trim — see warning above':d.oemShell)}</span></div><div class="shr"><span class="shk">Buttons${info('The remote\'s button layout (e.g. lock/unlock/panic/hatch). Must match what the customer wants — check before ordering, especially for trims with extra buttons like remote start.')}</span><span class="shv">${d.oemButtons}</span></div><div class="shr"><span class="shk">Buy from${info('Where this OEM part is typically sourced — dealer parts counter or an authorized distributor.')}</span><span class="shv">${d.oemSupplier}</span></div>${d.shellNote?`<div class="shn">${d.shellNote}</div>`:''}</div>
+        <div class="shb gen" style="margin-top:0;"><div class="shbt-row"><div class="shbt" style="margin-bottom:0;">Generic aftermarket (budget)${info('Cheaper third-party shell — the same chip/electronics from the original go inside it. A good option for budget-conscious customers; fit and button feel can vary slightly from OEM.')}</div>${copyBtn(fccToken(svFcc,year)?fccToken(svFcc,year)+' aftermarket key fob':`${d.genericShell}`,'Copy an FCC-based aftermarket search — listings index by FCC compatibility')}</div><div class="shr"><span class="shk">Part #</span><span class="shv">${d.genericShell}</span></div><div class="shr"><span class="shk">Buttons</span><span class="shv">${d.genericButtons}</span></div><div class="shr"><span class="shk">Buy from</span><span class="shv">${d.genericSupplier}</span></div><div class="shn">${d.genericNote}</div></div>
       </div>
     </div>
 
@@ -1780,8 +1784,10 @@ function renderKeyCutInfo(d,vinData){
   const ckModel=document.getElementById('l-model')?document.getElementById('l-model').value.trim():'';
   const ckTrim=document.getElementById('l-trim')?document.getElementById('l-trim').value.trim():'';
   const ckYear=document.getElementById('l-year')?document.getElementById('l-year').value.trim():'';
-  const blankSearchQuery=`${ckYear} ${ckMake} ${ckModel} ${ckTrim} key blank cut blade part number`.replace(/\s+/g,' ').trim();
   const fobVariant=getFobVariant(d,ckYear,ckTrim);
+  // Blank sourcing: the Ilco catalog number is what blank listings index by.
+  const bTok=blankToken(fobVariant?fobVariant.blank:d.blank);
+  const blankSearchQuery=bTok?bTok+' key blank':`${ckYear} ${ckMake} ${ckModel} key blank keyway`.replace(/\s+/g,' ').trim();
   const blankVerifyWarning=fobVariant?(fobVariant.confident?
       `<div style="font-size:10.5px;color:var(--green);margin-bottom:8px;padding:6px 8px;background:rgba(75,227,166,.12);border-radius:6px;line-height:1.5;">✓ Keyway matched to ${ckYear} model year${ckTrim?' / '+ckTrim:''}: ${fobVariant.keyway}. Source: 2025 Ilco Auto/Truck Key Blank Reference.</div>`:
       `<div style="font-size:10.5px;color:var(--amber);margin-bottom:8px;padding:6px 8px;background:rgba(245,166,35,.12);border-radius:6px;line-height:1.5;">⚠ ${ckYear?`No verified keyway data for ${ckYear} — showing nearest known`:'Enter the model year above for an exact match. Showing most recent known'} variant (${fobVariant.yearStart}-${fobVariant.yearEnd}): ${fobVariant.keyway}. Match the customer's existing key before cutting.<div style="margin-top:7px;">${copyBtn(blankSearchQuery,'Copy a search string for this exact year/make/model/trim')}</div></div>`
@@ -1803,7 +1809,7 @@ function renderKeyCutInfo(d,vinData){
   const copyMethod=`<div style="font-size:10.5px;color:var(--amber);margin-top:5px;line-height:1.55;"><strong>To COPY (duplicate) from an existing key:</strong> ${d.bladeless?'transfer the existing blade or':''} clone the transponder chip with your programmer (read original → write to new ${cleanBlank}), and duplicate the physical cuts from the working blade. Both the chip AND the cuts must match for the copy to start the car.</div>`;
 
   return `<div class="keyinfo res-card">
-    <div class="shbt-row"><div class="keyinfo-title" style="margin-bottom:0;">2 · Physical key — cut &amp; copy info</div>${fobVariant?copyBtn(fobVariant.blank,'Copy blade/blank # to search online'):(hasTrimVariance?copyBtn(blankSearchQuery,'Copy a search string for this exact year/make/model/trim'):copyBtn(`${d.blank||d.keyway||''}`.trim(),'Copy blade/blank # to search online'))}</div>
+    <div class="shbt-row"><div class="keyinfo-title" style="margin-bottom:0;">2 · Physical key — cut &amp; copy info</div>${copyBtn(blankSearchQuery,bTok?'Copy the Ilco blank # search — this is how blank listings are indexed':'Copy a search string to find the right blank')}</div>
     <div class="card-explain" style="margin:2px 0 8px;">Everything about the metal blade that physically turns the lock/ignition — separate from the electronic chip above.</div>
     ${blankVerifyWarning}
     <div class="keyinfo-row"><span class="keyinfo-k">Keyway / profile${info('The blade\'s shape/groove pattern — determines which uncut blank fits this car\'s door and ignition locks. Different from the chip; a key can have the right keyway and still be the wrong electronic chip.')}</span><span class="keyinfo-v">${fobVariant?fobVariant.keyway:(hasTrimVariance?'Varies by trim/year — verify':(d.keyway||d.blank||'—'))}</span></div>
@@ -2207,6 +2213,43 @@ document.addEventListener('click',function(e){
 // Sourced per-vehicle from the 2025 Ilco Auto/Truck Key Blank Reference.
 // Falls back to the flat (model-level) fields when no variant data exists.
 // ═══════════════════════════════════════════════════════════════════════════
+// ── Sourcing search tokens ──────────────────────────────────────────────────
+// Vendors and marketplaces index by BARE FCC ID / part number. The DB's fcc
+// and oemPart fields carry human annotations ("HYQ14FBA (2012-17) / HYQ14FBC
+// (2018-24)", "KK10-P family") which poison search boxes. These extract the
+// year-correct clean token — the playbook rule made executable: search by
+// FCC ID, not by "2019 Camry key".
+function fccToken(fcc,year){
+  if(!fcc)return '';
+  const y=parseInt(year,10)||null;
+  const segs=String(fcc).split('/').map(s=>s.trim()).filter(Boolean);
+  let seg=segs[0];
+  if(y&&segs.length>1){
+    const hit=segs.find(s=>{
+      const m=s.match(/\((\d{2,4})\s*-\s*(\d{2,4})\)/);
+      if(!m)return false;
+      let a=+m[1],b=+m[2];
+      if(a<100)a+=2000;
+      if(b<100)b+=2000;
+      return y>=a&&y<=b;
+    });
+    if(hit)seg=hit;
+  }
+  return (seg.replace(/\([^)]*\)/g,'').trim().split(/\s+/)[0]||'');
+}
+function partToken(part){
+  if(!part)return '';
+  const seg=String(part).replace(/\([^)]*\)/g,' ').split('/')[0].trim();
+  return (seg.split(/\s+/).find(t=>/\d/.test(t)&&t.length>=4)||seg.split(/\s+/)[0]||'');
+}
+function blankToken(blank){
+  if(!blank)return '';
+  // Prefer the Ilco catalog number when it's in parentheses — "KK10 (Ilco
+  // LXP90)" → LXP90 — because that's what blank listings are indexed by.
+  const ilco=String(blank).match(/\(\s*(?:Ilco\s+)?([A-Z][A-Z0-9-]{2,})\s*\)/i);
+  if(ilco)return ilco[1];
+  return partToken(blank);
+}
 function getTrimClass(d,trim){
   if(!trim||!d.trimNotes)return null;
   const note=d.trimNotes[trim];
@@ -2801,7 +2844,7 @@ function renderJourney(){
         <div class="rr"><span class="rk">Generic option</span><span class="rv">${d.genericShell||'—'}</span></div>
         <div class="rr"><span class="rk">Fob battery</span><span class="rv">${d.fobBattery||'CR2032'}</span></div>
       </div></div></div>
-      <div style="display:flex;justify-content:flex-end;margin-top:6px;">${copyBtn(`${year} ${make} ${document.getElementById('l-model').value.trim()} ${fcc} fob`.replace(/\s+/g,' ').trim(),'Copy a search string to buy this part')}</div>
+      <div style="display:flex;justify-content:flex-end;margin-top:6px;">${copyBtn(((fccToken(fcc,year)||'')+' '+(partToken(part)||'')).trim()?((fccToken(fcc,year)||'')+' '+(partToken(part)||'')).replace(/\s+/g,' ').trim()+' key fob':`${year} ${make} ${document.getElementById('l-model').value.trim()} key fob`.replace(/\s+/g,' ').trim(),'Copy the exact FCC/part search to buy this part')}</div>
       <div class="ca ${d.bladeless?'can':'cant'}" style="margin-top:8px;"><div class="cat">${d.bladeless?'✓ No key cutting needed':'⚠ Blade needs cutting'}</div><div class="cab">${d.bladeNote}</div></div>
       ${jr.fobSrc==='used'?`<div class="ban r" style="margin-top:8px;"><div class="bt">Reminder: customer's fob is USED</div><div class="bb">Bring a new fob as backup anyway. Test-read theirs first; quote the new one if it's locked.</div></div>`:''}
       ${callout('info','🔍','How to verify the part when it arrives','(1) FCC ID: printed on the label under the fob battery cover — must match the ID above. (2) Chip: KM100 → Reading/Cloning → Transponder Reading with the key in the slot. (3) Remote frequency: KM100 → Frequency Detection, press a fob button. On site, Ignition Coil Detection (collector within 4 in of the ignition coil) reads what chip the CAR expects — the final cross-check.')}

@@ -2,6 +2,16 @@
 
 Versions are also shown in-app (Ref tab → "What's new") and mirrored as git tags.
 
+## v8.11.0 — 2026-07-11
+
+### Sourcing search strings made precise (reported by Alex)
+The Copy buttons produced weak queries: filler words ("FCC ID part number") plus raw DB fields whose year-range annotations poison search boxes. New `fccToken`/`partToken`/`blankToken` extractors pull the year-correct bare identifiers:
+- OEM shell → clean part # + FCC pair (`95430-D3010 TQ8-RKE-4F25`)
+- Key blank → Ilco catalog number (`LXP90 key blank`) — what blank listings index by
+- FCC button → bare year-matched ID; journey parts step → FCC + part #
+- Generic/aftermarket → FCC-compatibility search (`TQ8-RKE-4F25 aftermarket key fob`) instead of house SKU names
+- Tests 120 → **129** (token extraction + end-to-end copy-payload assertions)
+
 ## v8.10.1 — 2026-07-11
 
 ### VIN decoder cross-audited against NHTSA vPIC (federal registry)

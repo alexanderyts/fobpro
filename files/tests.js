@@ -57,6 +57,22 @@ is('V1: letter at position 7 keeps the 2010+ cycle (2025 stays 2025)', decodeVin
 is('V2 FIXED: KNM decodes as Nissan (Korea-built Rogue), not Kia — per vPIC', decodeVinOffline('KNMAT2MT5JP123456').make==='Nissan');
 is('V3 FIXED: 5TG (trailer mfr) no longer claims to be Lexus', decodeVinOffline('5TGBF1FK5HU999999').make===null);
 
+console.log('\\n[U] unit — sourcing search tokens (v8.11.0)');
+is('fccToken picks the year-correct segment', fccToken('HYQ14FBA (2012-17) / HYQ14FBC (2018-24)','2016')==='HYQ14FBA'&&fccToken('HYQ14FBA (2012-17) / HYQ14FBC (2018-24)','2020')==='HYQ14FBC');
+is('fccToken strips annotations without a year', fccToken('HYQ14FBA (2012-17) / HYQ14FBC (2018-24)','')==='HYQ14FBA');
+is('fccToken passes clean IDs through', fccToken('TQ8-RKE-4F25','2016')==='TQ8-RKE-4F25');
+is('partToken extracts the real part number', partToken('95430-D3010 (TQ8-RKE-4F25, 433 MHz)')==='95430-D3010'&&partToken('KK10-P family')==='KK10-P');
+is('blankToken prefers the Ilco catalog number', blankToken('KK10 (Ilco LXP90)')==='LXP90'&&blankToken('HY18R-PT')==='HY18R-PT');
+is('blankToken never returns a year-range as a blank', blankToken('TOY48 (2012-17)')!=='2012-17');
+el('l-make').value='Hyundai';el('l-model').value='Tucson';el('l-year').value='2016';el('l-trim').value='SE';
+doLookup();
+is('2016 Tucson copy payload is the clean part+FCC pair', el('l-result').innerHTML.includes('95430-D3010 TQ8-RKE-4F25'));
+is('copied search strings no longer contain filler words', !el('l-result').innerHTML.includes('FCC ID part number'));
+el('l-make').value='Toyota';el('l-model').value='Camry';el('l-year').value='2015';el('l-trim').value='';
+doLookup();
+is('Camry 2015 copies the year-correct bare FCC (no range annotations)', el('l-result').innerHTML.includes('HYQ14FBA key fob')&&!el('l-result').innerHTML.includes('(2012-17) key fob'));
+el('l-make').value='';el('l-model').value='';el('l-year').value='';el('l-trim').value='';currentVehicle=null;
+
 console.log('\\n[U] unit — tax matcher');
 is('city+state combined rate (Jackson, MS = 8%)', getTaxRate('Jackson, MS').rate===8);
 is('flat-city rate (Pearl, MS = 7%)', getTaxRate('Pearl, MS').rate===7);
