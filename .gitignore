@@ -1,0 +1,8 @@
+# Machine-local Claude Code config (absolute paths, not portable)
+.claude/
+
+# Stale snapshot archive
+files.zip
+
+# Duplicate of files/fobpro_v8.html — canonical copy lives in files/
+/fobpro_v8.html
