@@ -1,0 +1,108 @@
+[
+ {
+  "t": 0,
+  "type": "cut",
+  "id": "s1"
+ },
+ {
+  "t": 3,
+  "type": "cut",
+  "id": "s2"
+ },
+ {
+  "t": 5,
+  "type": "cut",
+  "id": "s3"
+ },
+ {
+  "t": 6.5,
+  "type": "cut",
+  "id": "s4"
+ },
+ {
+  "t": 8,
+  "type": "cut",
+  "id": "s5"
+ },
+ {
+  "t": 10.5,
+  "type": "cut",
+  "id": "s6"
+ },
+ {
+  "t": 12,
+  "type": "cut",
+  "id": "s7"
+ },
+ {
+  "t": 14,
+  "type": "cut",
+  "id": "s8"
+ },
+ {
+  "t": 15.5,
+  "type": "cut",
+  "id": "s9"
+ },
+ {
+  "t": 17,
+  "type": "cut",
+  "id": "s10"
+ },
+ {
+  "t": 19,
+  "type": "cut",
+  "id": "s11"
+ },
+ {
+  "t": 21.5,
+  "type": "cut",
+  "id": "s12"
+ },
+ {
+  "t": 24,
+  "type": "cut",
+  "id": "title"
+ },
+ {
+  "t": 5.28,
+  "type": "mallet"
+ },
+ {
+  "t": 5.63,
+  "type": "mallet"
+ },
+ {
+  "t": 5.98,
+  "type": "mallet"
+ },
+ {
+  "t": 6.33,
+  "type": "mallet"
+ },
+ {
+  "t": 7.05,
+  "type": "balls"
+ },
+ {
+  "t": 10.95,
+  "type": "beep"
+ },
+ {
+  "t": 11,
+  "type": "printer",
+  "dur": 1
+ },
+ {
+  "t": 16.12,
+  "type": "clink"
+ },
+ {
+  "t": 22.1,
+  "type": "buzz"
+ },
+ {
+  "t": 23.1,
+  "type": "carpass"
+ }
+]

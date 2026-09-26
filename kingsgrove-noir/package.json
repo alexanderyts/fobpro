@@ -1,0 +1,12 @@
+{
+  "name": "kingsgrove-noir",
+  "private": true,
+  "description": "Kingsgrove Sports - HBO-style crime thriller title sequence (three.js, rendered frame by frame)",
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --format=iife --outfile=dist/noir.js --minify"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "three": "^0.180.0"
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kingsgrove Noir</title>
+<!-- Kingsgrove Sports: HBO-style crime-thriller title sequence. Rendered frame by frame by render.cjs (window.NOIR.renderAt). -->
+<style>
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 500; src: url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 600; src: url(fonts/cormorant-garamond-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-style: italic; src: url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 300; src: url(fonts/montserrat-latin-300-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 400; src: url(fonts/montserrat-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-weight: 500; src: url(fonts/montserrat-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Caveat'; font-weight: 700; src: url(fonts/caveat-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Bebas Neue'; font-weight: 400; src: url(fonts/bebas-neue-latin-400-normal.woff2) format('woff2'); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #000; overflow: hidden; }
+#frame { position: relative; width: 1920px; height: 1080px; background: #000; overflow: hidden; }
+#gl { position: absolute; left: 0; top: 138px; width: 1920px; height: 804px; display: block; }
+.cr { position: absolute; color: #ece6dc; opacity: 0; white-space: nowrap; text-shadow: 0 0 18px rgba(0,0,0,.6); }
+.small { font: 300 24px Montserrat; letter-spacing: .4em; text-transform: uppercase; }
+.name { font: 500 58px 'Cormorant Garamond'; letter-spacing: .36em; text-transform: uppercase; }
+.name i { font: italic 500 40px 'Cormorant Garamond'; letter-spacing: .08em; text-transform: none; margin-right: .5em; opacity: .85; }
+#c0 { left: 0; right: 0; text-align: center; top: 820px; }
+#c1 { left: 170px; top: 700px; }
+#c2 { right: 170px; top: 300px; text-align: right; }
+#c3 { left: 0; right: 0; text-align: center; top: 770px; }
+#c4 { right: 180px; top: 640px; text-align: right; }
+#c5 { left: 0; right: 0; text-align: center; top: 820px; }
+#title { position: absolute; left: 0; right: 0; top: 380px; text-align: center; color: #efe9df; }
+#tWord { font: 600 150px/1 'Cormorant Garamond'; letter-spacing: .32em; padding-left: .32em; opacity: 0; }
+#tRule { width: 560px; height: 1px; background: rgba(239,233,223,.55); margin: 30px auto 24px; transform: scaleX(0); }
+#tSports { font: 400 26px Montserrat; letter-spacing: .95em; padding-left: .95em; opacity: 0; }
+#tLine { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font: italic 500 44px 'Cormorant Garamond'; color: #e3dccf; opacity: 0; letter-spacing: .02em; }
+#tLine b { color: #a8141a; font-weight: 500; }
+#tUrl { position: absolute; left: 0; right: 0; top: 850px; text-align: center; font: 300 19px Montserrat; letter-spacing: .38em; color: #bdb6aa; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="frame">
+  <canvas id="gl" width="1920" height="804"></canvas>
+  <div class="cr small" id="c0">Kingsgrove Sports presents</div>
+  <div class="cr name" id="c1">English Willow</div>
+  <div class="cr name" id="c2">Red Leather</div>
+  <div class="cr name" id="c3">Cork and Twine</div>
+  <div class="cr name" id="c4"><i>and</i>Nack</div>
+  <div class="cr small" id="c5">Fifty years on the case</div>
+  <div id="title"><div id="tWord">KINGSGROVE</div><div id="tRule"></div><div id="tSports">SPORTS</div></div>
+  <div id="tLine">Every innings leaves evidence<b>.</b></div>
+  <div id="tUrl">kingsgrovesports.com.au</div>
+</div>
+<script src="dist/noir.js"></script>
+</body>
+</html>

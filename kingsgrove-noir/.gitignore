@@ -1,0 +1,6 @@
+node_modules/
+dist/
+parts/
+stills/
+video-only.mp4
+score.wav
