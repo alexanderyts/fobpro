@@ -1,0 +1,4 @@
+node_modules/
+data/
+*.part.mp4
+.DS_Store

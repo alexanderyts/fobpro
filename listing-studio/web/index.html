@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Threshold — Listing video post-production</title>
+  <meta name="description" content="Automated editing, grading and delivery for real estate listing video.">
+  <link rel="preload" href="/fonts/PlexSans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23161615'/%3E%3Cpath d='M9 25V11l7-5 7 5v14' fill='none' stroke='%23C9A86A' stroke-width='2'/%3E%3Cpath d='M13 25v-7h6v7' fill='none' stroke='%23ECEBE6' stroke-width='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#/" aria-label="Threshold home">
+      <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M9 25V11l7-5 7 5v14" fill="none" stroke="currentColor" stroke-width="1.8" class="wm-roof"/><path d="M13 25v-7h6v7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span>Threshold</span>
+    </a>
+    <nav class="topnav">
+      <a href="#/" data-nav="listings">Listings</a>
+      <a href="#/brand" data-nav="brand">Brand kit</a>
+    </nav>
+    <div class="engine" id="engine-status" aria-live="polite"></div>
+  </header>
+  <main id="app" tabindex="-1"></main>
+  <div id="modal-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
