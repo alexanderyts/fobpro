@@ -25,7 +25,8 @@ export async function analyzeClip({ file, meta, workDir, onProgress, signal }) {
   const graph = [
     `[0:v]${chain(sdr, 'split=3')}[p][m][s]`,
     `[p]scale=-2:540:flags=bicubic,format=yuv420p[pout]`,
-    `[m]scale=${MOTION_W}:-2,vidstabdetect=shakiness=6:accuracy=9:stepsize=6:result='${escapeFilterValue(trf)}'[mout]`,
+    // High-frame-rate clips are analysed at 30 fps: same thresholds for every camera, half the work.
+    `[m]${meta.fps > 31 ? 'fps=30,' : ''}scale=${MOTION_W}:-2,vidstabdetect=shakiness=6:accuracy=9:stepsize=6:result='${escapeFilterValue(trf)}'[mout]`,
     `[s]fps=2,${toRgb(sdr ? { ...meta, hdr: 'tm' } : meta, { w: STAT_W, h: STAT_H, pixFmt: 'rgb24' })}[sout]`,
   ].join(';');
 
@@ -41,7 +42,7 @@ export async function analyzeClip({ file, meta, workDir, onProgress, signal }) {
     { expectedDuration: meta.duration, onProgress: (p) => onProgress?.(p * 0.85), signal },
   );
 
-  const motion = parseMotion(await fs.readFile(trf, 'utf8'), meta.fps || 30, MOTION_W);
+  const motion = parseMotion(await fs.readFile(trf, 'utf8'), Math.min(meta.fps || 30, 30), MOTION_W);
   const color = colorStats(await fs.readFile(stats), STAT_W, STAT_H, 2);
   const trim = findSteadyRange(motion, meta);
 
@@ -58,7 +59,7 @@ export async function analyzeClip({ file, meta, workDir, onProgress, signal }) {
 
   const flags = [];
   if (trim.shake > 0.0045) flags.push('handheld');
-  if (motion.speed < STATIC_SPEED) flags.push('static');
+  if (!motion.moving) flags.push('static');
   if (color.p50 < 0.28) flags.push('underexposed');
   if (color.clipHigh > 0.06) flags.push('blown-highlights');
   if (color.neutralCoverage > 0 && Math.abs(color.castRB) > 0.05) flags.push(color.castRB > 0 ? 'warm-cast' : 'cool-cast');
@@ -67,21 +68,27 @@ export async function analyzeClip({ file, meta, workDir, onProgress, signal }) {
     trimIn: trim.in,
     trimOut: trim.out,
     shake: trim.shake,
-    motion: { speed: motion.speed, direction: motion.direction, envelope: motion.envelope, envelopeRate: motion.envelopeRate },
+    motion: { speed: motion.speed, zoom: motion.zoom, direction: motion.direction, envelope: motion.envelope, envelopeRate: motion.envelopeRate },
     color,
     flags,
     files: { proxy: 'proxy.mp4', poster: 'poster.jpg', strip: 'strip.jpg' },
   };
 }
 
-/** Parse a libvidstab ASCII transforms file into per-frame global translation. */
+/**
+ * Parse a libvidstab ASCII transforms file into per-frame camera motion:
+ * global translation plus a scale term (walking forward/back makes the image
+ * expand/contract around the centre without translating it).
+ */
 export function parseMotion(text, fps, width) {
   const frames = [];
+  const scales = [];
   for (const line of text.split('\n')) {
     if (!line.startsWith('Frame ')) continue;
-    const vecs = [...line.matchAll(/\(LM (-?\d+) (-?\d+) /g)].map((m) => [Number(m[1]), Number(m[2])]);
+    const vecs = [...line.matchAll(/\(LM (-?\d+) (-?\d+) (\d+) (\d+) /g)].map((m) => m.slice(1, 5).map(Number));
     if (!vecs.length) {
       frames.push(null);
+      scales.push(null);
       continue;
     }
     const mx = median(vecs.map((v) => v[0]));
@@ -91,10 +98,25 @@ export function parseMotion(text, fps, width) {
     const dx = near.length ? near.reduce((a, v) => a + v[0], 0) / near.length : mx;
     const dy = near.length ? near.reduce((a, v) => a + v[1], 0) / near.length : my;
     frames.push([dx / width, dy / width]);
+
+    // Least-squares divergence of the residual field: r = s·(p − c).
+    const cx = vecs.reduce((a, v) => a + v[2], 0) / vecs.length;
+    const cy = vecs.reduce((a, v) => a + v[3], 0) / vecs.length;
+    let num = 0, den = 0;
+    for (const [vx, vy, fx, fy] of vecs) {
+      const rx = vx - dx, ry = vy - dy;
+      if (Math.abs(rx) > 12 || Math.abs(ry) > 12) continue; // mismatched field
+      const px = fx - cx, py = fy - cy;
+      num += px * rx + py * ry;
+      den += px * px + py * py;
+    }
+    scales.push(den > 0 && vecs.length >= 4 ? num / den : null);
   }
   // Fill gaps (featureless frames) with neighbours.
   let last = [0, 0];
   const filled = frames.map((f) => (f ? (last = f) : last));
+  let lastS = 0;
+  const scaleSeries = scales.map((v) => (v === null ? lastS : (lastS = v)));
 
   const w = Math.max(3, Math.round(fps * 0.5)) | 1;
   const smooth = movingAverage(filled, w);
@@ -105,8 +127,12 @@ export function parseMotion(text, fps, width) {
   const speed = median(speeds.slice(Math.floor(speeds.length * 0.2), Math.ceil(speeds.length * 0.8)));
   const sx = median(smooth.map((s) => s[0]));
   const sy = median(smooth.map((s) => s[1]));
+  // Scale change per second (fraction of frame size); sign calibrated in tests.
+  const zoom = median(scaleSeries.slice(Math.floor(scaleSeries.length * 0.2), Math.ceil(scaleSeries.length * 0.8))) * fps;
   let direction = 'static';
-  if (speed >= STATIC_SPEED) {
+  if (Math.abs(zoom) >= STATIC_SPEED && Math.abs(zoom) > speed) {
+    direction = zoom < 0 ? 'forward' : 'back';
+  } else if (speed >= STATIC_SPEED) {
     // libvidstab reports the camera's own translation: +x = camera moving right.
     if (Math.abs(sx) >= Math.abs(sy)) direction = sx > 0 ? 'right' : 'left';
     else direction = sy > 0 ? 'down' : 'up';
@@ -117,7 +143,12 @@ export function parseMotion(text, fps, width) {
   const envelope = [];
   for (let i = 0; i < energy.length; i += step) envelope.push(Number(energy[i].toFixed(5)));
 
-  return { fps, energy, speed: Number(speed.toFixed(4)), direction, envelope, envelopeRate: fps / step };
+  return {
+    fps, energy, envelope, envelopeRate: fps / step, direction,
+    speed: Number(speed.toFixed(4)),
+    zoom: Number(zoom.toFixed(4)),
+    moving: direction !== 'static',
+  };
 }
 
 /**
@@ -176,6 +207,7 @@ export function colorStats(buf, w, h, rate) {
   const hist = new Uint32Array(256);
   let rB = 0, gB = 0, bB = 0, nB = 0;
   let rM = 0, gM = 0, bM = 0, nM = 0;
+  let rA = 0, gA = 0, bA = 0, nA = 0;
   let clip = 0, total = 0;
   const perFrame = [];
   for (let f = 0; f < frames; f++) {
@@ -195,6 +227,9 @@ export function colorStats(buf, w, h, rate) {
       // White-balance reference: interiors are dominated by white ceilings, trim and
       // walls. Bright, low-saturation pixels are the most reliable neutral; a cast of
       // up to ~25% saturation still qualifies, while wood floors and fabrics don't.
+      if (y >= 30) {
+        rA += r; gA += g; bA += b; nA++;
+      }
       const sat = mx > 0 ? (mx - mn) / mx : 0;
       if (y >= 150 && sat < 0.25) {
         rB += r; gB += g; bB += b; nB++;
@@ -232,6 +267,10 @@ export function colorStats(buf, w, h, rate) {
     bMid: round3(bMid),
     neutralCoverage: round3(n / Math.max(1, total)),
     neutralSource: useBright ? 'highlights' : n ? 'midtones' : 'none',
+    // Whole-frame average (grey world), used as a secondary white-balance cue.
+    rAll: round3(nA ? rA / nA / 255 : 0.5),
+    gAll: round3(nA ? gA / nA / 255 : 0.5),
+    bAll: round3(nA ? bA / nA / 255 : 0.5),
     castRB: round3(rMid - bMid),
     clipHigh: round3(clip / Math.max(1, total)),
     exposureCurve: perFrame,

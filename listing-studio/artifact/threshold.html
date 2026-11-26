@@ -1,0 +1,1645 @@
+<title>Threshold</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: editor workspace — footage and edit on the left, listing/brand/delivery controls on the right.
+   A video tool is dark by design (colour judgements are made against a dark surround), so this page
+   deliberately commits to one dark palette. */
+:root {
+  color-scheme: dark;
+  --bg-0: #0f0f0e; --bg-1: #151514; --bg-2: #1b1b19; --bg-3: #23231f; --bg-4: #2c2c28;
+  --line: #2a2a26; --line-2: #3a3934;
+  --text-0: #ecebe5; --text-1: #b5b3aa; --text-2: #85837a; --text-3: #5d5c55;
+  --accent: #c9a86a; --accent-hi: #d8b97c; --accent-ink: #191409; --accent-wash: rgba(201,168,106,.12);
+  --ok: #86ad87; --warn: #d3a24f; --err: #d8796a; --info: #8da7c4;
+  --sans: 'IBM Plex Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --serif: 'Cormorant Garamond', Cormorant, Georgia, serif;
+  --r1: 3px; --r2: 5px;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg-0); color: var(--text-0); }
+body { font: 400 13px/1.45 var(--sans); -webkit-font-smoothing: antialiased; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 1.5px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--mono); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.muted { color: var(--text-2); }
+.dim { color: var(--text-1); }
+
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; display: flex; align-items: center; gap: 16px; min-height: 48px; padding-block: 8px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); background: var(--bg-0); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg-0); }
+.wordmark { display: flex; align-items: center; gap: 9px; }
+.wordmark svg { color: var(--accent); }
+.wordmark b { font: 600 22px/1 var(--serif); letter-spacing: .01em; }
+.wordmark span { color: var(--text-2); font-size: 12px; padding-left: 10px; border-left: 1px solid var(--line-2); }
+.engine { margin-left: auto; display: flex; gap: 14px; align-items: center; color: var(--text-2); font-size: 12px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--text-3); margin-right: 6px; vertical-align: 1px; }
+.dot.ok { background: var(--ok); } .dot.busy { background: var(--accent); animation: pulse 1.4s infinite; } .dot.err { background: var(--err); }
+@keyframes pulse { 50% { opacity: .35; } }
+
+.ws { display: grid; grid-template-columns: minmax(0, 1fr) 360px; align-items: start; }
+.main { padding-block: 20px 60px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: 22px; min-width: 0; }
+.side { border-left: 1px solid var(--line); background: var(--bg-1); min-height: calc(100vh - 48px); padding-bottom: 60px; padding-right: env(safe-area-inset-right, 0px); }
+
+.head h1 { margin: 0; font: 600 32px/1.05 var(--serif); text-wrap: balance; }
+.head .meta { color: var(--text-1); margin-top: 6px; display: flex; gap: 6px 14px; flex-wrap: wrap; }
+.head { margin-bottom: 20px; display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; }
+.head .actions { margin-left: auto; display: flex; gap: 8px; }
+.eg { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--warn); border: 1px solid rgba(211,162,79,.4); padding: 1px 6px; border-radius: 2px; }
+
+.section { margin-bottom: 26px; }
+.sec-head { display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; margin-bottom: 10px; min-height: 30px; }
+.sec-head h2 { margin: 0; font-size: 13px; font-weight: 600; }
+.sec-head .note { color: var(--text-2); font-size: 12px; }
+.sec-head .right { margin-left: auto; display: flex; gap: 8px; align-items: center; max-width: 100%; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; height: 30px; padding: 0 12px; border-radius: var(--r1); border: 1px solid var(--line-2); background: var(--bg-2); color: var(--text-0); font-weight: 500; font-size: 12.5px; cursor: pointer; white-space: nowrap; }
+.btn:hover { background: var(--bg-3); border-color: #4a4943; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn svg { width: 14px; height: 14px; flex: none; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn.primary:hover { background: var(--accent-hi); border-color: var(--accent-hi); }
+.btn.ghost { background: transparent; border-color: transparent; color: var(--text-1); }
+.btn.ghost:hover { background: var(--bg-3); color: var(--text-0); }
+.btn.sm { height: 26px; padding: 0 9px; font-size: 12px; }
+.btn.danger:hover { color: var(--err); }
+.linkish { background: none; border: 0; padding: 0; color: var(--text-1); cursor: pointer; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+
+.field { display: grid; gap: 5px; min-width: 0; }
+.field > label, .field > .label { font-size: 11.5px; color: var(--text-1); font-weight: 500; }
+.input, .select { height: 32px; width: 100%; padding: 0 10px; background: var(--bg-0); border: 1px solid var(--line-2); border-radius: var(--r1); color: var(--text-0); }
+.input:focus, .select:focus { outline: none; border-color: var(--accent); }
+.select { appearance: none; padding-right: 26px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2385837a' stroke-width='1.4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 9px center; }
+.select.sm { height: 26px; font-size: 12px; padding-left: 8px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.grid3 { display: grid; grid-template-columns: 1.6fr .7fr .9fr; gap: 10px; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.stack { display: grid; gap: 12px; }
+.row { display: flex; align-items: center; gap: 8px; }
+.hint { color: var(--text-2); font-size: 11.5px; line-height: 1.45; margin: 0; }
+.hint.warn { color: var(--warn); }
+
+.seg { display: inline-flex; background: var(--bg-0); border: 1px solid var(--line-2); border-radius: var(--r1); padding: 2px; gap: 2px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.seg button { flex: none; border: 0; background: transparent; color: var(--text-1); height: 24px; padding: 0 10px; border-radius: 2px; cursor: pointer; font-size: 12px; font-weight: 500; }
+.seg button[aria-pressed="true"] { background: var(--bg-4); color: var(--text-0); }
+.seg.full { display: flex; } .seg.full button { flex: 1; }
+.switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; padding: 4px 0; }
+.switch input { appearance: none; width: 28px; height: 16px; border-radius: 8px; background: var(--bg-4); position: relative; cursor: pointer; flex: none; margin: 0; }
+.switch input::after { content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--text-1); transition: transform .15s; }
+.switch input:checked { background: var(--accent); }
+.switch input:checked::after { transform: translateX(12px); background: var(--accent-ink); }
+.switch .t { display: grid; } .switch small { color: var(--text-2); font-size: 11.5px; }
+input[type=range] { width: 100%; accent-color: var(--accent); margin: 0; }
+.check { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r1); cursor: pointer; background: var(--bg-0); }
+.check input { margin: 2px 0 0; accent-color: var(--accent); }
+.check .t { display: grid; gap: 1px; flex: 1; min-width: 0; }
+.check b { font-weight: 500; } .check small { color: var(--text-2); }
+.check:has(input:checked) { border-color: rgba(201,168,106,.45); background: var(--accent-wash); }
+.opt { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r1); cursor: pointer; background: var(--bg-0); }
+.opt input { margin: 3px 0 0; accent-color: var(--accent); grid-row: span 2; }
+.opt b { font-weight: 500; } .opt small { color: var(--text-2); font-size: 11.5px; grid-column: 2; }
+.opt:has(input:checked) { border-color: rgba(201,168,106,.5); background: var(--accent-wash); }
+
+.drop { border: 1px dashed var(--line-2); border-radius: var(--r2); padding: 28px 20px; text-align: center; color: var(--text-2); display: grid; gap: 8px; justify-items: center; background: repeating-linear-gradient(-45deg, transparent 0 9px, rgba(255,255,255,.012) 9px 10px); }
+.drop strong { color: var(--text-0); font-weight: 500; font-size: 14px; }
+.drop.over, .bin.over { outline: 1.5px dashed var(--accent); outline-offset: 4px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r2); overflow: hidden; margin-top: 14px; text-align: left; width: 100%; max-width: 680px; }
+.steps div { background: var(--bg-1); padding: 12px 14px; }
+.steps b { display: block; font-weight: 500; color: var(--text-0); margin: 3px 0 2px; }
+.steps span { color: var(--text-2); font-size: 12px; }
+.caps { text-transform: uppercase; letter-spacing: .08em; font-size: 10.5px; font-weight: 600; color: var(--text-2); }
+
+.bin { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.clip { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--r2); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.clip.off { opacity: .5; }
+.clip.drop-before { box-shadow: -3px 0 0 var(--accent); } .clip.drop-after { box-shadow: 3px 0 0 var(--accent); }
+.clip .media { position: relative; aspect-ratio: 16/9; background: #0b0b0a; cursor: pointer; overflow: hidden; max-width: 100%; }
+.clip .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.clip .media img.fitc { object-fit: contain; }
+.clip .n, .clip .dur, .clip .kind { position: absolute; background: rgba(10,10,9,.78); padding: 1px 5px; border-radius: 2px; }
+.clip .n { top: 6px; left: 6px; } .clip .dur { bottom: 6px; right: 6px; } .clip .kind { bottom: 6px; left: 6px; font-size: 10.5px; color: var(--text-1); }
+.clip .state { position: absolute; inset: 0; display: grid; place-content: center; gap: 8px; text-align: center; background: rgba(11,11,10,.74); font-size: 12px; color: var(--text-1); padding: 0 16px; }
+.clip .body { padding: 9px 10px 10px; display: grid; gap: 7px; align-content: start; }
+.clip .name { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
+.clip .name .mono { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-1); flex: 1; min-width: 0; }
+.clip .caption { font-size: 12px; color: var(--text-1); }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: 11px; padding: 1px 6px; border-radius: 2px; background: var(--bg-3); color: var(--text-1); }
+.tag.fix { color: #cbb68e; background: rgba(201,168,106,.1); } .tag.warn { color: var(--warn); background: rgba(211,162,79,.1); }
+.tag.err { color: var(--err); background: rgba(216,121,106,.1); } .tag.info { color: var(--info); background: rgba(141,167,196,.1); }
+.bar { height: 3px; background: var(--bg-4); border-radius: 2px; overflow: hidden; width: 100%; }
+.bar i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s linear; }
+.state .bar { width: 120px; }
+
+.tl { background: var(--bg-1); border: 1px solid var(--line); border-radius: var(--r2); padding: 12px 14px 14px; }
+.tl-stats { display: flex; gap: 6px 18px; color: var(--text-1); font-size: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.tl-stats b { color: var(--text-0); font-weight: 500; }
+.timeline { position: relative; height: 82px; }
+.tl-track { position: absolute; left: 0; right: 0; top: 16px; height: 50px; }
+.tl-seg { position: absolute; top: 0; height: 50px; background: var(--bg-3) center / cover no-repeat; border-radius: 2px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.5); }
+.tl-seg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.65)); }
+.tl-seg span { position: absolute; left: 6px; bottom: 4px; z-index: 1; font-size: 10.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: calc(100% - 10px); }
+.tl-seg.card { background: repeating-linear-gradient(-45deg, var(--bg-3) 0 6px, var(--bg-2) 6px 12px); } .tl-seg.card::after { display: none; }
+.tl-fade { position: absolute; top: 12px; height: 58px; border-left: 1px solid var(--accent); border-right: 1px solid var(--accent); background: rgba(201,168,106,.16); z-index: 2; }
+.tl-title { position: absolute; top: 0; height: 12px; border-radius: 2px; background: rgba(201,168,106,.28); border-left: 2px solid var(--accent); font-size: 9.5px; line-height: 12px; padding-left: 5px; color: var(--accent-hi); white-space: nowrap; overflow: hidden; }
+.tl-ruler { position: absolute; left: 0; right: 0; bottom: 0; height: 12px; }
+.tl-ruler i { position: absolute; bottom: 0; width: 1px; height: 4px; background: var(--line-2); }
+.tl-ruler i.beat { height: 3px; background: #4a4943; }
+.tl-ruler span { position: absolute; bottom: 4px; font-size: 9.5px; color: var(--text-3); transform: translateX(3px); }
+.tl-msg { color: var(--text-2); padding: 14px 0 6px; font-size: 12px; }
+
+.side-sec { border-bottom: 1px solid var(--line); padding: 16px 18px 18px; padding-left: max(18px, env(safe-area-inset-left, 0px)); }
+.side-sec > h3, .side-sec > summary { margin: 0 0 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--text-2); display: flex; align-items: center; cursor: default; }
+.side-sec > summary { cursor: pointer; list-style: none; margin-bottom: 0; }
+.side-sec > summary::-webkit-details-marker { display: none; }
+.side-sec[open] > summary { margin-bottom: 12px; }
+.side-sec > summary::after { content: '+'; margin-left: auto; font-size: 14px; color: var(--text-2); }
+.side-sec[open] > summary::after { content: '−'; }
+.side-sec h3 .right, .side-sec summary .right { margin-left: auto; text-transform: none; letter-spacing: 0; font-weight: 500; }
+.side-sec summary .right { margin-right: 10px; }
+
+.music { display: grid; grid-template-columns: 34px minmax(0,1fr) auto; gap: 10px; align-items: center; padding: 10px; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r1); }
+.music .ico { width: 34px; height: 34px; display: grid; place-items: center; background: var(--bg-3); border-radius: 2px; color: var(--accent); }
+.music .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 500; }
+
+.renders { display: grid; gap: 8px; margin-top: 12px; }
+.rnd { display: grid; grid-template-columns: 76px minmax(0,1fr); gap: 10px; padding: 9px; background: var(--bg-0); border: 1px solid var(--line); border-radius: var(--r1); }
+.rnd canvas, .rnd .pv { width: 76px; aspect-ratio: 16/9; background: var(--bg-3); border-radius: 2px; object-fit: contain; display: block; max-width: 100%; }
+.rnd .t { display: grid; gap: 3px; min-width: 0; }
+.rnd .top { display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+.rnd b { font-weight: 500; } .rnd .sub { color: var(--text-2); font-size: 11.5px; }
+.rnd .acts { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+.rnd .err-msg { color: var(--err); font-size: 11.5px; }
+.logo-box { width: 96px; height: 60px; border: 1px solid var(--line-2); border-radius: 2px; display: grid; place-items: center; background: repeating-conic-gradient(#1d1d1b 0 25%, #171716 0 50%) 0 0 / 12px 12px; overflow: hidden; flex: none; }
+.logo-box img { max-width: 84px; max-height: 48px; }
+.swatch input[type=color] { width: 32px; height: 32px; padding: 0; border: 1px solid var(--line-2); border-radius: 2px; background: none; cursor: pointer; }
+
+.modal-back { position: fixed; inset: 0; z-index: 60; background: rgba(8,8,7,.74); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.modal { width: min(1040px, 100%); max-height: calc(100vh - 32px); overflow: auto; background: var(--bg-1); border: 1px solid var(--line-2); border-radius: var(--r2); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+.modal-head { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg-1); z-index: 2; }
+.modal-head h2 { margin: 0; font: 500 14px var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.modal-head .right { margin-left: auto; display: flex; gap: 6px; }
+.modal-body { padding: 16px; }
+.insp { display: grid; grid-template-columns: minmax(0,1fr) 280px; gap: 20px; }
+.compare { position: relative; aspect-ratio: 16/9; background: #000; overflow: hidden; border-radius: 2px; user-select: none; max-width: 100%; }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.compare .after { clip-path: inset(0 0 0 var(--split, 50%)); }
+.compare .handle { position: absolute; top: 0; bottom: 0; left: var(--split, 50%); width: 1px; background: rgba(255,255,255,.85); pointer-events: none; }
+.compare .lbl { position: absolute; top: 8px; padding: 2px 6px; background: rgba(10,10,9,.75); border-radius: 2px; }
+.compare .lbl.l { left: 8px; } .compare .lbl.r { right: 8px; }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; }
+.graph { width: 100%; height: 64px; display: block; background: var(--bg-0); border: 1px solid var(--line); border-radius: 2px; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 12px; margin: 0; }
+.kv dt { color: var(--text-2); } .kv dd { margin: 0; text-align: right; }
+.player { width: 100%; background: #000; border-radius: 2px; display: block; max-height: 70vh; }
+.toast { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); z-index: 80; background: var(--bg-3); border: 1px solid var(--line-2); border-left: 2px solid var(--accent); padding: 10px 14px; border-radius: var(--r1); max-width: min(380px, calc(100vw - 32px)); box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+.toast.err { border-left-color: var(--err); }
+.fatal { margin: 40px auto; max-width: 560px; padding: 20px; border: 1px solid var(--line-2); border-radius: var(--r2); background: var(--bg-1); }
+
+@media (max-width: 1080px) {
+  .ws { grid-template-columns: minmax(0, 1fr); }
+  .main { padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .side { border-left: 0; border-top: 1px solid var(--line); min-height: 0; padding-right: env(safe-area-inset-right, 0px); }
+  .insp { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .steps { grid-template-columns: 1fr; }
+  .grid4 { grid-template-columns: 1fr 1fr; }
+  .grid3 { grid-template-columns: 1fr 1fr; }
+  .grid3 > :first-child { grid-column: 1 / -1; }
+  .wordmark span { display: none; }
+  .head h1 { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<header class="topbar">
+  <div class="wordmark">
+    <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path d="M9 25V11l7-5 7 5v14" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 25v-7h6v7" fill="none" stroke="#ecebe5" stroke-width="1.8"/></svg>
+    <b>Threshold</b><span>Listing video editor</span>
+  </div>
+  <div class="engine" id="engine"><span><i class="dot busy"></i>Loading video engine…</span></div>
+</header>
+<div class="ws">
+  <main class="main" id="main"></main>
+  <aside class="side" id="side"></aside>
+</div>
+<div id="modal-root"></div>
+<input type="file" id="file-input" multiple accept="video/*,image/jpeg,image/png,image/webp,.mov,.mp4,.m4v,.jpg,.jpeg,.png,.webp" hidden>
+<input type="file" id="music-input" accept="audio/*,.mp3,.m4a,.wav,.aac,.aif,.aiff,.flac" hidden>
+<input type="file" id="logo-input" accept="image/png,image/jpeg,image/webp" hidden>
+
+<script type="module">
+// =====================================================================================
+// Threshold — browser edition. Footage never leaves the computer: files are read,
+// decoded, graded and encoded in this page with WebCodecs + WebGL (via Mediabunny).
+// =====================================================================================
+const MEDIABUNNY_URL = 'https://cdn.jsdelivr.net/npm/mediabunny@1.65.2/dist/bundles/mediabunny.min.mjs';
+let MB = null;
+
+// ---------------------------------------------------------------- domain constants
+const STYLES = {
+  walkthrough: { label: 'Walkthrough', description: 'Measured pace, cross-dissolves, cuts on the beat.', ideal: 4.2, min: 2.6, max: 6.5, transition: 'dissolve', td: 0.6, intro: 4.8, outro: 4.5, look: 'bright', serif: false },
+  signature: { label: 'Signature', description: 'Slower, longer dissolves and serif titles for luxury listings.', ideal: 5.4, min: 3.4, max: 8, transition: 'dissolve', td: 1.0, intro: 5.6, outro: 5, look: 'warm', serif: true },
+  social: { label: 'Social cut', description: 'Quick, beat-matched hard cuts for Reels, TikTok and Shorts.', ideal: 1.7, min: 0.9, max: 3.2, transition: 'cut', td: 0, intro: 3.2, outro: 3, look: 'crisp', serif: false },
+};
+const FORMATS = {
+  'film-branded': { label: 'Listing film', sub: '16:9 · branded', aspect: '16:9', branded: true },
+  'film-mls': { label: 'MLS tour', sub: '16:9 · unbranded', aspect: '16:9', branded: false, note: 'No agent name, logo, phone or brokerage, for MLS virtual-tour fields.' },
+  'reel': { label: 'Social reel', sub: '9:16 · 30 s', aspect: '9:16', branded: true, style: 'social', maxDuration: 30 },
+  'square': { label: 'Feed post', sub: '1:1 · 30 s', aspect: '1:1', branded: true, style: 'social', maxDuration: 30 },
+  'portrait-feed': { label: 'Feed post', sub: '4:5 · 30 s', aspect: '4:5', branded: true, style: 'social', maxDuration: 30 },
+};
+const LOOKS = {
+  natural: { label: 'Natural', mid: 0.5, black: 0.02, white: 0.975, vibrance: 0.08, warmth: 0, contrast: 0 },
+  bright: { label: 'Bright', mid: 0.55, black: 0.03, white: 0.985, vibrance: 0.12, warmth: 0, contrast: 0 },
+  warm: { label: 'Warm', mid: 0.52, black: 0.03, white: 0.97, vibrance: 0.1, warmth: 0.035, contrast: 0.04 },
+  crisp: { label: 'Crisp', mid: 0.5, black: 0.012, white: 0.985, vibrance: 0.14, warmth: -0.01, contrast: 0.07 },
+};
+const ROOM_ORDER = ['aerial', 'exterior', 'entry', 'living', 'kitchen', 'dining', 'office', 'primary_bedroom', 'primary_bath', 'bedroom', 'bathroom', 'laundry', 'garage', 'outdoor', 'amenity', 'detail', 'other'];
+const ROOM_LABELS = { aerial: 'Aerial', exterior: 'Exterior', entry: 'Entry', living: 'Living', kitchen: 'Kitchen', dining: 'Dining', office: 'Office', primary_bedroom: 'Primary bedroom', primary_bath: 'Primary bath', bedroom: 'Bedroom', bathroom: 'Bathroom', laundry: 'Laundry', garage: 'Garage', outdoor: 'Outdoor', amenity: 'Amenity', detail: 'Detail', other: 'Other' };
+const ROOM_WEIGHT = { aerial: 1.25, exterior: 1.15, outdoor: 1.1, living: 1.05, kitchen: 1.1, detail: 0.7, laundry: 0.75, garage: 0.8 };
+const ISSUES = { operator_visible: 'Operator visible in reflection', personal_items: 'Personal photos in frame', toilet_seat_up: 'Toilet seat up', lights_off: 'Lights off', clutter: 'Cluttered surfaces', tilted_verticals: 'Verticals not straight' };
+const VIDEO_RE = /\.(mp4|mov|m4v|mkv|webm)$/i;
+const PHOTO_RE = /\.(jpe?g|png|webp)$/i;
+const AUDIO_RE = /\.(mp3|m4a|aac|wav|aiff?|flac|ogg)$/i;
+
+// ---------------------------------------------------------------- state
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+const EXAMPLE_LISTING = { line1: '1482 Larkspur Lane', city: 'Madison', state: 'MS', zip: '39110', price: '689000', beds: '4', baths: '3.5', sqft: '3240', label: 'Just listed' };
+const S = {
+  clips: [],
+  manualOrder: false,
+  music: null,
+  listing: store.get('ts.listing', null) || { ...EXAMPLE_LISTING },
+  listingIsExample: !store.get('ts.listing', null),
+  brand: store.get('ts.brand', { agentName: '', agentTitle: '', brokerage: '', phone: '', email: '', website: '', accentColor: '#C9A86A', logo: null }),
+  settings: { style: 'walkthrough', targetDuration: 60, fps: 30, resolution: 1080, slowmo: true, look: 'bright', gradeStrength: 0.8, formats: ['film-branded', 'film-mls', 'reel'], ...store.get('ts.settings', {}) },
+  previewFormat: 'film-branded',
+  renders: [],
+  caps: { video: null, audio: null, container: 'mp4', webgl: false, ok: false, problem: null },
+  downloads: null,
+  sample: null,
+  sampleImages: false,
+  labelling: false,
+};
+let nextId = 1;
+
+// ---------------------------------------------------------------- utilities
+const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ESC[c]);
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const runtime = (s) => (Number.isFinite(s) ? `${Math.floor(Math.round(s) / 60)}:${String(Math.round(s) % 60).padStart(2, '0')}` : '—');
+const timecode = (s) => { if (!Number.isFinite(s)) return '--:--.-'; const m = Math.floor(s / 60); return `${String(m).padStart(2, '0')}:${(s - m * 60).toFixed(1).padStart(4, '0')}`; };
+const bytes = (n) => { if (!n) return '—'; const u = ['B', 'KB', 'MB', 'GB']; let i = 0; while (n >= 1000 && i < 3) { n /= 1000; i++; } return `${n.toFixed(n < 10 && i ? 1 : 0)} ${u[i]}`; };
+const num = (v) => Number(String(v ?? '').replace(/[^0-9.]/g, ''));
+const median = (a) => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+const nextFrame = () => new Promise((r) => setTimeout(r, 0));
+function toast(msg, err = false) {
+  const el = document.createElement('div');
+  el.className = `toast${err ? ' err' : ''}`;
+  el.textContent = msg;
+  document.body.append(el);
+  setTimeout(() => el.remove(), 4200);
+}
+function factsLine(l, sep = '  ·  ') {
+  const p = [];
+  if (l.beds) p.push(`${l.beds} bd`); if (l.baths) p.push(`${l.baths} ba`);
+  if (num(l.sqft)) p.push(`${num(l.sqft).toLocaleString('en-US')} sq ft`);
+  if (num(l.price)) p.push(`$${num(l.price).toLocaleString('en-US')}`);
+  return p.join(sep);
+}
+const cityLine = (l) => [l.city, [l.state, l.zip].filter(Boolean).join(' ')].filter(Boolean).join(', ');
+const ICON = {
+  upload: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.5V2.5M4.8 5.6 8 2.5l3.2 3.1M2.5 10v3h11v-3"/></svg>',
+  save: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v8M4.8 7.4 8 10.5l3.2-3.1M2.5 10v3h11v-3"/></svg>',
+  film: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1"/><path d="M5 3v10M11 3v10M2.5 6h2.5M2.5 10h2.5M11 6h2.5M11 10h2.5"/></svg>',
+  music: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 12V3.5l7-1.5V10.5"/><circle cx="4.5" cy="12" r="1.5"/><circle cx="11.5" cy="10.5" r="1.5"/></svg>',
+  close: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>',
+  spark: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 2v3M8 11v3M2 8h3M11 8h3M4 4l2 2M10 10l2 2M12 4l-2 2M6 10l-2 2"/></svg>',
+};
+
+// ---------------------------------------------------------------- analysis maths
+const STATIC_SPEED = 0.01;
+function movingAverage(arr, w) {
+  const half = Math.floor(w / 2);
+  return arr.map((_, i) => { let s = 0, c = 0; for (let k = Math.max(0, i - half); k <= Math.min(arr.length - 1, i + half); k++) { s += arr[k]; c++; } return s / c; });
+}
+function rollingRms(arr, w) {
+  const half = Math.floor(w / 2);
+  return arr.map((_, i) => { let s = 0, c = 0; for (let k = Math.max(0, i - half); k <= Math.min(arr.length - 1, i + half); k++) { s += arr[k] * arr[k]; c++; } return Math.sqrt(s / c); });
+}
+/** Best 1-D shift (sub-pixel) between two normalised profiles. +s: content moved toward +x. */
+function profileShift(prev, cur, R) {
+  const n = cur.length;
+  let best = 0, bestErr = Infinity;
+  const errs = new Float64Array(2 * R + 1);
+  for (let s = -R; s <= R; s++) {
+    let e = 0, c = 0;
+    for (let x = Math.max(0, s); x < Math.min(n, n + s); x++) { const d = cur[x] - prev[x - s]; e += d * d; c++; }
+    e /= Math.max(1, c);
+    errs[s + R] = e;
+    if (e < bestErr) { bestErr = e; best = s; }
+  }
+  const i = best + R;
+  if (i > 0 && i < 2 * R) {
+    const a = errs[i - 1], b = errs[i], c = errs[i + 1];
+    const den = a - 2 * b + c;
+    if (den > 1e-12) return best + (0.5 * (a - c)) / den;
+  }
+  return best;
+}
+function normalise(arr) {
+  let m = 0; for (const v of arr) m += v; m /= arr.length;
+  let sd = 0; for (const v of arr) sd += (v - m) ** 2; sd = Math.sqrt(sd / arr.length) || 1;
+  return arr.map((v) => (v - m) / sd);
+}
+/** Column/row luminance profiles for the full frame and each half (for zoom). */
+function profiles(lum, w, h) {
+  const colL = new Float64Array(w / 2), colR = new Float64Array(w / 2), rowT = new Float64Array(h / 2), rowB = new Float64Array(h / 2);
+  const col = new Float64Array(w), row = new Float64Array(h);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const v = lum[y * w + x];
+      col[x] += v; row[y] += v;
+      if (x < w / 2) colL[x] += v; else colR[x - w / 2] += v;
+      if (y < h / 2) rowT[y] += v; else rowB[y - h / 2] += v;
+    }
+  }
+  return { col: normalise(col), row: normalise(row), colL: normalise(colL), colR: normalise(colR), rowT: normalise(rowT), rowB: normalise(rowB) };
+}
+function motionFromSeries(trans, zooms, fps) {
+  const tx = trans.map((t) => t[0]), ty = trans.map((t) => t[1]);
+  const w = Math.max(3, Math.round(fps * 0.5)) | 1;
+  const sx = movingAverage(tx, w), sy = movingAverage(ty, w);
+  const residual = tx.map((v, i) => Math.hypot(v - sx[i], ty[i] - sy[i]));
+  const energy = rollingRms(residual, Math.max(2, Math.round(fps * 0.25)));
+  const mid = (a) => a.slice(Math.floor(a.length * 0.2), Math.ceil(a.length * 0.8));
+  const speed = median(mid(sx.map((v, i) => Math.hypot(v, sy[i]) * fps)));
+  const zoom = median(mid(zooms)) * fps;
+  const mx = median(sx), my = median(sy);
+  let direction = 'static';
+  if (Math.abs(zoom) >= STATIC_SPEED && Math.abs(zoom) > speed) direction = zoom > 0 ? 'forward' : 'back';
+  else if (speed >= STATIC_SPEED) direction = Math.abs(mx) >= Math.abs(my) ? (mx < 0 ? 'right' : 'left') : (my < 0 ? 'down' : 'up');
+  const step = Math.max(1, Math.round(fps / 10));
+  const envelope = []; for (let i = 0; i < energy.length; i += step) envelope.push(Number(energy[i].toFixed(5)));
+  return { energy, envelope, envelopeRate: fps / step, speed, zoom, direction, moving: direction !== 'static' };
+}
+function findSteadyRange(energy, fps, dur) {
+  const minHandle = Math.min(0.25, dur * 0.1), maxTrim = dur * 0.35;
+  if (!energy.length) return { in: minHandle, out: Math.max(minHandle + 0.1, dur - minHandle), shake: 0 };
+  const th = Math.max(0.0035, median(energy) * 2.5);
+  const hold = Math.max(2, Math.round(fps * 0.5));
+  const steadyFrom = (i) => { for (let k = i; k < Math.min(energy.length, i + hold); k++) if (energy[k] > th) return false; return true; };
+  let a = 0; while (a < energy.length && !steadyFrom(a)) a++;
+  let b = energy.length - 1;
+  while (b > a) { let ok = true; for (let k = b; k > Math.max(-1, b - hold); k--) if (energy[k] > th) ok = false; if (ok) break; b--; }
+  let tin = a / fps, tout = (b + 1) / fps;
+  if (a >= energy.length || tout - tin < 1) { tin = Math.min(0.5, dur * 0.1); tout = dur - Math.min(0.5, dur * 0.1); }
+  tin = clamp(tin, minHandle, maxTrim); tout = clamp(tout, dur - maxTrim, dur - minHandle);
+  if (tout - tin < 0.5) { tin = minHandle; tout = dur - minHandle; }
+  const shake = median(energy.slice(Math.floor(tin * fps), Math.ceil(tout * fps))) || 0;
+  return { in: +tin.toFixed(3), out: +tout.toFixed(3), shake };
+}
+/** Exposure / white-balance statistics from RGBA samples. */
+function colorStats(samples) {
+  const hist = new Uint32Array(256);
+  let rB = 0, gB = 0, bB = 0, nB = 0, rM = 0, gM = 0, bM = 0, nM = 0, rA = 0, gA = 0, bA = 0, nA = 0, clip = 0, total = 0;
+  for (const d of samples) {
+    for (let i = 0; i < d.length; i += 4) {
+      const r = d[i], g = d[i + 1], b = d[i + 2];
+      const y = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      hist[Math.min(255, Math.round(y))]++; total++;
+      const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+      if (mx > 250) { clip++; continue; }
+      if (y >= 30) { rA += r; gA += g; bA += b; nA++; }
+      const sat = mx > 0 ? (mx - mn) / mx : 0;
+      if (y >= 150 && sat < 0.25) { rB += r; gB += g; bB += b; nB++; }
+      else if (y >= 60 && y < 150 && sat < 0.2) { rM += r; gM += g; bM += b; nM++; }
+    }
+  }
+  const pct = (p) => { const t = total * p; let acc = 0; for (let i = 0; i < 256; i++) { acc += hist[i]; if (acc >= t) return i / 255; } return 1; };
+  const useBright = nB >= total * 0.005;
+  const n = useBright ? nB : nM >= total * 0.01 ? nM : 0;
+  const [rs, gs, bs] = useBright ? [rB, gB, bB] : [rM, gM, bM];
+  return {
+    p005: pct(0.005), p50: pct(0.5), p995: pct(0.995),
+    rMid: n ? rs / n / 255 : 0.5, gMid: n ? gs / n / 255 : 0.5, bMid: n ? bs / n / 255 : 0.5,
+    neutralCoverage: n / Math.max(1, total),
+    rAll: nA ? rA / nA / 255 : 0.5, gAll: nA ? gA / nA / 255 : 0.5, bAll: nA ? bA / nA / 255 : 0.5,
+    clipHigh: clip / Math.max(1, total),
+  };
+}
+
+// ---------------------------------------------------------------- automatic grade
+function computeGrade(color, { look = 'bright', strength = 0.8 } = {}) {
+  const L = LOOKS[look] || LOOKS.bright;
+  const s = clamp(strength, 0, 1);
+  let gainR = 1, gainB = 1;
+  if (color && color.neutralCoverage > 0.004 && color.gMid > 0.05) {
+    gainR = (color.gMid / Math.max(0.01, color.rMid)) * 0.7 + (color.gAll / Math.max(0.01, color.rAll)) * 0.3;
+    gainB = (color.gMid / Math.max(0.01, color.bMid)) * 0.7 + (color.gAll / Math.max(0.01, color.bAll)) * 0.3;
+    gainR = clamp(gainR, 0.82, 1.22); gainB = clamp(gainB, 0.82, 1.22);
+  }
+  gainR = Math.pow(gainR, s) * (1 + L.warmth);
+  gainB = Math.pow(gainB, s) * (1 - L.warmth);
+  const p005 = color?.p005 ?? 0, p50 = color?.p50 ?? 0.5, p995 = color?.p995 ?? 1;
+  const bpIn = lerp(0, clamp(p005, 0, 0.12), s), wpIn = lerp(1, clamp(p995, 0.72, 1), s);
+  const bpOut = lerp(0, L.black, s), wpOut = lerp(1, L.white, s);
+  const midIn = clamp(p50, bpIn + 0.05, wpIn - 0.05);
+  const linear = bpOut + ((midIn - bpIn) / Math.max(0.05, wpIn - bpIn)) * (wpOut - bpOut);
+  const midOut = clamp(lerp(linear, L.mid, s), Math.max(linear - 0.03, midIn - 0.02), linear + 0.16);
+  const pts = [[0, 0]];
+  if (bpIn > 0.001) pts.push([bpIn, bpOut]);
+  if (L.contrast > 0) pts.push([bpIn + (midIn - bpIn) * 0.5, bpOut + (midOut - bpOut) * (0.5 - L.contrast * s)]);
+  pts.push([midIn, midOut]);
+  if (L.contrast > 0) pts.push([midIn + (wpIn - midIn) * 0.5, midOut + (wpOut - midOut) * (0.5 + L.contrast * s)]);
+  if (wpIn < 0.999) pts.push([wpIn, wpOut]);
+  pts.push([1, 1]);
+  const curve = [];
+  for (const p of pts.sort((a, b) => a[0] - b[0])) { const prev = curve[curve.length - 1]; if (prev && p[0] - prev[0] < 0.01) continue; curve.push([clamp(p[0], 0, 1), clamp(p[1], 0, 1)]); }
+  const cast = color ? Math.abs(color.rAll - color.bAll) : 0;
+  const vibrance = L.vibrance * s * clamp(1 - cast * 4, 0.3, 1);
+  return { gainR, gainB, curve, vibrance, lut: pchipLUT(curve) };
+}
+/** Monotone cubic (Fritsch–Carlson) curve sampled into a 256-entry RGBA LUT. */
+function pchipLUT(pts) {
+  const k = pts.length, xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+  const h = [], d = [];
+  for (let i = 0; i < k - 1; i++) { h[i] = xs[i + 1] - xs[i]; d[i] = (ys[i + 1] - ys[i]) / h[i]; }
+  const m = new Array(k);
+  m[0] = d[0]; m[k - 1] = d[k - 2];
+  for (let i = 1; i < k - 1; i++) {
+    if (d[i - 1] * d[i] <= 0) m[i] = 0;
+    else { const w1 = 2 * h[i] + h[i - 1], w2 = h[i] + 2 * h[i - 1]; m[i] = (w1 + w2) / (w1 / d[i - 1] + w2 / d[i]); }
+  }
+  const out = new Uint8Array(256 * 4);
+  let seg = 0;
+  for (let j = 0; j < 256; j++) {
+    const x = j / 255;
+    while (seg < k - 2 && x > xs[seg + 1]) seg++;
+    const t = (x - xs[seg]) / h[seg], t2 = t * t, t3 = t2 * t;
+    const y = (2 * t3 - 3 * t2 + 1) * ys[seg] + (t3 - 2 * t2 + t) * h[seg] * m[seg] + (-2 * t3 + 3 * t2) * ys[seg + 1] + (t3 - t2) * h[seg] * m[seg + 1];
+    const v = Math.round(clamp(y, 0, 1) * 255);
+    out[j * 4] = out[j * 4 + 1] = out[j * 4 + 2] = v; out[j * 4 + 3] = 255;
+  }
+  return out;
+}
+function gradeFor(clip) {
+  const strength = clip.gradeStrength ?? (clip.kind === 'photo' ? 0 : S.settings.gradeStrength);
+  return computeGrade(clip.color, { look: S.settings.look, strength });
+}
+/** Same maths as the shader, on the CPU, for the inspector's before/after still. */
+function applyGradeCPU(img, g) {
+  const d = img.data, lut = g.lut;
+  for (let i = 0; i < d.length; i += 4) {
+    let r = Math.min(255, d[i] * g.gainR), gg = d[i + 1], b = Math.min(255, d[i + 2] * g.gainB);
+    r = lut[Math.round(r) * 4] / 255; gg = lut[gg * 4] / 255; b = lut[Math.round(b) * 4] / 255;
+    const l = 0.2126 * r + 0.7152 * gg + 0.0722 * b;
+    const sat = Math.max(r, gg, b) - Math.min(r, gg, b);
+    const f = 1 + g.vibrance * (1 - sat);
+    d[i] = clamp(l + (r - l) * f, 0, 1) * 255; d[i + 1] = clamp(l + (gg - l) * f, 0, 1) * 255; d[i + 2] = clamp(l + (b - l) * f, 0, 1) * 255;
+  }
+  return img;
+}
+
+// ---------------------------------------------------------------- beat tracking
+function fft(re, im) {
+  const n = re.length;
+  for (let i = 1, j = 0; i < n; i++) { let bit = n >> 1; for (; j & bit; bit >>= 1) j ^= bit; j ^= bit; if (i < j) { [re[i], re[j]] = [re[j], re[i]]; [im[i], im[j]] = [im[j], im[i]]; } }
+  for (let len = 2; len <= n; len <<= 1) {
+    const ang = (-2 * Math.PI) / len, wr = Math.cos(ang), wi = Math.sin(ang);
+    for (let i = 0; i < n; i += len) {
+      let cr = 1, ci = 0;
+      for (let k = 0; k < len / 2; k++) {
+        const a = i + k, b = a + len / 2, tr = re[b] * cr - im[b] * ci, ti = re[b] * ci + im[b] * cr;
+        re[b] = re[a] - tr; im[b] = im[a] - ti; re[a] += tr; im[a] += ti;
+        const ncr = cr * wr - ci * wi; ci = cr * wi + ci * wr; cr = ncr;
+      }
+    }
+  }
+}
+function detrend(env) {
+  const out = new Float64Array(env.length); let max = 1e-9;
+  for (let i = 0; i < env.length; i++) { let s = 0, c = 0; for (let k = Math.max(0, i - 16); k <= Math.min(env.length - 1, i + 16); k++) { s += env[k]; c++; } out[i] = Math.max(0, env[i] - s / c); if (out[i] > max) max = out[i]; }
+  for (let i = 0; i < out.length; i++) out[i] /= max;
+  return out;
+}
+function detectBeats(x, sr) {
+  const N = 1024, HOP = 256, fr = sr / HOP;
+  const frames = Math.max(0, Math.floor((x.length - N) / HOP) + 1);
+  const win = new Float64Array(N); for (let i = 0; i < N; i++) win[i] = 0.5 - 0.5 * Math.cos((2 * Math.PI * i) / (N - 1));
+  const re = new Float64Array(N), im = new Float64Array(N), bins = N / 2, lowBins = Math.max(2, Math.round((200 * N) / sr));
+  let prev = new Float64Array(bins);
+  const envAll = new Float64Array(frames), envLow = new Float64Array(frames);
+  for (let f = 0; f < frames; f++) {
+    for (let i = 0; i < N; i++) { re[i] = x[f * HOP + i] * win[i]; im[i] = 0; }
+    fft(re, im);
+    const cur = new Float64Array(bins); let flux = 0, low = 0;
+    for (let k = 1; k < bins; k++) { cur[k] = Math.log1p(100 * Math.hypot(re[k], im[k])); const d = cur[k] - prev[k]; if (d > 0) { flux += d; if (k <= lowBins) low += d; } }
+    envAll[f] = flux; envLow[f] = low; prev = cur;
+  }
+  const env = detrend(envAll), lowEnv = detrend(envLow);
+  const duration = x.length / sr;
+  if (env.length < fr * 4) return { bpm: null, beats: [], downbeats: [], duration, confidence: 0 };
+  const minLag = Math.floor((60 / 190) * fr), maxLag = Math.ceil((60 / 55) * fr);
+  const ac = new Float64Array(maxLag + 2);
+  for (let lag = minLag; lag <= maxLag + 1; lag++) { let s = 0; for (let i = lag; i < env.length; i++) s += env[i] * env[i - lag]; ac[lag] = s / (env.length - lag); }
+  let best = minLag, bestScore = -Infinity, mean = 0;
+  for (let lag = minLag; lag <= maxLag; lag++) {
+    const bpm = (60 * fr) / lag, prior = Math.exp(-0.5 * Math.pow(Math.log2(bpm / 110) / 0.9, 2));
+    if (ac[lag] * prior > bestScore) { bestScore = ac[lag] * prior; best = lag; }
+    mean += ac[lag];
+  }
+  mean /= maxLag - minLag + 1;
+  const y0 = ac[best - 1] || 0, y1 = ac[best], y2 = ac[best + 1] || 0, den = y0 - 2 * y1 + y2;
+  const period = best + (den ? (0.5 * (y0 - y2)) / den : 0);
+  const phaseEnv = env.map((v, i) => v + 2 * lowEnv[i]);
+  let bestPhase = 0, bp = -Infinity;
+  for (let ph = 0; ph < Math.ceil(period); ph++) { let s = 0; for (let t = ph; t < env.length; t += period) s += phaseEnv[Math.round(t)] || 0; if (s > bp) { bp = s; bestPhase = ph; } }
+  const offset = N / 2 / sr, tol = Math.max(1, Math.round(period * 0.07)), beats = [];
+  for (let t = bestPhase; t < env.length; t += period) {
+    const c = Math.round(t); let bi = c, bv = -1;
+    for (let k = Math.max(0, c - tol); k <= Math.min(env.length - 1, c + tol); k++) if (phaseEnv[k] > bv) { bv = phaseEnv[k]; bi = k; }
+    beats.push((bi * HOP) / sr + offset);
+  }
+  let barPhase = 0, barScore = -Infinity;
+  for (let p = 0; p < 4; p++) { let s = 0; for (let i = p; i < beats.length; i += 4) s += phaseEnv[Math.round(((beats[i] - offset) * sr) / HOP)] || 0; if (s > barScore) { barScore = s; barPhase = p; } }
+  return { bpm: (60 * fr) / period, beats, downbeats: beats.filter((_, i) => i % 4 === barPhase), duration, confidence: clamp((ac[best] - mean) / (ac[best] + 1e-9), 0, 1) };
+}
+
+// ---------------------------------------------------------------- edit planning
+function frameSize(aspect, res) {
+  const k = res >= 2160 ? 2 : 1;
+  return aspect === '9:16' ? { width: 1080 * k, height: 1920 * k } : aspect === '1:1' ? { width: 1080 * k, height: 1080 * k } : aspect === '4:5' ? { width: 1080 * k, height: 1350 * k } : { width: 1920 * k, height: 1080 * k };
+}
+function autoOrder(clips) {
+  const key = (c) => String(c.capturedAt || c.name);
+  const rank = (c) => { const i = ROOM_ORDER.indexOf(c.room || 'other'); return i < 0 ? ROOM_ORDER.length : i; };
+  const sorted = [...clips].sort((a, b) => rank(a) - rank(b) || (a.kind === b.kind ? 0 : a.kind === 'photo' ? 1 : -1) || key(a).localeCompare(key(b)));
+  const aerials = sorted.filter((c) => c.room === 'aerial' && c.kind === 'video');
+  if (aerials.length >= 2) { const closer = aerials[aerials.length - 1]; sorted.splice(sorted.indexOf(closer), 1); sorted.push(closer); }
+  return sorted;
+}
+function bestWindow(clip, a, b, len) {
+  const env = clip.motion?.envelope, rate = clip.motion?.envelopeRate || 10, slack = b - a - len;
+  if (slack <= 0.05 || !env?.length) return a + Math.max(0, slack) / 2;
+  let best = a + slack / 2, bestScore = Infinity;
+  const steps = Math.min(40, Math.ceil(slack * rate));
+  for (let k = 0; k <= steps; k++) {
+    const s = a + (slack * k) / steps, i0 = Math.floor(s * rate), i1 = Math.ceil((s + len) * rate);
+    let sum = 0, n = 0, peak = 0;
+    for (let i = i0; i < Math.min(env.length, i1); i++) { sum += env[i]; n++; peak = Math.max(peak, env[i]); }
+    const score = (n ? sum / n : 0) + peak * 0.3 + (Math.abs(s + len / 2 - (a + b) / 2) / Math.max(0.1, b - a)) * 0.002;
+    if (score < bestScore) { bestScore = score; best = s; }
+  }
+  return best;
+}
+function buildPlan(formatId) {
+  const format = FORMATS[formatId];
+  const st = S.settings;
+  const style = STYLES[format.style || st.style] || STYLES.walkthrough;
+  const fps = st.fps, toF = (t) => Math.round(t * fps) / fps;
+  const d = style.transition === 'cut' ? 0 : toF(style.td);
+  const hasBrand = Boolean(S.brand.agentName?.trim() || S.brand.logo);
+  const outroLen = format.branded && hasBrand ? style.outro : 0;
+  let usable = S.clips.filter((c) => c.include && c.status === 'ready').map((c) => {
+    if (c.kind === 'photo') return { clip: c, srcIn: 0, srcOut: style.max, speed: 1, cap: Math.min(style.max, style.ideal * 1.15), weight: (ROOM_WEIGHT[c.room] || 1) * 0.9 };
+    const srcIn = clamp(c.trimIn ?? c.autoIn, 0, c.duration), srcOut = clamp(c.trimOut ?? c.autoOut, srcIn + 1 / fps, c.duration);
+    const speed = st.slowmo && c.fps >= 47 && fps <= 30 ? clamp(fps / c.fps, 0.25, 1) : 1;
+    return { clip: c, srcIn, srcOut, speed, cap: (srcOut - srcIn) / speed, weight: ROOM_WEIGHT[c.room] || 1 };
+  }).filter((u) => u.cap >= Math.max(0.5, style.min * 0.5));
+  if (!usable.length) return { error: S.clips.length ? 'Waiting for footage analysis to finish.' : 'Add footage to build the edit.' };
+  let target = Number(st.targetDuration) > 0 ? Number(st.targetDuration) : Infinity;
+  if (format.maxDuration) target = Math.min(target, format.maxDuration);
+  const budget = target - outroLen + (outroLen ? d : 0);
+  const minSpan = (l) => l.reduce((a, u) => a + Math.min(style.min, u.cap), 0) - (l.length - 1) * d;
+  const dropped = [];
+  while (usable.length > 1 && Number.isFinite(budget) && minSpan(usable) > budget) {
+    const counts = {}; for (const u of usable) counts[u.clip.room || 'other'] = (counts[u.clip.room || 'other'] || 0) + 1;
+    let worst = -1, ws = -Infinity;
+    usable.forEach((u, i) => { const sc = counts[u.clip.room || 'other'] * 10 + (u.clip.shake || 0) * 1000 - u.weight + (u.clip.kind === 'photo' ? 3 : 0); if (sc > ws) { ws = sc; worst = i; } });
+    dropped.push(usable[worst].clip.id); usable.splice(worst, 1);
+  }
+  const lo = usable.map((u) => Math.min(style.min, u.cap)), hi = usable.map((u) => Math.min(style.max, u.cap));
+  const lens = (lam) => usable.map((u, i) => clamp(lam * style.ideal * u.weight, lo[i], hi[i]));
+  const span = (L) => L.reduce((a, v) => a + v, 0) - (L.length - 1) * d;
+  let L;
+  if (!Number.isFinite(budget)) L = lens(1);
+  else { let a = 0, b = 20; for (let k = 0; k < 40; k++) { const m = (a + b) / 2; if (span(lens(m)) > budget) b = m; else a = m; } L = lens(a); }
+  L = L.map(toF);
+  let musicStart = 0, synced = false;
+  const beats0 = S.music?.analysis?.beats || [];
+  if (beats0.length > 8) {
+    const db = S.music.analysis.downbeats || [];
+    musicStart = db.length && db[0] < 3 ? db[0] : 0;
+    const beats = beats0.map((b) => b - musicStart).filter((b) => b > 0.3);
+    let start = 0;
+    for (let i = 0; i < L.length - 1; i++) {
+      const natural = start + L[i] - d / 2; let best = null;
+      for (const bt of beats) {
+        if (Math.abs(bt - natural) > 1.6) continue;
+        const len = toF(bt + d / 2 - start);
+        if (len < lo[i] - 0.15 || len > hi[i] + 0.05) continue;
+        if (best === null || Math.abs(bt - natural) < Math.abs(best - natural)) best = bt;
+      }
+      if (best !== null) { L[i] = Math.min(toF(best + d / 2 - start), toF(usable[i].cap)); synced = true; }
+      start += L[i] - d;
+    }
+  }
+  const segments = [];
+  let t = 0;
+  usable.forEach((u, i) => {
+    const duration = L[i];
+    const srcDur = u.clip.kind === 'photo' ? duration : Math.min(duration * u.speed, u.srcOut - u.srcIn);
+    const srcIn = u.clip.kind === 'photo' ? 0 : bestWindow(u.clip, u.srcIn, u.srcOut, srcDur);
+    segments.push({ clipId: u.clip.id, room: u.clip.room, srcIn, srcDur, speed: u.speed, start: t, duration, frames: Math.round(duration * fps), transitionIn: i ? { type: style.transition, duration: d } : null });
+    t += duration - (i < usable.length - 1 ? d : 0);
+  });
+  let total = t, outro = null;
+  if (outroLen) { const start = toF(total - d); outro = { start, duration: toF(outroLen), frames: Math.round(outroLen * fps), transitionIn: { type: d ? 'dissolve' : 'cut', duration: d } }; total = start + outro.duration; }
+  return { formatId, format: { ...format, ...frameSize(format.aspect, st.resolution) }, style, fps, segments, outro, intro: { start: 0.6, end: Math.min(style.intro, segments[0].duration + 1.5) }, total: toF(total), music: S.music?.analysis ? { start: musicStart, synced, bpm: S.music.analysis.bpm } : null, dropped };
+}
+
+// ---------------------------------------------------------------- titles (Canvas 2D)
+const FONT_SANS = "'IBM Plex Sans', 'Segoe UI', sans-serif", FONT_SERIF = "'Cormorant Garamond', Georgia, serif";
+async function fontsReady() {
+  try { await Promise.all([document.fonts.load(`600 40px ${FONT_SERIF}`), document.fonts.load(`500 40px ${FONT_SANS}`), document.fonts.load(`600 20px ${FONT_SANS}`), document.fonts.load(`400 20px ${FONT_SANS}`)]); } catch {}
+}
+function fitFont(ctx, text, weight, size, family, maxW) {
+  let s = size; ctx.font = `${weight} ${s}px ${family}`;
+  while (ctx.measureText(text).width > maxW && s > size * 0.5) { s -= 2; ctx.font = `${weight} ${s}px ${family}`; }
+  return s;
+}
+function tracked(ctx, text, em) {
+  if ('letterSpacing' in ctx) { ctx.letterSpacing = `${em}em`; return text; }
+  return [...text].join(' ');
+}
+function drawIntro(ctx, W, H, serif) {
+  const l = S.listing, k = (Math.min(W, H) / 1080) * (H > W ? 1.28 : 1), portrait = H > W, margin = Math.round((portrait ? 72 : 104) * k), maxW = W - margin * 2;
+  ctx.clearRect(0, 0, W, H);
+  const top = H * (portrait ? 0.42 : 0.38), g = ctx.createLinearGradient(0, top, 0, H);
+  for (let i = 0; i <= 8; i++) g.addColorStop(i / 8, `rgba(0,0,0,${(0.66 * Math.pow(i / 8, 1.5)).toFixed(3)})`);
+  ctx.fillStyle = g; ctx.fillRect(0, top, W, H - top);
+  const facts = factsLine(l, '   ·   ').toUpperCase(), city = cityLine(l), address = l.line1 || 'Untitled listing';
+  ctx.textBaseline = 'alphabetic'; ctx.fillStyle = '#fff';
+  let y = H - Math.round((portrait ? 300 : 120) * k);
+  if (facts) { ctx.globalAlpha = 0.8; const fs = fitFont(ctx, facts, 500, Math.round(23 * k), FONT_SANS, maxW); ctx.font = `500 ${fs}px ${FONT_SANS}`; const t = tracked(ctx, facts, 0.06); ctx.fillText(t, margin, y); ctx.letterSpacing = '0px'; y -= fs + Math.round(26 * k); }
+  if (city) { ctx.globalAlpha = 0.88; ctx.font = `400 ${Math.round(30 * k)}px ${FONT_SANS}`; ctx.fillText(city, margin, y); y -= Math.round(30 * k) + Math.round(16 * k); }
+  ctx.globalAlpha = 1;
+  const as = fitFont(ctx, address, serif ? 600 : 500, Math.round((serif ? 96 : 70) * k), serif ? FONT_SERIF : FONT_SANS, maxW);
+  ctx.font = `${serif ? 600 : 500} ${as}px ${serif ? FONT_SERIF : FONT_SANS}`; ctx.fillText(address, margin, y);
+  y -= Math.round(as * 0.95) + Math.round(26 * k);
+  ctx.globalAlpha = 0.92; ctx.font = `600 ${Math.round(20 * k)}px ${FONT_SANS}`;
+  const label = (l.label || 'Just listed').toUpperCase(); ctx.fillText(tracked(ctx, label, 0.2), margin, y); ctx.letterSpacing = '0px';
+  ctx.globalAlpha = 1; ctx.fillStyle = S.brand.accentColor || '#C9A86A'; ctx.fillRect(margin, y - Math.round(20 * k) - Math.round(22 * k), Math.round(44 * k), Math.max(2, Math.round(2 * k)));
+}
+async function drawOutro(ctx, W, H, serif) {
+  const b = S.brand, k = (Math.min(W, H) / 1080) * (H > W ? 1.28 : 1), maxW = W - 160 * k;
+  ctx.clearRect(0, 0, W, H); ctx.fillStyle = 'rgba(0,0,0,0.5)'; ctx.fillRect(0, 0, W, H);
+  const name = b.agentName || '', role = [b.agentTitle, b.brokerage].filter(Boolean).join('  ·  ').toUpperCase(), contact = [b.phone, b.email].filter(Boolean).join('     '), web = b.website || '';
+  let logo = null;
+  if (b.logo) { try { const img = new Image(); img.src = b.logo; await img.decode(); logo = img; } catch {} }
+  const logoH = Math.round((H > W ? 150 : 120) * k), gap = Math.round(36 * k);
+  const nameSize = Math.round((serif ? 92 : 66) * k), roleSize = Math.round(20 * k), contactSize = Math.round(30 * k), webSize = Math.round(24 * k);
+  const blockH = (logo ? logoH + gap * 1.4 : 0) + nameSize + (role ? gap * 0.9 + roleSize : 0) + gap * 1.5 + (contact ? contactSize + gap * 0.7 : 0) + (web ? webSize : 0);
+  let y = Math.round((H - blockH) / 2);
+  ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillStyle = '#fff';
+  if (logo) { const s = Math.min(logoH / logo.height, maxW / logo.width); ctx.drawImage(logo, (W - logo.width * s) / 2, y, logo.width * s, logo.height * s); y += logoH + gap * 1.4; }
+  const ns = fitFont(ctx, name, serif ? 600 : 500, nameSize, serif ? FONT_SERIF : FONT_SANS, maxW); ctx.font = `${serif ? 600 : 500} ${ns}px ${serif ? FONT_SERIF : FONT_SANS}`; ctx.fillText(name, W / 2, y); y += nameSize;
+  if (role) { y += gap * 0.9; ctx.globalAlpha = 0.85; ctx.font = `600 ${fitFont(ctx, role, 600, roleSize, FONT_SANS, maxW)}px ${FONT_SANS}`; ctx.fillText(tracked(ctx, role, 0.2), W / 2, y); ctx.letterSpacing = '0px'; y += roleSize; }
+  ctx.globalAlpha = 1; ctx.fillStyle = b.accentColor || '#C9A86A'; ctx.fillRect((W - 40 * k) / 2, y + gap * 0.7, 40 * k, Math.max(2, 2 * k)); y += gap * 1.5; ctx.fillStyle = '#fff';
+  if (contact) { ctx.globalAlpha = 0.95; ctx.font = `400 ${fitFont(ctx, contact, 400, contactSize, FONT_SANS, maxW)}px ${FONT_SANS}`; ctx.fillText(contact, W / 2, y); y += contactSize + gap * 0.7; }
+  if (web) { ctx.globalAlpha = 0.75; ctx.font = `400 ${webSize}px ${FONT_SANS}`; ctx.fillText(web, W / 2, y); }
+  ctx.globalAlpha = 1; ctx.textAlign = 'left';
+}
+
+// ---------------------------------------------------------------- WebGL compositor
+const VS = `#version 300 es
+in vec2 a; out vec2 v;
+void main() { v = a * 0.5 + 0.5; gl_Position = vec4(a, 0.0, 1.0); }`;
+const FS = `#version 300 es
+precision highp float;
+in vec2 v; out vec4 o;
+uniform sampler2D t0, t1, lut0, lut1, title;
+uniform int mode0, mode1;
+uniform vec4 xf0, xf1;
+uniform float r0, r1, lod0, lod1, dim0, dim1;
+uniform int axis0, axis1;
+uniform vec3 g0, g1;
+uniform float mixv, titleA, titleDy, fade;
+vec3 grade(vec3 c, sampler2D lut, vec3 g) {
+  c = clamp(vec3(c.r * g.x, c.g, c.b * g.y), 0.0, 1.0);
+  vec3 k = c * (255.0 / 256.0) + 0.5 / 256.0;
+  c = vec3(texture(lut, vec2(k.r, 0.5)).r, texture(lut, vec2(k.g, 0.5)).r, texture(lut, vec2(k.b, 0.5)).r);
+  float l = dot(c, vec3(0.2126, 0.7152, 0.0722));
+  float sat = max(c.r, max(c.g, c.b)) - min(c.r, min(c.g, c.b));
+  return clamp(mix(vec3(l), c, 1.0 + g.z * (1.0 - sat)), 0.0, 1.0);
+}
+vec3 layer(sampler2D t, int mode, vec4 xf, float r, int axis, float lod, vec2 p) {
+  if (mode == 2) {
+    float a = axis == 0 ? p.x : p.y;
+    float lo = 0.5 - r * 0.5;
+    if (a >= lo && a <= 1.0 - lo) {
+      vec2 q = axis == 0 ? vec2((p.x - lo) / r, p.y) : vec2(p.x, (p.y - lo) / r);
+      return textureLod(t, q, 0.0).rgb;
+    }
+    vec2 q = axis == 0 ? vec2(p.x, 0.5 + (p.y - 0.5) * r) : vec2(0.5 + (p.x - 0.5) * r, p.y);
+    return textureLod(t, q, 5.5).rgb * 0.8;
+  }
+  return textureLod(t, p * xf.xy + xf.zw, lod).rgb;
+}
+void main() {
+  vec2 p = vec2(v.x, 1.0 - v.y);
+  vec3 c = grade(layer(t0, mode0, xf0, r0, axis0, lod0, p), lut0, g0) * dim0;
+  if (mode1 > 0 && mixv > 0.0) c = mix(c, grade(layer(t1, mode1, xf1, r1, axis1, lod1, p), lut1, g1) * dim1, mixv);
+  if (titleA > 0.0) { vec4 tc = texture(title, p - vec2(0.0, titleDy)); c = mix(c, tc.rgb, tc.a * titleA); }
+  o = vec4(c * fade, 1.0);
+}`;
+class Compositor {
+  constructor(W, H) {
+    this.W = W; this.H = H;
+    this.canvas = new OffscreenCanvas(W, H);
+    const gl = this.gl = this.canvas.getContext('webgl2', { alpha: false, antialias: false, premultipliedAlpha: false, preserveDrawingBuffer: true });
+    if (!gl) throw new Error('WebGL 2 is not available in this browser.');
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const p = this.prog = gl.createProgram();
+    gl.attachShader(p, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(p, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(p);
+    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+    gl.useProgram(p);
+    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(p, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    this.u = {}; for (const n of ['t0', 't1', 'lut0', 'lut1', 'title', 'mode0', 'mode1', 'xf0', 'xf1', 'r0', 'r1', 'lod0', 'lod1', 'dim0', 'dim1', 'axis0', 'axis1', 'g0', 'g1', 'mixv', 'titleA', 'titleDy', 'fade']) this.u[n] = gl.getUniformLocation(p, n);
+    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+    this.slots = [this.tex(), this.tex()]; this.luts = [this.tex(true), this.tex(true)]; this.titleTex = this.tex(); this.outroTex = this.tex();
+    gl.viewport(0, 0, W, H);
+  }
+  tex(nearest = false) {
+    const gl = this.gl, t = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, t);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, nearest ? gl.NEAREST : gl.LINEAR);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 255]));
+    return t;
+  }
+  upload(t, source, mips = false) {
+    const gl = this.gl; gl.bindTexture(gl.TEXTURE_2D, t);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, source);
+    if (mips) { gl.generateMipmap(gl.TEXTURE_2D); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR); }
+    else gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  }
+  lut(t, bytes) { const gl = this.gl; gl.bindTexture(gl.TEXTURE_2D, t); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 256, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, bytes); }
+  /** layers: [{tex, lut, mode, xf, r, axis, lod, dim, grade}] (1 or 2) */
+  draw(layers, mix, titleTexOrNull, titleA, titleDy, fade) {
+    const gl = this.gl, u = this.u;
+    const bind = (unit, tex, loc) => { gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, tex); gl.uniform1i(loc, unit); };
+    layers.forEach((L, i) => {
+      bind(i, L.tex, u[`t${i}`]); bind(2 + i, L.lut, u[`lut${i}`]);
+      gl.uniform1i(u[`mode${i}`], L.mode); gl.uniform4fv(u[`xf${i}`], L.xf || [1, 1, 0, 0]);
+      gl.uniform1f(u[`r${i}`], L.r || 1); gl.uniform1i(u[`axis${i}`], L.axis || 0); gl.uniform1f(u[`lod${i}`], L.lod || 0); gl.uniform1f(u[`dim${i}`], L.dim ?? 1);
+      gl.uniform3f(u[`g${i}`], L.grade.gainR, L.grade.gainB, L.grade.vibrance);
+    });
+    if (layers.length < 2) { gl.uniform1i(u.mode1, 0); bind(1, this.slots[1], u.t1); bind(3, this.luts[1], u.lut1); }
+    gl.uniform1f(u.mixv, layers.length > 1 ? mix : 0);
+    bind(4, titleTexOrNull || this.titleTex, u.title);
+    gl.uniform1f(u.titleA, titleTexOrNull ? titleA : 0); gl.uniform1f(u.titleDy, titleDy); gl.uniform1f(u.fade, fade);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+}
+
+// ---------------------------------------------------------------- media access
+async function openVideo(file) {
+  const input = new MB.Input({ source: new MB.BlobSource(file), formats: MB.ALL_FORMATS });
+  const track = await input.getPrimaryVideoTrack();
+  if (!track) throw new Error('No video track in this file.');
+  return { input, track };
+}
+function coverCrop(sw, sh, W, H) {
+  const a = W / H;
+  if (sw / sh > a) { const cw = Math.round(sh * a); return { left: Math.round((sw - cw) / 2), top: 0, width: cw, height: sh }; }
+  const ch = Math.round(sw / a); return { left: 0, top: Math.round((sh - ch) / 2), width: sw, height: ch };
+}
+
+async function analyseClip(clip) {
+  if (clip.kind === 'photo') return analysePhoto(clip);
+  const { track, input } = await openVideo(clip.file);
+  if (!(await track.canDecode())) {
+    const codec = track.codec || 'this codec';
+    throw new Error(`This browser can't decode ${codec.toUpperCase()} video. Use Chrome or Edge on Mac or Windows, or Safari.`);
+  }
+  clip.duration = await input.computeDuration();
+  const fr = await track.computeFrameRateMetrics().catch(() => null);
+  clip.fps = fr?.bestGuessFrameRate || fr?.averageFrameRate || 30;
+  clip.width = track.displayWidth; clip.height = track.displayHeight;
+  clip.codec = track.codec; clip.hdr = await track.hasHighDynamicRange().catch(() => false);
+  clip.orientation = clip.width >= clip.height ? 'landscape' : 'portrait';
+  try {
+    const tags = await input.getMetadataTags();
+    const text = JSON.stringify(tags || {}).toLowerCase();
+    if (/dji|mavic|skydio|autel/.test(text)) clip.isDrone = true;
+    if (tags?.date instanceof Date) clip.capturedAt = tags.date.toISOString();
+  } catch {}
+  if (/^dji_/i.test(clip.name)) clip.isDrone = true;
+
+  // One sequential decode at 320 px: camera motion at ≤30 fps, colour samples twice a second.
+  const MW = 320, MH = Math.max(90, Math.round((MW * clip.height) / clip.width / 2) * 2);
+  const sink = new MB.CanvasSink(track, { width: MW, height: MH, fit: 'fill', poolSize: 2 });
+  const scratch = new OffscreenCanvas(MW, MH), sctx = scratch.getContext('2d', { willReadFrequently: true });
+  const small = new OffscreenCanvas(96, 54), smctx = small.getContext('2d', { willReadFrequently: true });
+  const afps = Math.min(30, clip.fps || 30), step = 1 / afps;
+  let nextT = -1, nextColor = 0, prev = null;
+  const trans = [], zooms = [], colors = [];
+  const lum = new Float32Array(MW * MH);
+  for await (const w of sink.canvases()) {
+    if (w.timestamp + 1e-6 < nextT) continue;
+    nextT = (nextT < 0 ? w.timestamp : nextT) + step;
+    sctx.drawImage(w.canvas, 0, 0);
+    const px = sctx.getImageData(0, 0, MW, MH).data;
+    for (let i = 0, j = 0; i < px.length; i += 4, j++) lum[j] = 0.2126 * px[i] + 0.7152 * px[i + 1] + 0.0722 * px[i + 2];
+    const pr = profiles(lum, MW, MH);
+    if (prev) {
+      const sx = profileShift(prev.col, pr.col, 12), sy = profileShift(prev.row, pr.row, 12);
+      const zl = profileShift(prev.colL, pr.colL, 10), zr = profileShift(prev.colR, pr.colR, 10);
+      const zt = profileShift(prev.rowT, pr.rowT, 10), zb = profileShift(prev.rowB, pr.rowB, 10);
+      trans.push([sx / MW, sy / MW]);
+      zooms.push(((zr - zl) / (MW / 2) + (zb - zt) / (MH / 2)) / 2);
+    }
+    prev = pr;
+    if (w.timestamp >= nextColor) {
+      smctx.drawImage(w.canvas, 0, 0, 96, 54);
+      colors.push(smctx.getImageData(0, 0, 96, 54).data);
+      nextColor = w.timestamp + 0.5;
+    }
+    clip.progress = clamp(w.timestamp / clip.duration, 0, 1) * 0.92;
+    if (trans.length % 15 === 0) { updateClipProgress(clip); await nextFrame(); }
+  }
+  const motion = motionFromSeries(trans, zooms, afps);
+  const steady = findSteadyRange(motion.energy, afps, clip.duration);
+  clip.motion = { envelope: motion.envelope, envelopeRate: motion.envelopeRate, direction: motion.direction, moving: motion.moving };
+  clip.autoIn = steady.in; clip.autoOut = steady.out; clip.shake = steady.shake;
+  clip.color = colorStats(colors);
+  const posterSink = new MB.CanvasSink(track, { width: 640, height: Math.round((640 * clip.height) / clip.width), fit: 'fill' });
+  const pc = await posterSink.getCanvas((steady.in + steady.out) / 2);
+  clip.poster = await canvasToDataURL(pc.canvas, 0.82);
+  clip.flags = [];
+  if (steady.shake > 0.0045) clip.flags.push('handheld');
+  if (!motion.moving) clip.flags.push('static');
+  if (clip.color.p50 < 0.28) clip.flags.push('underexposed');
+  if (clip.color.clipHigh > 0.06) clip.flags.push('blown-highlights');
+  if (clip.color.neutralCoverage > 0 && Math.abs(clip.color.rMid - clip.color.bMid) > 0.05) clip.flags.push(clip.color.rMid > clip.color.bMid ? 'warm-cast' : 'cool-cast');
+}
+async function analysePhoto(clip) {
+  const bmp = await createImageBitmap(clip.file);
+  clip.bitmap = bmp; clip.width = bmp.width; clip.height = bmp.height;
+  clip.orientation = bmp.width >= bmp.height ? 'landscape' : 'portrait';
+  clip.duration = null; clip.fps = null; clip.motion = { envelope: [], envelopeRate: 10, direction: 'still', moving: false };
+  const c = new OffscreenCanvas(640, Math.round((640 * bmp.height) / bmp.width));
+  c.getContext('2d').drawImage(bmp, 0, 0, c.width, c.height);
+  clip.poster = await canvasToDataURL(c, 0.82);
+  const sm = new OffscreenCanvas(96, 54), sx = sm.getContext('2d', { willReadFrequently: true }); sx.drawImage(bmp, 0, 0, 96, 54);
+  clip.color = colorStats([sx.getImageData(0, 0, 96, 54).data]);
+  clip.flags = [];
+}
+function dataURLToBlob(url) {
+  const [head, data] = url.split(','), bin = atob(data), buf = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  return new Blob([buf], { type: head.match(/data:([^;]+)/)?.[1] || 'image/jpeg' });
+}
+async function canvasToDataURL(canvas, q) {
+  const blob = canvas.convertToBlob ? await canvas.convertToBlob({ type: 'image/jpeg', quality: q }) : await new Promise((r) => canvas.toBlob(r, 'image/jpeg', q));
+  return new Promise((res) => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(blob); });
+}
+
+// ---------------------------------------------------------------- music
+async function loadMusic(file) {
+  const ab = await file.arrayBuffer();
+  const ctx = new OfflineAudioContext(2, 48000, 48000);
+  const buffer = await ctx.decodeAudioData(ab);
+  // Mono 22.05 kHz copy for beat tracking.
+  const len = Math.ceil(buffer.duration * 22050);
+  const off = new OfflineAudioContext(1, len, 22050);
+  const src = off.createBufferSource(); src.buffer = buffer; src.connect(off.destination); src.start();
+  const mono = await off.startRendering();
+  const analysis = detectBeats(mono.getChannelData(0), 22050);
+  return { name: file.name, buffer, duration: buffer.duration, analysis };
+}
+async function mixAudio(plan) {
+  const T = plan.total, sr = 48000, length = Math.ceil(T * sr);
+  const ctx = new OfflineAudioContext(2, length, sr);
+  if (S.music) {
+    const src = ctx.createBufferSource(); src.buffer = S.music.buffer;
+    if (S.music.duration - plan.music.start < T + 0.5) src.loop = true;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0, 0); g.gain.linearRampToValueAtTime(1, 0.3);
+    g.gain.setValueAtTime(1, Math.max(0.31, T - 3)); g.gain.linearRampToValueAtTime(0, T);
+    src.connect(g).connect(ctx.destination); src.start(0, plan.music.start);
+  }
+  const out = await ctx.startRendering();
+  if (S.music) {
+    // Level to roughly −16 LUFS (RMS-based) with peaks held under −1 dBFS.
+    let sum = 0, peak = 0, n = 0;
+    for (let c = 0; c < out.numberOfChannels; c++) { const d = out.getChannelData(c); for (let i = 0; i < d.length; i += 4) { sum += d[i] * d[i]; n++; } for (let i = 0; i < d.length; i++) peak = Math.max(peak, Math.abs(d[i])); }
+    const rms = Math.sqrt(sum / Math.max(1, n)) || 1e-6;
+    const gain = Math.min(Math.pow(10, -18 / 20) / rms, Math.pow(10, -1 / 20) / Math.max(1e-6, peak));
+    for (let c = 0; c < out.numberOfChannels; c++) { const d = out.getChannelData(c); for (let i = 0; i < d.length; i++) d[i] *= gain; }
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------- render pipeline
+async function detectCaps() {
+  const caps = S.caps;
+  try {
+    caps.webgl = !!new OffscreenCanvas(4, 4).getContext('webgl2');
+    caps.video = await MB.getFirstEncodableVideoCodec(['avc', 'vp9', 'av1'], { width: 1920, height: 1080 });
+    caps.audio = await MB.getFirstEncodableAudioCodec(caps.video === 'avc' ? ['aac', 'opus'] : ['opus', 'aac'], { numberOfChannels: 2, sampleRate: 48000 });
+    caps.container = caps.video === 'avc' ? 'mp4' : 'webm';
+    caps.ok = Boolean(caps.webgl && caps.video && typeof VideoDecoder !== 'undefined');
+    if (!caps.ok) caps.problem = !caps.webgl ? 'WebGL 2 is unavailable.' : 'This browser cannot encode video. Use a current Chrome, Edge or Safari.';
+  } catch (e) { caps.ok = false; caps.problem = e.message; }
+}
+function layerFor(item, comp, slot, plan, f) {
+  const { width: W, height: H } = plan.format;
+  const L = { tex: comp.slots[slot], lut: comp.luts[slot], grade: item.grade, mode: 1, xf: [1, 1, 0, 0] };
+  if (item.kind === 'photo') {
+    const ia = item.clip.width / item.clip.height, oa = W / H;
+    let us = 1, vs = 1; if (ia > oa) us = oa / ia; else vs = ia / oa;
+    const t = clamp(f / Math.max(1, item.frames - 1), 0, 1), e = t * t * (3 - 2 * t) * 0.6 + t * 0.4;
+    const z = item.kb === 'push' ? 1 + 0.07 * e : item.kb === 'pull' ? 1.07 - 0.07 * e : 1.06;
+    us /= z; vs /= z;
+    let cx = 0.5, cy = 0.5;
+    if (item.kb === 'pan-r') cx = 0.5 + (e - 0.5) * (1 - us) * 0.9;
+    if (item.kb === 'pan-l') cx = 0.5 - (e - 0.5) * (1 - us) * 0.9;
+    L.xf = [us, vs, cx - us / 2, cy - vs / 2];
+  } else if (item.kind === 'outro') {
+    const t = f / Math.max(1, item.frames - 1), z = 1 + 0.04 * t;
+    L.xf = [1 / z, 1 / z, 0.5 - 0.5 / z, 0.5 - 0.5 / z]; L.lod = 4.5; L.dim = 0.92;
+  } else if (item.fill === 'blur') { L.mode = 2; L.r = item.r; L.axis = item.axis; }
+  return L;
+}
+async function renderPlan(plan, job) {
+  const { width: W, height: H } = plan.format, fps = plan.fps, N = Math.round(plan.total * fps);
+  const comp = new Compositor(W, H);
+  await fontsReady();
+  const introC = new OffscreenCanvas(W, H); drawIntro(introC.getContext('2d'), W, H, plan.style.serif);
+  comp.upload(comp.titleTex, introC);
+  let outroC = null;
+  if (plan.outro) { outroC = new OffscreenCanvas(W, H); await drawOutro(outroC.getContext('2d'), W, H, plan.style.serif); }
+  const outroTitleTex = outroC ? comp.tex() : null;
+  if (outroC) comp.upload(outroTitleTex, outroC);
+
+  const format = S.caps.container === 'mp4' ? new MB.Mp4OutputFormat({ fastStart: 'in-memory' }) : new MB.WebMOutputFormat();
+  const output = new MB.Output({ format, target: new MB.BufferTarget() });
+  const bitrate = W * H >= 3840 * 2160 * 0.9 ? 45e6 : 14e6;
+  const vsrc = new MB.CanvasSource(comp.canvas, { codec: S.caps.video, bitrate, keyFrameInterval: 2, latencyMode: 'quality' });
+  output.addVideoTrack(vsrc, { frameRate: fps });
+  let asrc = null;
+  if (S.caps.audio) { asrc = new MB.AudioBufferSource({ codec: S.caps.audio, bitrate: 256e3 }); output.addAudioTrack(asrc); }
+  await output.start();
+  if (asrc) { const mixed = await mixAudio(plan); await asrc.add(mixed); asrc.close?.(); }
+
+  // Items: segments plus the optional agent card, each with its first frame index.
+  const items = plan.segments.map((s, i) => {
+    const clip = S.clips.find((c) => c.id === s.clipId);
+    const it = { ...s, idx: i, kind: clip.kind, clip, grade: gradeFor(clip), first: Math.round(s.start * fps) };
+    if (clip.kind === 'photo') it.kb = ['push', 'pan-r', 'pull', 'pan-l'][i % 4];
+    else if (clip.orientation === 'portrait' && W > H) { it.fill = 'blur'; it.axis = 0; it.r = (clip.width / clip.height) / (W / H); }
+    else if (clip.orientation === 'landscape' && H > W && (clip.width / clip.height) > 1.2 && false) { it.fill = 'blur'; }
+    return it;
+  });
+  if (plan.outro) items.push({ idx: items.length, kind: 'outro', first: Math.round(plan.outro.start * fps), frames: plan.outro.frames, transitionIn: plan.outro.transitionIn, grade: items[items.length - 1].grade });
+  const active = new Map();
+  const startItem = async (it) => {
+    const slot = it.idx % 2;
+    comp.lut(comp.luts[slot], it.grade.lut);
+    if (it.kind === 'photo') comp.upload(comp.slots[slot], it.clip.bitmap, true);
+    else if (it.kind === 'video') {
+      const { track } = await openVideo(it.clip.file);
+      const opts = it.fill === 'blur'
+        ? { width: Math.round(H * (it.clip.width / it.clip.height) / 2) * 2, height: H, fit: 'fill', poolSize: 3 }
+        : { width: W, height: H, fit: 'fill', crop: coverCrop(it.clip.width, it.clip.height, W, H), poolSize: 3 };
+      const sink = new MB.CanvasSink(track, opts);
+      const lastT = Math.max(0, it.clip.duration - 0.02);
+      const times = Array.from({ length: it.frames }, (_, k) => Math.min(lastT, it.srcIn + (k / fps) * it.speed));
+      it.iter = sink.canvasesAtTimestamps(times)[Symbol.asyncIterator]();
+      it.last = null;
+    }
+    active.set(it.idx, it);
+  };
+  const thumbAt = Math.round(N * 0.3);
+  for (let f = 0; f < N; f++) {
+    if (job.abort.signal.aborted) { await output.cancel(); throw new DOMException('Cancelled', 'AbortError'); }
+    const live = [];
+    for (const it of items) {
+      const end = it.first + it.frames;
+      if (f >= it.first && f < end) { if (!active.has(it.idx)) await startItem(it); live.push(it); }
+      else if (f >= end && active.has(it.idx)) { const a = active.get(it.idx); a.iter?.return?.(); active.delete(it.idx); }
+    }
+    const layers = [];
+    for (const it of live.slice(-2)) {
+      const local = f - it.first, slot = it.idx % 2;
+      if (it.kind === 'video') {
+        const r = await it.iter.next();
+        if (!r.done && r.value) it.last = r.value;
+        if (it.last) comp.upload(comp.slots[slot], it.last.canvas, it.fill === 'blur');
+      } else if (it.kind === 'outro' && local === 0) {
+        const prevIt = live.find((x) => x.kind === 'video' || x.kind === 'photo');
+        const src = prevIt?.kind === 'video' ? prevIt.last?.canvas : prevIt?.clip.bitmap;
+        if (src) { comp.upload(comp.slots[slot], src, true); }
+      }
+      layers.push(layerFor(it, comp, slot, plan, local));
+    }
+    let mix = 0;
+    if (live.length > 1) { const inc = live[live.length - 1]; mix = clamp((f - inc.first + 0.5) / Math.max(1, Math.round((inc.transitionIn?.duration || 0) * fps)), 0, 1); }
+    // Titles: opening title over the first shots, agent card over the closing still.
+    const t = f / fps;
+    let titleTex = null, titleA = 0, titleDy = 0;
+    if (t >= plan.intro.start && t < plan.intro.end) {
+      const outAt = Math.max(plan.intro.start + 1.5, plan.intro.end - 0.7);
+      titleA = clamp((t - plan.intro.start) / 0.8, 0, 1) * clamp((plan.intro.end - t) / 0.7, 0, 1);
+      if (t > outAt) titleA = Math.min(titleA, clamp((plan.intro.end - t) / 0.7, 0, 1));
+      const e = clamp((t - plan.intro.start) / 1.0, 0, 1);
+      titleDy = (18 / 1080) * Math.pow(1 - e, 3); titleTex = comp.titleTex;
+    }
+    if (plan.outro && t >= plan.outro.start) { titleTex = outroTitleTex; titleA = clamp((t - plan.outro.start - plan.outro.transitionIn.duration * 0.6) / 0.7, 0, 1); titleDy = 0; }
+    const fade = clamp(t / 0.5, 0, 1) * clamp((plan.total - t) / 0.9, 0, 1);
+    comp.draw(layers, mix, titleTex, titleA, titleDy, fade);
+    await vsrc.add(t, 1 / fps);
+    const preview = job.previewCtx;
+    if (preview && f % 8 === 0 && preview.canvas.isConnected) preview.drawImage(comp.canvas, 0, 0, preview.canvas.width, preview.canvas.height);
+    if (f === thumbAt) { job.thumb = new OffscreenCanvas(304, Math.round((304 * H) / W)); job.thumb.getContext('2d').drawImage(comp.canvas, 0, 0, job.thumb.width, job.thumb.height); }
+    job.progress = (f + 1) / N;
+    if (f % 5 === 0) updateRenderProgress(job);
+  }
+  for (const it of active.values()) it.iter?.return?.();
+  vsrc.close?.();
+  await output.finalize();
+  const type = S.caps.container === 'mp4' ? 'video/mp4' : 'video/webm';
+  return new Blob([output.target.buffer], { type });
+}
+
+// ---------------------------------------------------------------- import & analysis queue
+let analysing = false;
+function addFiles(files) {
+  const list = [...files];
+  const audio = list.find((f) => AUDIO_RE.test(f.name) || f.type.startsWith('audio/'));
+  if (audio) addMusic(audio);
+  let added = 0, skipped = 0;
+  for (const f of list) {
+    if (f === audio) continue;
+    const kind = VIDEO_RE.test(f.name) || f.type.startsWith('video/') ? 'video' : PHOTO_RE.test(f.name) || /^image\/(jpeg|png|webp)$/.test(f.type) ? 'photo' : null;
+    if (!kind) { skipped++; continue; }
+    const clip = { id: `c${nextId++}`, file: f, name: f.name, size: f.size, kind, status: 'queued', include: true, room: null, roomSource: null, progress: 0, capturedAt: f.lastModified ? new Date(f.lastModified).toISOString() : null };
+    clip.room = guessRoom(clip); if (clip.room) clip.roomSource = 'name';
+    S.clips.push(clip); added++;
+  }
+  if (skipped) toast(`${skipped} file${skipped === 1 ? '' : 's'} skipped (not a video, photo or audio file).`);
+  if (added) { if (!S.manualOrder) S.clips = autoOrder(S.clips); renderAll(); runQueue(); }
+}
+async function runQueue() {
+  if (analysing) return;
+  analysing = true;
+  try {
+    let clip;
+    while ((clip = S.clips.find((c) => c.status === 'queued'))) {
+      clip.status = 'analysing'; renderBin(); renderEngine();
+      try {
+        await analyseClip(clip);
+        if (clip.isDrone && clip.roomSource !== 'manual') { clip.room = 'aerial'; clip.roomSource = 'meta'; }
+        clip.status = 'ready';
+      } catch (e) { clip.status = 'error'; clip.error = e.message || String(e); console.error(e); }
+      if (!S.manualOrder) S.clips = autoOrder(S.clips);
+      renderBin(); refreshPlan(); renderEngine(); renderSide();
+    }
+  } finally { analysing = false; renderEngine(); }
+}
+const HINTS = [[/aerial|drone|dji|mavic/i, 'aerial'], [/front|exterior|facade|curb|street/i, 'exterior'], [/entry|foyer/i, 'entry'], [/kitchen/i, 'kitchen'], [/dining/i, 'dining'], [/living|family|great.?room|lounge/i, 'living'], [/office|study|den/i, 'office'], [/primary.?bath|master.?bath|ensuite/i, 'primary_bath'], [/primary|master/i, 'primary_bedroom'], [/bath|powder/i, 'bathroom'], [/bed/i, 'bedroom'], [/laundry|utility/i, 'laundry'], [/garage/i, 'garage'], [/back.?yard|patio|deck|pool|garden|yard/i, 'outdoor'], [/detail/i, 'detail']];
+function guessRoom(clip) { for (const [re, r] of HINTS) if (re.test(clip.name)) return r; return null; }
+async function addMusic(file) {
+  S.music = { name: file.name, status: 'analysing' }; renderSide();
+  try { S.music = { ...(await loadMusic(file)), status: 'ready' }; }
+  catch (e) { S.music = { name: file.name, status: 'error', error: "Couldn't read that audio file. Use MP3, M4A or WAV." }; }
+  renderSide(); refreshPlan();
+}
+
+// ---------------------------------------------------------------- Claude room labels
+async function labelRooms() {
+  if (!S.sample || S.labelling) return;
+  const todo = S.clips.filter((c) => c.status === 'ready' && c.roomSource !== 'manual');
+  if (!todo.length) { toast('Every clip already has a room you set.'); return; }
+  S.labelling = true; renderBinHead();
+  try {
+    const lim = await S.sample.limits().catch(() => null);
+    const per = Math.max(1, Math.min(lim?.images?.maxCount || 8, 12));
+    for (let i = 0; i < todo.length; i += per) {
+      const batch = todo.slice(i, i + per);
+      const images = batch.map((c) => dataURLToBlob(c.poster));
+      const prompt = `You label shots from a real estate listing shoot so they can be ordered into a property tour.
+There are ${batch.length} images, in order, numbered 0 to ${batch.length - 1}. Each is a frame from one clip or one listing photo.
+Room values: ${ROOM_ORDER.join(', ')}. aerial = drone view; exterior = ground-level front/side of the house; outdoor = backyard, patio, pool; primary_bedroom / primary_bath only when it clearly is the main suite; detail = close-up of finishes; other if unclear.
+Issues (only if clearly visible): ${Object.keys(ISSUES).join(', ')}.
+Reply with only a JSON array of ${batch.length} objects in image order, like [{"i":0,"room":"kitchen","caption":"Island toward breakfast nook","issues":[]}]. caption: at most 6 plain words.`;
+      const out = await S.sample.json(prompt, { images, modelTier: 'quick' });
+      if (Array.isArray(out)) for (const r of out) {
+        const c = batch[Number(r?.i)];
+        if (!c || c.roomSource === 'manual') continue;
+        if (ROOM_ORDER.includes(r.room) && !(c.isDrone && r.room !== 'aerial')) { c.room = r.room; c.roomSource = 'claude'; }
+        if (typeof r.caption === 'string') c.caption = r.caption.slice(0, 60);
+        c.issues = Array.isArray(r.issues) ? r.issues.filter((x) => ISSUES[x]) : [];
+      }
+    }
+    if (!S.manualOrder) S.clips = autoOrder(S.clips);
+    toast('Rooms labelled. Check them and change any that are wrong.');
+  } catch (e) {
+    const msg = { not_granted: 'Claude access was not allowed for this page.', rate_limited: 'Claude is busy or your usage limit was reached. Try again later.', images_unavailable: 'This view cannot send images to Claude.' }[e?.code] || "Couldn't label rooms this time. Set them from the dropdowns instead.";
+    toast(msg, true);
+    if (e?.code === 'not_granted' || e?.code === 'images_unavailable') S.sample = null;
+  } finally { S.labelling = false; renderBin(); refreshPlan(); }
+}
+
+// ---------------------------------------------------------------- UI: engine status
+function renderEngine() {
+  const el = $('#engine');
+  const busy = S.clips.filter((c) => c.status === 'queued' || c.status === 'analysing').length;
+  const rendering = S.renders.filter((r) => r.status === 'rendering' || r.status === 'queued').length;
+  if (!MB) return;
+  if (!S.caps.ok) { el.innerHTML = `<span><i class="dot err"></i>${esc(S.caps.problem || 'Video engine unavailable')}</span>`; return; }
+  const codec = `${S.caps.video === 'avc' ? 'H.264' : S.caps.video.toUpperCase()} · ${S.caps.audio === 'aac' ? 'AAC' : S.caps.audio ? S.caps.audio.toUpperCase() : 'no audio'} · ${S.caps.container.toUpperCase()}`;
+  const state = rendering ? `Rendering ${rendering}` : busy ? `Analysing ${busy}` : 'Ready';
+  el.innerHTML = `<span class="mono" title="Encoder used for exports">${esc(codec)}</span><span><i class="dot ${rendering || busy ? 'busy' : 'ok'}"></i>${esc(state)}</span>`;
+}
+
+// ---------------------------------------------------------------- UI: main column
+function renderHead() {
+  const l = S.listing, f = factsLine(l), n = S.settings.formats.length;
+  const ready = S.clips.some((c) => c.status === 'ready' && c.include);
+  const waiting = S.clips.some((c) => c.status === 'queued' || c.status === 'analysing');
+  $('#head').innerHTML = `
+    <div style="min-width:0">
+      <h1>${esc(l.line1 || 'Untitled listing')}</h1>
+      <div class="meta">${cityLine(l) ? `<span>${esc(cityLine(l))}</span>` : ''}${f ? `<span>${esc(f)}</span>` : ''}<span class="muted">${esc(l.label || '')}</span>${S.listingIsExample ? '<span class="eg">Example details</span>' : ''}</div>
+    </div>
+    <div class="actions"><button class="btn primary" data-act="render" ${!ready || waiting || !n || !S.caps.ok ? 'disabled' : ''}>${ICON.film} Render ${n} deliverable${n === 1 ? '' : 's'}</button></div>`;
+}
+function clipTags(c) {
+  if (c.status === 'error') return `<span class="tag err">${esc(c.error)}</span>`;
+  if (c.status !== 'ready') return '';
+  const t = [], s = S.settings;
+  if (!c.include) t.push('<span class="tag">Excluded</span>');
+  if (c.kind === 'video') {
+    const head = c.trimIn ?? c.autoIn, tail = c.duration - (c.trimOut ?? c.autoOut);
+    if (head > 0.35 || tail > 0.35) t.push(`<span class="tag fix" title="Shaky start/end removed">Trimmed ${head.toFixed(1)} s · ${tail.toFixed(1)} s</span>`);
+    if (s.slowmo && c.fps >= 47 && s.fps <= 30) t.push(`<span class="tag info">${Math.round(c.fps)} fps → ${Math.round((s.fps / c.fps) * 100)}% slow motion</span>`);
+    if (c.flags.includes('warm-cast') || c.flags.includes('cool-cast')) t.push('<span class="tag fix">White balance corrected</span>');
+    if (c.flags.includes('underexposed')) t.push('<span class="tag fix">Exposure lifted</span>');
+    if (c.hdr) t.push('<span class="tag info">HDR</span>');
+    if (c.orientation === 'portrait') t.push('<span class="tag info">Vertical</span>');
+    if (c.flags.includes('handheld')) t.push('<span class="tag warn">Handheld shake</span>');
+    if (c.flags.includes('blown-highlights')) t.push('<span class="tag warn">Clipped highlights</span>');
+  } else t.push(`<span class="tag info">Photo · slow ${c.gradeStrength ? 'pan, corrected' : 'pan'}</span>`);
+  for (const i of c.issues || []) t.push(`<span class="tag warn">${esc(ISSUES[i] || i)}</span>`);
+  return t.join('');
+}
+function roomSelect(c) {
+  return `<select class="select sm" data-room="${c.id}" aria-label="Room for ${esc(c.name)}"><option value="">Unlabelled</option>${ROOM_ORDER.map((r) => `<option value="${r}" ${c.room === r ? 'selected' : ''}>${ROOM_LABELS[r]}</option>`).join('')}</select>`;
+}
+function renderBinHead() {
+  const clips = S.clips, total = clips.reduce((a, c) => a + (c.duration || 0), 0);
+  const photos = clips.filter((c) => c.kind === 'photo').length, videos = clips.length - photos;
+  const unl = clips.filter((c) => c.status === 'ready' && !c.room).length;
+  const parts = [];
+  if (videos) parts.push(`${videos} clip${videos === 1 ? '' : 's'} · ${runtime(total)}`);
+  if (photos) parts.push(`${photos} photo${photos === 1 ? '' : 's'}`);
+  $('#bin-note').innerHTML = esc(parts.join(' · ')) + (unl ? ` · <span style="color:var(--warn)">${unl} unlabelled</span>` : '');
+  $('#bin-actions').innerHTML = clips.length ? `
+    ${S.sample ? `<button class="btn sm ghost" data-act="label" ${S.labelling ? 'disabled' : ''} title="Uses your Claude account">${ICON.spark} ${S.labelling ? 'Labelling…' : 'Label rooms with Claude'}</button>` : ''}
+    ${S.manualOrder ? '<button class="btn sm ghost" data-act="auto-order">Reset to tour order</button>' : '<span class="muted" style="font-size:12px">Tour order</span>'}
+    <button class="btn sm" data-act="add">${ICON.upload} Add files</button>` : '';
+}
+function renderBin() {
+  renderBinHead(); renderHead();
+  const bin = $('#bin');
+  if (!S.clips.length) {
+    bin.className = '';
+    bin.innerHTML = `<div class="drop" id="drop">
+      <strong>Drop the shoot here</strong>
+      <span>Video clips, listing photos and a music track, in any order. Files stay on this computer.</span>
+      <button class="btn" data-act="add" style="margin-top:6px">${ICON.upload} Choose files</button>
+      <span class="mono">MP4 · MOV · JPG · PNG · MP3 · M4A · WAV</span>
+      <div class="steps">
+        <div><span class="caps">Step 1</span><b>Add footage</b><span>Gimbal, phone and drone clips plus stills.</span></div>
+        <div><span class="caps">Step 2</span><b>Review the edit</b><span>Order, trims, colour and pacing are automatic.</span></div>
+        <div><span class="caps">Step 3</span><b>Deliver</b><span>Branded film, MLS tour and a vertical reel.</span></div>
+      </div></div>`;
+    return;
+  }
+  bin.className = 'bin';
+  let n = 0;
+  bin.innerHTML = S.clips.map((c) => {
+    const num = c.include && c.status === 'ready' ? String(++n).padStart(2, '0') : '—';
+    const busy = c.status === 'queued' || c.status === 'analysing';
+    return `<article class="clip ${c.include ? '' : 'off'}" draggable="true" data-clip="${c.id}">
+      <div class="media" data-act="inspect" data-id="${c.id}">
+        ${c.poster ? `<img src="${c.poster}" alt="" class="${c.orientation === 'portrait' ? 'fitc' : ''}">` : ''}
+        <span class="n mono">${num}</span>
+        ${c.kind === 'video' && c.duration ? `<span class="dur mono">${timecode(c.duration)}</span>` : ''}
+        ${c.kind === 'photo' ? '<span class="kind">Photo</span>' : ''}
+        ${busy ? `<div class="state"><span data-label="${c.id}">${c.status === 'queued' ? 'Waiting to analyse' : `Analysing ${Math.round(c.progress * 100)}%`}</span><div class="bar" data-prog="${c.id}"><i style="width:${(c.progress * 100).toFixed(0)}%"></i></div></div>` : ''}
+        ${c.status === 'error' ? '<div class="state"><span>Could not read this file</span></div>' : ''}
+      </div>
+      <div class="body">
+        <div class="name"><span class="mono" title="${esc(c.name)}">${esc(c.name)}</span>${c.roomSource === 'claude' ? '<span class="muted" style="font-size:11px">Claude</span>' : c.roomSource === 'meta' || c.roomSource === 'name' ? '<span class="muted" style="font-size:11px">auto</span>' : ''}</div>
+        ${c.status === 'ready' ? roomSelect(c) : ''}
+        ${c.caption ? `<div class="caption">${esc(c.caption)}</div>` : ''}
+        <div class="tags">${clipTags(c)}</div>
+      </div></article>`;
+  }).join('');
+}
+function updateClipProgress(c) {
+  const bar = $(`[data-prog="${c.id}"] i`); if (bar) bar.style.width = `${(c.progress * 100).toFixed(0)}%`;
+  const lbl = $(`[data-label="${c.id}"]`); if (lbl) lbl.textContent = `Analysing ${Math.round(c.progress * 100)}%`;
+}
+let plan = null;
+const refreshPlan = debounce(() => { plan = S.clips.length ? buildPlan(S.previewFormat) : null; renderTimeline(); renderHead(); }, 120);
+function renderTimeline() {
+  $('#tl-formats').innerHTML = `<div class="seg" role="group" aria-label="Preview deliverable">${Object.entries(FORMATS).map(([id, f]) => `<button data-act="tl-format" data-id="${id}" aria-pressed="${id === S.previewFormat}">${esc(f.label)}<span class="muted">&nbsp;${f.aspect}</span></button>`).join('')}</div>`;
+  const el = $('#timeline');
+  if (!plan || plan.error) { el.innerHTML = `<div class="tl"><div class="tl-msg">${esc(plan?.error || 'The edit appears here once footage is analysed: shot order, lengths, transitions and where the cuts land on the music.')}</div></div>`; return; }
+  const T = plan.total, pct = (t) => `${((t / T) * 100).toFixed(3)}%`;
+  const segs = plan.segments.map((s) => { const c = S.clips.find((x) => x.id === s.clipId); const lab = ROOM_LABELS[s.room] || c?.name || ''; return `<div class="tl-seg" style="left:${pct(s.start)};width:${pct(s.duration)};background-image:url('${c?.poster || ''}')" title="${esc(lab)} · ${s.duration.toFixed(1)} s"><span>${esc(lab)}</span></div>`; });
+  const fades = plan.segments.filter((s) => s.transitionIn?.duration).map((s) => `<div class="tl-fade" style="left:${pct(s.start)};width:${pct(s.transitionIn.duration)}"></div>`);
+  if (plan.outro) { segs.push(`<div class="tl-seg card" style="left:${pct(plan.outro.start)};width:${pct(plan.outro.duration)}"><span>Agent card</span></div>`); if (plan.outro.transitionIn.duration) fades.push(`<div class="tl-fade" style="left:${pct(plan.outro.start)};width:${pct(plan.outro.transitionIn.duration)}"></div>`); }
+  const step = T > 150 ? 30 : T > 60 ? 10 : 5, ticks = [];
+  for (let t = 0; t <= T; t += step) ticks.push(`<i style="left:${pct(t)}"></i><span style="left:${pct(t)}" class="mono">${runtime(t)}</span>`);
+  const beats = plan.music?.synced ? (S.music.analysis.beats || []).map((b) => b - plan.music.start).filter((b) => b > 0 && b < T).map((b) => `<i class="beat" style="left:${pct(b)}"></i>`) : [];
+  const footageShort = !plan.format.maxDuration && Number(S.settings.targetDuration) > T + 5;
+  el.innerHTML = `<div class="tl">
+    <div class="tl-stats">
+      <span><b class="mono">${runtime(T)}</b> runtime</span><span><b>${plan.segments.length}</b> shots</span><span>${esc(plan.style.label)}</span>
+      <span class="mono">${plan.format.width}×${plan.format.height} · ${plan.fps} fps</span>
+      <span>${plan.music ? (plan.music.synced ? `Cuts on the beat · <span class="mono">${Math.round(plan.music.bpm)} BPM</span>` : 'Music bed') : '<span class="muted">No music</span>'}</span>
+      ${plan.dropped.length ? `<span class="muted">${plan.dropped.length} left out to fit ${runtime(T)}</span>` : ''}
+      ${footageShort ? `<span class="muted">Footage supports ${runtime(T)} at this pace</span>` : ''}
+    </div>
+    <div class="timeline">
+      <div class="tl-title" style="left:${pct(plan.intro.start)};width:${pct(plan.intro.end - plan.intro.start)}">Title · ${esc(S.listing.label || '')}</div>
+      <div class="tl-track">${segs.join('')}${fades.join('')}</div>
+      <div class="tl-ruler">${beats.join('')}${ticks.join('')}</div>
+    </div></div>`;
+}
+
+// ---------------------------------------------------------------- UI: side panel
+function renderSide() {
+  const side = $('#side');
+  const active = document.activeElement;
+  if (side.contains(active) && active.matches('input[type=text], input:not([type]), input[type=range]')) { renderMusic(); renderRenders(); return; }
+  const s = S.settings, l = S.listing, b = S.brand;
+  const lengths = [[0, 'Use best takes'], [30, '30 seconds'], [45, '45 seconds'], [60, '1 minute'], [90, '1.5 minutes'], [120, '2 minutes']];
+  const labels = ['Just listed', 'For sale', 'Open house', 'Under contract', 'Just sold', 'Coming soon', 'For lease'];
+  side.innerHTML = `
+    <section class="side-sec">
+      <h3>Deliverables</h3>
+      <div class="stack" style="gap:6px">${Object.entries(FORMATS).map(([id, f]) => `<label class="check"><input type="checkbox" data-format="${id}" ${s.formats.includes(id) ? 'checked' : ''}><span class="t"><b>${esc(f.label)} <span class="muted">· ${esc(f.sub)}</span></b>${f.note ? `<small>${esc(f.note)}</small>` : ''}</span></label>`).join('')}</div>
+      <div id="renders"></div>
+    </section>
+    <details class="side-sec" ${S.listingIsExample ? 'open' : ''} id="listing-sec">
+      <summary>Listing${S.listingIsExample ? '<span class="right eg">Example</span>' : ''}</summary>
+      <div class="stack">
+        <div class="field"><label for="l-line1">Street address</label><input class="input" id="l-line1" data-listing="line1" value="${esc(l.line1)}"></div>
+        <div class="grid3">
+          <div class="field"><label for="l-city">City</label><input class="input" id="l-city" data-listing="city" value="${esc(l.city)}"></div>
+          <div class="field"><label for="l-state">State</label><input class="input" id="l-state" data-listing="state" value="${esc(l.state)}"></div>
+          <div class="field"><label for="l-zip">ZIP</label><input class="input" id="l-zip" data-listing="zip" value="${esc(l.zip)}" inputmode="numeric"></div>
+        </div>
+        <div class="grid4">
+          <div class="field"><label for="l-price">Price</label><input class="input" id="l-price" data-listing="price" value="${esc(l.price)}" inputmode="numeric"></div>
+          <div class="field"><label for="l-beds">Beds</label><input class="input" id="l-beds" data-listing="beds" value="${esc(l.beds)}" inputmode="decimal"></div>
+          <div class="field"><label for="l-baths">Baths</label><input class="input" id="l-baths" data-listing="baths" value="${esc(l.baths)}" inputmode="decimal"></div>
+          <div class="field"><label for="l-sqft">Sq ft</label><input class="input" id="l-sqft" data-listing="sqft" value="${esc(l.sqft)}" inputmode="numeric"></div>
+        </div>
+        <div class="field"><label for="l-label">Title label</label><select class="select" id="l-label" data-listing="label">${labels.map((x) => `<option ${x === l.label ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
+        <p class="hint">Shown in the opening title. Leave price or room counts blank to keep them off the video.</p>
+      </div>
+    </details>
+    <section class="side-sec">
+      <h3>Edit</h3>
+      <div class="stack" style="gap:6px">${Object.entries(STYLES).map(([id, st]) => `<label class="opt"><input type="radio" name="style" value="${id}" data-setting="style" ${s.style === id ? 'checked' : ''}><b>${esc(st.label)}</b><small>${esc(st.description)}</small></label>`).join('')}</div>
+      <div class="stack" style="margin-top:14px">
+        <div class="field"><label for="s-len">Film length</label><select class="select" id="s-len" data-setting="targetDuration">${lengths.map(([v, t]) => `<option value="${v}" ${Number(s.targetDuration) === v ? 'selected' : ''}>${t}</option>`).join('')}</select></div>
+        <div class="grid2">
+          <div class="field"><span class="label">Frame rate</span><div class="seg full">${[24, 25, 30].map((v) => `<button data-act="set" data-key="fps" data-val="${v}" aria-pressed="${s.fps === v}">${v}</button>`).join('')}</div></div>
+          <div class="field"><span class="label">Resolution</span><div class="seg full">${[[1080, 'HD'], [2160, '4K']].map(([v, t]) => `<button data-act="set" data-key="resolution" data-val="${v}" aria-pressed="${s.resolution === v}">${t}</button>`).join('')}</div></div>
+        </div>
+        <label class="switch"><span class="t">High-frame-rate as slow motion<small>60 and 120 fps clips play slowed at ${s.fps} fps.</small></span><input type="checkbox" data-toggle="slowmo" ${s.slowmo ? 'checked' : ''}></label>
+      </div>
+    </section>
+    <section class="side-sec">
+      <h3>Colour</h3>
+      <div class="stack">
+        <div class="seg full" role="group" aria-label="Look">${Object.entries(LOOKS).map(([id, L]) => `<button data-act="set" data-key="look" data-val="${id}" aria-pressed="${s.look === id}">${L.label}</button>`).join('')}</div>
+        <div class="field"><label for="s-strength" class="row">Correction strength <span class="mono muted" style="margin-left:auto" id="s-strength-v">${Math.round(s.gradeStrength * 100)}%</span></label><input type="range" id="s-strength" min="0" max="1" step="0.05" value="${s.gradeStrength}"></div>
+        <p class="hint">White balance, exposure and contrast are measured per clip and matched across the film. Photos are left as delivered unless you turn correction on in a photo's inspector.</p>
+      </div>
+    </section>
+    <section class="side-sec"><h3>Music</h3><div id="music"></div></section>
+    <details class="side-sec" ${b.agentName ? '' : 'open'}>
+      <summary>Brand kit <span class="right muted" style="font-size:11.5px">${b.agentName ? esc(b.agentName) : 'Agent card'}</span></summary>
+      <div class="stack">
+        ${[['agentName', 'Agent or team name'], ['agentTitle', 'Title'], ['brokerage', 'Brokerage'], ['phone', 'Phone'], ['email', 'Email'], ['website', 'Website']].map(([k, t]) => `<div class="field"><label for="b-${k}">${t}</label><input class="input" id="b-${k}" data-brand="${k}" value="${esc(b[k] || '')}"></div>`).join('')}
+        <div class="field"><span class="label">Logo</span><div class="row"><div class="logo-box">${b.logo ? `<img src="${b.logo}" alt="Logo">` : '<span class="muted mono">none</span>'}</div><div class="stack" style="gap:6px"><div class="row"><button class="btn sm" data-act="logo">${b.logo ? 'Replace' : 'Upload'}</button>${b.logo ? '<button class="btn sm ghost danger" data-act="logo-del">Remove</button>' : ''}</div><span class="hint">PNG with transparency works best.</span></div></div></div>
+        <div class="field"><label for="b-accent">Accent colour</label><div class="row swatch"><input type="color" id="b-accent-pick" value="${esc(b.accentColor)}" aria-label="Pick accent colour"><input class="input mono" id="b-accent" data-brand="accentColor" value="${esc(b.accentColor)}" style="width:110px" maxlength="7"><span class="hint">Thin rules in the titles.</span></div></div>
+        <p class="hint">Shown on branded deliverables only. Saved in this browser.</p>
+      </div>
+    </details>`;
+  renderMusic(); renderRenders();
+}
+function renderMusic() {
+  const el = $('#music'); if (!el) return;
+  const m = S.music;
+  if (!m) { el.innerHTML = `<button class="btn" data-act="music" style="width:100%">${ICON.music} Add a music track</button><p class="hint" style="margin-top:8px">Use music you're licensed to publish. Cuts are timed to its beat and the mix is levelled for social and MLS playback.</p>`; return; }
+  const a = m.analysis;
+  el.innerHTML = `<div class="music"><div class="ico">${ICON.music}</div><div style="min-width:0"><div class="nm" title="${esc(m.name)}">${esc(m.name)}</div><div class="muted mono">${m.status === 'analysing' ? 'Finding the beat…' : m.status === 'error' ? '' : `${runtime(m.duration)}${a?.bpm ? ` · ${Math.round(a.bpm)} BPM` : ''}`}</div></div><div class="row"><button class="btn sm ghost" data-act="music">Replace</button><button class="btn sm ghost danger" data-act="music-del">Remove</button></div></div>
+    ${m.status === 'error' ? `<p class="hint warn" style="margin-top:8px">${esc(m.error)}</p>` : ''}
+    ${a && a.confidence < 0.25 ? '<p class="hint warn" style="margin-top:8px">No steady beat found; cuts follow shot pacing instead.</p>' : ''}`;
+}
+function renderRenders() {
+  const el = $('#renders'); if (!el) return;
+  const n = S.settings.formats.length;
+  const ready = S.clips.some((c) => c.status === 'ready' && c.include), waiting = S.clips.some((c) => c.status === 'queued' || c.status === 'analysing');
+  const btn = `<button class="btn primary" data-act="render" style="width:100%;margin-top:12px" ${!ready || waiting || !n || !S.caps.ok ? 'disabled' : ''}>${ICON.film} Render ${n} deliverable${n === 1 ? '' : 's'}</button>
+    ${!S.caps.ok && MB ? `<p class="hint warn" style="margin-top:8px">${esc(S.caps.problem || '')}</p>` : waiting ? '<p class="hint" style="margin-top:8px">Waiting for footage analysis to finish.</p>' : ''}
+    ${!(S.brand.agentName?.trim() || S.brand.logo) && S.settings.formats.some((f) => FORMATS[f].branded) ? '<p class="hint" style="margin-top:8px">Branded deliverables end on your agent card. Add your details under Brand kit to include it.</p>' : ''}
+    ${S.caps.ok && S.caps.audio && S.caps.audio !== 'aac' ? '<p class="hint" style="margin-top:8px">This browser encodes audio as Opus. For the most compatible files (MLS portals, QuickTime), render in Chrome or Edge on Mac or Windows, or in Safari.</p>' : ''}`;
+  el.innerHTML = btn + (S.renders.length ? `<div class="renders">${S.renders.map((r) => {
+    let body;
+    if (r.status === 'done') body = `<div class="sub mono">${runtime(r.duration)} · ${r.width}×${r.height} · ${bytes(r.blob.size)}</div><div class="acts"><button class="btn sm" data-act="save" data-id="${r.id}">${ICON.save} Save</button><button class="btn sm ghost" data-act="watch" data-id="${r.id}">Watch</button><button class="btn sm ghost danger" data-act="discard" data-id="${r.id}">Discard</button></div>`;
+    else if (r.status === 'rendering' || r.status === 'queued') body = `<div class="row" style="gap:8px;margin-top:3px"><div class="bar" data-rprog="${r.id}"><i style="width:${(r.progress * 100).toFixed(1)}%"></i></div><span class="mono muted" data-rpct="${r.id}">${r.status === 'queued' ? 'Queued' : `${Math.round(r.progress * 100)}%`}</span></div><div class="acts"><button class="btn sm ghost" data-act="cancel" data-id="${r.id}">Cancel</button></div>`;
+    else body = `<div class="${r.status === 'error' ? 'err-msg' : 'sub'}">${esc(r.status === 'cancelled' ? 'Cancelled' : r.error)}</div><div class="acts"><button class="btn sm ghost danger" data-act="discard" data-id="${r.id}">Remove</button></div>`;
+    return `<div class="rnd"><canvas width="152" height="${Math.round((152 * r.height) / r.width)}" data-pv="${r.id}" style="aspect-ratio:${r.width}/${r.height};${r.height > r.width ? 'height:64px;width:auto' : ''}"></canvas><div class="t"><div class="top"><b>${esc(r.label)}</b><span class="sub">${esc(r.sub)}</span></div>${body}</div></div>`;
+  }).join('')}</div>` : '');
+  for (const r of S.renders) { const cv = $(`[data-pv="${r.id}"]`); if (cv) { r.previewCtx = cv.getContext('2d'); if (r.thumb) r.previewCtx.drawImage(r.thumb, 0, 0, cv.width, cv.height); } }
+}
+function updateRenderProgress(r) {
+  const bar = $(`[data-rprog="${r.id}"] i`); if (bar) bar.style.width = `${(r.progress * 100).toFixed(1)}%`;
+  const p = $(`[data-rpct="${r.id}"]`); if (p) p.textContent = `${Math.round(r.progress * 100)}%`;
+}
+
+// ---------------------------------------------------------------- rendering jobs
+let renderBusy = false;
+function queueRenders() {
+  for (const id of S.settings.formats) {
+    const p = buildPlan(id);
+    if (p.error) { toast(p.error, true); return; }
+    S.renders.unshift({ id: `r${nextId++}`, formatId: id, label: FORMATS[id].label, sub: FORMATS[id].sub, status: 'queued', progress: 0, width: p.format.width, height: p.format.height, abort: new AbortController() });
+  }
+  renderRenders(); renderEngine(); runRenders();
+}
+async function runRenders() {
+  if (renderBusy) return; renderBusy = true;
+  try {
+    let job;
+    while ((job = [...S.renders].reverse().find((r) => r.status === 'queued'))) {
+      job.status = 'rendering'; renderRenders(); renderEngine();
+      try {
+        const p = buildPlan(job.formatId);
+        if (p.error) throw new Error(p.error);
+        const t0 = performance.now();
+        job.blob = await renderPlan(p, job);
+        job.duration = p.total; job.status = 'done'; job.seconds = (performance.now() - t0) / 1000;
+      } catch (e) {
+        if (e?.name === 'AbortError') job.status = 'cancelled';
+        else { job.status = 'error'; job.error = e?.message || String(e); console.error(e); }
+      }
+      renderRenders(); renderEngine();
+    }
+  } finally { renderBusy = false; }
+}
+function slug(s) { return String(s || 'listing').normalize('NFKD').replace(/[^\w\s-]/g, '').trim().replace(/[\s_]+/g, '-').slice(0, 60) || 'listing'; }
+async function saveRender(r) {
+  const f = FORMATS[r.formatId];
+  const filename = `${slug(S.listing.line1)}_${slug(f.label)}_${f.aspect.replace(':', 'x')}${f.branded ? '' : '_unbranded'}.${S.caps.container}`;
+  if (S.downloads) {
+    try { await S.downloads.save({ filename, data: r.blob }); toast(`Saved ${filename}`); }
+    catch (e) {
+      if (e?.code === 'declined') return;
+      toast(e?.code === 'host_unavailable' ? 'This app cannot save files. Open the artifact in a browser on a computer.' : e?.code === 'rate_limited' ? 'Another save is in progress. Try again in a moment.' : `Couldn't save the file (${e?.code || 'error'}).`, true);
+    }
+    return;
+  }
+  if (window.claude) { toast("Saving files isn't available in this view. Open the artifact on claude.ai in a desktop browser.", true); return; }
+  // Outside Claude (local testing): an ordinary download link.
+  const a = document.createElement('a'); a.href = URL.createObjectURL(r.blob); a.download = filename; document.body.append(a); a.click(); a.remove();
+}
+function watchRender(r) {
+  const url = URL.createObjectURL(r.blob);
+  const m = openModal(`<div class="modal-head"><h2>${esc(r.label)} · ${esc(r.sub)}</h2><div class="right"><button class="btn sm" data-save="${r.id}">${ICON.save} Save</button><button class="btn ghost" data-close aria-label="Close">${ICON.close}</button></div></div>
+    <div class="modal-body" style="background:#000;padding:0"><video class="player" src="${url}" controls playsinline autoplay ${r.height > r.width ? 'style="max-height:78vh;width:auto;margin:0 auto"' : ''}></video><p class="hint" id="watch-err" hidden style="padding:16px">This view can't play the file inline. Save it to watch.</p></div>`, () => URL.revokeObjectURL(url));
+  $('video', m).addEventListener('error', () => { $('#watch-err', m).hidden = false; $('video', m).hidden = true; });
+  $('[data-save]', m).addEventListener('click', () => saveRender(r));
+}
+
+// ---------------------------------------------------------------- modal + inspector
+function openModal(inner, onClose) {
+  const back = document.createElement('div'); back.className = 'modal-back';
+  back.innerHTML = `<div class="modal" role="dialog" aria-modal="true">${inner}</div>`;
+  const close = () => { back.remove(); document.removeEventListener('keydown', key); onClose?.(); };
+  const key = (e) => { if (e.key === 'Escape') close(); };
+  back.addEventListener('mousedown', (e) => { if (e.target === back) close(); });
+  back.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) close(); });
+  document.addEventListener('keydown', key);
+  $('#modal-root').append(back);
+  back.close = close;
+  return back;
+}
+async function stillFor(c, t) {
+  if (c.kind === 'photo') { const cv = new OffscreenCanvas(960, Math.round((960 * c.height) / c.width)); cv.getContext('2d').drawImage(c.bitmap, 0, 0, cv.width, cv.height); return cv; }
+  const { track } = await openVideo(c.file);
+  const sink = new MB.CanvasSink(track, { width: 960, height: Math.round((960 * c.height) / c.width), fit: 'fill' });
+  const w = await sink.getCanvas(t);
+  const cv = new OffscreenCanvas(w.canvas.width, w.canvas.height); cv.getContext('2d').drawImage(w.canvas, 0, 0); return cv;
+}
+function shakeGraph(c, tin, tout) {
+  const env = c.motion?.envelope || [], rate = c.motion?.envelopeRate || 10, D = c.duration, W = 600, H = 64, max = Math.max(0.006, ...env);
+  const pts = env.map((v, i) => `${((i / rate / D) * W).toFixed(1)},${(H - 4 - (v / max) * (H - 10)).toFixed(1)}`).join(' ');
+  const x = (t) => ((t / D) * W).toFixed(1);
+  return `<svg class="graph" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Camera shake over time"><rect x="0" y="0" width="${x(tin)}" height="${H}" fill="rgba(0,0,0,0.55)"/><rect x="${x(tout)}" y="0" width="${W - x(tout)}" height="${H}" fill="rgba(0,0,0,0.55)"/><polyline points="${pts}" fill="none" stroke="#c9a86a" stroke-width="1.2" vector-effect="non-scaling-stroke"/><line x1="${x(tin)}" x2="${x(tin)}" y1="0" y2="${H}" stroke="#ecebe5" vector-effect="non-scaling-stroke"/><line x1="${x(tout)}" x2="${x(tout)}" y1="0" y2="${H}" stroke="#ecebe5" vector-effect="non-scaling-stroke"/></svg>`;
+}
+async function openInspector(id) {
+  const c = S.clips.find((x) => x.id === id);
+  if (!c || c.status !== 'ready') return;
+  const video = c.kind === 'video';
+  const tin = video ? (c.trimIn ?? c.autoIn) : 0, tout = video ? (c.trimOut ?? c.autoOut) : 0;
+  const strength = c.gradeStrength ?? (video ? S.settings.gradeStrength : 0);
+  const m = openModal(`<div class="modal-head"><h2>${esc(c.name)}</h2>${c.caption ? `<span class="muted">${esc(c.caption)}</span>` : ''}<div class="right"><button class="btn ghost" data-close aria-label="Close">${ICON.close}</button></div></div>
+    <div class="modal-body"><div class="insp">
+      <div>
+        <div class="compare" style="--split:50%" id="cmp"><span class="lbl l caps">Camera</span><span class="lbl r caps">Corrected</span><div class="handle"></div><input type="range" min="0" max="100" value="50" aria-label="Compare position"></div>
+        ${video ? `<div style="margin-top:16px"><div class="row" style="margin-bottom:6px"><span class="caps">Camera shake · usable range</span><span class="mono muted" style="margin-left:auto" id="trim-lbl">${timecode(tin)} → ${timecode(tout)} · ${(tout - tin).toFixed(1)} s</span></div>
+          <div id="graph">${shakeGraph(c, tin, tout)}</div>
+          <div class="grid2" style="margin-top:8px"><div class="field"><label class="row" for="tr-in">In <span class="mono muted" style="margin-left:auto">auto ${timecode(c.autoIn)}</span></label><input id="tr-in" type="range" min="0" max="${c.duration}" step="0.05" value="${tin}"></div><div class="field"><label class="row" for="tr-out">Out <span class="mono muted" style="margin-left:auto">auto ${timecode(c.autoOut)}</span></label><input id="tr-out" type="range" min="0" max="${c.duration}" step="0.05" value="${tout}"></div></div>
+          <p class="hint" style="margin-top:8px">Shaky starts and stops are trimmed automatically; the edit uses the steadiest stretch inside this range. <button class="linkish" id="tr-reset">Reset to automatic</button></p></div>` : '<p class="hint" style="margin-top:12px">Photos get a slow push or pan in the film. Most delivered listing photos are already edited, so colour correction starts off for photos.</p>'}
+      </div>
+      <div class="stack">
+        <label class="switch"><span class="t">Use in edit<small>Excluded files stay in the bin.</small></span><input type="checkbox" id="in-include" ${c.include ? 'checked' : ''}></label>
+        <div class="field"><span class="label">Room</span>${roomSelect(c)}</div>
+        <div class="field"><label class="row" for="in-gs">Colour correction <span class="mono muted" style="margin-left:auto" id="gs-v">${Math.round(strength * 100)}%</span></label><input id="in-gs" type="range" min="0" max="1" step="0.05" value="${strength}"></div>
+        <dl class="kv">
+          <dt>Resolution</dt><dd class="mono">${c.width}×${c.height}</dd>
+          ${video ? `<dt>Frame rate</dt><dd class="mono">${(c.fps || 0).toFixed(c.fps % 1 ? 2 : 0)} fps</dd><dt>Codec</dt><dd class="mono">${esc((c.codec || '').toUpperCase())}${c.hdr ? ' · HDR' : ''}</dd><dt>Duration</dt><dd class="mono">${timecode(c.duration)}</dd><dt>Camera</dt><dd>${{ static: 'Locked off', forward: 'Moving forward', back: 'Pulling back' }[c.motion.direction] || `Moving ${c.motion.direction}`}</dd>` : ''}
+          <dt>File size</dt><dd class="mono">${bytes(c.size)}</dd>
+        </dl>
+        <button class="btn ghost danger" id="in-remove" style="justify-self:start">Remove from listing</button>
+        <p class="hint" id="rm-confirm" hidden>Remove ${esc(c.name)}? <button class="linkish" id="rm-yes">Remove</button> · <button class="linkish" id="rm-no">Keep</button></p>
+      </div></div></div>`);
+  const cmp = $('#cmp', m);
+  const drawCompare = async () => {
+    try {
+      const t = video ? ((c.trimIn ?? c.autoIn) + (c.trimOut ?? c.autoOut)) / 2 : 0;
+      const still = await stillFor(c, t);
+      const ctx = still.getContext('2d', { willReadFrequently: true });
+      const before = await canvasToDataURL(still, 0.86);
+      const img = ctx.getImageData(0, 0, still.width, still.height);
+      ctx.putImageData(applyGradeCPU(img, gradeFor(c)), 0, 0);
+      const after = await canvasToDataURL(still, 0.86);
+      $$('img', cmp).forEach((x) => x.remove());
+      cmp.insertAdjacentHTML('afterbegin', `<img src="${before}" alt="Original frame"><img class="after" src="${after}" alt="Corrected frame">`);
+    } catch (e) { console.error(e); }
+  };
+  drawCompare();
+  $('input', cmp).addEventListener('input', (e) => cmp.style.setProperty('--split', `${e.target.value}%`));
+  if (video) {
+    const ri = $('#tr-in', m), ro = $('#tr-out', m);
+    const read = () => { let i = +ri.value, o = +ro.value; if (o - i < 0.5) { if (document.activeElement === ri) i = Math.max(0, o - 0.5); else o = Math.min(c.duration, i + 0.5); } return [i, o]; };
+    const live = () => { const [i, o] = read(); $('#graph', m).innerHTML = shakeGraph(c, i, o); $('#trim-lbl', m).textContent = `${timecode(i)} → ${timecode(o)} · ${(o - i).toFixed(1)} s`; };
+    for (const r of [ri, ro]) { r.addEventListener('input', live); r.addEventListener('change', () => { const [i, o] = read(); c.trimIn = i; c.trimOut = o; renderBin(); refreshPlan(); }); }
+    $('#tr-reset', m).addEventListener('click', () => { delete c.trimIn; delete c.trimOut; ri.value = c.autoIn; ro.value = c.autoOut; live(); renderBin(); refreshPlan(); });
+  }
+  $('#in-include', m).addEventListener('change', (e) => { c.include = e.target.checked; renderBin(); refreshPlan(); });
+  $('[data-room]', m).addEventListener('change', (e) => { setRoom(c, e.target.value); });
+  const gs = $('#in-gs', m);
+  gs.addEventListener('input', () => { $('#gs-v', m).textContent = `${Math.round(gs.value * 100)}%`; });
+  gs.addEventListener('change', () => { c.gradeStrength = +gs.value; renderBin(); drawCompare(); });
+  $('#in-remove', m).addEventListener('click', () => { $('#rm-confirm', m).hidden = false; });
+  $('#rm-no', m).addEventListener('click', () => { $('#rm-confirm', m).hidden = true; });
+  $('#rm-yes', m).addEventListener('click', () => { S.clips = S.clips.filter((x) => x.id !== c.id); c.bitmap?.close?.(); m.close(); renderBin(); refreshPlan(); renderEngine(); });
+}
+function setRoom(c, room) {
+  c.room = room || null; c.roomSource = 'manual';
+  if (!S.manualOrder) S.clips = autoOrder(S.clips);
+  renderBin(); refreshPlan();
+}
+
+// ---------------------------------------------------------------- events
+function saveSettings() { store.set('ts.settings', { ...S.settings }); }
+function bind() {
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    const act = b.dataset.act, id = b.dataset.id;
+    if (act === 'add') $('#file-input').click();
+    else if (act === 'music') $('#music-input').click();
+    else if (act === 'music-del') { S.music = null; renderSide(); refreshPlan(); }
+    else if (act === 'logo') $('#logo-input').click();
+    else if (act === 'logo-del') { S.brand.logo = null; store.set('ts.brand', S.brand); renderSide(); }
+    else if (act === 'inspect') openInspector(id);
+    else if (act === 'label') labelRooms();
+    else if (act === 'auto-order') { S.manualOrder = false; S.clips = autoOrder(S.clips); renderBin(); refreshPlan(); }
+    else if (act === 'tl-format') { S.previewFormat = id; refreshPlan(); }
+    else if (act === 'render') queueRenders();
+    else if (act === 'cancel') { const r = S.renders.find((x) => x.id === id); if (r) { if (r.status === 'queued') r.status = 'cancelled'; r.abort.abort(); renderRenders(); renderEngine(); } }
+    else if (act === 'discard') { S.renders = S.renders.filter((x) => x.id !== id); renderRenders(); }
+    else if (act === 'save') { const r = S.renders.find((x) => x.id === id); if (r) saveRender(r); }
+    else if (act === 'watch') { const r = S.renders.find((x) => x.id === id); if (r) watchRender(r); }
+    else if (act === 'set') { const v = b.dataset.val; S.settings[b.dataset.key] = /^\d+$/.test(v) ? Number(v) : v; saveSettings(); $$(`[data-act="set"][data-key="${b.dataset.key}"]`).forEach((x) => x.setAttribute('aria-pressed', String(x === b))); renderBin(); refreshPlan(); }
+  });
+  document.addEventListener('change', (e) => {
+    const t = e.target;
+    if (t.matches('#side [data-room], #bin [data-room]')) { const c = S.clips.find((x) => x.id === t.dataset.room); if (c) setRoom(c, t.value); }
+    else if (t.matches('[data-format]')) { S.settings.formats = $$('[data-format]').filter((x) => x.checked).map((x) => x.dataset.format); saveSettings(); renderHead(); renderRenders(); }
+    else if (t.matches('[data-setting]')) { const v = t.value; S.settings[t.dataset.setting] = /^\d+$/.test(v) ? Number(v) : v; saveSettings(); refreshPlan(); }
+    else if (t.matches('[data-toggle]')) { S.settings[t.dataset.toggle] = t.checked; saveSettings(); renderBin(); refreshPlan(); }
+    else if (t.id === 'file-input') { addFiles(t.files); t.value = ''; }
+    else if (t.id === 'music-input' && t.files[0]) { addMusic(t.files[0]); t.value = ''; }
+    else if (t.id === 'logo-input' && t.files[0]) {
+      const fr = new FileReader();
+      fr.onload = async () => {
+        try { const img = new Image(); img.src = fr.result; await img.decode(); const s = Math.min(1, 600 / img.width, 300 / img.height); const c = document.createElement('canvas'); c.width = Math.round(img.width * s); c.height = Math.round(img.height * s); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); S.brand.logo = c.toDataURL('image/png'); store.set('ts.brand', S.brand); renderSide(); }
+        catch { toast("Couldn't read that image.", true); }
+      };
+      fr.readAsDataURL(t.files[0]); t.value = '';
+    }
+  });
+  document.addEventListener('input', (e) => {
+    const t = e.target;
+    if (t.matches('[data-listing]')) { S.listing[t.dataset.listing] = t.value; S.listingIsExample = false; $('#listing-sec .eg')?.remove(); store.set('ts.listing', S.listing); renderHead(); refreshPlan(); }
+    else if (t.matches('[data-brand]')) { S.brand[t.dataset.brand] = t.value; refreshPlan(); if (t.dataset.brand === 'accentColor' && /^#[0-9a-f]{6}$/i.test(t.value)) $('#b-accent-pick').value = t.value; store.set('ts.brand', S.brand); }
+    else if (t.id === 'b-accent-pick') { S.brand.accentColor = t.value; $('#b-accent').value = t.value; store.set('ts.brand', S.brand); }
+    else if (t.id === 's-strength') { S.settings.gradeStrength = +t.value; $('#s-strength-v').textContent = `${Math.round(t.value * 100)}%`; saveSettings(); }
+  });
+  document.addEventListener('change', (e) => { if (e.target.matches('[data-listing="label"]')) { renderHead(); refreshPlan(); } });
+  // Drag and drop: files from the desktop anywhere; clip cards to reorder.
+  let dragId = null;
+  document.addEventListener('dragstart', (e) => { const card = e.target.closest?.('[data-clip]'); if (!card) return; dragId = card.dataset.clip; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', dragId); });
+  document.addEventListener('dragend', () => { dragId = null; $$('.clip').forEach((c) => c.classList.remove('drop-before', 'drop-after')); });
+  const hasFiles = (e) => [...(e.dataTransfer?.types || [])].includes('Files');
+  document.addEventListener('dragover', (e) => {
+    if (hasFiles(e)) { e.preventDefault(); $('#drop, #bin.bin')?.classList.add('over'); return; }
+    if (!dragId) return;
+    const card = e.target.closest('[data-clip]'); if (!card || card.dataset.clip === dragId) return;
+    e.preventDefault();
+    const r = card.getBoundingClientRect(), after = e.clientX > r.left + r.width / 2;
+    $$('.clip').forEach((c) => c.classList.remove('drop-before', 'drop-after'));
+    card.classList.add(after ? 'drop-after' : 'drop-before');
+  });
+  document.addEventListener('dragleave', (e) => { if (hasFiles(e) && !e.relatedTarget) $$('.over').forEach((x) => x.classList.remove('over')); });
+  document.addEventListener('drop', (e) => {
+    $$('.over').forEach((x) => x.classList.remove('over'));
+    if (hasFiles(e)) { e.preventDefault(); addFiles(e.dataTransfer.files); return; }
+    if (!dragId) return;
+    const card = e.target.closest('[data-clip]'); if (!card) return;
+    e.preventDefault();
+    const after = card.classList.contains('drop-after');
+    const moving = S.clips.find((c) => c.id === dragId);
+    const rest = S.clips.filter((c) => c.id !== dragId);
+    rest.splice(rest.findIndex((c) => c.id === card.dataset.clip) + (after ? 1 : 0), 0, moving);
+    S.clips = rest; S.manualOrder = true; renderBin(); refreshPlan();
+  });
+}
+
+// ---------------------------------------------------------------- boot
+function renderAll() { renderBin(); renderSide(); refreshPlan(); renderEngine(); }
+function shell() {
+  $('#main').innerHTML = `<div class="head" id="head"></div>
+    <section class="section"><div class="sec-head"><h2>Footage</h2><span class="note" id="bin-note"></span><div class="right" id="bin-actions"></div></div><div id="bin"></div></section>
+    <section class="section"><div class="sec-head"><h2>Edit</h2><span class="note">Built from your footage and settings; updates as you change them.</span><div class="right" id="tl-formats"></div></div><div id="timeline"></div></section>`;
+}
+shell(); bind(); renderAll();
+try {
+  MB = await import(MEDIABUNNY_URL);
+  await detectCaps();
+} catch (e) {
+  console.error(e);
+  S.caps.ok = false; S.caps.problem = "The video engine couldn't load. Reload the page; if it keeps failing, open it in a current Chrome, Edge or Safari.";
+  MB = MB || {};
+}
+renderAll();
+// Optional platform features: saving files, and labelling rooms with Claude.
+if (window.claude?.use) {
+  window.claude.use('downloads').then((d) => { S.downloads = d; }).catch(() => {});
+  window.claude.use('sample').then(async (s) => {
+    if (!s) return;
+    const lim = await s.limits().catch(() => null);
+    if (lim?.images) { S.sample = s; renderBinHead(); }
+  }).catch(() => {});
+}
+window.__threshold = S;
+</script>

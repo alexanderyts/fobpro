@@ -55,7 +55,8 @@ function drawtext({ file, font, size, color = 'white', alpha = 1, x, y }) {
  */
 export async function renderIntroCard({ dir, width, height, project, brand, serif }) {
   await fs.mkdir(dir, { recursive: true });
-  const k = Math.min(width, height) / 1080;
+  // Vertical frames are watched on phones: set type a size up.
+  const k = (Math.min(width, height) / 1080) * (height > width ? 1.28 : 1);
   const portrait = height > width;
   const margin = Math.round((portrait ? 72 : 104) * k);
   const maxW = width - margin * 2;
@@ -114,7 +115,8 @@ export async function renderIntroCard({ dir, width, height, project, brand, seri
  */
 export async function renderOutroCard({ dir, width, height, project, brand, serif }) {
   await fs.mkdir(dir, { recursive: true });
-  const k = Math.min(width, height) / 1080;
+  // Vertical frames are watched on phones: set type a size up.
+  const k = (Math.min(width, height) / 1080) * (height > width ? 1.28 : 1);
   const maxW = width - Math.round(160 * k);
   const accent = hexColor(brand?.accentColor);
 

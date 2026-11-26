@@ -21,6 +21,11 @@ A web app for real estate photographers and videographers. Upload the raw clips 
 
 Three edit styles: **Walkthrough** (measured, dissolves), **Signature** (slower, serif titles, luxury) and **Social cut** (quick beat-matched cuts).
 
+## Two editions
+
+- **Browser edition** — `artifact/threshold.html`. A single page that runs entirely in the browser (Chrome, Edge or Safari): footage is decoded, graded and encoded on the user's own computer with WebCodecs and WebGL, via [Mediabunny](https://mediabunny.dev). Nothing is uploaded. Published as a Claude artifact, where it saves finished films through Claude's download prompt and can label rooms with Claude. Also accepts listing photos (slow push/pan). Exports H.264 MP4; audio is AAC where the browser can encode it (Chrome/Edge on Mac and Windows, Safari), otherwise Opus.
+- **Studio server** — `server/` + `web/`. A Node app with FFmpeg for a studio machine or hosted service: adds stabilisation, HDR tone-mapping, true loudness normalisation, project history and a render queue.
+
 ## Run it
 
 Requirements: Node.js 20+ and FFmpeg 5.1+ built with libvidstab, zimg and freetype (the Ubuntu/Debian `ffmpeg` package and Homebrew `ffmpeg` both qualify).
@@ -51,6 +56,10 @@ Automatic room labelling is optional. Set `ANTHROPIC_API_KEY` to turn it on; it 
 | `RENDER_PRESET` | `medium` | x264 preset for final encodes (`fast` for quicker turnarounds). |
 | `ANTHROPIC_API_KEY` | — | Enables automatic room labels. `CLASSIFY=off` disables it. |
 | `MAX_UPLOAD_MB` | `8192` | Per-file upload limit. |
+
+## Tested on real footage
+
+Besides the synthetic tests, both editions were run on a real professionally shot house tour (16 clips) plus a 60 fps vertical drone clip and exterior photos from Pexels — see `test/REAL_MEDIA.md` and `node test/fetch-real-media.js`. Findings that changed the engine: walking-forward shots are now recognised as camera moves (not "locked off"), and white balance blends in a whole-frame reference so tungsten-lit rooms are neutralised instead of made more yellow.
 
 ## Tests
 

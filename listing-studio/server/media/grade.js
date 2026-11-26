@@ -12,7 +12,7 @@
 
 export const LOOKS = {
   natural: { label: 'Natural', mid: 0.5, black: 0.02, white: 0.975, vibrance: 0.08, warmth: 0, contrast: 0 },
-  bright: { label: 'Bright & airy', mid: 0.55, black: 0.03, white: 0.985, vibrance: 0.12, warmth: 0.01, contrast: 0 },
+  bright: { label: 'Bright & airy', mid: 0.55, black: 0.03, white: 0.985, vibrance: 0.12, warmth: 0, contrast: 0 },
   warm: { label: 'Warm editorial', mid: 0.52, black: 0.03, white: 0.97, vibrance: 0.1, warmth: 0.035, contrast: 0.04 },
   crisp: { label: 'Crisp modern', mid: 0.5, black: 0.012, white: 0.985, vibrance: 0.14, warmth: -0.01, contrast: 0.07 },
 };
@@ -27,7 +27,7 @@ export function setCurveInterp(v) {
 const lerp = (a, b, t) => a + (b - a) * t;
 const f = (v) => Number(v.toFixed(4)).toString();
 
-export function computeGrade(color, { look = 'bright', strength = 0.8, wbAmount = 0.85 } = {}) {
+export function computeGrade(color, { look = 'bright', strength = 0.8, wbAmount = 1 } = {}) {
   const L = LOOKS[look] || LOOKS.bright;
   const s = clamp(strength, 0, 1);
 
@@ -35,8 +35,16 @@ export function computeGrade(color, { look = 'bright', strength = 0.8, wbAmount 
   let gainR = 1;
   let gainB = 1;
   if (color && color.neutralCoverage > 0.004 && color.gMid > 0.05) {
-    gainR = clamp(color.gMid / Math.max(0.01, color.rMid), 0.82, 1.22);
-    gainB = clamp(color.gMid / Math.max(0.01, color.bMid), 0.82, 1.22);
+    gainR = color.gMid / Math.max(0.01, color.rMid);
+    gainB = color.gMid / Math.max(0.01, color.bMid);
+    // Blend in a little grey-world: catches rooms where tungsten light tints the
+    // whites themselves (warm bathrooms, sconce-lit halls) without neutralising wood floors.
+    if (color.gAll) {
+      gainR = gainR * 0.7 + (color.gAll / Math.max(0.01, color.rAll)) * 0.3;
+      gainB = gainB * 0.7 + (color.gAll / Math.max(0.01, color.bAll)) * 0.3;
+    }
+    gainR = clamp(gainR, 0.82, 1.22);
+    gainB = clamp(gainB, 0.82, 1.22);
   }
   gainR = Math.pow(gainR, wbAmount * s) * (1 + L.warmth);
   gainB = Math.pow(gainB, wbAmount * s) * (1 - L.warmth);
@@ -87,7 +95,9 @@ export function computeGrade(color, { look = 'bright', strength = 0.8, wbAmount 
     filters.push(`colorchannelmixer=rr=${f(gainR)}:gg=1:bb=${f(gainB)}`);
   }
   filters.push(`curves=master='${curveStr}'${curveInterp ? `:interp=${curveInterp}` : ''}`);
-  const vib = L.vibrance * s;
+  // Less vibrance on strongly tinted footage, so saturation doesn't amplify the cast.
+  const cast = color?.rAll !== undefined ? Math.abs(color.rAll - color.bAll) : 0;
+  const vib = L.vibrance * s * clamp(1 - cast * 4, 0.3, 1);
   if (vib > 0.005) filters.push(`vibrance=intensity=${f(vib)}`);
 
   return {
